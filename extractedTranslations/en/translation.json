@@ -8,5 +8,8 @@
     "MAIN": ""
   },
   "NOT_FOUND_PAGE": "",
+  "SIDEBAR": {
+    "TOGGLE": ""
+  },
   "throw error": ""
 }

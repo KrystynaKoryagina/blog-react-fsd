@@ -6,7 +6,7 @@ import { Button, ButtonType } from 'shared/ui/Button';
 import styles from './Sidebar.module.scss';
 
 export const Sidebar = () => {
-  const { t } = useTranslation('about');
+  const { t } = useTranslation();
   const [collapsed, setCollapsed] = useState(false);
 
   const onSidebarToggle = () => {
