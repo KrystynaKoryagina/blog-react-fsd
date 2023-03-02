@@ -3,6 +3,9 @@
     "MAIN": "Home",
     "ABOUT": "About"
   },
+  "SIDEBAR": {
+    "TOGGLE": "Toggle"
+  },
   "NOT_FOUND_PAGE": "Page Not Found",
   "ERROR_MESSAGE": "Something went wrong. Please try again",
   "BUTTONS": {

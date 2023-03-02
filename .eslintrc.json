@@ -17,7 +17,8 @@
       "jsx": true
     },
     "ecmaVersion": "latest",
-    "sourceType": "module"
+    "sourceType": "module",
+    "project": "./tsconfig.json"
   },
   "plugins": ["react", "@typescript-eslint", "i18next"],
   "rules": {
@@ -33,7 +34,11 @@
     "no-underscore-dangle": 0,
     "jsx-quotes": [2, "prefer-single"],
     "max-len": [2, { "code": 100, "ignoreComments": true }],
-    "i18next/no-literal-string": [2, { "markupOnly": true, "ignoreAttribute": ["data-testid"]}]
+    "i18next/no-literal-string": [
+      2,
+      { "markupOnly": true, "ignoreAttribute": ["data-testid"] }
+    ],
+    "no-param-reassign": 1
   },
   "globals": {
     "__IS_DEV__": true

@@ -29,7 +29,7 @@ export default ({ config }: { config: webpack.Configuration }) => {
         }
 
         return rule;
-      }
+      },
     );
 
     config.module.rules.push({
@@ -44,7 +44,7 @@ export default ({ config }: { config: webpack.Configuration }) => {
   return config;
 };
 
-/* 
+/*
 TODO
 
 Ivan Strokov • Чт 06 Окт 10:51 • Ответ создан Ср 05 Окт 10:21
@@ -64,7 +64,7 @@ const IS_DEV = false
 Чтобы этой проблемы не было надо в конфиге вебпака сторибука добавить defintePlugin по аналогии с проектом
 Чт 06 Окт 2022  2 • Нравится • Подписаться
 
-Dan Pisarev 
+Dan Pisarev
 Да, ошибка все равно позникает, лучше добавить тестовый конфиг i18n для storybook-a, в доке есть пример
 
 */
@@ -72,6 +72,5 @@ Dan Pisarev
 /* TODO
 Для переключения тем в компонентах
  https://storybook.js.org/addons/@dhruvkb/storybook-addon-themes
-
 
 */
