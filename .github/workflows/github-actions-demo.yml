@@ -2,7 +2,7 @@ name: Linting, Testing, Building
 on:
   push:
     branches: [main]
-  pull-request:
+  pull_request:
     branches: [main]
 jobs:
   pipeline:
@@ -10,12 +10,13 @@ jobs:
     strategy:
       matrix:
         node-version: [17.x]
+
     steps:
       - uses: actions/checkout@v2
-      - name: Setup Node.js environment
+      - name: Staring Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
-          node-version: ${{ matrix.node }}
+          node-version: ${{ matrix.node-version }}
 
       - name: Install dependencies
         run: npm install
