@@ -1,0 +1,13 @@
+.LangSwitcher {
+  display: flex;
+  gap: 10px;
+}
+
+// TODO Where this styles should be?
+.LangSwitcherItem {
+  color: var(--inverted-primary-color);
+}
+
+.active {
+  color: var(--active-color);
+}

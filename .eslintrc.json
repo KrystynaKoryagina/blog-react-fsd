@@ -1,0 +1,49 @@
+// TODO разобраться с правилами, дополнить. Prettier ??????
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "jest": true
+  },
+  "extends": [
+    "plugin:react/recommended",
+    "airbnb",
+    "airbnb-typescript",
+    "plugin:i18next/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["react", "@typescript-eslint", "i18next"],
+  "rules": {
+    "react/jsx-indent": [2, 2],
+    "react/jsx-indent-props": [2, 2],
+    "indent": [2, 2],
+    "import/prefer-default-export": 0,
+    "react/require-default-props": 0,
+    "react/react-in-jsx-scope": 0,
+    "react/jsx-props-no-spreading": 1,
+    "react/function-component-definition": 0,
+    "import/no-extraneous-dependencies": 1,
+    "no-underscore-dangle": 0,
+    "jsx-quotes": [2, "prefer-single"],
+    "max-len": [2, { "code": 100, "ignoreComments": true }],
+    "i18next/no-literal-string": [2, { "markupOnly": true, "ignoreAttribute": ["data-testid"]}]
+  },
+  "globals": {
+    "__IS_DEV__": true
+  },
+  "overrides": [
+    {
+      "files": ["**/src/**/*.test.{ts,tsx}"],
+      "rules": {
+        "i18next/no-literal-string": [0]
+      }
+    }
+  ]
+}
