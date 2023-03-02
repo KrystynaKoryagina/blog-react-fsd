@@ -1,0 +1,33 @@
+name: Linting, Testing, Building
+on:
+  push:
+    branches: [main]
+  pull-request:
+    branches: [main]
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [17.x]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run ESLint
+        run: npm run lint
+
+      - name: Run Stylelint
+        run: npm run stylelint
+
+      - name: Run unit tests
+        run: npm run test
+
+      - name: Build production project
+        run: npm run build:prod
