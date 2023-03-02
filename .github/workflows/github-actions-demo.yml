@@ -6,7 +6,7 @@ on:
     branches: [main]
 jobs:
   pipeline:
-    runs-on: ubuntu-latest
+    runs-on: windows-2019
     strategy:
       matrix:
         node-version: [17.x]
@@ -29,6 +29,9 @@ jobs:
 
       - name: Run unit tests
         run: npm run test
+
+      - name: Build storybook
+        run: npm run storybook:build
 
       - name: Run loki
         run: npm run loki:ci
