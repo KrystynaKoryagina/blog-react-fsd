@@ -31,3 +31,5 @@ Thumbs.db
 # misc
 /coverage
 !coverage/coverage-summary-prev.json
+
+/storybook-static
