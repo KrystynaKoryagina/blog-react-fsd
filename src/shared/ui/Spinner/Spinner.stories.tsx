@@ -1,5 +1,4 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import { Theme } from 'shared/lib/contexts/theme';
 import { Spinner } from './Spinner';
 
@@ -23,4 +22,4 @@ Primary.args = {};
 
 export const PrimaryDark = Template.bind({});
 PrimaryDark.args = {};
-PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
+PrimaryDark.parameters = { theme: Theme.DARK };

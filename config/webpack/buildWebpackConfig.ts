@@ -3,7 +3,7 @@ import { buildDevServer } from './buildDevServer';
 import { buildLoader } from './buildLoaders';
 import { buildPlugins } from './buildPlugins';
 import { buildResolvers } from './buildResolvers';
-import { BuildOptions } from './types/config';
+import { BuildOptions } from '../build/types/build';
 
 export function buildWebpackConfig(
   options: BuildOptions,

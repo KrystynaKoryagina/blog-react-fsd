@@ -1,15 +1,15 @@
-import { Story } from '@storybook/react';
-import { Theme } from 'shared/lib/contexts/theme/ThemeContext';
+import { Story, StoryContext } from '@storybook/react';
+import { ThemeProvider } from 'shared/lib/contexts/theme';
+import 'app/styles/index.scss';
 
-/* TODO
-А такой вопрос, вот Storybook для ThemeSwitcher всегда берёт SVG из дефолтной темы, на 32:50 можно видеть что фон меняется, а картинка для SVG всегда остаётся одинаковая. Так и надо, или это потом будет поправлено?
-Нравится • Подписаться
+export const ThemeDecorator = (StoryComponent: Story, context: StoryContext) => {
+  const theme = context?.parameters?.theme;
 
-Тимур Ульби
-Можно в ThemeDecorator добавить еще ThemeProvider, тема из стейта берется, поэтому так
-*/
-export const ThemeDecorator = (theme: Theme) => (StoryComponent: Story) => (
-  <div className={`app ${theme}`}>
-    <StoryComponent />
-  </div>
-);
+  return (
+    <ThemeProvider>
+      <div className={`app ${theme}`}>
+        <StoryComponent />
+      </div>
+    </ThemeProvider>
+  );
+};

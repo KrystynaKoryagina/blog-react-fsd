@@ -1,7 +1,8 @@
 import webpack, { RuleSetRule } from 'webpack';
 import path from 'path';
 import { buildCssLoader } from '../build/loaders/buildCssLoader';
-import { BuildPaths } from '../build/types/config';
+import { BuildPaths } from '../build/types/build';
+import { buildSvgLoader } from '../build/loaders/buildSvgLoader';
 
 export default ({ config }: { config: webpack.Configuration }) => {
   const paths: BuildPaths = {
@@ -20,8 +21,8 @@ export default ({ config }: { config: webpack.Configuration }) => {
   }
 
   if (config?.module?.rules) {
-    // TODO
-    // По дефолту в сторибучной сборке стоит другой лоадер для SVG, мы используем svgr, поэтому необходимо его подменить
+    // NOTE
+    // We have to replace SVG loader that storybook uses by default with SVGR
     config.module.rules = config.module.rules.map(
       (rule: RuleSetRule | '...') => {
         if (rule !== '...' && /svg/.test(rule.test as string)) {
@@ -32,12 +33,8 @@ export default ({ config }: { config: webpack.Configuration }) => {
       },
     );
 
-    config.module.rules.push({
-      test: /\.svg$/,
-      use: ['@svgr/webpack'],
-    });
+    config.module.rules.push(buildSvgLoader());
 
-    // config.module.rules.push(buildSvgLoader());
     config.module.rules.push(buildCssLoader(true));
   }
 

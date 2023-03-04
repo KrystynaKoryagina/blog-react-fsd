@@ -1,6 +1,18 @@
 .Button {
   cursor: pointer;
   color: inherit;
+  border: none;
+  padding: 10px 15px;
+}
+
+.primary {
+  background-color: var(--bg-color);
+  color: var(--primary-color);
+}
+
+.secondary {
+  background-color: var(--inverted-bg-color);
+  color: var(--inverted-primary-color);
 }
 
 .ghost {
@@ -10,7 +22,37 @@
 }
 
 .outline {
-  padding: 10px 15px;
   background-color: transparent;
   border: 1px solid var(--primary-color);
+}
+
+.sm {
+  font: var(--font-sm);
+}
+
+.md {
+  font: var(--font-md);
+}
+
+.lg {
+  font: var(--font-lg);
+}
+
+.square {
+  padding: 0;
+}
+
+.square.sm {
+  width: var(--font-line-sm);
+  height: var(--font-line-sm);
+}
+
+.square.md {
+  width: var(--font-line-md);
+  height: var(--font-line-md);
+}
+
+.square.lg {
+  width: var(--font-line-lg);
+  height: var(--font-line-lg);
 }

@@ -1,5 +1,4 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import { Theme } from 'shared/lib/contexts/theme';
 import { AppLink } from './AppLink';
 
@@ -29,4 +28,4 @@ PrimaryDark.args = {
   children: 'Text',
   // theme: AppLinkTheme.PRIMARY,
 };
-PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
+PrimaryDark.parameters = { theme: Theme.DARK };

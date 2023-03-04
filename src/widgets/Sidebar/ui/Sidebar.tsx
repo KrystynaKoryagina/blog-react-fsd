@@ -1,12 +1,11 @@
+import { Navigation } from 'features/Navigation';
 import { ThemeSwitcher } from 'features/ThemeSwitcher';
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames';
-import { Button, ButtonType } from 'shared/ui/Button';
+import { Button, ButtonType, ButtonSize } from 'shared/ui/Button';
 import styles from './Sidebar.module.scss';
 
 export const Sidebar = () => {
-  const { t } = useTranslation();
   const [collapsed, setCollapsed] = useState(false);
 
   const onSidebarToggle = () => {
@@ -20,12 +19,16 @@ export const Sidebar = () => {
         [styles.collapsed]: collapsed,
       })}
     >
+      <Navigation collapsed={collapsed} />
       <Button
         data-testid='sidebar-toggle'
-        variant={ButtonType.GHOST}
+        classname={styles.toggleBtn}
+        variant={ButtonType.SECONDARY}
+        size={ButtonSize.LG}
+        square
         onClick={onSidebarToggle}
       >
-        {t('SIDEBAR.TOGGLE')}
+        {collapsed ? '>' : '<'}
       </Button>
       <ThemeSwitcher classname={styles.switcher} />
     </div>

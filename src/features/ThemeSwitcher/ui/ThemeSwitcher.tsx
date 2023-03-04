@@ -1,7 +1,6 @@
-import { useTheme } from 'shared/lib/contexts/theme';
+import { Theme, useTheme } from 'shared/lib/contexts/theme';
 import LightIcon from 'shared/assets/icons/theme-light.svg';
 import DarkIcon from 'shared/assets/icons/theme-dark.svg';
-import { Theme } from 'shared/lib/contexts/theme/ThemeContext';
 import { Button, ButtonType } from 'shared/ui/Button';
 import { FC } from 'react';
 

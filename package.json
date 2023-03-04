@@ -16,7 +16,10 @@
     "storybook:build": "build-storybook -c ./config/storybook",
     "loki": "npx loki test",
     "loki:ok": "npx loki approve",
-    "loki:ci": "npx loki --requireReference --reactUri file:./storybook-static"
+    "loki:ci": "npx loki --requireReference --reactUri file:./storybook-static",
+    "test:ui:json": "node scripts/generate-visual-json-report.ts",
+    "test:ui:html": "npx reg-cli --from .loki/report.json --report .loki/report.html",
+    "test:ui:report": "npm run test:ui:json && npm run test:ui:html"
   },
   "keywords": [],
   "author": "",
@@ -85,7 +88,8 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-i18next": "^11.15.5",
-    "react-router-dom": "^6.2.1"
+    "react-router-dom": "^6.2.1",
+    "reg-cli": "^0.17.6"
   },
   "loki": {
     "configurations": {

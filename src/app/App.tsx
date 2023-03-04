@@ -7,7 +7,7 @@ import { AppRouter } from './providers/router';
 
 import './styles/index.scss';
 
-export function App() {
+export const App = () => {
   const { theme } = useTheme();
 
   return (
@@ -23,6 +23,4 @@ export function App() {
       </Suspense>
     </div>
   );
-}
-
-export default App;
+};
