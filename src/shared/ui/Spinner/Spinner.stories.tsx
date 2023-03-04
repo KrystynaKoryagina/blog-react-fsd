@@ -23,4 +23,4 @@ Primary.args = {};
 
 export const PrimaryDark = Template.bind({});
 PrimaryDark.args = {};
-PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
+PrimaryDark.parameters = { theme: Theme.DARK };

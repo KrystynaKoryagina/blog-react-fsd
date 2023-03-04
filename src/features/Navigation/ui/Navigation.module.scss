@@ -1,4 +1,27 @@
 .Navigation {
   display: flex;
+  flex-direction: column;
   gap: 15px;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+}
+
+.navIcon {
+  fill: var(--inverted-primary-color);
+  margin-right: 10px;
+}
+
+.navName {
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.collapsed {
+  .navName {
+    opacity: 0;
+    width: 0;
+  }
 }

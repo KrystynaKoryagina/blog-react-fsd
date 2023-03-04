@@ -10,20 +10,20 @@ import styles from './AppLink.module.scss';
 // }
 
 interface AppLinkProps extends LinkProps {
-  additionClassName?: string;
+  className?: string;
   // theme?: AppLinkTheme;
 }
 
 export const AppLink: FC<AppLinkProps> = ({
   to,
   children,
-  additionClassName,
+  className,
   // theme = AppLinkTheme.PRIMARY,
   ...otherProps
 }) => (
   <Link
     to={to}
-    className={classNames(styles.AppLink, [additionClassName], {
+    className={classNames(styles.AppLink, [className], {
       // [styles.AppLinkPrimary]: theme === AppLinkTheme.PRIMARY,
       // [styles.AppLinkSecondary]: theme === AppLinkTheme.SECONDARY,
     })}

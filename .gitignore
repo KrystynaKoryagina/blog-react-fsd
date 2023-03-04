@@ -33,3 +33,6 @@ Thumbs.db
 !coverage/coverage-summary-prev.json
 
 /storybook-static
+
+.loki/report.html
+.loki/report.json

@@ -29,4 +29,4 @@ PrimaryDark.args = {
   children: 'Text',
   // theme: AppLinkTheme.PRIMARY,
 };
-PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
+PrimaryDark.parameters = { theme: Theme.DARK };

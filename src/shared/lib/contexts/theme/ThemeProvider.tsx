@@ -1,7 +1,6 @@
 import { FC, useMemo, useState } from 'react';
-import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from './ThemeContext';
-
-// TODO move to App ???
+import { LOCAL_STORAGE_THEME_KEY, ThemeContext } from './ThemeContext';
+import { Theme } from './types/theme.types';
 
 const defaultTheme = (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme) || Theme.LIGHT;
 
