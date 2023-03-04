@@ -9,7 +9,7 @@ interface LangSwitcherProps {
   className: string;
 }
 
-export const LangSwitcher: FC<LangSwitcherProps> = ({className}) => {
+export const LangSwitcher: FC<LangSwitcherProps> = ({ className }) => {
   const [langKey, setLangKey] = useState(i18n.language);
 
   const changeLang = (key: LangKey) => {
