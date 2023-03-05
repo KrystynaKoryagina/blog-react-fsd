@@ -1,7 +1,7 @@
 /* eslint-disable i18next/no-literal-string */
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Theme } from 'shared/lib/contexts/theme';
-import { Button } from './Button';
+import { Button, ButtonProps } from './Button';
 import { ButtonSize, ButtonType } from './types/Button.types';
 
 export default {
@@ -50,7 +50,7 @@ OutlineSizeLg.args = {
   size: ButtonSize.LG,
 };
 
-export const Square = (args) => (
+export const Square = (args: ButtonProps) => (
   <>
     <div>Size sm</div>
     <Button variant={ButtonType.SECONDARY} size={ButtonSize.SM} square {...args}>{'<'}</Button>
