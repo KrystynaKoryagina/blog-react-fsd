@@ -1,5 +1,5 @@
-import { FC, useState } from 'react';
-import i18n from 'shared/config/i18n/i18n';
+import { FC, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames';
 import { Button, ButtonType } from 'shared/ui/Button';
 import { langConfig, LangKey } from '../types/LangSwitcher.types';
@@ -10,9 +10,14 @@ interface LangSwitcherProps {
 }
 
 export const LangSwitcher: FC<LangSwitcherProps> = ({ className }) => {
-  const [langKey, setLangKey] = useState(i18n.language);
+  const { i18n } = useTranslation();
+  const [langKey, setLangKey] = useState('');
 
-  const changeLang = (key: LangKey) => {
+  useEffect(() => {
+    setLangKey(i18n.language);
+  }, [i18n]);
+
+  const changeLang = async (key: LangKey) => {
     i18n.changeLanguage(key);
     setLangKey(key);
   };
