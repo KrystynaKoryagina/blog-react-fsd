@@ -1,0 +1,51 @@
+.Modal {
+  position: fixed;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  background-color: var(--overlay-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.content {
+  padding: 20px;
+  border-radius: 12px;
+  background-color: var(--bg-color);
+  max-width: 50%;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.modalEnter {
+  opacity: 0;
+}
+
+.modalEnterDone {
+  opacity: 1;
+  transition: opacity 0.3s;
+  z-index: var(--modal-z-index);
+
+  .content {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  .overlay {
+    opacity: 1;
+  }
+}
+
+.modalExitActive {
+  opacity: 0;
+  transition: opacity 0.3s;
+}

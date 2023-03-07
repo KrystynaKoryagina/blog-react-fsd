@@ -162,6 +162,14 @@ export  const  MainPageLazy = lazy(() =>  import("./MainPage"));
 const  themeProps = useMemo(() => ({ theme, setTheme }), [theme]);
 ```
 
+## useCallback
+
+Все методы, которые передаются как пропсы, оборачивать в useCallback
+TBD
+
+## useCallback
+useLayoutEffect
+TBD
 # Other
 
 ### enum

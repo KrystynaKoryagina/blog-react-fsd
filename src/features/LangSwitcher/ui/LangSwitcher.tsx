@@ -21,7 +21,7 @@ export const LangSwitcher: FC<LangSwitcherProps> = ({ className }) => {
     <div className={classNames(styles.LangSwitcher, [className])}>
       {langConfig.map((item) => (
         <Button
-          classname={classNames(styles.lang, [], {
+          className={classNames(styles.lang, [], {
             [styles.active]: langKey === item.key,
           })}
           key={item.key}

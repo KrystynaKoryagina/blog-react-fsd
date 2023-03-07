@@ -26,7 +26,7 @@ export const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ classname }) => {
 
   return (
     <Button
-      classname={classname}
+      className={classname}
       variant={ButtonType.GHOST}
       onClick={toggleTheme}
     >

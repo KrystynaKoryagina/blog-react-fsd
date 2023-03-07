@@ -7,7 +7,9 @@ import { MemoryRouter } from 'react-router-dom';
 export function componentRender(component: ReactNode, route: string = '/') {
   return render(
     <MemoryRouter initialEntries={[route]}>
-      <I18nextProvider i18n={i18nTest}>{component}</I18nextProvider>
+      <I18nextProvider i18n={i18nTest}>
+        {component}
+      </I18nextProvider>
     </MemoryRouter>,
   );
 }

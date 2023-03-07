@@ -1,3 +1,4 @@
+import { LangSwitcher } from 'features/LangSwitcher';
 import { Navigation } from 'features/Navigation';
 import { ThemeSwitcher } from 'features/ThemeSwitcher';
 import { useState } from 'react';
@@ -22,8 +23,8 @@ export const Sidebar = () => {
       <Navigation collapsed={collapsed} />
       <Button
         data-testid='sidebar-toggle'
-        classname={styles.toggleBtn}
-        variant={ButtonType.SECONDARY}
+        className={styles.toggleBtn}
+        variant={ButtonType.PRIMARY_INVERTED}
         size={ButtonSize.LG}
         square
         onClick={onSidebarToggle}
@@ -31,6 +32,7 @@ export const Sidebar = () => {
         {collapsed ? '>' : '<'}
       </Button>
       <ThemeSwitcher classname={styles.switcher} />
+      <LangSwitcher className={styles.langs} />
     </div>
   );
 };

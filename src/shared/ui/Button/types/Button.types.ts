@@ -1,7 +1,8 @@
 export const enum ButtonType {
   PRIMARY = 'primary',
-  SECONDARY = 'secondary',
+  PRIMARY_INVERTED = 'primary_inverted',
   GHOST = 'ghost',
+  GHOST_INVERTED = 'ghost_inverted',
   OUTLINE = 'outline',
 }
 

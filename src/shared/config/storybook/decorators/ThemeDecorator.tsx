@@ -7,7 +7,7 @@ export const ThemeDecorator = (StoryComponent: Story, context: StoryContext) => 
 
   return (
     <ThemeProvider>
-      <div className={`app ${theme}`}>
+      <div id='app' className={`app ${theme}`}>
         <StoryComponent />
       </div>
     </ThemeProvider>

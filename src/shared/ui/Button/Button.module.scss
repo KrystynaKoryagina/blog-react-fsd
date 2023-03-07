@@ -10,15 +10,20 @@
   color: var(--primary-color);
 }
 
-.secondary {
+.primary_inverted {
   background-color: var(--inverted-bg-color);
   color: var(--inverted-primary-color);
 }
 
-.ghost {
+.ghost,
+.ghost_inverted {
   outline: none;
   background: none;
   border: none;
+}
+
+.ghost_inverted {
+  color: var(--inverted-primary-color);
 }
 
 .outline {
