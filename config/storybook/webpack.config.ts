@@ -38,12 +38,12 @@ export default ({ config }: { config: webpack.Configuration }) => {
     config.module.rules.push(buildCssLoader(true));
   }
 
-  if (config?.plugins) {
-    config.plugins = [
-      ...config.plugins,
-      new webpack.DefinePlugin({ __IS_DEV__: JSON.stringify(false) }),
-    ];
-  }
+  // if (config?.plugins) {
+  //   config.plugins = [
+  //     ...config.plugins,
+  //     new webpack.DefinePlugin({ __IS_DEV__: JSON.stringify(false) }),
+  //   ];
+  // }
 
   return config;
 };
