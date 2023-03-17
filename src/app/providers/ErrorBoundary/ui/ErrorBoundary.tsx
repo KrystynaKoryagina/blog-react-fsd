@@ -33,8 +33,7 @@ ErrorBoundaryState
 
     if (hasError) {
       return (
-        // NOTE
-        // Wrapped to Suspense because there are translations in the components
+        // NOTE Wrapped to Suspense because there are translations in the components
         <Suspense fallback=''>
           <Error />
         </Suspense>

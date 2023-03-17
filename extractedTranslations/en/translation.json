@@ -1,6 +1,7 @@
 {
   "BUTTONS": {
     "LOGIN": "",
+    "LOGOUT": "",
     "REFRESH": ""
   },
   "ERROR_MESSAGE": "",
@@ -11,6 +12,9 @@
   "NOT_FOUND_PAGE": "",
   "SIDEBAR": {
     "TOGGLE": ""
+  },
+  "Something went wrong": {
+    "": ""
   },
   "throw error": ""
 }

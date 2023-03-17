@@ -15,6 +15,7 @@ export const Button: FC<ButtonProps> = ({
   children,
   className,
   square,
+  disabled,
   ...otherProps
 }) => (
   <button
@@ -26,6 +27,7 @@ export const Button: FC<ButtonProps> = ({
         [styles.square]: square,
       },
     )}
+    disabled={disabled}
     {...otherProps}
   >
     {children}
