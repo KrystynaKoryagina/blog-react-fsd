@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Theme } from 'shared/lib/contexts/theme';
 import { Button, ButtonProps } from './Button';
-import { ButtonSize, ButtonType } from './types/Button.types';
+import { ButtonSize, ButtonType } from './types/button';
 
 // TODO переписать
 

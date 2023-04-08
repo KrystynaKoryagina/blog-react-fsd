@@ -1,7 +1,8 @@
 {
   "NAVIGATION": {
     "MAIN": "Home",
-    "ABOUT": "About"
+    "ABOUT": "About",
+    "PROFILE": "Profile"
   },
   "NOT_FOUND_PAGE": "Page Not Found",
   "ERROR_MESSAGE": "Something went wrong. Please try again",

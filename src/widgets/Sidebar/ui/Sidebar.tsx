@@ -1,12 +1,12 @@
 import { LangSwitcher } from 'features/LangSwitcher';
 import { Navigation } from 'features/Navigation';
 import { ThemeSwitcher } from 'features/ThemeSwitcher';
-import { useState } from 'react';
-import { classNames } from 'shared/lib/classNames';
+import { memo, useState } from 'react';
+import { classNames } from 'shared/lib/utils/classNames';
 import { Button, ButtonType, ButtonSize } from 'shared/ui/Button';
 import styles from './Sidebar.module.scss';
 
-export const Sidebar = () => {
+export const Sidebar = memo(() => {
   const [collapsed, setCollapsed] = useState(false);
 
   const onSidebarToggle = () => {
@@ -35,4 +35,4 @@ export const Sidebar = () => {
       <LangSwitcher className={styles.langs} />
     </div>
   );
-};
+});

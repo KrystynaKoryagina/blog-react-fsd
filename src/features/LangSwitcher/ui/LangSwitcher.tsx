@@ -1,6 +1,6 @@
-import { FC, useEffect, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames';
+import { classNames } from 'shared/lib/utils/classNames';
 import { Button, ButtonType } from 'shared/ui/Button';
 import { langConfig, LangKey } from '../types/LangSwitcher.types';
 import styles from './LangSwitcher.module.scss';
@@ -9,7 +9,7 @@ interface LangSwitcherProps {
   className: string;
 }
 
-export const LangSwitcher: FC<LangSwitcherProps> = ({ className }) => {
+export const LangSwitcher = memo(({ className }: LangSwitcherProps) => {
   const { i18n } = useTranslation();
   const [langKey, setLangKey] = useState('');
 
@@ -38,4 +38,4 @@ export const LangSwitcher: FC<LangSwitcherProps> = ({ className }) => {
       ))}
     </div>
   );
-};
+});

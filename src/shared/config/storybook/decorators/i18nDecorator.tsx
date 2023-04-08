@@ -1,17 +1,17 @@
-import { Story } from '@storybook/react';
 import { Suspense } from 'react';
 import { I18nextProvider } from 'react-i18next';
-import i18nForTest from 'shared/config/i18n/i18n.jest';
+import { Story } from '@storybook/react';
+import i18n from 'shared/config/i18n/i18n.jest';
 
-// TODO translations for storybook do not work
 export const i18nDecorator = (StoryComponent: Story) => (
-  <I18nextProvider i18n={i18nForTest}>
-    <Suspense fallback={<div>...</div>}>
+  <I18nextProvider i18n={i18n}>
+    <Suspense fallback={<div>Loading</div>}>
       <StoryComponent />
     </Suspense>
   </I18nextProvider>
 );
 
+// TODO
 /*
 1. Для удобство сделал Аддон в Сторибук, чтобы можно было переключать темы на любой форме.
 Для этого файл config/storybook/preview.js имеет следующий вид:

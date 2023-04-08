@@ -4,17 +4,29 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Button, ButtonType } from 'shared/ui/Button';
 import { Input } from 'shared/ui/Input';
 import { TextType, Text } from 'shared/ui/Text';
-import { loginActions } from '../../model/slice/loginSlice';
-import { getLoginState } from '../../model/selectors/getLoginState/getLoginState';
+import { ReducersList, useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader';
+import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import styles from './LoginForm.module.scss';
 import { loginByUsername } from '../../model/api/loginByUsername/loginByUserName';
+import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';
+import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
+import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
+import { getLoginLoading } from '../../model/selectors/getLoginLoading/getLoginLoading';
+import { LoginStore } from '../../model/types/login';
+
+const reducers: ReducersList<LoginStore> = {
+  login: loginReducer,
+};
 
 const LoginForm = memo(() => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
-  const {
-    username, password, error, isLoading,
-  } = useSelector(getLoginState);
+  const username = useSelector(getLoginUsername);
+  const password = useSelector(getLoginPassword);
+  const error = useSelector(getLoginError);
+  const isLoading = useSelector(getLoginLoading);
+
+  useDynamicModuleLoader({ reducers });
 
   const onChangeUsername = useCallback((value: string) => {
     dispatch(loginActions.setUsername(value));
@@ -30,11 +42,11 @@ const LoginForm = memo(() => {
 
   return (
     <div className={styles.LoginForm}>
-      {error && <Text variant={TextType.ERROR}>{error}</Text>}
+      {error && <Text variant={TextType.ERROR} value={error} />}
       <Input
         type='text'
-        name='email'
-        labelText='Email'
+        name='username'
+        labelText='Username'
         value={username}
         onChange={onChangeUsername}
         autoFocus

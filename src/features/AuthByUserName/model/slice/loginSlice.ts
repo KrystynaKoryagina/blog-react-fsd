@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { loginByUsername } from '../api/loginByUsername/loginByUserName';
 import { LoginStore } from '../types/login';
 
-const initialState: LoginStore = {
+export const initialState: LoginStore = {
   isLoading: false,
   username: '',
   password: '',

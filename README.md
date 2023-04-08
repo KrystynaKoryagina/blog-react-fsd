@@ -65,7 +65,7 @@ extensions: [".tsx", ".ts", ".js"],
 ## "esModuleInterop": true
 
 Позволяет работать с пакетами, которые используют common js как с обычными пакета с помощью _import_
-(require() module.export) = common js)
+(require() module.export) = common js
 
 import Moment from 'moment';
 
@@ -138,6 +138,12 @@ import Moment from 'moment';
 
 [Official documentation](https://reactjs.org/)
 
+## Ререндер компонента
+
+- изменилось состояние (state)
+- изменился хотя бы 1 пропс
+- перерисовался родитель (можно предотвратить мемоизацией)
+
 ## React.lazy
 
 Lazy loading надо делать
@@ -167,9 +173,16 @@ const  themeProps = useMemo(() => ({ theme, setTheme }), [theme]);
 Все методы, которые передаются как пропсы, оборачивать в useCallback
 TBD
 
-## useCallback
-useLayoutEffect
+## useLayoutEffect
 TBD
+
+## memo
+
+Практически все компоненты необходимо оборачивать в memo.
+_За исключением_ компонентов, у которых есть children
+_Но_ если в children передается примитив (например, строка передеается в компонент Button как children),
+допустимо оборачивать такой компонент в _memo_
+
 # Other
 
 ### enum

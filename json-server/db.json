@@ -26,6 +26,13 @@
     }
   ],
   "profile": {
-    "name": "typicode"
+    "firstName": "Krystyna",
+    "lastName": "Koryagina",
+    "age": 33,
+    "currency": "USD",
+    "country": "Ukraine",
+    "city": "Kharkov",
+    "username": "admin",
+    "avatar": "https://kartinkin.net/uploads/posts/2022-12/1670281496_6-kartinkin-net-p-kartinka-bukhgalter-vkontakte-6.png"
   }
 }

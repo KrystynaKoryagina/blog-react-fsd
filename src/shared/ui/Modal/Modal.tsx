@@ -2,7 +2,7 @@ import {
   FC, MouseEvent, useEffect, useRef,
 } from 'react';
 import { CSSTransition } from 'react-transition-group';
-import { classNames } from 'shared/lib/classNames';
+import { classNames } from 'shared/lib/utils/classNames';
 import { Portal } from 'shared/ui/Portal';
 import styles from './Modal.module.scss';
 

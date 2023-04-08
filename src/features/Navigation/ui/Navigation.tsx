@@ -1,32 +1,23 @@
-import { FC } from 'react';
-import { useTranslation } from 'react-i18next';
-import { RoutePath } from 'shared/config/routes/routes';
-import { AppLink } from 'shared/ui/AppLink';
-import MainIcon from 'shared/assets/icons/main.svg';
-import AboutIcon from 'shared/assets/icons/about.svg';
-import { classNames } from 'shared/lib/classNames';
+import { memo, useMemo } from 'react';
+import { classNames } from 'shared/lib/utils/classNames';
 import styles from './Navigation.module.scss';
+import { NavigationList } from '../model/config/navigation.config';
+import { NavigationItem } from './NavigationItem/NavigationItem';
 
-export interface NavigationProps {
+interface NavigationProps {
   collapsed: boolean;
 }
 
-export const Navigation: FC<NavigationProps> = ({ collapsed }) => {
-  const { t } = useTranslation();
+export const Navigation = memo(({ collapsed }: NavigationProps) => {
+  const navigationLinkJSX = useMemo(() => (NavigationList.map((item) => (
+    <NavigationItem key={item.path} item={item} collapsed={collapsed} />))), [collapsed]);
 
   return (
     <nav className={classNames(styles.Navigation, [], {
       [styles.collapsed]: collapsed,
     })}
     >
-      <AppLink className={styles.navLink} to={RoutePath.MAIN}>
-        <MainIcon className={styles.navIcon} />
-        <span className={styles.navName}>{t('NAVIGATION.MAIN')}</span>
-      </AppLink>
-      <AppLink className={styles.navLink} to={RoutePath.ABOUT}>
-        <AboutIcon className={styles.navIcon} />
-        <span className={styles.navName}>{t('NAVIGATION.ABOUT')}</span>
-      </AppLink>
+      {navigationLinkJSX}
     </nav>
   );
-};
+});

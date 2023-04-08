@@ -1,4 +1,3 @@
-import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Theme } from 'shared/lib/contexts/theme';
 import { NotFoundPage } from './NotFoundPage';
@@ -11,12 +10,10 @@ export default {
   },
 } as ComponentMeta<typeof NotFoundPage>;
 
-const Template: ComponentStory<typeof NotFoundPage> = (args) => (
-  <NotFoundPage {...args} />
-);
+const Template: ComponentStory<typeof NotFoundPage> = () => <NotFoundPage />;
 
-export const Normal = Template.bind({});
-Normal.args = {};
+export const Light = Template.bind({});
+Light.args = {};
 
 export const Dark = Template.bind({});
 Dark.args = {};

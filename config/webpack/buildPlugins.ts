@@ -22,13 +22,6 @@ export function buildPlugins({
     }),
   ];
 
-  plugins = [
-    ...plugins,
-    new BundleAnalyzerPlugin({
-      openAnalyzer: false,
-    }),
-  ];
-
   if (isDev) {
     plugins = [
       ...plugins,

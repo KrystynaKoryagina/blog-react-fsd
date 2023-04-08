@@ -1,7 +1,7 @@
-import { ButtonHTMLAttributes, FC } from 'react';
-import { classNames } from 'shared/lib/classNames';
+import { ButtonHTMLAttributes, memo } from 'react';
+import { classNames } from 'shared/lib/utils/classNames';
 import styles from './Button.module.scss';
-import { ButtonSize, ButtonType } from './types/Button.types';
+import { ButtonSize, ButtonType } from './types/button';
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonType;
@@ -9,7 +9,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   square?: boolean;
 }
 
-export const Button: FC<ButtonProps> = ({
+export const Button = memo(({
   variant = ButtonType.PRIMARY,
   size = ButtonSize.SM,
   children,
@@ -17,7 +17,7 @@ export const Button: FC<ButtonProps> = ({
   square,
   disabled,
   ...otherProps
-}) => (
+}: ButtonProps) => (
   <button
     type='button'
     className={classNames(
@@ -32,4 +32,4 @@ export const Button: FC<ButtonProps> = ({
   >
     {children}
   </button>
-);
+));

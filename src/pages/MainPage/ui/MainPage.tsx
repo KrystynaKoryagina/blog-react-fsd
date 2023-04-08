@@ -1,7 +1,8 @@
 import { BugButton } from 'app/BugButton';
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-function MainPage() {
+const MainPage = memo(() => {
   const { t } = useTranslation('main');
 
   return (
@@ -10,6 +11,6 @@ function MainPage() {
       <BugButton />
     </div>
   );
-}
+});
 
 export default MainPage;

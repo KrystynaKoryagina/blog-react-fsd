@@ -1,3 +1,3 @@
-import { Store } from 'app/providers/store';
+import { StoreSchema } from 'app/providers/store';
 
-export const getLoginState = (state: Store) => state.login;
+export const getLoginState = (state: StoreSchema) => state?.login;

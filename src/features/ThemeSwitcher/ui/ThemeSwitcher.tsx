@@ -2,7 +2,7 @@ import { Theme, useTheme } from 'shared/lib/contexts/theme';
 import LightIcon from 'shared/assets/icons/theme-light.svg';
 import DarkIcon from 'shared/assets/icons/theme-dark.svg';
 import { Button, ButtonType } from 'shared/ui/Button';
-import { FC } from 'react';
+import { memo } from 'react';
 
 /* TODO
 Привет! Стоит ли в ThemeSwitcher тащить константу theme из хука useTheme? Ведь тема меняется на уровне стилизации. Если добавится третья тема, то придется править место с иконками и использовать третью иконку. Или это дальше будет отрефакторино?
@@ -21,7 +21,7 @@ interface ThemeSwitcherProps {
   classname?: string;
 }
 
-export const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ classname }) => {
+export const ThemeSwitcher = memo(({ classname }: ThemeSwitcherProps) => {
   const { theme, toggleTheme } = useTheme();
 
   return (
@@ -33,4 +33,4 @@ export const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ classname }) => {
       {theme === Theme.LIGHT ? <LightIcon /> : <DarkIcon />}
     </Button>
   );
-};
+});

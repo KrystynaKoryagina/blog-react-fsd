@@ -15,11 +15,15 @@ LoginByUsernameRequest,
     try {
       const response = await axios.post<User>('http://localhost:8000/login', authData);
 
+      //       const response = await axios.post<
+      // AxiosResponse<User>, LoginByUsernameRequest
+      // >('http://localhost:8000/login', authData);
+
       if (!response.data) {
         throw new Error();
       }
 
-      // TODO should recieve without passwird
+      // TODO should recieve without password
       localStorage.setItem(AUTH_TOKEN, JSON.stringify(response.data));
       thunkAPI.dispatch(userActions.setAuthData(response.data));
 

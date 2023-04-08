@@ -31,6 +31,7 @@ withError.decorators = [StoreDecorator({
 
 export const withErrorDark = Template.bind({});
 withErrorDark.args = {};
+withErrorDark.parameters = { theme: Theme.DARK };
 withErrorDark.decorators = [StoreDecorator({
   login: { error: 'Something went wrong' },
 })];
@@ -43,6 +44,7 @@ Loading.decorators = [StoreDecorator({
 
 export const LoadingDark = Template.bind({});
 LoadingDark.args = {};
+LoadingDark.parameters = { theme: Theme.DARK };
 LoadingDark.decorators = [StoreDecorator({
   login: { isLoading: true },
 })];
