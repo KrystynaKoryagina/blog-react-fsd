@@ -17,9 +17,9 @@ const Template: ComponentStory<typeof Spinner> = (args) => (
   <Spinner {...args} />
 );
 
-export const Primary = Template.bind({});
-Primary.args = {};
+export const Light = Template.bind({});
+Light.args = {};
 
-export const PrimaryDark = Template.bind({});
-PrimaryDark.args = {};
-PrimaryDark.parameters = { theme: Theme.DARK };
+export const Dark = Template.bind({});
+Dark.args = {};
+Dark.parameters = { theme: Theme.DARK };

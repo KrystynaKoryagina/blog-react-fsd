@@ -1,0 +1,49 @@
+.Input {
+  color: var(--primary-color);
+}
+
+.label {
+  display: flex;
+}
+
+.inputContent {
+  position: relative;
+  margin-left: 5px;
+}
+
+.inputField {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  caret-color: transparent;
+  color: inherit;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.carret {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 1ch;
+  height: 2px;
+  background: var(--primary-color);
+  animation: blink 0.8s step-end infinite;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}

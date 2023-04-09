@@ -1,6 +1,6 @@
-import { FC, useState } from 'react';
-import i18n from 'shared/config/i18n/i18n';
-import { classNames } from 'shared/lib/classNames';
+import { memo, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { classNames } from 'shared/lib/utils/classNames';
 import { Button, ButtonType } from 'shared/ui/Button';
 import { langConfig, LangKey } from '../types/LangSwitcher.types';
 import styles from './LangSwitcher.module.scss';
@@ -9,10 +9,15 @@ interface LangSwitcherProps {
   className: string;
 }
 
-export const LangSwitcher: FC<LangSwitcherProps> = ({ className }) => {
-  const [langKey, setLangKey] = useState(i18n.language);
+export const LangSwitcher = memo(({ className }: LangSwitcherProps) => {
+  const { i18n } = useTranslation();
+  const [langKey, setLangKey] = useState('');
 
-  const changeLang = (key: LangKey) => {
+  useEffect(() => {
+    setLangKey(i18n.language);
+  }, [i18n]);
+
+  const changeLang = async (key: LangKey) => {
     i18n.changeLanguage(key);
     setLangKey(key);
   };
@@ -21,7 +26,7 @@ export const LangSwitcher: FC<LangSwitcherProps> = ({ className }) => {
     <div className={classNames(styles.LangSwitcher, [className])}>
       {langConfig.map((item) => (
         <Button
-          classname={classNames(styles.lang, [], {
+          className={classNames(styles.lang, [], {
             [styles.active]: langKey === item.key,
           })}
           key={item.key}
@@ -33,4 +38,4 @@ export const LangSwitcher: FC<LangSwitcherProps> = ({ className }) => {
       ))}
     </div>
   );
-};
+});

@@ -7,6 +7,7 @@
   },
   "extends": [
     "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
     "airbnb",
     "airbnb-typescript",
     "plugin:i18next/recommended"
@@ -36,18 +37,22 @@
     "max-len": [2, { "code": 100, "ignoreComments": true }],
     "i18next/no-literal-string": [
       2,
-      { "markupOnly": true, "ignoreAttribute": ["data-testid"] }
+      { "markupOnly": true, "onlyAttribute": [""]}
     ],
-    "no-param-reassign": 1
+    "no-param-reassign": 0,
+    "jsx-a11y/click-events-have-key-events": 0,
+    "jsx-a11y/no-static-element-interactions": 0
+
   },
   "globals": {
     "__IS_DEV__": true
   },
   "overrides": [
     {
-      "files": ["**/src/**/*.test.{ts,tsx}"],
+      "files": ["**/src/**/*.{test,stories}.{ts,tsx}"],
       "rules": {
-        "i18next/no-literal-string": [0]
+        "i18next/no-literal-string": 0,
+        "max-len": 0
       }
     }
   ]

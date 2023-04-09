@@ -1,11 +1,14 @@
 {
   "NAVIGATION": {
     "MAIN": "Главная",
-    "ABOUT": "О сайте"
+    "ABOUT": "О сайте",
+    "PROFILE": "Профайл"
   },
   "NOT_FOUND_PAGE": "Страница не найдена",
   "ERROR_MESSAGE": "Что-то пошло не так. Повторите, пожалуйста",
   "BUTTONS": {
-    "REFRESH": "Обновить"
+    "REFRESH": "Обновить",
+    "LOGIN": "Войти",
+    "LOGOUT": "Выйти"
   }
 }

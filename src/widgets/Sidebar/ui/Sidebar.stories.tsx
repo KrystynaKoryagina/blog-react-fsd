@@ -7,13 +7,11 @@ export default {
   component: Sidebar,
 } as ComponentMeta<typeof Sidebar>;
 
-const Template: ComponentStory<typeof Sidebar> = (args) => (
-  <Sidebar {...args} />
+const Template: ComponentStory<typeof Sidebar> = () => (
+  <Sidebar />
 );
 
 export const Light = Template.bind({});
-Light.args = {};
 
 export const Dark = Template.bind({});
-Dark.args = {};
 Dark.parameters = { theme: Theme.DARK };
