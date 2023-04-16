@@ -14,6 +14,6 @@ export interface Profile {
 export interface ProfileStore {
   profile: Profile | null;
   isLoading: boolean;
-  error?: string
-  readonly: boolean
+  error?: string | null;
+  readonly: boolean;
 }

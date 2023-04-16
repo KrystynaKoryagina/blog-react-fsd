@@ -11,14 +11,14 @@ const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />;
 
 export const Light = Template.bind({});
 Light.args = {
-  labelText: 'Label',
+  label: 'Label',
   value: 'Some value',
   autoFocus: true,
 };
 
 export const Dark = Template.bind({});
 Dark.args = {
-  labelText: 'Label',
+  label: 'Label',
   value: 'Some value',
   autoFocus: true,
 };

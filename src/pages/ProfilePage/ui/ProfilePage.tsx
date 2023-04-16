@@ -1,18 +1,29 @@
-import { ProfileStore, profileReducer } from 'entities/Profile';
-import { memo } from 'react';
-import { useTranslation } from 'react-i18next';
-import { ReducersList, useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader';
+import { ReducersList } from 'app/providers/store';
+import {
+  ProfileCard,
+  fetchProfileData,
+  profileReducer,
+} from 'entities/Profile';
+import { memo, useEffect } from 'react';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { useDynamicReducerLoader } from 'shared/lib/hooks/useDynamicReducerLoader';
 
-const reducers: ReducersList<ProfileStore> = {
+const reducers: ReducersList = {
   profile: profileReducer,
 };
 
 const ProfilePage = memo(() => {
-  const { t } = useTranslation('profile');
-  useDynamicModuleLoader({ reducers });
+  useDynamicReducerLoader({ reducers });
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(fetchProfileData());
+  }, [dispatch]);
 
   return (
-    <div>{t('PROFILE')}</div>
+    <div>
+      <ProfileCard />
+    </div>
   );
 });
 

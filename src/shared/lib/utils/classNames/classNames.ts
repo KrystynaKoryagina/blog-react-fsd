@@ -1,10 +1,7 @@
-// TODO !!!!!!!!!!
-/* eslint-disable @typescript-eslint/comma-dangle */
-
 export function classNames(
   cls: string,
-  additional: string[] = [],
-  mods: Record<string, boolean> = {}
+  additional: Array<string | undefined> = [],
+  mods: Record<string, boolean | undefined> = {},
 ): string {
   return [
     cls,

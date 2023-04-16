@@ -12,35 +12,29 @@ export default ({ config }: { config: webpack.Configuration }) => {
     src: path.resolve(__dirname, '..', '..', 'src'),
   };
 
-  if (config?.resolve?.modules) {
-    config.resolve.modules.push(paths.src);
-  }
+  config!.resolve!.modules!.push(paths.src);
+  config!.resolve!.extensions!.push('.ts', '.tsx');
 
-  if (config?.resolve?.extensions) {
-    config.resolve.extensions.push('.ts', '.tsx');
-  }
+  // NOTE
+  // We have to replace SVG loader that storybook uses by default with SVGR
+  config!.module!.rules = config!.module!.rules!.map(
+    (rule: RuleSetRule | '...') => {
+      if (rule !== '...' && /svg/.test(rule.test as string)) {
+        return { ...rule, exclude: /\.svg$/i };
+      }
 
-  if (config?.module?.rules) {
-    // NOTE
-    // We have to replace SVG loader that storybook uses by default with SVGR
-    config.module.rules = config.module.rules.map(
-      (rule: RuleSetRule | '...') => {
-        if (rule !== '...' && /svg/.test(rule.test as string)) {
-          return { ...rule, exclude: /\.svg$/i };
-        }
+      return rule;
+    },
+  );
 
-        return rule;
-      },
-    );
+  config!.module!.rules.push(buildSvgLoader());
 
-    config.module.rules.push(buildSvgLoader());
+  config!.module!.rules.push(buildCssLoader(true));
 
-    config.module.rules.push(buildCssLoader(true));
-  }
-
-  if (config?.plugins) {
-    config.plugins.push(new webpack.DefinePlugin({ __IS_DEV__: JSON.stringify(false) }));
-  }
+  config!.plugins!.push(new webpack.DefinePlugin({
+    __IS_DEV__: JSON.stringify(true),
+    __API__: JSON.stringify(''),
+  }));
 
   return config;
 };

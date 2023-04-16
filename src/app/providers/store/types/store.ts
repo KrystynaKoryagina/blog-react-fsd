@@ -5,6 +5,7 @@ import {
   Reducer,
   ReducersMapObject,
 } from '@reduxjs/toolkit';
+import { AxiosInstance } from 'axios';
 import { ProfileStore } from 'entities/Profile';
 import { UserStore } from 'entities/User';
 import { LoginStore } from 'features/AuthByUserName';
@@ -29,3 +30,14 @@ export interface ReducerManger {
 export interface ReduxStoreWithManager extends EnhancedStore<StoreSchema> {
   reducerManager: ReducerManger
 }
+
+export interface ThunkExtraArgs {
+  api: AxiosInstance,
+}
+
+export interface ThunkConfig<T> {
+  rejectValue: T,
+  extra: ThunkExtraArgs
+}
+
+export type ReducersList = { [name in StoreSchemaKey]?: Reducer };

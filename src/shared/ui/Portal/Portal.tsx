@@ -8,7 +8,7 @@ interface PortalProps {
 }
 
 export const Portal: FC<PortalProps> = ({ children, wrapperId = 'app' }) => {
-  const [container, setContainer] = useState(null);
+  const [container, setContainer] = useState<HTMLElement | null>(null);
 
   const createWrapperAndAppendToBody = useCallback(() => {
     const wrapperElement = document.createElement('div');

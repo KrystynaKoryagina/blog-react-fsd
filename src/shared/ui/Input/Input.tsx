@@ -7,7 +7,7 @@ import styles from './Input.module.scss';
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange'>;
 
 interface InputProps extends HTMLInputProps {
-  labelText?: string;
+  label?: string;
   onChange?: (value: string) => void
 }
 
@@ -17,7 +17,7 @@ export const Input = memo((props: InputProps) => {
     className,
     value,
     id,
-    labelText,
+    label,
     autoFocus,
     onChange,
     ...otherProps
@@ -25,11 +25,11 @@ export const Input = memo((props: InputProps) => {
 
   const [caretPosition, setCaretPosition] = useState(0);
   const [isFocused, setIsFocused] = useState(false);
-  const inputRef = useRef(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     if (autoFocus) {
-      inputRef?.current.focus();
+      inputRef?.current?.focus();
     }
   }, [autoFocus]);
 
@@ -53,7 +53,7 @@ export const Input = memo((props: InputProps) => {
     <div className={classNames(styles.Input, [className])}>
       <label className={styles.label} htmlFor={id}>
         <span className={styles.labelText}>
-          {labelText}
+          {label}
           &gt;
         </span>
         <div className={styles.inputContent}>

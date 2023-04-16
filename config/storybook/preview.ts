@@ -15,6 +15,9 @@ export const parameters: Parameters = {
   theme: Theme.LIGHT,
 };
 
-addDecorator(ThemeDecorator);
 addDecorator(RouterDecorator);
 addDecorator(i18nDecorator);
+
+// @ts-ignore
+// TODO https://github.com/storybookjs/testing-react/issues/61
+addDecorator(ThemeDecorator);

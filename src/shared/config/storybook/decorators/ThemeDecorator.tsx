@@ -3,7 +3,7 @@ import { ThemeProvider } from 'shared/lib/contexts/theme';
 
 import 'app/styles/index.scss';
 
-export const ThemeDecorator = (StoryComponent: Story, context: StoryContext) => {
+export const ThemeDecorator = (StoryComponent: Story, context?: StoryContext) => {
   const theme = context?.parameters?.theme;
 
   return (
