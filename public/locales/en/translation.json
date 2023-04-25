@@ -9,6 +9,9 @@
   "BUTTONS": {
     "REFRESH": "Refresh",
     "LOGIN": "Login",
-    "LOGOUT": "Logout"
+    "LOGOUT": "Logout",
+    "CANCEL": "Cancel",
+    "EDIT": "Edit",
+    "SAVE": "Save"
   }
 }

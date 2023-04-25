@@ -1,4 +1,4 @@
-import { AUTH_TOKEN } from 'shared/const/localStorage';
+import { AUTH_TOKEN } from 'shared/constants/localStorage';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/store';
 import { User, userActions } from 'entities/User';

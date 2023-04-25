@@ -19,6 +19,7 @@ export const Input = memo((props: InputProps) => {
     id,
     label,
     autoFocus,
+    readOnly,
     onChange,
     ...otherProps
   } = props;
@@ -26,6 +27,8 @@ export const Input = memo((props: InputProps) => {
   const [caretPosition, setCaretPosition] = useState(0);
   const [isFocused, setIsFocused] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
+
+  const isCarretVisible = isFocused && !readOnly;
 
   useEffect(() => {
     if (autoFocus) {
@@ -50,36 +53,37 @@ export const Input = memo((props: InputProps) => {
   };
 
   return (
-    <div className={classNames(styles.Input, [className])}>
+    <div className={classNames(styles.InputWrapper, [className])}>
       <label className={styles.label} htmlFor={id}>
-        <span className={styles.labelText}>
-          {label}
-          &gt;
-        </span>
-        <div className={styles.inputContent}>
-          <input
-            ref={inputRef}
-            className={styles.inputField}
-            type={type}
-            id={id}
-            value={value}
-            onChange={onChangeHandler}
-            onSelect={onSelectHandler}
-            onBlur={onBlurHandler}
-            onFocus={onFocusHandler}
-            autoComplete='off'
-            {...otherProps}
-          />
-          { isFocused && (
-            <span
-              className={styles.carret}
-              style={{
-                left: caretPosition * 9,
-              }}
-            />
-          )}
-        </div>
+        {label}
+        &gt;
       </label>
+      <div className={styles.inputContent}>
+        <input
+          ref={inputRef}
+          className={classNames(styles.input, [], {
+            [styles.readOnly]: readOnly,
+          })}
+          type={type}
+          id={id}
+          value={value}
+          onChange={onChangeHandler}
+          onSelect={onSelectHandler}
+          onBlur={onBlurHandler}
+          onFocus={onFocusHandler}
+          autoComplete='off'
+          readOnly={readOnly}
+          {...otherProps}
+        />
+        { isCarretVisible && (
+          <span
+            className={styles.carret}
+            style={{
+              left: caretPosition * 9,
+            }}
+          />
+        )}
+      </div>
     </div>
   );
 });

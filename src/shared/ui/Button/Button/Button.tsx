@@ -1,7 +1,7 @@
 import { ButtonHTMLAttributes, memo } from 'react';
 import { classNames } from 'shared/lib/utils/classNames';
 import styles from './Button.module.scss';
-import { ButtonSize, ButtonType } from './types/button';
+import { ButtonSize, ButtonType } from '../types/button';
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonType;

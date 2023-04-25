@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { AUTH_TOKEN } from 'shared/const/localStorage';
+import { AUTH_TOKEN } from 'shared/constants/localStorage';
 import { User, UserStore } from '../types/user';
 
 const initialState: UserStore = {

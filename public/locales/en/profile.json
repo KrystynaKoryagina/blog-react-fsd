@@ -2,5 +2,9 @@
   "PROFILE": "Profile",
   "FIRSTNAME": "Your name",
   "LASTNAME": "Your lastname",
-  "EDIT": "Edit"
+  "AGE": "Your age",
+  "CITY": "Your city",
+  "USERNAME": "Username",
+  "AVATAR": "Enter a link to the avatar",
+  "USER_AVATAR": "User avatar"
 }

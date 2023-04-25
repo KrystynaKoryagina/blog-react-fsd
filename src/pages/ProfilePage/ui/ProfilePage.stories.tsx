@@ -14,8 +14,9 @@
 // "configurations": {
 
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Country, Currency } from 'shared/const/common';
 import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
+import { CURRENCY } from 'shared/constants/currency';
+import { COUNTRY } from 'shared/constants/country';
 import { Theme } from 'shared/lib/contexts/theme';
 import ProfilePage from './ProfilePage';
 
@@ -38,8 +39,8 @@ Light.decorators = [StoreDecorator({
       firstName: 'Krystyna',
       lastName: 'Koryagina',
       age: 33,
-      currency: Currency.USD,
-      country: Country.Ukraine,
+      currency: CURRENCY.USD,
+      country: COUNTRY.Ukraine,
       city: 'Kharkov',
       username: 'admin',
       avatar: 'https://kartinkin.net/uploads/posts/2022-12/1670281496_6-kartinkin-net-p-kartinka-bukhgalter-vkontakte-6.png',
@@ -55,8 +56,8 @@ Dark.decorators = [StoreDecorator({
       firstName: 'Krystyna',
       lastName: 'Koryagina',
       age: 33,
-      currency: Currency.USD,
-      country: Country.Ukraine,
+      currency: CURRENCY.USD,
+      country: COUNTRY.Ukraine,
       city: 'Kharkov',
       username: 'admin',
       avatar: 'https://kartinkin.net/uploads/posts/2022-12/1670281496_6-kartinkin-net-p-kartinka-bukhgalter-vkontakte-6.png',

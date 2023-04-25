@@ -1,26 +1,35 @@
-.Input {
+.InputWrapper {
+  display: flex;
   color: var(--primary-color);
 }
 
 .label {
   display: flex;
+  margin-right: 5px;
 }
 
 .inputContent {
+  flex-grow: 1;
   position: relative;
-  margin-left: 5px;
 }
 
-.inputField {
+.input {
   width: 100%;
   background: transparent;
   border: none;
   outline: none;
   caret-color: transparent;
   color: inherit;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   &:focus {
     outline: none;
+  }
+
+  &.readOnly {
+    opacity: 0.7;
   }
 }
 

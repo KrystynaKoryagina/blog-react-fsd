@@ -6,25 +6,25 @@ import {
   ReducersMapObject,
 } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
-import { ProfileStore } from 'entities/Profile';
 import { UserStore } from 'entities/User';
 import { LoginStore } from 'features/AuthByUserName';
+import { ProfileStore } from 'features/EditProfileCard';
 
 export interface StoreSchema {
-  user: UserStore,
+  user: UserStore;
 
   // Async Reducers
-  login?: LoginStore,
-  profile?: ProfileStore
+  login?: LoginStore;
+  profile?: ProfileStore;
 }
 
 export type StoreSchemaKey = keyof StoreSchema;
 
 export interface ReducerManger {
-  getReducerMap: () => ReducersMapObject<StoreSchema>,
-  reduce: (state: StoreSchema, action: AnyAction) => CombinedState<StoreSchema>,
-  add: (key: StoreSchemaKey, reducer: Reducer) => void,
-  remove: (key: StoreSchemaKey) => void,
+  getReducerMap: () => ReducersMapObject<StoreSchema>;
+  reduce: (state: StoreSchema, action: AnyAction) => CombinedState<StoreSchema>;
+  add: (key: StoreSchemaKey, reducer: Reducer) => void;
+  remove: (key: StoreSchemaKey) => void;
 }
 
 export interface ReduxStoreWithManager extends EnhancedStore<StoreSchema> {
@@ -32,12 +32,13 @@ export interface ReduxStoreWithManager extends EnhancedStore<StoreSchema> {
 }
 
 export interface ThunkExtraArgs {
-  api: AxiosInstance,
+  api: AxiosInstance;
 }
 
 export interface ThunkConfig<T> {
-  rejectValue: T,
-  extra: ThunkExtraArgs
+  rejectValue: T;
+  extra: ThunkExtraArgs;
+  state: StoreSchema;
 }
 
 export type ReducersList = { [name in StoreSchemaKey]?: Reducer };

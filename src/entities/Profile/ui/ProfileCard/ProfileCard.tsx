@@ -1,48 +1,134 @@
-import { FC } from 'react';
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/utils/classNames';
-import { Button, ButtonType } from 'shared/ui/Button';
-import { Text } from 'shared/ui/Text';
+import { Select } from 'shared/ui/Select';
+import { Currency, currencyOptions } from 'shared/constants/currency';
+import { Country, countryOptions } from 'shared/constants/country';
+import { Text, TextAlign, TextType } from 'shared/ui/Text';
 import { Input } from 'shared/ui/Input';
-import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
-// import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
-// import { getProfileLoading } from '../../model/selectors/getProfileLoading/getProfileLoading';
+import { Spinner } from 'shared/ui/Spinner';
+import { Avatar } from 'shared/ui/Avatar';
 import styles from './ProfileCard.module.scss';
+import { Profile } from '../../model/types/profile';
 
 interface ProfileCardProps {
-  classname?: string
+  data: Profile | null,
+  isLoading?: boolean,
+  readOnly?: boolean,
+  classname?: string,
+  error?: string | null,
+  onChangeFirstname?: (value: string) => void
+  onChangeLastname?: (value: string) => void
+  onChangeCity?: (value: string) => void
+  onChangeAge?: (value: string) => void
+  onChangeUsername?: (value: string) => void
+  onChangeAvatar?: (value: string) => void
+  onChangeCurrency?: (value: Currency) => void
+  onChangeCountry?: (value: Country) => void
 }
 
-export const ProfileCard: FC<ProfileCardProps> = ({ classname }) => {
+export const ProfileCard = memo(({
+  data,
+  classname,
+  isLoading,
+  error,
+  readOnly,
+  onChangeFirstname,
+  onChangeLastname,
+  onChangeCity,
+  onChangeAge,
+  onChangeUsername,
+  onChangeAvatar,
+  onChangeCurrency,
+  onChangeCountry,
+}: ProfileCardProps) => {
   const { t } = useTranslation('profile');
-  const data = useSelector(getProfileData);
-  // const isLoading = useSelector(getProfileLoading);
-  // const error = useSelector(getProfileError);
+
+  if (isLoading) {
+    return (
+      <div className={classNames(styles.ProfileCard)}>
+        <Spinner />
+      </div>
+    );
+  }
+
+  if (error) {
+    // TODO
+    return (
+      <div className={classNames(styles.ProfileCard)}>
+        <Text variant={TextType.ERROR} value='Произошла ошибка' align={TextAlign.CENTER} />
+      </div>
+    );
+  }
 
   return (
-    <div className={classNames(styles.ProfileCard, [classname])}>
-      <div className={styles.header}>
-        <Text value={t('PROFILE')} />
-        <Button
-          className={styles.editBtn}
-          variant={ButtonType.OUTLINE}
-        >
-          {t('EDIT')}
-        </Button>
-      </div>
-      <div className={styles.content}>
-        <Input
-          value={data?.firstName}
-          label={t('FIRSTNAME')}
-          className={styles.input}
-        />
-        <Input
-          value={data?.lastName}
-          label={t('LASTNAME')}
-          className={styles.input}
-        />
-      </div>
+    <div className={classNames(styles.ProfileCard, [classname], { [styles.editCard]: !readOnly })}>
+      {data?.avatar
+        && <Avatar className={styles.avatar} alt={t('USER_AVATAR')} src={data?.avatar} />}
+      <Input
+        id='firstName'
+        value={data?.firstName}
+        label={t('FIRSTNAME')}
+        className={styles.input}
+        readOnly={readOnly}
+        onChange={onChangeFirstname}
+      />
+      <Input
+        id='lastName'
+        value={data?.lastName}
+        label={t('LASTNAME')}
+        className={styles.input}
+        readOnly={readOnly}
+        onChange={onChangeLastname}
+      />
+      <Input
+        id='age'
+        value={data?.age}
+        label={t('AGE')}
+        className={styles.input}
+        readOnly={readOnly}
+        onChange={onChangeAge}
+      />
+      <Input
+        id='city'
+        value={data?.city}
+        label={t('CITY')}
+        className={styles.input}
+        readOnly={readOnly}
+        onChange={onChangeCity}
+      />
+      <Input
+        id='username'
+        value={data?.username}
+        label={t('USERNAME')}
+        className={styles.input}
+        readOnly={readOnly}
+        onChange={onChangeUsername}
+      />
+      <Input
+        id='avatar'
+        value={data?.avatar}
+        label={t('AVATAR')}
+        className={styles.input}
+        readOnly={readOnly}
+        onChange={onChangeAvatar}
+      />
+      <Select
+        id='currency'
+        label='Укажите валюту' // TODO
+        options={currencyOptions}
+        value={data?.currency}
+        onChange={onChangeCurrency}
+        disabled={readOnly}
+      />
+      <Select
+        id='country'
+        label='Укажите страну' // TODO
+        options={countryOptions}
+        value={data?.country}
+        onChange={onChangeCountry}
+        disabled={readOnly}
+      />
     </div>
   );
-};
+});

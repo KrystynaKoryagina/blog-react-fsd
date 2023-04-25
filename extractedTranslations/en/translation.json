@@ -1,8 +1,11 @@
 {
   "BUTTONS": {
+    "CANCEL": "",
+    "EDIT": "",
     "LOGIN": "",
     "LOGOUT": "",
-    "REFRESH": ""
+    "REFRESH": "",
+    "SAVE": ""
   },
   "ERROR_MESSAGE": "",
   "NAVIGATION": {
