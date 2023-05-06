@@ -19,5 +19,6 @@ export const NavigationList: NavigationLink[] = [
     path: RoutePath.PROFILE,
     text: 'NAVIGATION.PROFILE',
     Icon: ProfileIcon,
+    authOnly: true,
   },
 ];

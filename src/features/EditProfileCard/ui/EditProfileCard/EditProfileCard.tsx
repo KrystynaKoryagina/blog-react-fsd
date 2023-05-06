@@ -1,6 +1,6 @@
 import { memo, useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { ProfileCard } from 'entities/Profile';
+import { ProfileCard, ValidateProfileError } from 'entities/Profile';
 import { classNames } from 'shared/lib/utils/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Currency } from 'shared/constants/currency';
@@ -8,7 +8,7 @@ import { Country } from 'shared/constants/country';
 import { useDynamicReducerLoader } from 'shared/lib/hooks/useDynamicReducerLoader';
 import { useTranslation } from 'react-i18next';
 import { Button, ButtonGroup, ButtonType } from 'shared/ui/Button';
-import { Text, TextSize } from 'shared/ui/Text';
+import { Text, TextSize, TextType } from 'shared/ui/Text';
 import { ReducersList } from 'app/providers/store';
 import styles from './EditProfileCard.module.scss';
 import { profileActions, profileReducer } from '../../model/slice/profileSlice';
@@ -17,6 +17,8 @@ import { getProfileError } from '../../model/selectors/getProfileError/getProfil
 import { getProfileLoading } from '../../model/selectors/getProfileLoading/getProfileLoading';
 import { getProfileReadOnly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
 import { getProfileEditData } from '../../model/selectors/getProfileEditData/getProfileEditData';
+import { getProfileValidateErrors }
+  from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 import { updateProfileData } from '../../model/service/updateProfileData/updateProfileData';
 
 const reducers: ReducersList = {
@@ -37,6 +39,16 @@ export const EditProfileCard = memo(({ classname }: EditableProfileCardProps) =>
   const isLoading = useSelector(getProfileLoading);
   const error = useSelector(getProfileError);
   const readOnly = useSelector(getProfileReadOnly);
+  const validateErrors = useSelector(getProfileValidateErrors);
+
+  // TODO add translation
+  const validateErrorTranslates = {
+    [ValidateProfileError.SERVER_ERROR]: t('Серверная ошибка при сохранении'),
+    [ValidateProfileError.INCORRECT_COUNTRY]: t('Некорректный регион'),
+    [ValidateProfileError.NO_DATA]: t('Данные не указаны'),
+    [ValidateProfileError.INCORRECT_USER_DATA]: t('Имя и фамилия обязательны'),
+    [ValidateProfileError.INCORRECT_AGE]: t('Некорректный возраст'),
+  };
 
   useEffect(() => {
     dispatch(fetchProfileData());
@@ -120,6 +132,11 @@ export const EditProfileCard = memo(({ classname }: EditableProfileCardProps) =>
       </div>
 
       <div className={styles.content}>
+        {
+          validateErrors?.length && validateErrors.map((err) => (
+            <Text key={err} variant={TextType.ERROR} value={validateErrorTranslates[err]} />
+          ))
+        }
         <ProfileCard
           data={data}
           isLoading={isLoading}

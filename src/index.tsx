@@ -23,4 +23,5 @@ render(
 // TODO ТЕСТИРОВАНИЕ
 /*
   Урок 36 Тестирование фичи authByUsername. TestAsyncThunk
+  Урок 43 Переменная __PROJECT__. Тесты на модуль профиля
 */

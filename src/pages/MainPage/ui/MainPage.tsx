@@ -7,7 +7,7 @@ const MainPage = memo(() => {
 
   return (
     <div>
-      {t('MainPage')}
+      {t('MAIN_PAGE')}
       <BugButton />
     </div>
   );

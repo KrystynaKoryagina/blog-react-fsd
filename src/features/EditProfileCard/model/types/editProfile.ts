@@ -1,4 +1,5 @@
 import { Profile } from 'entities/Profile';
+import { ValidateProfileError } from 'entities/Profile/model/types/profile';
 
 export interface ProfileStore {
   profile: Profile | null;
@@ -6,4 +7,5 @@ export interface ProfileStore {
   isLoading: boolean;
   readOnly: boolean;
   error?: string | null;
+  validateErrors?: ValidateProfileError[] | null;
 }

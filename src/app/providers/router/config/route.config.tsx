@@ -2,10 +2,10 @@ import { AboutPage } from 'pages/AboutPage';
 import { MainPage } from 'pages/MainPage';
 import { NotFoundPage } from 'pages/NotFoundPage';
 import { ProfilePage } from 'pages/ProfilePage';
-import { RouteProps } from 'react-router-dom';
 import { RoutePath } from 'shared/config/routes/routes';
+import { AppRoutesProps } from '../model/types/router';
 
-export const routes: RouteProps[] = [
+export const routes: AppRoutesProps[] = [
   {
     path: RoutePath.MAIN,
     element: <MainPage />,
@@ -17,6 +17,7 @@ export const routes: RouteProps[] = [
   {
     path: RoutePath.PROFILE,
     element: <ProfilePage />,
+    authOnly: true,
   },
   {
     path: RoutePath.NOT_FOUND,
