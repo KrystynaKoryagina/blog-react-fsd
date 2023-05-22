@@ -2,6 +2,7 @@ import webpack from 'webpack';
 import { BuildOptions } from '../build/types/build';
 import { buildCssLoader } from '../build/loaders/buildCssLoader';
 import { buildSvgLoader } from '../build/loaders/buildSvgLoader';
+import { buildBabelLoader } from '../build/loaders/buildBabelLoader';
 
 export function buildLoader({ isDev }: BuildOptions): webpack.RuleSetRule[] {
   const cssLoader = buildCssLoader(isDev);
@@ -13,11 +14,13 @@ export function buildLoader({ isDev }: BuildOptions): webpack.RuleSetRule[] {
     type: 'asset/resource',
   };
 
+  const babelLoader = buildBabelLoader(isDev);
+
   const typescriptLoader = {
     test: /\.tsx?$/,
     use: 'ts-loader',
     exclude: /node_modules/,
   };
 
-  return [assets, svgLoader, typescriptLoader, cssLoader];
+  return [assets, svgLoader, babelLoader, typescriptLoader, cssLoader];
 }

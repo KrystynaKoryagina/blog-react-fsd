@@ -20,8 +20,12 @@ render(
   document.getElementById('root'),
 );
 
-// TODO ТЕСТИРОВАНИЕ
+// TODO
 /*
   Урок 36 Тестирование фичи authByUsername. TestAsyncThunk
   Урок 43 Переменная __PROJECT__. Тесты на модуль профиля
+*/
+
+/*
+  Урок 45 file templates
 */
