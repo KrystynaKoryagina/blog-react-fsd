@@ -1,5 +1,10 @@
 {
   "AGE": "AGE",
+  "ARTICLE_CATEGORY": {
+    "ALL": "ALL",
+    "SCIENCE": "SCIENCE"
+  },
+  "ARTICLE_NOT_FOUND": "ARTICLE_NOT_FOUND",
   "AVATAR": "AVATAR",
   "AboutPage": "AboutPage",
   "BUTTONS": {
@@ -7,15 +12,22 @@
     "EDIT": "EDIT",
     "LOGIN": "LOGIN",
     "LOGOUT": "LOGOUT",
+    "READ": "READ",
     "REFRESH": "REFRESH",
-    "SAVE": "SAVE"
+    "SAVE": "SAVE",
+    "SEND": "SEND"
   },
   "CITY": "CITY",
+  "COMMENTS": "COMMENTS",
+  "ENTER_COMMENT": "ENTER_COMMENT",
   "ERROR_MESSAGE": "ERROR_MESSAGE",
   "FIRSTNAME": "FIRSTNAME",
   "LASTNAME": "LASTNAME",
   "MAIN_PAGE": "MAIN_PAGE",
   "NOT_FOUND_PAGE": "NOT_FOUND_PAGE",
+  "Something went wrong": {
+    "": ""
+  },
   "USERNAME": "USERNAME",
   "USER_AVATAR": "USER_AVATAR",
   "throw error": "throw error",

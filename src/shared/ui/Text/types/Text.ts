@@ -5,6 +5,7 @@ export const enum TextType {
 }
 
 export const enum TextSize {
+  XS = 'xs',
   SM = 'sm',
   MD = 'md',
   LG = 'lg',

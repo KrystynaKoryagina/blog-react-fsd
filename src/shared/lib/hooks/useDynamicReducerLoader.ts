@@ -1,26 +1,39 @@
 import { ReducersList, ReduxStoreWithManager, StoreSchemaKey } from 'app/providers/store';
 import { useEffect } from 'react';
-import { useStore, useDispatch } from 'react-redux';
+import { useStore } from 'react-redux';
+import { useAppDispatch } from './useAppDispatch';
 
 interface DynamicReducerLoaderProps {
-  reducers: ReducersList
+  reducers: ReducersList,
+  removeAfterUnmount?: boolean
 }
 
-export const useDynamicReducerLoader = ({ reducers }: DynamicReducerLoaderProps) => {
+export const useDynamicReducerLoader = ({
+  reducers,
+  removeAfterUnmount = true,
+}: DynamicReducerLoaderProps) => {
   const store = useStore() as ReduxStoreWithManager;
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
+    const mountedReducers = store.reducerManager.getReducerMap();
+
     Object.entries(reducers).forEach(([name, reducer]) => {
-      store.reducerManager.add(name as StoreSchemaKey, reducer);
-      dispatch({ type: `@INIT ${name} reducer` });
+      const isMounted = mountedReducers[name as StoreSchemaKey];
+
+      if (!isMounted) {
+        store.reducerManager.add(name as StoreSchemaKey, reducer);
+        dispatch({ type: `@INIT ${name} reducer` });
+      }
     });
 
     return () => {
-      Object.keys(reducers).forEach((name) => {
-        store.reducerManager.remove(name as StoreSchemaKey);
-        dispatch({ type: `@DESTROY ${name} reducer` });
-      });
+      if (removeAfterUnmount) {
+        Object.keys(reducers).forEach((name) => {
+          store.reducerManager.remove(name as StoreSchemaKey);
+          dispatch({ type: `@DESTROY ${name} reducer` });
+        });
+      }
     };
-  }, [dispatch, reducers, store.reducerManager]);
+  }, [dispatch, reducers, removeAfterUnmount, store.reducerManager]);
 };

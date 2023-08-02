@@ -1,10 +1,11 @@
 import { EditProfileCard } from 'features/EditProfileCard';
 import { memo } from 'react';
+import { Page } from 'widgets/Page';
 
 const ProfilePage = memo(() => (
-  <div>
+  <Page>
     <EditProfileCard />
-  </div>
+  </Page>
 ));
 
 export default ProfilePage;

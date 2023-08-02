@@ -2,7 +2,8 @@
   "NAVIGATION": {
     "MAIN": "Home",
     "ABOUT": "About",
-    "PROFILE": "Profile"
+    "PROFILE": "Profile",
+    "ARTICLES": "Articles"
   },
   "NOT_FOUND_PAGE": "Page Not Found",
   "ERROR_MESSAGE": "Something went wrong. Please try again",
@@ -12,6 +13,10 @@
     "LOGOUT": "Logout",
     "CANCEL": "Cancel",
     "EDIT": "Edit",
-    "SAVE": "Save"
-  }
+    "SAVE": "Save",
+    "SEND": "Send",
+    "READ": "Read more..."
+  },
+  "COMMENTS": "Comments",
+  "ENTER_COMMENT": "Enter comment text"
 }

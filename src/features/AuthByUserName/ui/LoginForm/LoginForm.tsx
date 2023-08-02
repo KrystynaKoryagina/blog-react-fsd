@@ -1,11 +1,12 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { ReducersList } from 'app/providers/store';
 import { Button, ButtonType } from 'shared/ui/Button';
 import { Input } from 'shared/ui/Input';
 import { TextType, Text } from 'shared/ui/Text';
 import { useDynamicReducerLoader } from 'shared/lib/hooks/useDynamicReducerLoader';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import styles from './LoginForm.module.scss';
 import { loginByUsername } from '../../model/service/loginByUsername/loginByUserName';
@@ -20,7 +21,7 @@ const reducers: ReducersList = {
 
 const LoginForm = memo(() => {
   const { t } = useTranslation();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const username = useSelector(getLoginUsername);
   const password = useSelector(getLoginPassword);
   const error = useSelector(getLoginError);
@@ -42,7 +43,7 @@ const LoginForm = memo(() => {
 
   return (
     <div className={styles.LoginForm}>
-      {error && <Text variant={TextType.ERROR} value={error} />}
+      {error && <Text variant={TextType.ERROR}>{error}</Text>}
       <Input
         type='text'
         name='username'

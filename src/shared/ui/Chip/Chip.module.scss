@@ -1,0 +1,21 @@
+.Chip {
+  padding: 10px;
+  border-radius: 20px;
+  background: var(--card-bg);
+  text-align: center;
+  cursor: pointer;
+}
+
+.primary {
+  background: var(--card-bg);
+
+  &.selected {
+    background-color: transparent;
+    border: 1px solid var(--primary-color);
+  }
+}
+
+.outline {
+  background-color: transparent;
+  border: 1px solid var(--primary-color);
+}

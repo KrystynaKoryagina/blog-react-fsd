@@ -29,7 +29,7 @@ export const Header = memo(() => {
 
   if (authData) {
     return (
-      <div className={classNames(styles.Header)}>
+      <header className={classNames(styles.Header)}>
         <Button
           className={styles.loginBtn}
           variant={ButtonType.GHOST_INVERTED}
@@ -37,7 +37,7 @@ export const Header = memo(() => {
         >
           {t('BUTTONS.LOGOUT')}
         </Button>
-      </div>
+      </header>
     );
   }
 

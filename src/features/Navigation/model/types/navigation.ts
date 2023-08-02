@@ -1,7 +1,5 @@
-import { RoutePath } from 'shared/config/routes/routes';
-
 export interface NavigationLink {
-  path: RoutePath,
+  path: string,
   text: string,
   Icon: React.FunctionComponent<React.SVGAttributes<SVGElement>>;
   authOnly?: boolean

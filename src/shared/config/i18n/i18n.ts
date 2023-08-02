@@ -10,6 +10,7 @@ i18n
   .use(initReactI18next)
   .init({
     fallbackLng: 'en',
+    defaultNS: 'translation',
     debug: __IS_DEV__,
     initImmediate: false,
     interpolation: {

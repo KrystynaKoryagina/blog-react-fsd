@@ -35,7 +35,7 @@ const Template: ComponentStory<typeof ProfilePage> = () => (
 export const Light = Template.bind({});
 Light.decorators = [StoreDecorator({
   profile: {
-    profile: {
+    data: {
       firstName: 'Krystyna',
       lastName: 'Koryagina',
       age: 33,
@@ -52,7 +52,7 @@ export const Dark = Template.bind({});
 Dark.parameters = { theme: Theme.DARK };
 Dark.decorators = [StoreDecorator({
   profile: {
-    profile: {
+    data: {
       firstName: 'Krystyna',
       lastName: 'Koryagina',
       age: 33,

@@ -1,0 +1,53 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+}
+
+.username {
+  margin-left: 8px;
+}
+
+.main {
+  margin-top: 20px;
+}
+
+.category {
+  margin-top: 5px;
+}
+
+.img {
+  margin-top: 16px;
+  width: 100%;
+  max-height: 250px;
+  object-fit: cover;
+}
+
+.textBlock {
+  margin-top: 16px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  overflow: hidden;
+}
+
+.views {
+  display: flex;
+  align-items: center;
+}
+
+.viewsText {
+  margin-right: 5px;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 16px;
+}

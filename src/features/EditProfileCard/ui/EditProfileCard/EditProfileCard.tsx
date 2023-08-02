@@ -10,6 +10,7 @@ import { useTranslation } from 'react-i18next';
 import { Button, ButtonGroup, ButtonType } from 'shared/ui/Button';
 import { Text, TextSize, TextType } from 'shared/ui/Text';
 import { ReducersList } from 'app/providers/store';
+import { useParams } from 'react-router-dom';
 import styles from './EditProfileCard.module.scss';
 import { profileActions, profileReducer } from '../../model/slice/profileSlice';
 import { fetchProfileData } from '../../model/service/fetchProfleData/fetchProfileData';
@@ -20,6 +21,7 @@ import { getProfileEditData } from '../../model/selectors/getProfileEditData/get
 import { getProfileValidateErrors }
   from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 import { updateProfileData } from '../../model/service/updateProfileData/updateProfileData';
+import { getProfileCanEdit } from '../../model/selectors/getProfileCanEdit/getProfileCanEdit';
 
 const reducers: ReducersList = {
   profile: profileReducer,
@@ -32,6 +34,8 @@ interface EditableProfileCardProps {
 export const EditProfileCard = memo(({ classname }: EditableProfileCardProps) => {
   useDynamicReducerLoader({ reducers });
 
+  const { id } = useParams<{ id: string }>();
+
   const { t } = useTranslation(['translation', 'profile']);
   const dispatch = useAppDispatch();
 
@@ -40,6 +44,7 @@ export const EditProfileCard = memo(({ classname }: EditableProfileCardProps) =>
   const error = useSelector(getProfileError);
   const readOnly = useSelector(getProfileReadOnly);
   const validateErrors = useSelector(getProfileValidateErrors);
+  const canEdit = useSelector(getProfileCanEdit);
 
   // TODO add translation
   const validateErrorTranslates = {
@@ -50,9 +55,12 @@ export const EditProfileCard = memo(({ classname }: EditableProfileCardProps) =>
     [ValidateProfileError.INCORRECT_AGE]: t('Некорректный возраст'),
   };
 
+  // TODO storybook
   useEffect(() => {
-    dispatch(fetchProfileData());
-  }, [dispatch]);
+    if (id) {
+      dispatch(fetchProfileData(id));
+    }
+  }, [dispatch, id]);
 
   const onEdit = useCallback(() => {
     dispatch(profileActions.setReadOnly(false));
@@ -104,29 +112,34 @@ export const EditProfileCard = memo(({ classname }: EditableProfileCardProps) =>
   return (
     <div className={classNames(styles.EditableProfileCard, [classname])}>
       <div className={styles.header}>
-        <Text value={t('PROFILE', { ns: 'profile' })} size={TextSize.LG} />
-        {readOnly ? (
-          <Button
-            className={styles.btn}
-            variant={ButtonType.OUTLINE}
-            onClick={onEdit}
-          >
-            {t('BUTTONS.EDIT')}
-          </Button>
-        ) : (
+        <Text size={TextSize.LG}>{t('PROFILE', { ns: 'profile' })}</Text>
+        {canEdit && (
           <ButtonGroup className={styles.btn}>
-            <Button
-              variant={ButtonType.OUTLINE}
-              onClick={onCancel}
-            >
-              {t('BUTTONS.CANCEL')}
-            </Button>
-            <Button
-              variant={ButtonType.PRIMARY_INVERTED}
-              onClick={onSave}
-            >
-              {t('BUTTONS.SAVE')}
-            </Button>
+            {readOnly
+              ? (
+                <Button
+                  variant={ButtonType.OUTLINE}
+                  onClick={onEdit}
+                >
+                  {t('BUTTONS.EDIT')}
+                </Button>
+              )
+              : (
+                <>
+                  <Button
+                    variant={ButtonType.OUTLINE}
+                    onClick={onCancel}
+                  >
+                    {t('BUTTONS.CANCEL')}
+                  </Button>
+                  <Button
+                    variant={ButtonType.PRIMARY_INVERTED}
+                    onClick={onSave}
+                  >
+                    {t('BUTTONS.SAVE')}
+                  </Button>
+                </>
+              )}
           </ButtonGroup>
         )}
       </div>
@@ -134,7 +147,7 @@ export const EditProfileCard = memo(({ classname }: EditableProfileCardProps) =>
       <div className={styles.content}>
         {
           validateErrors?.length && validateErrors.map((err) => (
-            <Text key={err} variant={TextType.ERROR} value={validateErrorTranslates[err]} />
+            <Text key={err} variant={TextType.ERROR}>{validateErrorTranslates[err]}</Text>
           ))
         }
         <ProfileCard

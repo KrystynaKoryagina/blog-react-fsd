@@ -56,7 +56,7 @@ export const ProfileCard = memo(({
     // TODO
     return (
       <div className={classNames(styles.ProfileCard)}>
-        <Text variant={TextType.ERROR} value='Произошла ошибка' align={TextAlign.CENTER} />
+        <Text variant={TextType.ERROR} align={TextAlign.CENTER}>Произошла ошибка</Text>
       </div>
     );
   }

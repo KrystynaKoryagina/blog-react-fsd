@@ -42,5 +42,4 @@ export default ({ config }: { config: webpack.Configuration }) => {
 /* TODO
 Для переключения тем в компонентах
  https://storybook.js.org/addons/@dhruvkb/storybook-addon-themes
-
 */

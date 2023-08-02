@@ -21,7 +21,7 @@ ThunkConfig<ValidateProfileError[]
     }
 
     try {
-      const response = await extra.api.put<Profile>('/profile', editData);
+      const response = await extra.api.put<Profile>(`/profile/${editData?.id}`, editData);
 
       return response.data;
     } catch (err) {

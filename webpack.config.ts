@@ -3,6 +3,9 @@ import webpack from 'webpack';
 import { BuildEnv, BuildPaths } from './config/build/types/build';
 import { buildWebpackConfig } from './config/webpack/buildWebpackConfig';
 
+// NOTE webpack Environment Variables
+// https://webpack.js.org/guides/environment-variables/
+
 export default (env: BuildEnv) => {
   const paths: BuildPaths = {
     entry: path.resolve(__dirname, 'src', 'index.tsx'),

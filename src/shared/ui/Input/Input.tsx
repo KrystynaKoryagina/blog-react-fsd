@@ -54,10 +54,12 @@ export const Input = memo((props: InputProps) => {
 
   return (
     <div className={classNames(styles.InputWrapper, [className])}>
-      <label className={styles.label} htmlFor={id}>
-        {label}
-        &gt;
-      </label>
+      { label && (
+        <label className={styles.label} htmlFor={id}>
+          {label}
+          &gt;
+        </label>
+      )}
       <div className={styles.inputContent}>
         <input
           ref={inputRef}

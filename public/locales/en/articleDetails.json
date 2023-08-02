@@ -1,0 +1,12 @@
+{
+  "ARTICLE_NOT_FOUND": "Article Not Found",
+  "ARTICLE_CATEGORY": {
+    "ALL": "All",
+    "IT": "IT",
+    "SCIENCE": "Science",
+    "ECONOMICS": "Economiccs"
+  },
+  "BUTTON": {
+    "BACK_TO_LIST": "Back to list"
+  }
+}

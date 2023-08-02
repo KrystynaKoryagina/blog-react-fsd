@@ -5,7 +5,7 @@ import { fetchProfileData } from '../service/fetchProfleData/fetchProfileData';
 import { updateProfileData } from '../service/updateProfileData/updateProfileData';
 
 export const initialState: ProfileStore = {
-  profile: null,
+  data: null,
   readOnly: true,
   isLoading: false,
 };
@@ -25,7 +25,7 @@ export const profileSlice = createSlice({
     },
     cancelEdit: (state) => {
       state.readOnly = true;
-      state.editData = state.profile;
+      state.editData = state.data;
       state.validateErrors = null;
     },
   },
@@ -36,7 +36,7 @@ export const profileSlice = createSlice({
         state.error = null;
       })
       .addCase(fetchProfileData.fulfilled, (state, action) => {
-        state.profile = action.payload;
+        state.data = action.payload;
         state.editData = action.payload;
         state.isLoading = false;
       })
@@ -49,7 +49,7 @@ export const profileSlice = createSlice({
         state.validateErrors = null;
       })
       .addCase(updateProfileData.fulfilled, (state, action: PayloadAction<Profile>) => {
-        state.profile = action.payload;
+        state.data = action.payload;
         state.editData = action.payload;
         state.isLoading = false;
         state.readOnly = true;

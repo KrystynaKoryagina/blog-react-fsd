@@ -1,0 +1,28 @@
+.CodeWrapper {
+  position: relative;
+  background: var(--code-bg);
+  overflow: auto;
+  display: flex;
+  align-items: baseline;
+}
+
+.copyBtn {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.code {
+  padding-top: 20px;
+  margin-left: 10px;
+}
+
+.rows {
+  text-align: right;
+  padding: 20px;
+  background: var(--code-row-bg);
+}
+
+.rowsItem {
+  color: var(--code-row-color);
+}

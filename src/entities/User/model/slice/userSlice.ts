@@ -4,6 +4,8 @@ import { User, UserStore } from '../types/user';
 
 const initialState: UserStore = {
   authData: null,
+
+  _inited: false,
 };
 
 export const userSlice = createSlice({
@@ -19,6 +21,8 @@ export const userSlice = createSlice({
       if (user) {
         state.authData = JSON.parse(user);
       }
+
+      state._inited = true;
     },
     logout: (state) => {
       localStorage.removeItem(AUTH_TOKEN); // TODO Bad practice
@@ -30,6 +34,7 @@ export const userSlice = createSlice({
 export const { actions: userActions } = userSlice;
 export const { reducer: userReducer } = userSlice;
 
+// TODO
 /*
 
 interface Store {
