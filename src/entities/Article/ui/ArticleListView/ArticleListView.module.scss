@@ -1,0 +1,12 @@
+.img {
+  width: 100%;
+  max-height: 250px;
+  object-fit: cover;
+}
+
+.textBlock {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  overflow: hidden;
+}

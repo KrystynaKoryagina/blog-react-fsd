@@ -5,6 +5,7 @@ import { Sidebar } from 'widgets/Sidebar';
 import { getUserInited, userActions } from 'entities/User';
 import { classNames } from 'shared/lib/utils/classNames';
 import { useTheme } from 'shared/lib/contexts/theme';
+import { HStack } from 'shared/ui/Stack';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { AppRouter } from './providers/router';
 import './styles/index.scss';
@@ -38,10 +39,11 @@ Feliche-Demian Netliukh
     <div id='app' className={classNames('app', [theme])}>
       <Suspense fallback=''>
         <Header />
-        <div className='content'>
+        <HStack>
           <Sidebar />
+          {/* TODO add spinner instead of INITED */}
           {inited && <AppRouter />}
-        </div>
+        </HStack>
       </Suspense>
     </div>
   );

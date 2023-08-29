@@ -14,6 +14,7 @@ import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLogi
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
 import { getLoginLoading } from '../../model/selectors/getLoginLoading/getLoginLoading';
+import { VStack } from 'shared/ui/Stack';
 
 const reducers: ReducersList = {
   login: loginReducer,
@@ -22,6 +23,7 @@ const reducers: ReducersList = {
 const LoginForm = memo(() => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
+
   const username = useSelector(getLoginUsername);
   const password = useSelector(getLoginPassword);
   const error = useSelector(getLoginError);
@@ -42,7 +44,7 @@ const LoginForm = memo(() => {
   }, [dispatch, username, password]);
 
   return (
-    <div className={styles.LoginForm}>
+    <VStack gap='16' className={styles.LoginForm}>
       {error && <Text variant={TextType.ERROR}>{error}</Text>}
       <Input
         type='text'
@@ -66,7 +68,7 @@ const LoginForm = memo(() => {
       >
         {t('BUTTONS.LOGIN')}
       </Button>
-    </div>
+    </VStack>
   );
 });
 

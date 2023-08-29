@@ -14,6 +14,7 @@ import {
 import styles from './AddCommentForm.module.scss';
 import { getAddCommentFormText }
   from '../../model/selectors/getAddCommentFormText/getAddCommentFormText';
+import { HStack } from 'shared/ui/Stack';
 
 export interface AddCommentFormProps {
   sentComment: (text: string) => void;
@@ -44,7 +45,11 @@ const AddCommentForm = memo(({ sentComment, className }: AddCommentFormProps) =>
   }, [comment, onCommentChange, sentComment]);
 
   return (
-    <div className={classNames(styles.AddCommentForm, [className])}>
+    <HStack
+      align='center'
+      justify='between'
+      className={classNames(styles.AddCommentForm, [className])}
+    >
       {/* TODO reset value after send comment */}
       <Input
         className={styles.input}
@@ -58,7 +63,7 @@ const AddCommentForm = memo(({ sentComment, className }: AddCommentFormProps) =>
       >
         {t('BUTTONS.SEND')}
       </Button>
-    </div>
+    </HStack>
   );
 });
 

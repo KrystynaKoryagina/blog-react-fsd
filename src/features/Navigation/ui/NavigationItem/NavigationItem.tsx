@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { getUserAuthData } from 'entities/User';
 import { AppLink } from 'shared/ui/AppLink';
 import { classNames } from 'shared/lib/utils/classNames';
+import { HStack } from 'shared/ui/Stack';
 import { NavigationLink } from '../../model/types/navigation';
 import styles from './NavigationItem.module.scss';
 
@@ -27,8 +28,10 @@ export const NavigationItem: FC<NavigationItemProps> = ({ item, collapsed }) => 
       })}
       to={item.path}
     >
-      <item.Icon className={styles.navIcon} />
-      <span className={styles.navName}>{t(item.text)}</span>
+      <HStack gap={collapsed ? '0' : '8'}>
+        <item.Icon />
+        <span className={styles.navName}>{t(item.text)}</span>
+      </HStack>
     </AppLink>
   );
 };

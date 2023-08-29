@@ -1,7 +1,6 @@
 import { memo } from 'react';
 import { TextSize, Text } from 'shared/ui/Text';
-import { classNames } from 'shared/lib/utils/classNames';
-import cls from './ArticleText.module.scss';
+import { VStack } from 'shared/ui/Stack';
 import { ArticleTextBlock } from '../../model/types/article';
 
 interface ArticleTextProps {
@@ -10,12 +9,14 @@ interface ArticleTextProps {
 }
 
 export const ArticleText = memo(({ className, block }: ArticleTextProps) => (
-  <div className={classNames(cls.ArticleText, [className])}>
+  <VStack className={className} gap='16'>
     {block.title && (
-      <Text className={cls.title}>{block.title}</Text>
+      <Text>{block.title}</Text>
     )}
-    {block.paragraphs.map((paragraph) => (
-      <Text key={paragraph} className={cls.paragraph} size={TextSize.SM}>{paragraph}</Text>
-    ))}
-  </div>
+    <VStack>
+      {block.paragraphs.map((paragraph) => (
+        <Text key={paragraph} size={TextSize.SM}>{paragraph}</Text>
+      ))}
+    </VStack>
+  </VStack>
 ));

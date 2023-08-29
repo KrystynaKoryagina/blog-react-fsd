@@ -9,7 +9,7 @@ import { useTranslation } from 'react-i18next';
 import { AddCommentForm } from 'features/AddCommentForm';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import styles from './ArticleComments.module.scss';
+import { VStack } from 'shared/ui/Stack';
 import { articleCommentsReducer, getArticleComments } from '../model/slice/articleCommentsSlice';
 import { fetchCommentsByArticleId }
   from '../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
@@ -23,9 +23,10 @@ const reducers: ReducersList = {
 
 interface ArticleCommentsProps {
   articleId: string
+  className?: string
 }
 
-export const ArticleComments = memo(({ articleId }: ArticleCommentsProps) => {
+export const ArticleComments = memo(({ articleId, className }: ArticleCommentsProps) => {
   useDynamicReducerLoader({ reducers });
 
   const { t } = useTranslation();
@@ -57,12 +58,12 @@ export const ArticleComments = memo(({ articleId }: ArticleCommentsProps) => {
   }, [dispatch]);
 
   return (
-    <div className={styles.ArticleComments}>
+    <VStack className={className} gap='16'>
       <Text>{t('COMMENTS')}</Text>
-      <AddCommentForm className={styles.commentsForm} sentComment={onSendComment} />
-      <div className={styles.commentsList}>
+      <AddCommentForm sentComment={onSendComment} />
+      <VStack gap='8'>
         {CommentCardJSX}
-      </div>
-    </div>
+      </VStack>
+    </VStack>
   );
 });

@@ -16,13 +16,19 @@ export const Search = memo(({ searchValue = '', className, onSearch }: SearchPro
   // TODO
   const { t } = useTranslation();
 
+  console.log('Search');
+
   // console.log('searchValue', searchValue);
 
   // const onChangeHandler = useDebounce(onSearch, 700);
 
   return (
     <Card className={className}>
-      <Input value={searchValue} placeholder='Search' onChange={onSearch} />
+      <Input
+        value={searchValue}
+        placeholder={t('SEARCH')}
+        onChange={onSearch}
+      />
     </Card>
   );
 });

@@ -18,15 +18,15 @@ import { memo } from 'react';
 */
 
 interface ThemeSwitcherProps {
-  classname?: string;
+  className?: string;
 }
 
-export const ThemeSwitcher = memo(({ classname }: ThemeSwitcherProps) => {
+export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
   const { theme, toggleTheme } = useTheme();
 
   return (
     <Button
-      className={classname}
+      className={className}
       variant={ButtonType.GHOST}
       onClick={toggleTheme}
     >

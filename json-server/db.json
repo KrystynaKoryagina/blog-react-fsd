@@ -1,16 +1,4 @@
 {
-  "posts": [
-    {
-      "id": "1",
-      "title": "json-server",
-      "userId": "1"
-    },
-    {
-      "id": "2",
-      "title": "json-server",
-      "userId": "2"
-    }
-  ],
   "articles": [
     {
       "id": "1",
@@ -134,7 +122,7 @@
     },
     {
       "id": "4",
-      "title": "Scala news",
+      "title": "Scala news 2 categories",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://logowik.com/content/uploads/images/scala3486.jpg",
       "views": 10222,
@@ -630,6 +618,13 @@
       "password": "123",
       "role": "USER",
       "avatar": "https://st2.depositphotos.com/2501025/5406/i/950/depositphotos_54065895-stock-photo-hacker.jpg"
+    },
+    {
+      "id": "3",
+      "username": "owner",
+      "password": "123456",
+      "role": "OWNER",
+      "avatar": "https://store.playstation.com/store/api/chihiro/00_09_000/container/TR/en/19/EP4476-CUSA11273_00-AV00000000000059/image?w=320&h=320&bg_color=000000&opacity=100&_version=00_09_000"
     }
   ],
   "profile": [
@@ -639,7 +634,7 @@
       "lastName": "Koryagina",
       "age": 34,
       "currency": "EUR",
-      "country": "Ukraine",
+      "country": "USA",
       "city": "Kharkov",
       "username": "admin",
       "avatar": "https://kartinkin.net/uploads/posts/2022-12/1670281496_6-kartinkin-net-p-kartinka-bukhgalter-vkontakte-6.png"
@@ -654,6 +649,17 @@
       "city": "NY",
       "username": "user",
       "avatar": "https://st2.depositphotos.com/2501025/5406/i/950/depositphotos_54065895-stock-photo-hacker.jpg"
+    },
+    {
+      "id": "3",
+      "firstName": "Owner",
+      "lastName": "Owner",
+      "age": 40,
+      "currency": "USD",
+      "country": "Canada",
+      "city": "Toronto",
+      "username": "owner",
+      "avatar": "https://store.playstation.com/store/api/chihiro/00_09_000/container/TR/en/19/EP4476-CUSA11273_00-AV00000000000059/image?w=320&h=320&bg_color=000000&opacity=100&_version=00_09_000"
     }
   ]
 }

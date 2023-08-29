@@ -2,6 +2,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
 import { ArticleBlockType, ArticleCategory, Article } from '../../model/types/article';
 import { ArticleDetails } from './ArticleDetails';
+import { UserRole } from 'entities/User';
 
 // TODO
 // Yрок 50 Страница статьи. Блочная структура. Компонент Code. Копирование
@@ -29,6 +30,7 @@ const article: Article = {
     id: '1',
     username: 'admin',
     avatar: 'https://kartinkin.net/uploads/posts/2022-12/1670281496_6-kartinkin-net-p-kartinka-bukhgalter-vkontakte-6.png',
+    role: UserRole.ADMIN,
   },
   blocks: [
     {

@@ -1,7 +1,9 @@
 export { ArticleDetails } from './ui/ArticleDetails/ArticleDetails';
-export { ArticleText } from './ui/ArticleText/ArticleText'; // TODO remove from export
+export { ArticlesList } from './ui/ArticlesList/ArticlesList';
 
 export {
-  Article, ArticleBlockType, ArticleTextBlock, ArticleCategory,
-} from './model/types/article'; // TODO remove ArticleTextBlock
+  Article, ArticleCategory, ArticleView,
+} from './model/types/article';
 export { ArticleStore } from './model/types/articleStore';
+
+export { getArticleData } from './model/selectors/getArticleData/getArticleData';

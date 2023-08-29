@@ -6,6 +6,8 @@ export const COUNTRY = {
   Ukraine: 'Ukraine',
   Kazakhstan: 'Kazahstan',
   Armenia: 'Armenia',
+  USA: 'USA',
+  Canada: 'Canada'
 } as const;
 
 export type Country = ValueOf<typeof COUNTRY>;

@@ -1,0 +1,38 @@
+import { ElementType, ReactNode, ComponentPropsWithoutRef } from 'react';
+import { classNames } from 'shared/lib/utils/classNames';
+import styles from './Text.module.scss';
+import { TextType, TextSize, TextAlign } from '../types/Text';
+
+// TODO storybook for size, align ...
+
+type TextProps<C extends ElementType> = {
+  as?: C
+  variant?: TextType;
+  size?: TextSize;
+  align?: TextAlign;
+  className?: string
+  children: ReactNode
+} & ComponentPropsWithoutRef<C>;
+
+export const Text = <C extends ElementType>({
+  as,
+  children,
+  className,
+  size = TextSize.MD,
+  align = TextAlign.LEFT,
+  variant = TextType.PRIMARY,
+  ...otherProps
+}: TextProps<C>) => {
+  const Component = as || 'p';
+
+  return (
+    <Component
+      className={
+        classNames(styles.Text, [styles[variant], styles[size], styles[align], className])
+      }
+      {...otherProps}
+    >
+      {children}
+    </Component>
+  );
+};

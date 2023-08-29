@@ -1,0 +1,10 @@
+{
+  "ARTICLE_NOT_FOUND": "Статья не найдена",
+  "ARTICLE_CATEGORY": {
+    "ALL": "Все",
+    "IT": "IT",
+    "SCIENCE": "Наука",
+    "ECONOMICS": "Экономика"
+  },
+  "RECOMMENDED_ARTICLES": "Рекомендуемые статьи"
+}

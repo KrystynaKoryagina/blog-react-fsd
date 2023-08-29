@@ -11,6 +11,17 @@
   min-height: 100vh;
 }
 
-.content {
-  display: flex;
+/* ScrollBar */
+*::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--inverted-primary-color);
+  border-radius: 20px;
 }

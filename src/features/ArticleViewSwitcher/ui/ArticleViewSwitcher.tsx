@@ -1,9 +1,11 @@
-import { memo } from 'react';
+import { memo, useCallback } from 'react';
 import GridIcon from 'shared/assets/icons/grid.svg';
 import ListIcon from 'shared/assets/icons/list.svg';
 import { classNames } from 'shared/lib/utils/classNames';
 import { Button, ButtonType } from 'shared/ui/Button';
-import { ArticleView, ArticleViewTypes } from '../model/types/articleView';
+import { ArticleView } from 'entities/Article';
+import { HStack } from 'shared/ui/Stack';
+import { ArticleViewTypes } from '../model/types/articleView';
 import styles from './ArticleViewSwitcher.module.scss';
 
 const viewTypes: ArticleViewTypes[] = [
@@ -28,12 +30,12 @@ export const ArticleViewSwitcher = memo(({
   className,
   changeView,
 }: ArticleViewSwitcherProps) => {
-  const onChangeView = (newView: ArticleView) => () => {
+  const onChangeView = useCallback((newView: ArticleView) => () => {
     changeView?.(newView);
-  };
+  }, [changeView]);
 
   return (
-    <div className={classNames(styles.ArticleViewSwitcher, [className])}>
+    <HStack className={className} gap='8'>
       {viewTypes.map((item) => (
         <Button
           variant={ButtonType.GHOST}
@@ -46,6 +48,6 @@ export const ArticleViewSwitcher = memo(({
           />
         </Button>
       ))}
-    </div>
+    </HStack>
   );
 });

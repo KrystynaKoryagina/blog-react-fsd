@@ -1,0 +1,59 @@
+.DropdownMenu {
+  position: relative;
+}
+
+.btn {
+  background: none;
+  margin: 0;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+}
+
+.menuList {
+  background: var(--card-bg);
+  position: absolute;
+  z-index: 10000;
+  border-radius: 8px;
+  border: 1px solid var(--primary-color);
+  flex-direction: column;
+  display: flex;
+  overflow: hidden;
+  width: max-content;
+  max-width: 250px;
+}
+
+.menuItem {
+  padding: 10px 25px;
+  width: 100%;
+  border: none;
+  background: none;
+  outline: none;
+  color: var(--primary-color);
+  cursor: pointer;
+  text-align: left;
+}
+
+.menuItemActive {
+  background: var(--inverted-primary-color);
+}
+
+.bottomLeft {
+  top: 100%;
+  right: 0;
+}
+
+.bottomRight {
+  top: 100%;
+  left: 0;
+}
+
+.topRight {
+  bottom: 100%;
+  left: 0;
+}
+
+.topLeft {
+  right: 0;
+  bottom: 100%;
+}

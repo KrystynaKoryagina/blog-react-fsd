@@ -1,4 +1,4 @@
-export type ArticleView = 'list' | 'grid';
+import { ArticleView } from 'entities/Article';
 
 export interface ArticleViewTypes {
   view: ArticleView;

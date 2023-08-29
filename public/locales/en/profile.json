@@ -1,10 +1,15 @@
 {
   "PROFILE": "Profile",
-  "FIRSTNAME": "Your name",
-  "LASTNAME": "Your lastname",
-  "AGE": "Your age",
-  "CITY": "Your city",
-  "USERNAME": "Username",
-  "AVATAR": "Enter a link to the avatar",
-  "USER_AVATAR": "User avatar"
+  "FORM": {
+    "FIRSTNAME": "Your name",
+    "LASTNAME": "Your lastname",
+    "AGE": "Your age",
+    "CITY": "Your city",
+    "USERNAME": "Username",
+    "AVATAR": "Enter a link to the avatar",
+    "USER_AVATAR": "User avatar",
+    "CURRENCY": "Select currency",
+    "COUNTRY": "Select country"
+  },
+  "NOT_FOUND": "Profile not found"
 }

@@ -1,2 +1,2 @@
-export { Text } from './Text';
+export { Text } from './Text/Text';
 export { TextType, TextSize, TextAlign } from './types/Text';

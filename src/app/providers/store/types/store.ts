@@ -14,10 +14,12 @@ import { ProfileStore } from 'features/EditProfileCard';
 import { ArticleCommentsStore } from 'widgets/ArticleComments';
 import { ArticlesListStore } from 'pages/ArticlesPage';
 import { ScrollStore } from 'features/SaveScrollPosition';
+import { rtkApi } from 'shared/api/rtkQuery';
 
 export interface StoreSchema {
   user: UserStore;
   scroll: ScrollStore;
+  [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>,
 
   // Async Reducers
   login?: LoginStore;
@@ -51,4 +53,4 @@ export interface ThunkConfig<T> {
   state: StoreSchema;
 }
 
-export type ReducersList = { [name in StoreSchemaKey]?: Reducer };
+export type ReducersList = { [name in StoreSchemaKey]?: Reducer<NonNullable<StoreSchema[name]>> };

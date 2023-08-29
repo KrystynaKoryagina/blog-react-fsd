@@ -15,7 +15,7 @@
 
 .input {
   width: 100%;
-  background: transparent;
+  background-color: transparent;
   border: none;
   outline: none;
   caret-color: transparent;
@@ -34,6 +34,13 @@
 
   &::placeholder {
     color: var(--secondary-color);
+  }
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus {
+    -webkit-text-fill-color: var(--primary-color);
+    -webkit-box-shadow: 0 0 0 40rem var(--bg-color) inset;
   }
 }
 

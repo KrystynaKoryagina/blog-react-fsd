@@ -3,7 +3,8 @@
     "MAIN": "Home",
     "ABOUT": "About",
     "PROFILE": "Profile",
-    "ARTICLES": "Articles"
+    "ARTICLES": "Articles",
+    "ADMIN_PANEL": "Admin Panel"
   },
   "NOT_FOUND_PAGE": "Page Not Found",
   "ERROR_MESSAGE": "Something went wrong. Please try again",
@@ -15,8 +16,11 @@
     "EDIT": "Edit",
     "SAVE": "Save",
     "SEND": "Send",
-    "READ": "Read more..."
+    "READ": "Read more...",
+    "BACK": "Back"
   },
   "COMMENTS": "Comments",
-  "ENTER_COMMENT": "Enter comment text"
+  "ENTER_COMMENT": "Enter comment text",
+  "CREATE_ARTICLE": "Create Article",
+  "SEARCH": "Search"
 }

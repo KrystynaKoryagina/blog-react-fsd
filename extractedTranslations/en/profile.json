@@ -3,7 +3,22 @@
   "AVATAR": "",
   "CITY": "",
   "FIRSTNAME": "",
+  "FORM": {
+    "AGE": "AGE",
+    "AVATAR": "AVATAR",
+    "CITY": "CITY",
+    "COUNTRY": "COUNTRY",
+    "CURRENCY": "CURRENCY",
+    "FIRSTNAME": "FIRSTNAME",
+    "LASTNAME": "LASTNAME",
+    "USERNAME": "USERNAME"
+  },
+  "FROM": {
+    "COUNTRY": "COUNTRY",
+    "CURRENCY": "CURRENCY"
+  },
   "LASTNAME": "",
+  "NOT_FOUND": "NOT_FOUND",
   "PROFILE": "PROFILE",
   "USERNAME": "",
   "USER_AVATAR": ""

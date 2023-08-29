@@ -8,6 +8,7 @@
   "AVATAR": "AVATAR",
   "AboutPage": "AboutPage",
   "BUTTONS": {
+    "BACK": "BACK",
     "CANCEL": "CANCEL",
     "EDIT": "EDIT",
     "LOGIN": "LOGIN",
@@ -19,12 +20,30 @@
   },
   "CITY": "CITY",
   "COMMENTS": "COMMENTS",
+  "CREATE_ARTICLE": "CREATE_ARTICLE",
   "ENTER_COMMENT": "ENTER_COMMENT",
   "ERROR_MESSAGE": "ERROR_MESSAGE",
   "FIRSTNAME": "FIRSTNAME",
+  "FORM": {
+    "AGE": "AGE",
+    "AVATAR": "AVATAR",
+    "CITY": "CITY",
+    "LASTNAME": "LASTNAME",
+    "USERNAME": "USERNAME"
+  },
+  "FROM": {
+    "COUNTRY": "COUNTRY",
+    "CURRENCY": "CURRENCY"
+  },
   "LASTNAME": "LASTNAME",
   "MAIN_PAGE": "MAIN_PAGE",
+  "NAVIGATION": {
+    "ADMIN_PANEL": "ADMIN_PANEL",
+    "PROFILE": "PROFILE"
+  },
   "NOT_FOUND_PAGE": "NOT_FOUND_PAGE",
+  "RECOMMENDED_ARTICLES": "RECOMMENDED_ARTICLES",
+  "SEARCH": "SEARCH",
   "Something went wrong": {
     "": ""
   },

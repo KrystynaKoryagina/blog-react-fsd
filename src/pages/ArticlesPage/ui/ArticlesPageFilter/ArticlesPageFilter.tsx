@@ -1,5 +1,5 @@
 import { ArticleSort, ArticleSortField } from 'features/ArticleSort';
-import { ArticleView, ArticleViewSwitcher } from 'features/ArticleViewSwitcher';
+import { ArticleViewSwitcher } from 'features/ArticleViewSwitcher';
 import { memo, useCallback, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
@@ -12,17 +12,18 @@ import {
   getArticlesListSearch,
   fetchArticles,
   getArticlesListCategory,
-} from 'widgets/ArticlesList';
+} from 'widgets/ArticlesInfiniteList';
 import { Search } from 'features/Search';
 import { useDebounce } from 'shared/lib/hooks/useDebounce';
 import { ChipContent } from 'shared/ui/Chip/types/chip';
-import { ArticleCategory } from 'entities/Article';
+import { ArticleCategory, ArticleView } from 'entities/Article';
 import { useTranslation } from 'react-i18next';
 import { Chip } from 'shared/ui/Chip';
+import { HStack, VStack } from 'shared/ui/Stack';
 import styles from './ArticlesPageFilter.module.scss';
 
 export const ArticlesPageFilter = memo(() => {
-  const { t } = useTranslation('articleDetails');
+  const { t } = useTranslation('article');
 
   const view = useSelector(getArticlesListView);
   const order = useSelector(getArticlesListOrder);
@@ -43,6 +44,8 @@ export const ArticlesPageFilter = memo(() => {
       displayName: t(`ARTICLE_CATEGORY.${key}`),
       value,
     })), [t]);
+
+  // TODO refactor !!!!!
 
   const fetchData = useCallback(() => {
     dispatch(fetchArticles({ replace: true }));
@@ -81,20 +84,21 @@ export const ArticlesPageFilter = memo(() => {
   }, [dispatch, fetchData]);
 
   return (
-    <div className={styles.ArticlesPageFilter}>
-      <div className={styles.sortWrapper}>
+    <VStack gap='24'>
+      <HStack justify='between'>
         <ArticleSort
           sort={sort}
           order={order}
           onChangeOrder={onChangeOrder}
           onChangeSort={onChangeSort}
         />
-        <ArticleViewSwitcher className={styles.viewSwitcher} view={view} changeView={onChangeView} />
-      </div>
+        <ArticleViewSwitcher view={view} changeView={onChangeView} />
+      </HStack>
 
-      <Search className={styles.search} searchValue={search} onSearch={onSearch} />
+      <Search searchValue={search} onSearch={onSearch} />
 
-      <div className={styles.categories}>
+      <HStack gap='4'>
+        {/* TODO move to feature */}
         {ArticleCategoties.map((item) => (
           <Chip
             content={item}
@@ -104,7 +108,7 @@ export const ArticlesPageFilter = memo(() => {
             onSelectChip={onChangeCategory}
           />
         ))}
-      </div>
-    </div>
+      </HStack>
+    </VStack>
   );
 });

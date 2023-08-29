@@ -2,11 +2,12 @@ import { ReducersList } from 'app/providers/store';
 import { memo, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
-  ArticlesList, articlesListReducer, fetchNextArticles, initArticlesPage,
-} from 'widgets/ArticlesList';
+  ArticlesInfiniteList, articlesListReducer, fetchNextArticles, initArticlesPage,
+} from 'widgets/ArticlesInfiniteList';
 import { useSearchParams } from 'react-router-dom';
 import { useDynamicReducerLoader } from 'shared/lib/hooks/useDynamicReducerLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { VStack } from 'shared/ui/Stack';
 import { Page } from 'widgets/Page';
 import { ArticlesPageFilter } from '../ArticlesPageFilter/ArticlesPageFilter';
 
@@ -43,8 +44,10 @@ const ArticlesPage = () => {
 
   return (
     <Page onScrollEnd={onLoadMoreArticles} saveScroll>
-      <ArticlesPageFilter />
-      <ArticlesList />
+      <VStack gap='32'>
+        <ArticlesPageFilter />
+        <ArticlesInfiniteList />
+      </VStack>
     </Page>
   );
 };

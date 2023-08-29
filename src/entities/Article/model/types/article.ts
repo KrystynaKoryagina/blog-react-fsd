@@ -13,12 +13,7 @@ export interface Article {
   user: User
 }
 
-export enum ArticleCategory {
-  ALL = 'ALL',
-  IT = 'IT',
-  SCIENCE = 'SCIENCE',
-  ECONOMICS = 'ECONOMICS',
-}
+export type ArticleView = 'list' | 'grid';
 
 export type ArticleBlock = ArticleCodeBlock | ArticleImageBlock | ArticleTextBlock;
 
@@ -42,6 +37,13 @@ export interface ArticleTextBlock extends ArticleBlockBase {
   type: ArticleBlockType.TEXT;
   paragraphs: string[];
   title?: string;
+}
+
+export enum ArticleCategory {
+  ALL = 'ALL',
+  IT = 'IT',
+  SCIENCE = 'SCIENCE',
+  ECONOMICS = 'ECONOMICS',
 }
 
 export const enum ArticleBlockType {

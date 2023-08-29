@@ -2,8 +2,11 @@ import { memo, useMemo } from 'react';
 import { Select, SelectOption } from 'shared/ui/Select';
 import { SortOrder } from 'shared/types/sort';
 import { useTranslation } from 'react-i18next';
-import styles from './ArticleSort.module.scss';
+import { HStack } from 'shared/ui/Stack';
 import { ArticleSortField } from '../../model/types/articleSort';
+
+// TODO изолировать в рамках фичи - сделать общий компонент сортировки подходящий для любых страниц
+// создать свою model selecter
 
 interface IArticleSort {
   sort: ArticleSortField
@@ -45,19 +48,19 @@ export const ArticleSort = memo(({
   ], []);
 
   return (
-    <div className={styles.ArticleSort}>
+    <HStack gap='16'>
       <Select
         options={sortFieldOptions}
-        label='Cортировать по:'
+        label='Cортировать по' // TODO translation
         value={sort}
         onChange={onChangeSort}
       />
       <Select
         options={orderOptions}
-        label='По:'
+        label='По' // TODO translation
         value={order}
         onChange={onChangeOrder}
       />
-    </div>
+    </HStack>
   );
 });

@@ -21,4 +21,13 @@ export function addQueryParams(params: OptionalRecord<string, string>) {
   window.history.pushState(null, '', getQueryParams(params));
 }
 
+// TODO use createSearchParams from react ????
+/*
+  const navigateToChat = () => {
+    navigate({
+      pathname: '/chat',
+      search: `?${createSearchParams(formValues)}`,
+    });
+  };
+*/
 // TODO тесты урок 59 Большой урок. Фильтры. Сортировка. Поиск. Tabs. useDebounce 01:03:17
