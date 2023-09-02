@@ -1,13 +1,14 @@
 import {
-  FC, useCallback, useLayoutEffect, useState,
+  ReactNode, useCallback, useLayoutEffect, useState,
 } from 'react';
 import { createPortal } from 'react-dom';
 
 interface PortalProps {
   wrapperId?: string
+  children?: ReactNode
 }
 
-export const Portal: FC<PortalProps> = ({ children, wrapperId = 'app' }) => {
+export const Portal = ({ children, wrapperId = 'app' }: PortalProps) => {
   const [container, setContainer] = useState<HTMLElement | null>(null);
 
   const createWrapperAndAppendToBody = useCallback(() => {

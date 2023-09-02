@@ -4,16 +4,16 @@ import i18n from 'shared/config/i18n/i18n';
 import { CommentData } from 'entities/Comment';
 
 export const fetchCommentsByArticleId = createAsyncThunk<
-CommentData[], string, ThunkConfig<string | undefined>>(
+CommentData[], string | undefined, ThunkConfig<string | undefined>>(
   'articleComments/fetchCommentsByArticleId',
   async (articleId, thunkAPI) => {
     const { extra, rejectWithValue } = thunkAPI;
 
-    if (!articleId) {
-      throw new Error();
-    }
-
     try {
+      if (!articleId) {
+        throw new Error();
+      }
+
       const response = await extra.api.get<CommentData[]>('/comments', {
         params: {
           articleId,

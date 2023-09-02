@@ -14,13 +14,13 @@ const ArticleDetailsPage = () => {
   const { id } = params;
 
   // TODO надо ли???? как сюда попасть
-  if (!id) {
-    return (
-      <div>
-        {t('ARTICLE_NOT_FOUND')}
-      </div>
-    );
-  }
+  // if (!id) {
+  //   return (
+  //     <div>
+  //       {t('ARTICLE_NOT_FOUND')}
+  //     </div>
+  //   );
+  // }
 
   return (
     <Page>

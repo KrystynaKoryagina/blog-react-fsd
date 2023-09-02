@@ -1,5 +1,5 @@
 import {
-  FC, ReactNode, useRef, UIEvent, useEffect,
+  ReactNode, useRef, UIEvent, useEffect,
 } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll';
@@ -18,12 +18,12 @@ interface PageProps {
   onScrollEnd?: () => void
 }
 
-export const Page: FC<PageProps> = ({
+export const Page = ({
   children,
   className,
   saveScroll = false,
   onScrollEnd,
-}) => {
+}: PageProps) => {
   const wrapperRef = useRef<HTMLElement>(null);
   const triggerRef = useRef<HTMLDivElement>(null);
 

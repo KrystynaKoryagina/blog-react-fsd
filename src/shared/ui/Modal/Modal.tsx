@@ -1,5 +1,5 @@
 import {
-  FC, MouseEvent, useEffect, useRef,
+  MouseEvent, ReactNode, useEffect, useRef,
 } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { classNames } from 'shared/lib/utils/classNames';
@@ -7,14 +7,15 @@ import { Portal } from 'shared/ui/Portal';
 import styles from './Modal.module.scss';
 
 interface ModalProps {
-  isOpen: boolean,
-  className?: string,
-  onClose: () => void,
+  isOpen: boolean
+  className?: string
+  children?: ReactNode
+  onClose: () => void
 }
 
-export const Modal: FC<ModalProps> = ({
+export const Modal = ({
   isOpen, onClose, children, className,
-}): JSX.Element => {
+}: ModalProps): JSX.Element => {
   const modalRef = useRef(null);
 
   const onContentClick = (e: MouseEvent) => {

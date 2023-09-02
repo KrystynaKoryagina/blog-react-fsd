@@ -26,7 +26,7 @@ import { ArticleImage } from '../ArticleImage/ArticleImage';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 
 interface ArticleProps {
-  id: string;
+  id?: string;
   className?: string;
 }
 

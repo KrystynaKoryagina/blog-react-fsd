@@ -1,4 +1,3 @@
-import { FC } from 'react';
 import { classNames } from 'shared/lib/utils/classNames';
 import styles from './Flex.module.scss';
 import {
@@ -31,7 +30,7 @@ const gapClasses: OptionalRecord<FlexGap, string> = {
   32: styles.gap32,
 };
 
-export const Flex: FC<FlexProps> = ({
+export const Flex = ({
   className,
   children,
   direction,
@@ -39,7 +38,7 @@ export const Flex: FC<FlexProps> = ({
   justify,
   align,
   wrap,
-}) => {
+}: FlexProps) => {
   const classes = [
     className,
     directionClasses[direction],
