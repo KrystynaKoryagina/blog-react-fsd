@@ -7,17 +7,18 @@ import { Text } from 'shared/ui/Text';
 
 const ProfilePage = () => {
   const { id } = useParams<{ id: string }>();
-  
+
   const { t } = useTranslation(['translation', 'profile']);
 
   if (!id) {
-    return <Text>{t('NOT_FOUND', { ns: 'profile' })}</Text>
+    return <Text>{t('NOT_FOUND', { ns: 'profile' })}</Text>;
   }
 
   return (
-  <Page>
-    <EditProfileCard id={id} />
-  </Page>
-)};
+    <Page>
+      <EditProfileCard id={id} />
+    </Page>
+  );
+};
 
 export default memo(ProfilePage);

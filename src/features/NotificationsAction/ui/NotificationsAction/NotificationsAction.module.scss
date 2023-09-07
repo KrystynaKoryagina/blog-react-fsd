@@ -1,0 +1,14 @@
+.NotificationsAction {
+  width: 400px;
+}
+
+.trigger {
+  fill: var(--inverted-primary-color);
+  margin: 6px;
+}
+
+.list {
+  height: 100%;
+  max-height: 300px;
+  overflow: auto;
+}

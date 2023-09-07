@@ -7,6 +7,7 @@ import { Button, ButtonType } from 'shared/ui/Button';
 import { useDynamicReducerLoader } from 'shared/lib/hooks/useDynamicReducerLoader';
 import { ReducersList } from 'app/providers/store';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { HStack } from 'shared/ui/Stack';
 import {
   addCommentFormActions,
   addCommentFormReducer,
@@ -14,7 +15,6 @@ import {
 import styles from './AddCommentForm.module.scss';
 import { getAddCommentFormText }
   from '../../model/selectors/getAddCommentFormText/getAddCommentFormText';
-import { HStack } from 'shared/ui/Stack';
 
 export interface AddCommentFormProps {
   sentComment: (text: string) => void;

@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from 'entities/User';
@@ -10,7 +9,6 @@ import styles from './NavigationItem.module.scss';
 
 interface NavigationItemProps {
   item: NavigationLink;
-  children?: ReactNode;
   collapsed: boolean;
 }
 

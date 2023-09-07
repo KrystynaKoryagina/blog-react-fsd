@@ -19,7 +19,7 @@ root.render(
         </ThemeProvider>
       </StoreProvider>
     </ErrorBoundary>
-  </BrowserRouter>
+  </BrowserRouter>,
 );
 
 // TODO

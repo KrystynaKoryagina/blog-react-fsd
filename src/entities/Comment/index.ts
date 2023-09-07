@@ -1,2 +1,3 @@
+export type { CommentData } from './model/types/comment';
+
 export { CommentCard } from './ui/CommentCard/CommentCard';
-export { CommentData } from './model/types/comment';

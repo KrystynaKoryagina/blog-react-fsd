@@ -4,8 +4,8 @@ import { ThemeSwitcher } from 'features/ThemeSwitcher';
 import { memo, useCallback, useState } from 'react';
 import { classNames } from 'shared/lib/utils/classNames';
 import { Button, ButtonType, ButtonSize } from 'shared/ui/Button';
-import styles from './Sidebar.module.scss';
 import { VStack } from 'shared/ui/Stack';
+import styles from './Sidebar.module.scss';
 
 export const Sidebar = memo(() => {
   const [collapsed, setCollapsed] = useState(false);

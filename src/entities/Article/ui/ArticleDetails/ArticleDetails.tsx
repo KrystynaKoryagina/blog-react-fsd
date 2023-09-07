@@ -19,7 +19,8 @@ import { getArticleData }
   from '../../model/selectors/getArticleData/getArticleData';
 import { getArticleError }
   from '../../model/selectors/getArticleError/getArticleError';
-import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
+import { ArticleBlock } from '../../model/types/article';
+import { ArticleBlockType } from '../../model/consts/article';
 import { ArticleCode } from '../ArticleCode/ArticleCode';
 import { ArticleText } from '../ArticleText/ArticleText';
 import { ArticleImage } from '../ArticleImage/ArticleImage';

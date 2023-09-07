@@ -18,7 +18,8 @@
       "jsx": true
     },
     "ecmaVersion": "latest",
-    "sourceType": "module"
+    "sourceType": "module",
+    "project": "./tsconfig.json"
     // "project": "./tsconfig.json" // NOTE to resolve issues on script/createtemplates
   },
   "plugins": ["react", "@typescript-eslint", "i18next"],

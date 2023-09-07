@@ -1,5 +1,6 @@
 // TODO forbidden from 'entities/User'
 import { User } from 'entities/User';
+import { ArticleBlockType, ArticleCategory } from '../consts/article';
 
 export interface Article {
   id: string;
@@ -37,17 +38,4 @@ export interface ArticleTextBlock extends ArticleBlockBase {
   type: ArticleBlockType.TEXT;
   paragraphs: string[];
   title?: string;
-}
-
-export enum ArticleCategory {
-  ALL = 'ALL',
-  IT = 'IT',
-  SCIENCE = 'SCIENCE',
-  ECONOMICS = 'ECONOMICS',
-}
-
-export const enum ArticleBlockType {
-  CODE = 'CODE',
-  IMAGE = 'IMAGE',
-  TEXT = 'TEXT',
 }

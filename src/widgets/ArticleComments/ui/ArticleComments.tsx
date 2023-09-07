@@ -60,7 +60,7 @@ export const ArticleComments = memo(({ articleId, className }: ArticleCommentsPr
   return (
     <VStack className={className} gap='16'>
       <Text>{t('COMMENTS')}</Text>
-      {/* TODO обернуть в Suspend ??? ошибка в торибуке когда обновишь страницу 
+      {/* TODO обернуть в Suspend ??? ошибка в торибуке когда обновишь страницу
         млм добавить декоратор SuspenseDecorator в сорикейсы
       */}
       <AddCommentForm sentComment={onSendComment} />

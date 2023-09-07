@@ -1,1 +1,1 @@
-export {AdminPanelLazy as AdminPanel } from './ui/AdminPanel.lazy';
+export { AdminPanelLazy as AdminPanel } from './ui/AdminPanel.lazy';

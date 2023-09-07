@@ -11,7 +11,6 @@ import { useTranslation } from 'react-i18next';
 import { Text, TextType } from 'shared/ui/Text';
 import { ReducersList } from 'app/providers/store';
 import { VStack } from 'shared/ui/Stack';
-import { useParams } from 'react-router-dom';
 import { profileActions, profileReducer } from '../../model/slice/profileSlice';
 import { fetchProfileData } from '../../model/service/fetchProfleData/fetchProfileData';
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';

@@ -7,7 +7,7 @@ export const COUNTRY = {
   Kazakhstan: 'Kazahstan',
   Armenia: 'Armenia',
   USA: 'USA',
-  Canada: 'Canada'
+  Canada: 'Canada',
 } as const;
 
 export type Country = ValueOf<typeof COUNTRY>;

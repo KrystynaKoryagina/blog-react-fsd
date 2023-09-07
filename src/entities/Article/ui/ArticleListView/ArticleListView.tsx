@@ -9,8 +9,9 @@ import { RoutePath } from 'shared/config/routes/routes';
 import { Link } from 'react-router-dom';
 import { HStack, VStack } from 'shared/ui/Stack';
 import styles from './ArticleListView.module.scss';
-import { Article, ArticleBlockType, ArticleTextBlock } from '../../model/types/article';
+import { Article, ArticleTextBlock } from '../../model/types/article';
 import { ArticleText } from '../ArticleText/ArticleText';
+import { ArticleBlockType } from '../../model/consts/article';
 
 interface ArticleListViewProps {
   article: Article

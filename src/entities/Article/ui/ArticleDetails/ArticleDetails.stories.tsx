@@ -1,8 +1,9 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
-import { ArticleBlockType, ArticleCategory, Article } from '../../model/types/article';
-import { ArticleDetails } from './ArticleDetails';
 import { UserRole } from 'entities/User';
+import { Article } from '../../model/types/article';
+import { ArticleBlockType, ArticleCategory } from '../../model/consts/article';
+import { ArticleDetails } from './ArticleDetails';
 
 // TODO
 // Yрок 50 Страница статьи. Блочная структура. Компонент Code. Копирование
