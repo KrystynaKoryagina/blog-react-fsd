@@ -7,7 +7,7 @@ const config = {
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
   ],
-  framework: '@storybook/react',
+  framework: '@storybook/react-webpack5',
   core: {
     builder: 'webpack5',
   },

@@ -35,4 +35,5 @@ root.render(
 
   // TODO когда будет новфй дизайн использовать
   Урок 67 Headless UI. React aria. Listbox 33:15
+  !!!! LOKI NOT SUPPORTED STORYBOOK 7 !!!!
 */
