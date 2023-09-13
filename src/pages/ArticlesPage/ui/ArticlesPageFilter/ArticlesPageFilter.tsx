@@ -38,7 +38,7 @@ export const ArticlesPageFilter = memo(() => {
   //   dispatch(filterArticles(action));
   // }, [dispatch]);
 
-  const ArticleCategoties = useMemo<ChipContent[]>(() => Object.entries(ArticleCategory)
+  const ArticleCategoties = useMemo<ChipContent<ArticleCategory>[]>(() => Object.entries(ArticleCategory)
     .map(([key, value]) => ({
       id: key,
       displayName: t(`ARTICLE_CATEGORY.${key}`),
@@ -77,8 +77,8 @@ export const ArticlesPageFilter = memo(() => {
     debouncedFetchData();
   }, [debouncedFetchData, dispatch]);
 
-  const onChangeCategory = useCallback((value: ChipContent) => {
-    dispatch(articlesListActions.setCategory(value.value as ArticleCategory)); // TODO generic in Chips
+  const onChangeCategory = useCallback((value: ChipContent<ArticleCategory>) => {
+    dispatch(articlesListActions.setCategory(value.value));
     dispatch(articlesListActions.setPage(1));
     fetchData();
   }, [dispatch, fetchData]);

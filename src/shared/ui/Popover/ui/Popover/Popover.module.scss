@@ -7,30 +7,30 @@
   position: absolute;
   border-radius: 8px;
   padding: 15px;
+  z-index: var(--popover-z-index);
 }
 
 .trigger {
   background-color: transparent;
-  border: none;
   cursor: pointer;
 }
 
 .bottomLeft {
   top: 100%;
-  right: 0;
+  left: 0;
 }
 
 .bottomRight {
   top: 100%;
-  left: 0;
+  right: 0;
 }
 
 .topRight {
   bottom: 100%;
-  left: 0;
+  right: 0;
 }
 
 .topLeft {
-  right: 0;
+  left: 0;
   bottom: 100%;
 }

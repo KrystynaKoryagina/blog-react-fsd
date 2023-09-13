@@ -1,1 +1,1 @@
-export { NotificationsAction } from './ui/NotificationsAction/NotificationsAction';
+export { NotificationsActionLazy as NotificationsAction } from './ui/NotificationsAction/NotificationAction.lazy';

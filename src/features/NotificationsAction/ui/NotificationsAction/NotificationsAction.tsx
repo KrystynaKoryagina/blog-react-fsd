@@ -1,26 +1,12 @@
-import { classNames } from 'shared/lib/utils/classNames/classNames';
-import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
-import { Popover } from 'shared/ui/Popover';
-import NotificationIcon from 'shared/assets/icons/notification.svg';
-import { NotificationList } from 'entities/Notification';
-import styles from './NotificationsAction.module.scss';
+import { useDeviceDetect } from 'shared/lib/hooks/useDeviceDetect';
+import { MobileNotifications } from '../MobileNotifications/MobileNotifications';
+import { DesktopNotifications } from '../DesktopNotifications/DesktopNotifications';
 
-interface NotificationsActionProps {
-  className?: string;
-}
+const NotificationsAction = () => {
+  const { isMobile } = useDeviceDetect();
 
-export const NotificationsAction = memo(({ className }: NotificationsActionProps) => {
-  const { t } = useTranslation();
+  return isMobile ? <MobileNotifications /> : <DesktopNotifications />;
+};
 
-  return (
-    <Popover
-      trigger={<NotificationIcon className={styles.trigger} />}
-      direction='bottom left'
-      className={classNames(styles.NotificationsAction, [className])}
-      unmount={false}
-    >
-      <NotificationList className={styles.list} />
-    </Popover>
-  );
-});
+export default memo(NotificationsAction);

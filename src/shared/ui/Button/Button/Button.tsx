@@ -1,45 +1,63 @@
-import { ButtonHTMLAttributes } from 'react';
+import { ComponentPropsWithoutRef, ElementType } from 'react';
 import { classNames } from 'shared/lib/utils/classNames';
+import { Link } from 'react-router-dom';
 import styles from './Button.module.scss';
 import { ButtonSize, ButtonType } from '../types/button';
 
-/* TODO 60, 61 Создание и редактирование статей. Pages
-Feliche-Demian Netliukh • Вт 02 Май 13:33 • Ответ создан Пн 01 Май 11:11
-Привет Тимур, мы в этом уроке баттон обернули в линк, я хотел у тебя спросить как это лучше всего исправить.
-Создать отдельный компонент линк, или сделать компонент button аморфным (то есть передавать компонент в который он буде оборачиваться)?
-Второй вариант выглядит более костыльным в реализации. Что думаеш?
-
-Тимур Ульби
-На самом деле лучше сделать аморфный компонент, мы что то похожее будем позже в Dropdown делать
-*/
-
-export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export type ButtonProps<C extends ElementType> = {
+  as?: C
   variant?: ButtonType;
   size?: ButtonSize;
   square?: boolean;
-}
+  href?: string
+} & ComponentPropsWithoutRef<C>;
 
-export const Button = ({
+export const Button = <C extends ElementType>({
+  as,
   variant = ButtonType.PRIMARY,
   size = ButtonSize.SM,
   children,
   className,
   square,
   disabled,
+  href,
   ...otherProps
-}: ButtonProps) => (
-  <button
-    type='button'
-    className={classNames(
-      styles.Button,
-      [styles[variant], styles[size], className],
-      {
-        [styles.square]: square,
-      },
-    )}
-    disabled={disabled}
-    {...otherProps}
-  >
-    {children}
-  </button>
-);
+}: ButtonProps<C>) => {
+  if (href) {
+    return (
+      <Link
+        className={classNames(
+          styles.Button,
+          [styles[variant], styles[size], className],
+          {
+            [styles.square]: square,
+          },
+        )}
+        disabled={disabled}
+        to={href}
+        {...otherProps}
+      >
+        {children}
+      </Link>
+    );
+  }
+
+  const Component = as || 'button';
+
+  return (
+    <Component
+      type='button'
+      className={classNames(
+        styles.Button,
+        [styles[variant], styles[size], className],
+        {
+          [styles.square]: square,
+        },
+      )}
+      disabled={disabled}
+      {...otherProps}
+    >
+      {children}
+    </Component>
+  );
+};

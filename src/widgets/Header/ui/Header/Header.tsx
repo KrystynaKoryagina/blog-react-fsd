@@ -1,6 +1,7 @@
 import { getUserAuthData } from 'entities/User';
 import { LoginModal } from 'features/AuthByUserName';
 import {
+  Suspense,
   memo, useCallback, useState,
 } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -43,7 +44,9 @@ export const Header = memo(() => {
 
           <HStack gap='16' align='center'>
             <AvatarDropdown />
-            <NotificationsAction />
+            <Suspense fallback=''>
+              <NotificationsAction />
+            </Suspense>
           </HStack>
         </HStack>
       </header>

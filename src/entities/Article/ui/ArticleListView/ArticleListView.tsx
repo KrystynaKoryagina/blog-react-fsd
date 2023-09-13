@@ -48,21 +48,12 @@ export const ArticleListView = memo(({ article }: ArticleListViewProps) => {
         </VStack>
 
         <HStack align='center' justify='between'>
-          {/* TODO 60, 61 Создание и редактирование статей. Pages
-        Feliche-Demian Netliukh • Вт 02 Май 13:33 • Ответ создан Пн 01 Май 11:11
-          Привет Тимур, мы в этом уроке баттон обернули в линк, я хотел у тебя спросить как это лучше всего исправить.
-          Создать отдельный компонент линк, или сделать компонент button аморфным (то есть передавать компонент в который он буде оборачиваться)?
-          Второй вариант выглядит более костыльным в реализации. Что думаеш?
-
-          Тимур Ульби
-          На самом деле лучше сделать аморфный компонент, мы что то похожее будем позже в Dropdown делать
-        */}
-
-          <Link to={`${RoutePath.ARTICLE_DETAILS}/${article.id}`}>
-            <Button variant={ButtonType.OUTLINE}>
-              {t('BUTTONS.READ')}
-            </Button>
-          </Link>
+          <Button
+            variant={ButtonType.OUTLINE}
+            href={`${RoutePath.ARTICLE_DETAILS}/${article.id}`}
+          >
+            {t('BUTTONS.READ')}
+          </Button>
 
           <HStack gap='8' align='center'>
             <Text size={TextSize.SM}>{article.views}</Text>

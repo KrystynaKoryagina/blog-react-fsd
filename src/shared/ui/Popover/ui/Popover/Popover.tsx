@@ -23,14 +23,14 @@ export const Popover = ({
   trigger,
   className,
   children,
-  direction = 'bottom right',
+  direction = 'bottom left',
   unmount = true,
 }: PopoverProps) => {
   const popoverPanelClasses = directionClass[direction];
 
   return (
     <HPopover className={classNames(styles.Popover)}>
-      <HPopover.Button className={styles.trigger}>{trigger}</HPopover.Button>
+      <HPopover.Button as='div' className={styles.trigger}>{trigger}</HPopover.Button>
 
       <HPopover.Panel className={classNames(styles.panel, [className, popoverPanelClasses])} unmount={unmount}>
         {children}

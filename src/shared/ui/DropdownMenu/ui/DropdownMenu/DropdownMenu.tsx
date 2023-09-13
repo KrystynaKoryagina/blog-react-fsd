@@ -24,7 +24,7 @@ export const DropdownMenu = ({
   items,
   trigger,
   className,
-  direction = 'bottom right',
+  direction = 'bottom left',
 }: DropdownMenuProps) => {
   const menuItemsClasses = [directionClass[direction]];
 
