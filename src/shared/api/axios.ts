@@ -1,5 +1,5 @@
 import axios, { InternalAxiosRequestConfig } from 'axios';
-import { AUTH_TOKEN } from 'shared/constants/localStorage';
+import { AUTH_TOKEN } from '@/shared/constants/localStorage';
 
 export const $axiosApi = axios.create({
   baseURL: __API__,

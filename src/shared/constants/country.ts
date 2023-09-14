@@ -1,4 +1,4 @@
-import { SelectOption } from 'shared/ui/Select';
+import { SelectOption } from '@/shared/ui/Select';
 
 export const COUNTRY = {
   Russia: 'Russia',

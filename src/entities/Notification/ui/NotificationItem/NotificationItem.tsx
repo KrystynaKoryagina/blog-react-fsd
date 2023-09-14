@@ -1,6 +1,6 @@
 import { memo } from 'react';
-import { Card } from 'shared/ui/Card';
-import { Text, TextSize } from 'shared/ui/Text';
+import { Card } from '@/shared/ui/Card';
+import { Text, TextSize } from '@/shared/ui/Text';
 import { Notification } from '../../model/types/notification';
 
 interface NotificationItemProps {

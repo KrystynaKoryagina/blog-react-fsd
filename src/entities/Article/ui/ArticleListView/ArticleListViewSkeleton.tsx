@@ -1,7 +1,7 @@
 import { memo } from 'react';
-import { Card } from 'shared/ui/Card';
-import { Skeleton } from 'shared/ui/Skeleton';
-import { HStack, VStack } from 'shared/ui/Stack';
+import { Card } from '@/shared/ui/Card';
+import { Skeleton } from '@/shared/ui/Skeleton';
+import { HStack, VStack } from '@/shared/ui/Stack';
 import styles from './ArticleListView.module.scss';
 
 export const ArticleListViewSkeleton = memo(() => (

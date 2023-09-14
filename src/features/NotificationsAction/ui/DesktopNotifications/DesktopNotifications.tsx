@@ -1,6 +1,6 @@
 import { memo } from 'react';
-import { NotificationList } from 'entities/Notification';
-import { Popover } from 'shared/ui/Popover';
+import { NotificationList } from '@/entities/Notification';
+import { Popover } from '@/shared/ui/Popover';
 import { NotificationsTrigger } from '../NotificationsTrigger/NotificationsTrigger';
 import styles from './DesktopNotifications.module.scss';
 

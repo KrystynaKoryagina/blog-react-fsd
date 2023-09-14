@@ -1,6 +1,6 @@
 import { memo } from 'react';
-import { TextSize, Text } from 'shared/ui/Text';
-import { VStack } from 'shared/ui/Stack';
+import { TextSize, Text } from '@/shared/ui/Text';
+import { VStack } from '@/shared/ui/Stack';
 import { ArticleTextBlock } from '../../model/types/article';
 
 interface ArticleTextProps {

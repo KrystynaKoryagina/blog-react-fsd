@@ -14,10 +14,10 @@
 // "configurations": {
 
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
-import { CURRENCY } from 'shared/constants/currency';
-import { COUNTRY } from 'shared/constants/country';
-import { Theme } from 'shared/lib/contexts/theme';
+import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
+import { CURRENCY } from '@/shared/constants/currency';
+import { COUNTRY } from '@/shared/constants/country';
+import { Theme } from '@/shared/lib/contexts/theme';
 import ProfilePage from './ProfilePage';
 
 export default {

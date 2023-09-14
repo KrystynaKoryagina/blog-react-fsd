@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Theme } from 'shared/lib/contexts/theme';
-import { Button, ButtonType } from 'shared/ui/Button';
-import { Card } from 'shared/ui/Card';
-import { Text, TextSize } from 'shared/ui/Text';
+import { Theme } from '@/shared/lib/contexts/theme';
+import { Button, ButtonType } from '@/shared/ui/Button';
+import { Card } from '@/shared/ui/Card';
+import { Text, TextSize } from '@/shared/ui/Text';
 
-import { VStack } from 'shared/ui/Stack';
+import { VStack } from '@/shared/ui/Stack';
 import { Popover } from './Popover';
 
 const meta: Meta<typeof Popover> = {

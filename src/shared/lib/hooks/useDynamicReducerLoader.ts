@@ -1,4 +1,4 @@
-import { ReducersList, ReduxStoreWithManager, StoreSchemaKey } from 'app/providers/store';
+import { ReducersList, ReduxStoreWithManager, StoreSchemaKey } from '@/app/providers/store';
 import { useEffect } from 'react';
 import { useStore } from 'react-redux';
 import { useAppDispatch } from './useAppDispatch';

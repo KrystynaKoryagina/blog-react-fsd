@@ -2,13 +2,13 @@ import {
   ReactNode, useRef, UIEvent, useEffect,
 } from 'react';
 import { useLocation } from 'react-router-dom';
-import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { classNames } from 'shared/lib/utils/classNames';
-import { getPageScrollPosition, scrollActions } from 'features/SaveScrollPosition';
-import { useThrottle } from 'shared/lib/hooks/useThrottle';
+import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { classNames } from '@/shared/lib/utils/classNames';
+import { getPageScrollPosition, scrollActions } from '@/features/SaveScrollPosition';
+import { useThrottle } from '@/shared/lib/hooks/useThrottle';
 import { useSelector } from 'react-redux';
-import { StoreSchema } from 'app/providers/store';
+import { StoreSchema } from '@/app/providers/store';
 import styles from './Page.module.scss';
 
 interface PageProps {

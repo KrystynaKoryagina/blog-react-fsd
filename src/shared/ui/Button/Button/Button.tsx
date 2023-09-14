@@ -1,5 +1,5 @@
 import { ComponentPropsWithoutRef, ElementType } from 'react';
-import { classNames } from 'shared/lib/utils/classNames';
+import { classNames } from '@/shared/lib/utils/classNames';
 import { Link } from 'react-router-dom';
 import styles from './Button.module.scss';
 import { ButtonSize, ButtonType } from '../types/button';

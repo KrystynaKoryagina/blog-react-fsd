@@ -1,4 +1,4 @@
-import { Page } from 'widgets/Page';
+import { Page } from '@/widgets/Page';
 
 export const ForbiddenPage = () => (
   <Page>

@@ -1,5 +1,5 @@
 import ThemeProvider from './ThemeProvider';
-import { Theme } from './types/theme.types';
+import { Theme } from './const/theme';
 import { useTheme } from './useTheme';
 
 export { ThemeProvider, useTheme, Theme };

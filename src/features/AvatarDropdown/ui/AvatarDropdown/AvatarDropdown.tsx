@@ -1,12 +1,12 @@
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useMemo } from 'react';
-import { DropdownItem, DropdownMenu } from 'shared/ui/DropdownMenu';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { DropdownItem, DropdownMenu } from '@/shared/ui/DropdownMenu';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useNavigate } from 'react-router-dom';
-import { getUserAuthData, userActions } from 'entities/User';
-import { RoutePath } from 'shared/config/routes/routes';
-import { Avatar } from 'shared/ui/Avatar';
+import { getUserAuthData, userActions } from '@/entities/User';
+import { RoutePath } from '@/shared/config/routes/routes';
+import { Avatar } from '@/shared/ui/Avatar';
 import { getIsAdminPanelAvailable } from '../../model/selectors/getIsAdminPanelAvailable/getIsAdminPanelAvailable';
 
 interface AvatarDropdownProps {

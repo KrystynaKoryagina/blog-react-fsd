@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect';
-import { StoreSchema } from 'app/providers/store';
+import { StoreSchema } from '@/app/providers/store';
 
 /*
   https://github.com/reduxjs/reselect

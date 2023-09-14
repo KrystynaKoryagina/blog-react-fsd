@@ -1,6 +1,6 @@
 import { Menu } from '@headlessui/react';
-import { classNames } from 'shared/lib/utils/classNames';
-import { PopupDirection } from 'shared/types/popup';
+import { classNames } from '@/shared/lib/utils/classNames';
+import { PopupDirection } from '@/shared/types/popup';
 import { Fragment, ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { DropdownItem } from '../../types/dropdownMenu';

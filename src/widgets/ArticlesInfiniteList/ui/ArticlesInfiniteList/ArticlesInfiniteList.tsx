@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { ArticlesList } from 'entities/Article';
+import { ArticlesList } from '@/entities/Article';
 import { useSelector } from 'react-redux';
 import { getArticles } from '../../model/slice/articlesListSlice';
 import { getArticlesListLoading } from '../../model/selectors/getArticlesListLoading/getArticlesListLoading';

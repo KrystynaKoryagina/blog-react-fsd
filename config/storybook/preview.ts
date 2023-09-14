@@ -1,5 +1,5 @@
 import { Preview } from '@storybook/react';
-import { SuspenseDecorator } from 'shared/config/storybook/decorators/SuspenseDecorator';
+import { SuspenseDecorator } from '../../src/shared/config/storybook/decorators/SuspenseDecorator';
 import { ThemeDecorator } from '../../src/shared/config/storybook/decorators/ThemeDecorator';
 import { RouterDecorator } from '../../src/shared/config/storybook/decorators/RouterDecorator';
 import { i18nDecorator } from '../../src/shared/config/storybook/decorators/i18nDecorator';

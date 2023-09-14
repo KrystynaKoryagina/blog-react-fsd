@@ -1,7 +1,7 @@
 import { StoryContext, StoryFn } from '@storybook/react';
-import { ThemeProvider } from 'shared/lib/contexts/theme';
+import { ThemeProvider } from '@/shared/lib/contexts/theme';
 
-import 'app/styles/index.scss';
+import '@/app/styles/index.scss';
 
 export const ThemeDecorator = (Story: StoryFn, context?: StoryContext) => {
   const theme = context?.parameters?.theme;

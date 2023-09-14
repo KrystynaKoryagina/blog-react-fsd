@@ -1,12 +1,12 @@
 import { Suspense, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { Header } from 'widgets/Header';
-import { Sidebar } from 'widgets/Sidebar';
-import { getUserInited, userActions } from 'entities/User';
-import { classNames } from 'shared/lib/utils/classNames';
-import { useTheme } from 'shared/lib/contexts/theme';
-import { HStack } from 'shared/ui/Stack';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { Header } from '@/widgets/Header';
+import { Sidebar } from '@/widgets/Sidebar';
+import { getUserInited, userActions } from '@/entities/User';
+import { classNames } from '@/shared/lib/utils/classNames';
+import { useTheme } from '@/shared/lib/contexts/theme';
+import { HStack } from '@/shared/ui/Stack';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { AppRouter } from './providers/router';
 import './styles/index.scss';
 

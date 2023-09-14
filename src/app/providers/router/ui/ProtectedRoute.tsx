@@ -1,4 +1,4 @@
-import { UserRole } from 'entities/User';
+import { UserRole } from '@/entities/User';
 import { ReactNode } from 'react';
 import { RequireAuth } from './RequireAuth';
 import { RequireRole } from './RequireRole';

@@ -1,14 +1,14 @@
-import { ReducersList } from 'app/providers/store';
+import { ReducersList } from '@/app/providers/store';
 import { memo, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
   ArticlesInfiniteList, articlesListReducer, fetchNextArticles, initArticlesPage,
-} from 'widgets/ArticlesInfiniteList';
+} from '@/widgets/ArticlesInfiniteList';
 import { useSearchParams } from 'react-router-dom';
-import { useDynamicReducerLoader } from 'shared/lib/hooks/useDynamicReducerLoader';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { VStack } from 'shared/ui/Stack';
-import { Page } from 'widgets/Page';
+import { useDynamicReducerLoader } from '@/shared/lib/hooks/useDynamicReducerLoader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { VStack } from '@/shared/ui/Stack';
+import { Page } from '@/widgets/Page';
 import { ArticlesPageFilter } from '../ArticlesPageFilter/ArticlesPageFilter';
 
 const reducers: ReducersList = {

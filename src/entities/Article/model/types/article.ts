@@ -1,5 +1,5 @@
 // TODO forbidden from 'entities/User'
-import { User } from 'entities/User';
+import { User } from '@/entities/User';
 import { ArticleBlockType, ArticleCategory } from '../consts/article';
 
 export interface Article {

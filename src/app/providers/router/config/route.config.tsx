@@ -1,14 +1,14 @@
-import { AboutPage } from 'pages/AboutPage';
-import { MainPage } from 'pages/MainPage';
-import { NotFoundPage } from 'pages/NotFoundPage';
-import { ProfilePage } from 'pages/ProfilePage';
-import { ArticlesPage } from 'pages/ArticlesPage';
-import { ArticleDetailsPage } from 'pages/ArticleDetailsPage';
-import { RoutePath } from 'shared/config/routes/routes';
-import { ArticleEditPage } from 'pages/ArticleEditPage';
-import { AdminPanel } from 'pages/AdminPanel';
-import { UserRole } from 'entities/User';
-import { ForbiddenPage } from 'pages/ForbiddenPage';
+import { AboutPage } from '@/pages/AboutPage';
+import { MainPage } from '@/pages/MainPage';
+import { NotFoundPage } from '@/pages/NotFoundPage';
+import { ProfilePage } from '@/pages/ProfilePage';
+import { ArticlesPage } from '@/pages/ArticlesPage';
+import { ArticleDetailsPage } from '@/pages/ArticleDetailsPage';
+import { RoutePath } from '@/shared/config/routes/routes';
+import { ArticleEditPage } from '@/pages/ArticleEditPage';
+import { AdminPanel } from '@/pages/AdminPanel';
+import { UserRole } from '@/entities/User';
+import { ForbiddenPage } from '@/pages/ForbiddenPage';
 import { AppRoutesProps } from '../model/types/router';
 
 export const routes: AppRoutesProps[] = [

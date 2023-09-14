@@ -1,6 +1,6 @@
 import { HTMLAttributeAnchorTarget, memo } from 'react';
-import { Article, ArticleView } from 'entities/Article/model/types/article'; // TODO fix path
-import { HStack, VStack } from 'shared/ui/Stack';
+import { Article, ArticleView } from '@/entities/Article/model/types/article'; // TODO fix path
+import { HStack, VStack } from '@/shared/ui/Stack';
 import { ArticleItem } from '../ArticleItem/ArticleItem';
 import { ArticleItemSkeleton } from '../ArticleItem/ArticleItemSkeleton';
 

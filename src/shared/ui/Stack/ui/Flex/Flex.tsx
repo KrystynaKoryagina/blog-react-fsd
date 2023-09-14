@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib/utils/classNames';
+import { classNames } from '@/shared/lib/utils/classNames';
 import styles from './Flex.module.scss';
 import {
   FlexAlign, FlexDirection, FlexGap, FlexJustify, FlexProps,

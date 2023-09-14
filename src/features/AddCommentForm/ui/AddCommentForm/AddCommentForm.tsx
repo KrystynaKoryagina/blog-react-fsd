@@ -1,13 +1,13 @@
 import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
-import { classNames } from 'shared/lib/utils/classNames';
-import { Input } from 'shared/ui/Input';
+import { classNames } from '@/shared/lib/utils/classNames';
+import { Input } from '@/shared/ui/Input';
 import { useTranslation } from 'react-i18next';
-import { Button, ButtonType } from 'shared/ui/Button';
-import { useDynamicReducerLoader } from 'shared/lib/hooks/useDynamicReducerLoader';
-import { ReducersList } from 'app/providers/store';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { HStack } from 'shared/ui/Stack';
+import { Button, ButtonType } from '@/shared/ui/Button';
+import { useDynamicReducerLoader } from '@/shared/lib/hooks/useDynamicReducerLoader';
+import { ReducersList } from '@/app/providers/store';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { HStack } from '@/shared/ui/Stack';
 import {
   addCommentFormActions,
   addCommentFormReducer,

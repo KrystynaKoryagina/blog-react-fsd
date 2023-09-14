@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Theme } from 'shared/lib/contexts/theme';
+import { Theme } from '@/shared/lib/contexts/theme';
 import { AppLink } from './AppLink';
 
 export default {

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Theme } from 'shared/lib/contexts/theme';
+import { Theme } from '@/shared/lib/contexts/theme';
 
 import { Text } from './Text';
 import { TextAlign, TextSize, TextType } from '../../consts/Text';

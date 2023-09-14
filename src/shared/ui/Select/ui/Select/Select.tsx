@@ -1,7 +1,7 @@
 import {
   ChangeEvent, SelectHTMLAttributes, memo, useMemo,
 } from 'react';
-import { classNames } from 'shared/lib/utils/classNames';
+import { classNames } from '@/shared/lib/utils/classNames';
 import styles from './Select.module.scss';
 import { SelectOption } from '../../types/select';
 

@@ -1,18 +1,18 @@
-import { getUserAuthData } from 'entities/User';
-import { LoginModal } from 'features/AuthByUserName';
+import { getUserAuthData } from '@/entities/User';
+import { LoginModal } from '@/features/AuthByUserName';
 import {
   Suspense,
   memo, useCallback, useState,
 } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { classNames } from 'shared/lib/utils/classNames';
-import { Button, ButtonType } from 'shared/ui/Button';
-import { AppLink } from 'shared/ui/AppLink';
-import { RoutePath } from 'shared/config/routes/routes';
-import { HStack } from 'shared/ui/Stack';
-import { NotificationsAction } from 'features/NotificationsAction';
-import { AvatarDropdown } from 'features/AvatarDropdown';
+import { classNames } from '@/shared/lib/utils/classNames';
+import { Button, ButtonType } from '@/shared/ui/Button';
+import { AppLink } from '@/shared/ui/AppLink';
+import { RoutePath } from '@/shared/config/routes/routes';
+import { HStack } from '@/shared/ui/Stack';
+import { NotificationsAction } from '@/features/NotificationsAction';
+import { AvatarDropdown } from '@/features/AvatarDropdown';
 import styles from './Header.module.scss';
 
 export const Header = memo(() => {

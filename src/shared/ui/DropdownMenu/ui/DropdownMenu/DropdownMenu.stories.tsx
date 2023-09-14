@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Theme } from 'shared/lib/contexts/theme';
-import { Button, ButtonType } from 'shared/ui/Button';
+import { Theme } from '@/shared/lib/contexts/theme';
+import { Button, ButtonType } from '@/shared/ui/Button';
 
 import { DropdownMenu } from './DropdownMenu';
 import { DropdownItem } from '../../types/dropdownMenu';

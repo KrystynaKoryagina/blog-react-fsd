@@ -1,10 +1,10 @@
 import { useSelector } from 'react-redux';
-import { Button, ButtonType } from 'shared/ui/Button';
-import { HStack } from 'shared/ui/Stack';
-import { Text, TextSize } from 'shared/ui/Text';
+import { Button, ButtonType } from '@/shared/ui/Button';
+import { HStack } from '@/shared/ui/Stack';
+import { Text, TextSize } from '@/shared/ui/Text';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { getProfileCanEdit } from '../../model/selectors/getProfileCanEdit/getProfileCanEdit';
 import { getProfileReadOnly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
 import { updateProfileData } from '../../model/service/updateProfileData/updateProfileData';

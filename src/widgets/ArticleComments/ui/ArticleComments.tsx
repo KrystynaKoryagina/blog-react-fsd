@@ -1,15 +1,15 @@
 import {
   memo, useCallback, useEffect, useMemo,
 } from 'react';
-import { ReducersList } from 'app/providers/store';
-import { useDynamicReducerLoader } from 'shared/lib/hooks/useDynamicReducerLoader';
-import { CommentCard } from 'entities/Comment';
-import { Text } from 'shared/ui/Text';
+import { ReducersList } from '@/app/providers/store';
+import { useDynamicReducerLoader } from '@/shared/lib/hooks/useDynamicReducerLoader';
+import { CommentCard } from '@/entities/Comment';
+import { Text } from '@/shared/ui/Text';
 import { useTranslation } from 'react-i18next';
-import { AddCommentForm } from 'features/AddCommentForm';
+import { AddCommentForm } from '@/features/AddCommentForm';
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { VStack } from 'shared/ui/Stack';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { VStack } from '@/shared/ui/Stack';
 import { articleCommentsReducer, getArticleComments } from '../model/slice/articleCommentsSlice';
 import { fetchCommentsByArticleId }
   from '../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';

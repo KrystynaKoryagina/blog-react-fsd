@@ -1,11 +1,11 @@
-import { ArticleDetails } from 'entities/Article';
+import { ArticleDetails } from '@/entities/Article';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
-import { ArticleComments } from 'widgets/ArticleComments';
-import { ArticlesRecommendedList } from 'widgets/ArticlesRecommendedList';
-import { VStack } from 'shared/ui/Stack';
-import { Page } from 'widgets/Page';
+import { ArticleComments } from '@/widgets/ArticleComments';
+import { ArticlesRecommendedList } from '@/widgets/ArticlesRecommendedList';
+import { VStack } from '@/shared/ui/Stack';
+import { Page } from '@/widgets/Page';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 
 const ArticleDetailsPage = () => {

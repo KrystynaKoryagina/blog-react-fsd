@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { classNames } from 'shared/lib/utils/classNames';
+import { classNames } from '@/shared/lib/utils/classNames';
 import { ChipContent } from '../../types/chip';
 import { ChipType } from '../../consts/chip';
 import styles from './Chip.module.scss';
