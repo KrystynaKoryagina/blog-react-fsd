@@ -1,5 +1,5 @@
 import { ReactNode, useRef } from 'react';
-import { CSSTransition } from 'react-transition-group';
+import { CSSTransition } from 'react-transition-group'; // TODO remove this lib and hide another solution or use react-spring
 import { classNames } from '@/shared/lib/utils/classNames';
 import { Portal } from '@/shared/ui/Portal';
 import { Overlay } from '@/shared/ui/Overlay';

@@ -1,11 +1,15 @@
-export function classNames(
+export const classNames = (
   cls: string,
   additional: Array<string | undefined> = [],
   mods: Record<string, boolean | undefined> = {},
-): string {
+): string => {
+  const additionalClasses = [
+    ...additional,
+    ...Object.entries(mods).map(([classname, value]) => (value ? classname : ''))
+  ].filter(Boolean);
+
   return [
     cls,
-    ...additional.filter(Boolean),
-    ...Object.entries(mods).map(([classname, value]) => (value ? classname : '')),
+    ...additionalClasses,
   ].join(' ');
 }
