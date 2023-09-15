@@ -1,4 +1,4 @@
-import { UserRole } from 'entities/User';
+import { UserRole } from '@/entities/User';
 import { ReactNode } from 'react';
 import { RequireAuth } from './RequireAuth';
 import { RequireRole } from './RequireRole';
@@ -14,5 +14,10 @@ export const ProtectedRoute = ({ authOnly, roles, children }: ProtectedRouteProp
     return <RequireRole roles={roles}>{children}</RequireRole>;
   }
 
-  return <RequireAuth>{children}</RequireAuth>;
+  if (authOnly) {
+    return <RequireAuth>{children}</RequireAuth>;
+  }
+
+  // eslint-disable-next-line react/jsx-no-useless-fragment
+  return <>{children}</>;
 };

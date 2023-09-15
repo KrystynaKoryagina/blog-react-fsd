@@ -1,10 +1,10 @@
-import { ArticleSortField } from 'features/ArticleSort';
+import { ArticleSortField } from '@/features/ArticleSort';
 import { PayloadAction, createEntityAdapter, createSlice } from '@reduxjs/toolkit';
-import { StoreSchema } from 'app/providers/store';
-import { Article, ArticleCategory, ArticleView } from 'entities/Article';
-import { ARTICLES_VIEW } from 'shared/constants/localStorage';
-import { SortOrder } from 'shared/types/sort';
-import { ARTICLES_GRID_COUNT, ARTICLES_LIST_COUNT } from 'shared/constants/articles';
+import { StoreSchema } from '@/app/providers/store';
+import { Article, ArticleCategory, ArticleView } from '@/entities/Article';
+import { ARTICLES_VIEW } from '@/shared/constants/localStorage';
+import { SortOrder } from '@/shared/types/sort';
+import { ARTICLES_GRID_COUNT, ARTICLES_LIST_COUNT } from '@/shared/constants/articles';
 import { ArticlesListStore } from '../types/articlesListStore';
 import { fetchArticles } from '../services/fetchArticles/fetchArticles';
 

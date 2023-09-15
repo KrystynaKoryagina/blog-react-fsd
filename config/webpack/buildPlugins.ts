@@ -2,8 +2,10 @@ import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import CircularDependencyPlugin from 'circular-dependency-plugin';
 import CopyPlugin from 'copy-webpack-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import { BuildOptions } from '../build/types/build';
 
 export function buildPlugins({
@@ -38,6 +40,20 @@ export function buildPlugins({
       new webpack.HotModuleReplacementPlugin(),
       new BundleAnalyzerPlugin({
         openAnalyzer: false,
+      }),
+      new CircularDependencyPlugin({
+        exclude: /node_modules/,
+        failOnError: true,
+      }),
+      // NOTE Babel Loader doesn't check ts types. ForkTsCheckerWebpackPlugin need to check types
+      new ForkTsCheckerWebpackPlugin({
+        typescript: {
+          diagnosticOptions: {
+            semantic: true,
+            syntactic: true,
+          },
+          mode: 'write-references',
+        },
       }),
     ];
   }

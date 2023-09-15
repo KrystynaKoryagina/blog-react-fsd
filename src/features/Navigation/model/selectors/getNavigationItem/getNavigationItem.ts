@@ -1,10 +1,10 @@
 import { createSelector } from 'reselect';
-import { StoreSchema } from 'app/providers/store';
-import { RoutePath } from 'shared/config/routes/routes';
-import MainIcon from 'shared/assets/icons/main.svg';
-import AboutIcon from 'shared/assets/icons/about.svg';
-import ProfileIcon from 'shared/assets/icons/profile.svg';
-import ArticleIcon from 'shared/assets/icons/article.svg';
+import { StoreSchema } from '@/app/providers/store';
+import { RoutePath } from '@/shared/config/routes/routes';
+import MainIcon from '@/shared/assets/icons/main.svg';
+import AboutIcon from '@/shared/assets/icons/about.svg';
+import ProfileIcon from '@/shared/assets/icons/profile.svg';
+import ArticleIcon from '@/shared/assets/icons/article.svg';
 import { NavigationLink } from '../../types/navigation';
 
 const authData = (state: StoreSchema) => state?.user.authData;

@@ -1,5 +1,5 @@
-import { Country } from 'shared/constants/country';
-import { Currency } from 'shared/constants/currency';
+import { Country } from '@/shared/constants/country';
+import { Currency } from '@/shared/constants/currency';
 
 export interface Profile {
   id?: string;
@@ -12,4 +12,3 @@ export interface Profile {
   username?: string;
   avatar?: string;
 }
-

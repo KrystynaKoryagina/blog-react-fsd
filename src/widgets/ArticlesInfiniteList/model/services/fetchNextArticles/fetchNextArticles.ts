@@ -1,7 +1,7 @@
 // TODO test урок 56 Пагинация. Page. Бесконечная лента. Observer API. useInfiniteScroll
 
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ThunkConfig } from 'app/providers/store';
+import { ThunkConfig } from '@/app/providers/store';
 import { getArticlesListPage } from '../../selectors/getArticlesListPage/getArticlesListPage';
 import { getArticlesListHasMore } from '../../selectors/getArticlesListHasMore/getArticlesListHasMore';
 import { getArticlesListLoading } from '../../selectors/getArticlesListLoading/getArticlesListLoading';

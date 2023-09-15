@@ -22,9 +22,12 @@
   --sidebar-width: 300px;
   --sidebar-width-collapsed: 80px;
 
-  --modal-z-index: 10;
-
   --overlay-bg: rgb(0 0 0 / 60%);
   --error-color: #f00;
   --active-color: #832c2c;
+
+  /* z-index */
+  --modal-z-index: 10;
+  --dropdown-menu-z-index: 9;
+  --popover-z-index: 9;
 }

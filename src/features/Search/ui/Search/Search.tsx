@@ -1,8 +1,8 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 // import { useDebounce } from 'shared/lib/hooks/useDebounce';
-import { Card } from 'shared/ui/Card';
-import { Input } from 'shared/ui/Input';
+import { Card } from '@/shared/ui/Card';
+import { Input } from '@/shared/ui/Input';
 
 interface SearchProps {
   searchValue?: string

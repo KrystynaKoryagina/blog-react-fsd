@@ -1,6 +1,6 @@
 import { memo, useMemo } from 'react';
 import { useSelector } from 'react-redux';
-import { VStack } from 'shared/ui/Stack';
+import { VStack } from '@/shared/ui/Stack';
 import { NavigationItem } from '../NavigationItem/NavigationItem';
 import { getNavigationItems } from '../../model/selectors/getNavigationItem/getNavigationItem';
 

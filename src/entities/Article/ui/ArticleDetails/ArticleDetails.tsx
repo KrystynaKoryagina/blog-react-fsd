@@ -1,17 +1,17 @@
 import { memo, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
-import { Skeleton } from 'shared/ui/Skeleton';
-import { ReducersList } from 'app/providers/store';
-import { useDynamicReducerLoader } from 'shared/lib/hooks/useDynamicReducerLoader';
+import { Skeleton } from '@/shared/ui/Skeleton';
+import { ReducersList } from '@/app/providers/store';
+import { useDynamicReducerLoader } from '@/shared/lib/hooks/useDynamicReducerLoader';
 import {
   Text, TextAlign, TextSize, TextType,
-} from 'shared/ui/Text';
-import { Avatar } from 'shared/ui/Avatar';
-import CalendarIcon from 'shared/assets/icons/calendar.svg';
-import EyeIcon from 'shared/assets/icons/eye.svg';
-import { HStack, VStack } from 'shared/ui/Stack';
+} from '@/shared/ui/Text';
+import { Avatar } from '@/shared/ui/Avatar';
+import CalendarIcon from '@/shared/assets/icons/calendar.svg';
+import EyeIcon from '@/shared/assets/icons/eye.svg';
+import { HStack, VStack } from '@/shared/ui/Stack';
 import { articleReducer } from '../../model/slice/articleSlice';
 import { getArticleLoading }
   from '../../model/selectors/getArticleLoading/getArticleLoading';
@@ -19,14 +19,15 @@ import { getArticleData }
   from '../../model/selectors/getArticleData/getArticleData';
 import { getArticleError }
   from '../../model/selectors/getArticleError/getArticleError';
-import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
+import { ArticleBlock } from '../../model/types/article';
+import { ArticleBlockType } from '../../model/consts/article';
 import { ArticleCode } from '../ArticleCode/ArticleCode';
 import { ArticleText } from '../ArticleText/ArticleText';
 import { ArticleImage } from '../ArticleImage/ArticleImage';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 
 interface ArticleProps {
-  id: string;
+  id?: string;
   className?: string;
 }
 

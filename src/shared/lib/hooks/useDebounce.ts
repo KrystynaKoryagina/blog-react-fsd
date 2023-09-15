@@ -9,7 +9,7 @@ export const useDebounce = (cb: (...args: any[]) => void, delay: number = 500) =
     }
   }, []);
 
-  return useCallback((...args) => {
+  return useCallback((...args: any[]) => {
     if (timerRef.current) {
       clearTimeout(timerRef.current);
     }

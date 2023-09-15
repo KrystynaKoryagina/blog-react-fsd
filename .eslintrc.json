@@ -18,10 +18,11 @@
       "jsx": true
     },
     "ecmaVersion": "latest",
-    "sourceType": "module"
+    "sourceType": "module",
+    "project": "./tsconfig.json"
     // "project": "./tsconfig.json" // NOTE to resolve issues on script/createtemplates
   },
-  "plugins": ["react", "@typescript-eslint", "i18next"],
+  "plugins": ["react", "@typescript-eslint", "i18next", "import"],
   "rules": {
     "react/jsx-indent": [2, 2],
     "react/jsx-indent-props": [2, 2],
@@ -42,7 +43,9 @@
     "no-param-reassign": 0,
     "jsx-a11y/click-events-have-key-events": 0,
     "jsx-a11y/no-static-element-interactions": 0,
-    "no-tabs": 0
+    "no-tabs": 0,
+    "import/no-unresolved": "error",
+    "react/jsx-pascal-case": ["1", { "allowNamespace": true }]
   },
   "globals": {
     "__IS_DEV__": true,
@@ -56,5 +59,16 @@
         "max-len": 0
       }
     }
-  ]
+  ],
+  "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true,
+        "project": "./tsconfig.json"
+      }
+    }
+  }
 }

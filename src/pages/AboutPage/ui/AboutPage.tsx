@@ -5,9 +5,10 @@ const AboutPage = memo(() => {
   const { t } = useTranslation('about');
 
   return (
-  <div>
-    {t('AboutPage')}
-  </div>);
+    <div>
+      {t('AboutPage')}
+    </div>
+  );
 });
 
 export default AboutPage;

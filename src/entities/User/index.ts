@@ -1,5 +1,7 @@
-export { User, UserRole } from './model/types/user';
-export { UserStore } from './model/types/userStore';
+export type { User } from './model/types/user';
+export type { UserStore } from './model/types/userStore';
+
+export { UserRole } from './model/consts/user';
 
 export { userActions, userReducer } from './model/slice/userSlice';
 

@@ -1,8 +1,8 @@
 import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/utils/classNames';
-import { Button, ButtonType } from 'shared/ui/Button';
-import { HStack } from 'shared/ui/Stack';
+import { classNames } from '@/shared/lib/utils/classNames';
+import { Button, ButtonType } from '@/shared/ui/Button';
+import { HStack } from '@/shared/ui/Stack';
 import { langConfig, LangKey } from '../../types/LangSwitcher.types';
 import styles from './LangSwitcher.module.scss';
 

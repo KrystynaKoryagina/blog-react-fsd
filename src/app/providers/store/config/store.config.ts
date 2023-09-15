@@ -1,12 +1,12 @@
 import {
   CombinedState, configureStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
-import { userReducer } from 'entities/User';
-import { $axios_api } from 'shared/api/axios';
-import { scrollReducer } from 'features/SaveScrollPosition';
+import { userReducer } from '@/entities/User';
+import { $axiosApi } from '@/shared/api/axios';
+import { scrollReducer } from '@/features/SaveScrollPosition';
+import { rtkApi } from '@/shared/api/rtkQuery';
 import { StoreSchema, ThunkExtraArgs } from '../types/store';
 import { createReducerManager } from './reducerManager';
-import { rtkApi } from 'shared/api/rtkQuery';
 
 export const createReduxStore = (
   initialState?: StoreSchema,
@@ -22,7 +22,7 @@ export const createReduxStore = (
   const reducerManager = createReducerManager(rootReducers);
 
   const extraArgument: ThunkExtraArgs = {
-    api: $axios_api,
+    api: $axiosApi,
   };
 
   const store = configureStore({

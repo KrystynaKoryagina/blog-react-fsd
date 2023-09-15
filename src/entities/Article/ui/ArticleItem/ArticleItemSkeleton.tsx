@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { classNames } from 'shared/lib/utils/classNames';
+import { classNames } from '@/shared/lib/utils/classNames';
 import styles from './ArticleItem.module.scss';
 import { ArticleListViewSkeleton } from '../ArticleListView/ArticleListViewSkeleton';
 import { ArticleGridViewSkeleton } from '../ArticleGridView/ArticleGridViewSkeleton';

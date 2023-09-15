@@ -8,12 +8,13 @@
   padding: 0;
   border: none;
   cursor: pointer;
+  width: 100%;
 }
 
 .menuList {
   background: var(--card-bg);
   position: absolute;
-  z-index: 10000;
+  z-index: var(--dropdown-menu-z-index);
   border-radius: 8px;
   border: 1px solid var(--primary-color);
   flex-direction: column;
@@ -40,20 +41,20 @@
 
 .bottomLeft {
   top: 100%;
-  right: 0;
+  left: 0;
 }
 
 .bottomRight {
   top: 100%;
-  left: 0;
+  right: 0;
 }
 
 .topRight {
   bottom: 100%;
-  left: 0;
+  right: 0;
 }
 
 .topLeft {
-  right: 0;
+  left: 0;
   bottom: 100%;
 }

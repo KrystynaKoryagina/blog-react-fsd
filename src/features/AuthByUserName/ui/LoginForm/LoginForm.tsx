@@ -1,12 +1,13 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { ReducersList } from 'app/providers/store';
-import { Button, ButtonType } from 'shared/ui/Button';
-import { Input } from 'shared/ui/Input';
-import { TextType, Text } from 'shared/ui/Text';
-import { useDynamicReducerLoader } from 'shared/lib/hooks/useDynamicReducerLoader';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { ReducersList } from '@/app/providers/store';
+import { Button, ButtonType } from '@/shared/ui/Button';
+import { Input } from '@/shared/ui/Input';
+import { TextType, Text } from '@/shared/ui/Text';
+import { useDynamicReducerLoader } from '@/shared/lib/hooks/useDynamicReducerLoader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { VStack } from '@/shared/ui/Stack';
 import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import styles from './LoginForm.module.scss';
 import { loginByUsername } from '../../model/service/loginByUsername/loginByUserName';
@@ -14,7 +15,6 @@ import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLogi
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
 import { getLoginLoading } from '../../model/selectors/getLoginLoading/getLoginLoading';
-import { VStack } from 'shared/ui/Stack';
 
 const reducers: ReducersList = {
   login: loginReducer,

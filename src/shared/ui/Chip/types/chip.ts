@@ -1,10 +1,5 @@
-export const enum ChipType {
-  PRIMARY = 'primary',
-  OUTLINE = 'outline',
-}
-
-export interface ChipContent {
+export interface ChipContent<T> {
   id: string
-  value: string
+  value: T
   displayName: string
 }

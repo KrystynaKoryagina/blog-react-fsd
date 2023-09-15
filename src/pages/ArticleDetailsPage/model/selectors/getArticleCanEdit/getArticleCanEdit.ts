@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect';
-import { getUserAuthData } from 'entities/User';
-import { getArticleData } from 'entities/Article';
+import { getUserAuthData } from '@/entities/User';
+import { getArticleData } from '@/entities/Article';
 
 export const getArticleCanEdit = createSelector(
   getUserAuthData,

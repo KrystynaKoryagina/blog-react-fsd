@@ -10,7 +10,7 @@ export const useThrottle = (cb: (...args: any[]) => void, delay: number) => {
     }
   }, []);
 
-  return useCallback((...args) => {
+  return useCallback((...args: any[]) => {
     if (throttleRef.current) {
       return;
     }

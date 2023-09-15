@@ -2,16 +2,15 @@ import {
   memo, useCallback, useEffect, useMemo,
 } from 'react';
 import { useSelector } from 'react-redux';
-import { ProfileCard } from 'entities/Profile';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { Currency } from 'shared/constants/currency';
-import { Country } from 'shared/constants/country';
-import { useDynamicReducerLoader } from 'shared/lib/hooks/useDynamicReducerLoader';
+import { ProfileCard } from '@/entities/Profile';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { Currency } from '@/shared/constants/currency';
+import { Country } from '@/shared/constants/country';
+import { useDynamicReducerLoader } from '@/shared/lib/hooks/useDynamicReducerLoader';
 import { useTranslation } from 'react-i18next';
-import { Text, TextType } from 'shared/ui/Text';
-import { ReducersList } from 'app/providers/store';
-import { VStack } from 'shared/ui/Stack';
-import { useParams } from 'react-router-dom';
+import { Text, TextType } from '@/shared/ui/Text';
+import { ReducersList } from '@/app/providers/store';
+import { VStack } from '@/shared/ui/Stack';
 import { profileActions, profileReducer } from '../../model/slice/profileSlice';
 import { fetchProfileData } from '../../model/service/fetchProfleData/fetchProfileData';
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';

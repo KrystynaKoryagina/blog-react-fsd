@@ -1,10 +1,10 @@
 import { HTMLAttributeAnchorTarget, memo } from 'react';
-import { Card } from 'shared/ui/Card';
-import { Text, TextSize } from 'shared/ui/Text';
-import EyeIcon from 'shared/assets/icons/eye.svg';
+import { Card } from '@/shared/ui/Card';
+import { Text, TextSize } from '@/shared/ui/Text';
+import EyeIcon from '@/shared/assets/icons/eye.svg';
 import { Link } from 'react-router-dom';
-import { RoutePath } from 'shared/config/routes/routes';
-import { HStack, VStack } from 'shared/ui/Stack';
+import { RoutePath } from '@/shared/config/routes/routes';
+import { HStack, VStack } from '@/shared/ui/Stack';
 import styles from './ArticleGridView.module.scss';
 import { Article } from '../../model/types/article';
 

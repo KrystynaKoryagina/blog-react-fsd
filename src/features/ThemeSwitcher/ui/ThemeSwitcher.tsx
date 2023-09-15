@@ -1,7 +1,7 @@
-import { Theme, useTheme } from 'shared/lib/contexts/theme';
-import LightIcon from 'shared/assets/icons/theme-light.svg';
-import DarkIcon from 'shared/assets/icons/theme-dark.svg';
-import { Button, ButtonType } from 'shared/ui/Button';
+import { Theme, useTheme } from '@/shared/lib/contexts/theme';
+import LightIcon from '@/shared/assets/icons/theme-light.svg';
+import DarkIcon from '@/shared/assets/icons/theme-dark.svg';
+import { Button, ButtonType } from '@/shared/ui/Button';
 import { memo } from 'react';
 
 /* TODO

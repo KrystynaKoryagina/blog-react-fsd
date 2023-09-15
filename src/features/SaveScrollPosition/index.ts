@@ -1,5 +1,5 @@
-export { ScrollPosition } from './model/types/scroll';
-export { ScrollStore } from './model/types/scrollStore';
+export type { ScrollPosition } from './model/types/scroll';
+export type { ScrollStore } from './model/types/scrollStore';
 
 export { scrollReducer, scrollActions } from './model/slice/scrollSlice';
 

@@ -1,8 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ThunkConfig } from 'app/providers/store';
-import { Article, ArticleCategory } from 'entities/Article';
-import i18n from 'shared/config/i18n/i18n';
-import { addQueryParams } from 'shared/lib/utils/addQueryParams/addQueryParams';
+import { ThunkConfig } from '@/app/providers/store';
+import { Article, ArticleCategory } from '@/entities/Article';
+import i18n from '@/shared/config/i18n/i18n';
+import { addQueryParams } from '@/shared/lib/utils/addQueryParams/addQueryParams';
 import { getArticlesListLimit } from '../../selectors/getArticlesListLimit/getArticlesListLimit';
 import { getArticlesListPage } from '../../selectors/getArticlesListPage/getArticlesListPage';
 import { getArticlesListOrder } from '../../selectors/getArticlesListOrder/getArticlesListOrder';

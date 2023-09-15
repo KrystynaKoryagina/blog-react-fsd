@@ -1,15 +1,15 @@
 import {
   memo, useCallback, useEffect, useMemo,
 } from 'react';
-import { ReducersList } from 'app/providers/store';
-import { useDynamicReducerLoader } from 'shared/lib/hooks/useDynamicReducerLoader';
-import { CommentCard } from 'entities/Comment';
-import { Text } from 'shared/ui/Text';
+import { ReducersList } from '@/app/providers/store';
+import { useDynamicReducerLoader } from '@/shared/lib/hooks/useDynamicReducerLoader';
+import { CommentCard } from '@/entities/Comment';
+import { Text } from '@/shared/ui/Text';
 import { useTranslation } from 'react-i18next';
-import { AddCommentForm } from 'features/AddCommentForm';
+import { AddCommentForm } from '@/features/AddCommentForm';
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { VStack } from 'shared/ui/Stack';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { VStack } from '@/shared/ui/Stack';
 import { articleCommentsReducer, getArticleComments } from '../model/slice/articleCommentsSlice';
 import { fetchCommentsByArticleId }
   from '../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
@@ -22,7 +22,7 @@ const reducers: ReducersList = {
 };
 
 interface ArticleCommentsProps {
-  articleId: string
+  articleId?: string
   className?: string
 }
 
@@ -60,6 +60,9 @@ export const ArticleComments = memo(({ articleId, className }: ArticleCommentsPr
   return (
     <VStack className={className} gap='16'>
       <Text>{t('COMMENTS')}</Text>
+      {/* TODO обернуть в Suspend ??? ошибка в cторибуке когда обновишь страницу
+        или добавить декоратор SuspenseDecorator в сорикейсы
+      */}
       <AddCommentForm sentComment={onSendComment} />
       <VStack gap='8'>
         {CommentCardJSX}

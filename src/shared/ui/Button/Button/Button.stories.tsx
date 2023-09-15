@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Theme } from 'shared/lib/contexts/theme';
+import { Theme } from '@/shared/lib/contexts/theme';
 import { Button, ButtonProps } from './Button';
 import { ButtonSize, ButtonType } from '../types/button';
 
@@ -77,16 +77,16 @@ OutlineSizeLg.args = {
   size: ButtonSize.LG,
 };
 
-export const Square = (args: ButtonProps) => (
-  <>
-    <div>Size sm</div>
-    <Button variant={ButtonType.PRIMARY_INVERTED} size={ButtonSize.SM} square {...args}>{'<'}</Button>
-    <div>Size md</div>
-    <Button variant={ButtonType.PRIMARY_INVERTED} size={ButtonSize.MD} square {...args}>{'<'}</Button>
-    <div>Size sm</div>
-    <Button variant={ButtonType.PRIMARY_INVERTED} size={ButtonSize.SM} square {...args}>{'<'}</Button>
-  </>
-);
+// export const Square = (args: ButtonProps) => (
+//   <>
+//     <div>Size sm</div>
+//     <Button variant={ButtonType.PRIMARY_INVERTED} size={ButtonSize.SM} square {...args}>{'<'}</Button>
+//     <div>Size md</div>
+//     <Button variant={ButtonType.PRIMARY_INVERTED} size={ButtonSize.MD} square {...args}>{'<'}</Button>
+//     <div>Size sm</div>
+//     <Button variant={ButtonType.PRIMARY_INVERTED} size={ButtonSize.SM} square {...args}>{'<'}</Button>
+//   </>
+// );
 
 // TODO
 // сделать для кнопок dark theme

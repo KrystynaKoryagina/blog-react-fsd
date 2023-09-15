@@ -1,8 +1,8 @@
 import { memo, useMemo } from 'react';
-import { Select, SelectOption } from 'shared/ui/Select';
-import { SortOrder } from 'shared/types/sort';
+import { Select, SelectOption } from '@/shared/ui/Select';
+import { SortOrder } from '@/shared/types/sort';
 import { useTranslation } from 'react-i18next';
-import { HStack } from 'shared/ui/Stack';
+import { HStack } from '@/shared/ui/Stack';
 import { ArticleSortField } from '../../model/types/articleSort';
 
 // TODO изолировать в рамках фичи - сделать общий компонент сортировки подходящий для любых страниц

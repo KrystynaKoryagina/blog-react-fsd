@@ -1,2 +1,3 @@
+export type { ArticleCommentsStore } from './model/types/articleCommentsStore';
+
 export { ArticleComments } from './ui/ArticleComments';
-export { ArticleCommentsStore } from './model/types/articleCommentsStore';

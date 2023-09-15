@@ -1,5 +1,5 @@
 import React, { ErrorInfo, ReactNode, Suspense } from 'react';
-import { Error } from 'widgets/Error';
+import { Error } from '@/widgets/Error';
 
 interface ErrorBoundaryProps {
   children: ReactNode;

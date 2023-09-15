@@ -1,4 +1,4 @@
-module.exports = {
+const config = {
   stories: [
     '../../src/**/*.stories.@(js|jsx|ts|tsx)',
   ],
@@ -7,9 +7,11 @@ module.exports = {
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
   ],
-  framework: '@storybook/react',
+  framework: '@storybook/react-webpack5',
   core: {
     builder: 'webpack5',
   },
-  staticDirs: ['../../public'],
+  // staticDirs: ['../../public'],
 };
+
+export default config;

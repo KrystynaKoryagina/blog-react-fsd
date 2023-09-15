@@ -1,2 +1,3 @@
-export { Text } from './Text/Text';
-export { TextType, TextSize, TextAlign } from './types/Text';
+export { Text } from './ui/Text/Text';
+
+export { TextType, TextSize, TextAlign } from './consts/Text';

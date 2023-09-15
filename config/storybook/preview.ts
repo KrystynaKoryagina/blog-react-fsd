@@ -1,23 +1,27 @@
-import { addDecorator, Parameters } from '@storybook/react';
+import { Preview } from '@storybook/react';
+import { SuspenseDecorator } from '../../src/shared/config/storybook/decorators/SuspenseDecorator';
 import { ThemeDecorator } from '../../src/shared/config/storybook/decorators/ThemeDecorator';
 import { RouterDecorator } from '../../src/shared/config/storybook/decorators/RouterDecorator';
 import { i18nDecorator } from '../../src/shared/config/storybook/decorators/i18nDecorator';
 import { Theme } from '../../src/shared/lib/contexts/theme';
 
-export const parameters: Parameters = {
-  actions: { argTypesRegex: '^on[A-Z].*' },
-  controls: {
-    matchers: {
-      color: /(background|color)$/i,
-      date: /Date$/,
+const preview: Preview = {
+  parameters: {
+    actions: { argTypesRegex: '^on[A-Z].*' },
+    controls: {
+      matchers: {
+        color: /(background|color)$/i,
+        date: /Date$/,
+      },
     },
+    theme: Theme.LIGHT,
   },
-  theme: Theme.LIGHT,
+  decorators: [
+    RouterDecorator,
+    i18nDecorator,
+    SuspenseDecorator,
+    ThemeDecorator,
+  ],
 };
 
-addDecorator(RouterDecorator);
-addDecorator(i18nDecorator);
-
-// @ts-ignore
-// TODO https://github.com/storybookjs/testing-react/issues/61
-addDecorator(ThemeDecorator);
+export default preview;

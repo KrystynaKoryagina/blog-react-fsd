@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
-import { Theme } from 'shared/lib/contexts/theme';
+import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
+import { Theme } from '@/shared/lib/contexts/theme';
 import LoginForm from './LoginForm';
 
 export default {

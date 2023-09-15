@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Theme } from 'shared/lib/contexts/theme';
+import { Theme } from '@/shared/lib/contexts/theme';
 import { Error } from './Error';
 
 export default {
