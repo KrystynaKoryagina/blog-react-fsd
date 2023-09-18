@@ -22,6 +22,7 @@ export const NavigationItem = ({ item, collapsed }: NavigationItemProps) => {
 
   return (
     <AppLink
+      data-testid='navigation-item'
       className={classNames(styles.navLink, [], {
         [styles.collapsed]: collapsed,
       })}

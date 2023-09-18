@@ -42,6 +42,7 @@ const DrawerContent = ({
     });
   }, [Spring.config.stiff, api, onClose]);
 
+   {/* TODO fix  () => close( */}
   useCloseOnEsc({ onClose: () => close() });
 
   const bind = Gesture.useDrag(
@@ -77,7 +78,8 @@ const DrawerContent = ({
           [styles.close]: !isOpen,
         })}
         >
-          <Overlay onClick={() => close()} />
+          {/* TODO fix  () => close( */}
+          <Overlay onClick={() => close()} /> 
           <Spring.a.div
             className={styles.content}
             style={{ display, bottom: `calc(-100vh + ${height}px)`, y }}

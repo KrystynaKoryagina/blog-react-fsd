@@ -1,13 +1,14 @@
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useMemo } from 'react';
 import { DropdownItem, DropdownMenu } from '@/shared/ui/DropdownMenu';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { useNavigate } from 'react-router-dom';
 import { getUserAuthData, userActions } from '@/entities/User';
 import { RoutePath } from '@/shared/config/routes/routes';
 import { Avatar } from '@/shared/ui/Avatar';
 import { getIsAdminPanelAvailable } from '../../model/selectors/getIsAdminPanelAvailable/getIsAdminPanelAvailable';
+import { Button, ButtonType } from '@/shared/ui/Button';
 
 interface AvatarDropdownProps {
   className?: string;
@@ -44,13 +45,17 @@ export const AvatarDropdown = memo(({ className }: AvatarDropdownProps) => {
     },
   ]), [authData?.id, isAdminPanelAvailable, logout, t]);
 
+  const menuTrigger = useMemo(() => (
+    <Button variant={ButtonType.GHOST}><Avatar src={authData?.avatar} size={30} /></Button>
+  ), [authData?.avatar]);
+
   return (
     authData
       ? (
         <DropdownMenu
           className={className}
           items={dropdownItems}
-          trigger={<Avatar src={authData.avatar} size={30} />}
+          trigger={menuTrigger}
           direction='bottom right'
         />
       )

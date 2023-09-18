@@ -1,7 +1,7 @@
+import { memo, useCallback, useState } from 'react';
 import { LangSwitcher } from '@/features/LangSwitcher';
 import { Navigation } from '@/features/Navigation';
 import { ThemeSwitcher } from '@/features/ThemeSwitcher';
-import { memo, useCallback, useState } from 'react';
 import { classNames } from '@/shared/lib/utils/classNames';
 import { Button, ButtonType, ButtonSize } from '@/shared/ui/Button';
 import { VStack } from '@/shared/ui/Stack';

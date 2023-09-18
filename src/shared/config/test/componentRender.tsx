@@ -22,7 +22,6 @@ export function componentRender(component: ReactNode, options: ComponentRenderOp
           </Suspense>
         </I18nextProvider>
       </StoreProvider>
-      ,
     </MemoryRouter>,
   );
 }

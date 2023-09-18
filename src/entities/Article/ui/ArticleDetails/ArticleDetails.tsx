@@ -1,7 +1,7 @@
 import { memo, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { Skeleton } from '@/shared/ui/Skeleton';
 import { ReducersList } from '@/app/providers/store';
 import { useDynamicReducerLoader } from '@/shared/lib/hooks/useDynamicReducerLoader';
@@ -25,6 +25,7 @@ import { ArticleCode } from '../ArticleCode/ArticleCode';
 import { ArticleText } from '../ArticleText/ArticleText';
 import { ArticleImage } from '../ArticleImage/ArticleImage';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 
 interface ArticleProps {
   id?: string;
@@ -46,13 +47,13 @@ export const ArticleDetails = memo(({ className, id }: ArticleProps) => {
   const error = useSelector(getArticleError);
 
   // TODO
-  // useEffect(() => {
+  // () => {
   //   if (__PROJECT__ !== 'storybook') {
   //     dispatch(fetchArticleById(id));
   //   }
   // }, [dispatch, id]);
 
-  useEffect(() => {
+  useInitialEffect(() => {
     dispatch(fetchArticleById(id));
   }, [dispatch, id]);
 

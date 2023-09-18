@@ -35,6 +35,7 @@
   &:focus,
   &:focus-visible {
     outline: auto;
+    outline-color: var(--inverted-primary-color);
   }
 }
 

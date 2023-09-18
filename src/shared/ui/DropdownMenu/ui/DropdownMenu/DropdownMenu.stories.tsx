@@ -21,7 +21,7 @@ const items: DropdownItem[] = [
   { id: '4', content: 'Option 4' },
 ];
 
-const triggerBtn = <Button as='div' variant={ButtonType.PRIMARY_INVERTED}>Click Me</Button>;
+const triggerBtn = <Button style={{width: '100%'}} variant={ButtonType.PRIMARY_INVERTED}>Click Me</Button>;
 
 export const Light: Story = {
   render: () => (

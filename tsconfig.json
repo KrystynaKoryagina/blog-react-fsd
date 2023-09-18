@@ -27,7 +27,8 @@
     "./webpack.config.ts",
     "./src/**/*.ts",
     "./src/**/*.tsx",
-    "./scripts/*.ts", "config/storybook/main.ts",
+    "./scripts/*.ts", 
+    "config/storybook/main.ts",
     // "**/*.ts",
     // "**/*.tsx"
   ]

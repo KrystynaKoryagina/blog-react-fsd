@@ -9,7 +9,6 @@ const MainPage = memo(() => {
   return (
     <Page>
       {t('MAIN_PAGE')}
-      <Button as='div'>Click me</Button>
     </Page>
   );
 });

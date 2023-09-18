@@ -1,4 +1,4 @@
-import { memo, useMemo } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { Card } from '@/shared/ui/Card';
 import { Text, TextSize } from '@/shared/ui/Text';
 import EyeIcon from '@/shared/assets/icons/eye.svg';
@@ -6,12 +6,13 @@ import { Avatar } from '@/shared/ui/Avatar';
 import { Button, ButtonType } from '@/shared/ui/Button';
 import { useTranslation } from 'react-i18next';
 import { RoutePath } from '@/shared/config/routes/routes';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import styles from './ArticleListView.module.scss';
 import { Article, ArticleTextBlock } from '../../model/types/article';
 import { ArticleText } from '../ArticleText/ArticleText';
 import { ArticleBlockType } from '../../model/consts/article';
+import { AppLink } from '@/shared/ui/AppLink';
 
 interface ArticleListViewProps {
   article: Article
@@ -19,10 +20,15 @@ interface ArticleListViewProps {
 
 export const ArticleListView = memo(({ article }: ArticleListViewProps) => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   const textBlock = useMemo(() => article?.blocks?.find(
     (block) => block.type === ArticleBlockType.TEXT,
   ), [article.blocks]) as ArticleTextBlock;
+
+  const navigateToArticleDetails = useCallback(() => {
+    navigate(`${RoutePath.ARTICLE_DETAILS}/${article.id}`);
+  }, []);
 
   return (
     <Card>
@@ -50,7 +56,7 @@ export const ArticleListView = memo(({ article }: ArticleListViewProps) => {
         <HStack align='center' justify='between'>
           <Button
             variant={ButtonType.OUTLINE}
-            href={`${RoutePath.ARTICLE_DETAILS}/${article.id}`}
+            onClick={navigateToArticleDetails}
           >
             {t('BUTTONS.READ')}
           </Button>

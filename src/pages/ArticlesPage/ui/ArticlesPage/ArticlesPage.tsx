@@ -10,6 +10,7 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { VStack } from '@/shared/ui/Stack';
 import { Page } from '@/widgets/Page';
 import { ArticlesPageFilter } from '../ArticlesPageFilter/ArticlesPageFilter';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 
 const reducers: ReducersList = {
   articlesList: articlesListReducer,
@@ -34,7 +35,7 @@ const ArticlesPage = () => {
   //   }
   // }, [dispatch, id]);
 
-  useEffect(() => {
+  useInitialEffect(() => {
     dispatch(initArticlesPage(searchParams));
   }, [dispatch, searchParams]);
 

@@ -60,7 +60,11 @@ export default {
   // globalTeardown: undefined,
 
   // A set of global variables that need to be available in all test environments
-  globals: { __IS_DEV__: true, __API__: '' },
+  globals: {
+    __IS_DEV__: true,
+    __API__: '',
+    // __PROJECT__: 'jest'
+  },
 
   // The maximum amount of workers used to run your tests. Can be specified as % or a number. E.g. maxWorkers: 10% will use 10% of your CPU amount + 1 as the maximum worker number. maxWorkers: 2 will use a maximum of 2 workers.
   // maxWorkers: "50%",
@@ -80,7 +84,8 @@ export default {
     //   '<rootDir>/__mocks__/fileMock.js',
     '\\.(s?css)$': 'identity-obj-proxy',
     '\\.svg': path.resolve(__dirname, 'mocks/jestEmptyComponent.tsx'),
-    axios: 'axios/dist/node/axios.cjs',
+    '/axios/': 'axios/dist/node/axios.cjs',
+    '^@/(.*)$': '<rootDir>src/$1',
   },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
@@ -128,7 +133,7 @@ export default {
   // setupFiles: [],
 
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
-  setupFilesAfterEnv: ['<rootDir>config/jest/jest.setup.ts'],
+  setupFilesAfterEnv: ['<rootDir>config/jest/jest.setup.ts', '@testing-library/jest-dom'],
 
   // The number of seconds after which a test is considered as slow and reported as such in the results.
   // slowTestThreshold: 5,

@@ -24,7 +24,6 @@ root.render(
 
 // TODO
 /*
-  Урок 36 Тестирование фичи authByUsername. TestAsyncThunk
   Урок 43 Переменная __PROJECT__. Тесты на модуль профиля
   Урок 45 file templates
   Урок 63 Оптимизация больших списков. Виртуализация 26:40

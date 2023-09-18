@@ -1,2 +1,3 @@
-export { Button } from './Button/Button';
-export { ButtonType, ButtonSize } from './types/button';
+export { ButtonType, ButtonSize } from './consts/button';
+
+export { Button } from './ui/Button/Button';

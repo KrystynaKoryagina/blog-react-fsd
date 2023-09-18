@@ -3,21 +3,27 @@ import {
   componentRender,
 } from '@/shared/config/test/componentRender';
 import { Sidebar } from './Sidebar';
+import '@testing-library/jest-dom';
 
-describe('Sidebar', () => {
-  test('with only first param', () => {
+describe('widgets/Sidebar', () => {
+  test('should render successfully', () => {
     componentRender(<Sidebar />);
 
     expect(screen.getByTestId('sidebar')).toBeInTheDocument();
   });
 
-  test('test toggle', () => {
+  test('should be toggled successfully', () => {
     componentRender(<Sidebar />);
 
+    const sidebar = screen.getByTestId('sidebar');
     const toggleBtn = screen.getByTestId('sidebar-toggle');
-    expect(screen.getByTestId('sidebar')).toBeInTheDocument();
+
+    expect(sidebar).toBeInTheDocument();
 
     fireEvent.click(toggleBtn);
-    expect(screen.getByTestId('sidebar')).toHaveClass('collapsed');
+    expect(sidebar).toHaveClass('collapsed');
+
+    fireEvent.click(toggleBtn);
+    expect(sidebar).not.toHaveClass('collapsed');
   });
 });

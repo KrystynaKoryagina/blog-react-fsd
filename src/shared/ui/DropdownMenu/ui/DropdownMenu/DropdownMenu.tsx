@@ -59,7 +59,7 @@ export const DropdownMenu = ({
 
   return (
     <Menu as='div' className={classNames(styles.DropdownMenu, [className])}>
-      <Menu.Button className={styles.btn}>
+      <Menu.Button as='div' className={styles.btn}>
         {trigger}
       </Menu.Button>
       <Menu.Items className={classNames(styles.menuList, menuItemsClasses)}>

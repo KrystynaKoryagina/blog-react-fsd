@@ -1,11 +1,11 @@
-import { getUserAuthData } from '@/entities/User';
-import { LoginModal } from '@/features/AuthByUserName';
 import {
   Suspense,
   memo, useCallback, useState,
 } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { LoginModal } from '@/features/AuthByUserName';
+import { getUserAuthData } from '@/entities/User';
 import { classNames } from '@/shared/lib/utils/classNames';
 import { Button, ButtonType } from '@/shared/ui/Button';
 import { AppLink } from '@/shared/ui/AppLink';
@@ -32,7 +32,10 @@ export const Header = memo(() => {
 
   if (authData) {
     return (
-      <header className={classNames(styles.Header)}>
+      <header
+        data-testid='header'
+        className={classNames(styles.Header)}
+      >
         <HStack
           className={classNames(styles.headerContent)}
           justify='between'
@@ -54,7 +57,10 @@ export const Header = memo(() => {
   }
 
   return (
-    <header className={classNames(styles.Header)}>
+    <header
+      className={classNames(styles.Header)}
+      data-testid='header'
+    >
       <HStack className={classNames(styles.headerContent)} justify='end'>
         <Button
           className={styles.loginBtn}

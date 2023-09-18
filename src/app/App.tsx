@@ -9,6 +9,7 @@ import { HStack } from '@/shared/ui/Stack';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { AppRouter } from './providers/router';
 import './styles/index.scss';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 
 export const App = () => {
   const { theme } = useTheme();
@@ -31,7 +32,7 @@ Feliche-Demian Netliukh
   */
   const inited = useSelector(getUserInited);
 
-  useEffect(() => {
+  useInitialEffect(() => {
     dispatch(userActions.initAuthData());
   }, [dispatch]);
 
