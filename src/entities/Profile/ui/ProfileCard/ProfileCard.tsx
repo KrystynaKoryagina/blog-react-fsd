@@ -12,12 +12,13 @@ import { HStack, VStack } from '@/shared/ui/Stack';
 import styles from './ProfileCard.module.scss';
 import { Profile } from '../../model/types/profile';
 
+// TODO Partial<Profile>
 interface ProfileCardProps {
-  data: Profile | null,
+  data: Partial<Profile> | null,
   isLoading?: boolean,
   readOnly?: boolean,
   classname?: string,
-  error?: string | null,
+  error?: boolean,
   onChangeFirstname?: (value: string) => void
   onChangeLastname?: (value: string) => void
   onChangeCity?: (value: string) => void
@@ -69,7 +70,7 @@ export const ProfileCard = memo(({
       className={classNames(styles.ProfileCard, [classname], { [styles.editCard]: !readOnly })}
     >
       {data?.avatar
-        && <Avatar className={styles.avatar} alt={t('USER_AVATAR')} src={data?.avatar} />}
+        && <Avatar className={styles.avatar} alt={t('FORM.USER_AVATAR', { ns: 'profile' })} src={data?.avatar} />}
       <Input
         id='firstName'
         value={data?.firstName}
@@ -77,6 +78,7 @@ export const ProfileCard = memo(({
         className={styles.input}
         readOnly={readOnly}
         onChange={onChangeFirstname}
+        data-testid='profile-card-firstname'
       />
       <Input
         id='lastName'
@@ -85,6 +87,7 @@ export const ProfileCard = memo(({
         className={styles.input}
         readOnly={readOnly}
         onChange={onChangeLastname}
+        data-testid='profile-card-lastname'
       />
       <Input
         id='age'

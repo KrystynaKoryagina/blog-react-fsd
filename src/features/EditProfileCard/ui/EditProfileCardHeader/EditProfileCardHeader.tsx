@@ -1,9 +1,9 @@
 import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
+import { memo, useCallback } from 'react';
 import { Button, ButtonType } from '@/shared/ui/Button';
 import { HStack } from '@/shared/ui/Stack';
 import { Text, TextSize } from '@/shared/ui/Text';
-import { useTranslation } from 'react-i18next';
-import { memo, useCallback } from 'react';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { getProfileCanEdit } from '../../model/selectors/getProfileCanEdit/getProfileCanEdit';
 import { getProfileReadOnly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
@@ -39,6 +39,7 @@ export const EditProfileCardHeader = memo(() => {
             <Button
               variant={ButtonType.OUTLINE}
               onClick={onEdit}
+              data-testid='edit-profile-card-edit-btn'
             >
               {t('BUTTONS.EDIT')}
             </Button>
@@ -48,12 +49,14 @@ export const EditProfileCardHeader = memo(() => {
               <Button
                 variant={ButtonType.OUTLINE}
                 onClick={onCancel}
+                data-testid='edit-profile-card-edit-cancel'
               >
                 {t('BUTTONS.CANCEL')}
               </Button>
               <Button
                 variant={ButtonType.PRIMARY_INVERTED}
                 onClick={onSave}
+                data-testid='edit-profile-card-edit-save'
               >
                 {t('BUTTONS.SAVE')}
               </Button>

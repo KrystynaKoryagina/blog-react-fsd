@@ -1,9 +1,9 @@
 import { HTMLAttributeAnchorTarget, memo } from 'react';
+import { Link } from 'react-router-dom';
 import { Card } from '@/shared/ui/Card';
 import { Text, TextSize } from '@/shared/ui/Text';
 import EyeIcon from '@/shared/assets/icons/eye.svg';
-import { Link } from 'react-router-dom';
-import { RoutePath } from '@/shared/config/routes/routes';
+import { getRouteArticleDetails } from '@/shared/constants/routes';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import styles from './ArticleGridView.module.scss';
 import { Article } from '../../model/types/article';
@@ -14,7 +14,7 @@ interface ArticleGridViewProps {
 }
 
 export const ArticleGridView = memo(({ article, target }: ArticleGridViewProps) => (
-  <Link className={styles.ArticleGridView} to={`${RoutePath.ARTICLE_DETAILS}/${article.id}`} target={target}>
+  <Link className={styles.ArticleGridView} to={getRouteArticleDetails(article.id)} target={target}>
     <Card className={styles.gridCard}>
       <VStack justify='between' className={styles.gridCardContent}>
         <div className={styles.imageWrapper}>

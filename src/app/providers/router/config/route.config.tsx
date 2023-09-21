@@ -4,59 +4,70 @@ import { NotFoundPage } from '@/pages/NotFoundPage';
 import { ProfilePage } from '@/pages/ProfilePage';
 import { ArticlesPage } from '@/pages/ArticlesPage';
 import { ArticleDetailsPage } from '@/pages/ArticleDetailsPage';
-import { RoutePath } from '@/shared/config/routes/routes';
+import {
+  getRouteAbout,
+  getRouteAdmin,
+  getRouteArticleCreate,
+  getRouteArticleDetails,
+  getRouteArticleEdit,
+  getRouteArticles,
+  getRouteForbidden,
+  getRouteMain,
+  getRouteNotFound,
+  getRouteProfile,
+} from '@/shared/constants/routes';
 import { ArticleEditPage } from '@/pages/ArticleEditPage';
 import { AdminPanel } from '@/pages/AdminPanel';
 import { UserRole } from '@/entities/User';
 import { ForbiddenPage } from '@/pages/ForbiddenPage';
-import { AppRoutesProps } from '../model/types/router';
+import { AppRoutesProps } from '../model/types/router.types';
 
 export const routes: AppRoutesProps[] = [
   {
-    path: RoutePath.MAIN,
+    path: getRouteMain(),
     element: <MainPage />,
   },
   {
-    path: RoutePath.ABOUT,
+    path: getRouteAbout(),
     element: <AboutPage />,
   },
   {
-    path: RoutePath.ARTICLES,
+    path: getRouteArticles(),
     element: <ArticlesPage />,
     authOnly: true,
   },
   {
-    path: `${RoutePath.ARTICLE_DETAILS}/:id`,
+    path: getRouteArticleDetails(':id'),
     element: <ArticleDetailsPage />,
     authOnly: true,
   },
   {
-    path: `${RoutePath.ARTICLE_CREATE}`,
+    path: getRouteArticleCreate(),
     element: <ArticleEditPage />,
     authOnly: true,
   },
   {
-    path: `${RoutePath.ARTICLE_DETAILS}/:id/edit`,
+    path: getRouteArticleEdit(':id'),
     element: <ArticleEditPage />,
     authOnly: true,
   },
   {
-    path: `${RoutePath.PROFILE}/:id`,
+    path: getRouteProfile(':id'),
     element: <ProfilePage />,
     authOnly: true,
   },
   {
-    path: RoutePath.ADMIN_PANEL,
+    path: getRouteAdmin(),
     element: <AdminPanel />,
     authOnly: true,
     roles: [UserRole.ADMIN, UserRole.OWNER],
   },
   {
-    path: RoutePath.FORBIDDEN,
+    path: getRouteForbidden(),
     element: <ForbiddenPage />,
   },
   {
-    path: RoutePath.NOT_FOUND,
+    path: getRouteNotFound(),
     element: <NotFoundPage />,
   },
 ];

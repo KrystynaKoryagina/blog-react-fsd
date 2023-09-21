@@ -22,7 +22,11 @@
   "CITY": "CITY",
   "COMMENTS": "COMMENTS",
   "CREATE_ARTICLE": "CREATE_ARTICLE",
+  "DO_NOT_HAVE_ACCESS": "",
   "ENTER_COMMENT": "ENTER_COMMENT",
+  "ERRORS": {
+    "": ""
+  },
   "ERROR_MESSAGE": "ERROR_MESSAGE",
   "FIRSTNAME": "FIRSTNAME",
   "FORM": {
@@ -39,6 +43,7 @@
   "LASTNAME": "LASTNAME",
   "MAIN_PAGE": "MAIN_PAGE",
   "NAVIGATION": {
+    "": "",
     "ADMIN_PANEL": "ADMIN_PANEL",
     "PROFILE": "PROFILE"
   },
@@ -50,6 +55,7 @@
   },
   "USERNAME": "USERNAME",
   "USER_AVATAR": "USER_AVATAR",
+  "key": "",
   "throw error": "throw error",
   "Данные не указаны": "Данные не указаны",
   "Имя и фамилия обязательны": "Имя и фамилия обязательны",

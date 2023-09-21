@@ -1,11 +1,34 @@
-import { Suspense } from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
+import { Suspense } from 'react';
 
-export const RouterDecorator = (StoryComponent: Story) => (
+// interface RouterDecoratorOpts {
+//   initialEntries?: string[]
+//   path?: string
+// }
+
+// export const RouterDecorator = (options?: RouterDecoratorOpts) => (Story: StoryFn) => {
+//   // <BrowserRouter>
+//   //   <Suspense fallback={<div>Loading</div>}>
+//   //     <Story />
+//   //   </Suspense>
+//   // </BrowserRouter>;
+//   const initialEntries = options?.initialEntries || ['/'];
+//   const path = options?.path || '';
+
+//   return (
+//     <MemoryRouter initialEntries={initialEntries}>
+//       <Routes>
+//         <Route path={path} element={<Story />} />
+//       </Routes>
+//     </MemoryRouter>
+//   );
+// };
+
+export const RouterDecorator = (Story: StoryFn) => (
   <BrowserRouter>
     <Suspense fallback={<div>Loading</div>}>
-      <StoryComponent />
+      <Story />
     </Suspense>
   </BrowserRouter>
 );

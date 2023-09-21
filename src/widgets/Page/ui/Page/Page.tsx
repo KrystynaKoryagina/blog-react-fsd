@@ -1,17 +1,18 @@
 import {
   ReactNode, useRef, UIEvent, useEffect,
 } from 'react';
+import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { classNames } from '@/shared/lib/utils/classNames';
 import { getPageScrollPosition, scrollActions } from '@/features/SaveScrollPosition';
 import { useThrottle } from '@/shared/lib/hooks/useThrottle';
-import { useSelector } from 'react-redux';
 import { StoreSchema } from '@/app/providers/store';
 import styles from './Page.module.scss';
+import { TestProps } from '@/shared/types/testProps';
 
-interface PageProps {
+interface PageProps extends TestProps {
   children: ReactNode;
   className?: string;
   saveScroll?: boolean
@@ -23,6 +24,7 @@ export const Page = ({
   className,
   saveScroll = false,
   onScrollEnd,
+  ...test
 }: PageProps) => {
   const wrapperRef = useRef<HTMLElement>(null);
   const triggerRef = useRef<HTMLDivElement>(null);
@@ -60,6 +62,7 @@ export const Page = ({
       ref={wrapperRef}
       className={classNames(styles.Page, [className])}
       onScroll={onScroll}
+      data-testid={test['data-testid']}
     >
       {children}
       {onScrollEnd && <div ref={triggerRef} className={styles.trigger} />}

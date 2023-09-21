@@ -2,6 +2,13 @@
   "AGE": "",
   "AVATAR": "",
   "CITY": "",
+  "ERRORS": {
+    "INCORRECT_AGE": "",
+    "INCORRECT_COUNTRY": "",
+    "INCORRECT_USER_DATA": "",
+    "NO_DATA": "",
+    "SERVER_ERROR": ""
+  },
   "FIRSTNAME": "",
   "FORM": {
     "AGE": "AGE",
@@ -11,7 +18,8 @@
     "CURRENCY": "CURRENCY",
     "FIRSTNAME": "FIRSTNAME",
     "LASTNAME": "LASTNAME",
-    "USERNAME": "USERNAME"
+    "USERNAME": "USERNAME",
+    "USER_AVATAR": "USER_AVATAR"
   },
   "FROM": {
     "COUNTRY": "COUNTRY",

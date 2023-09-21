@@ -1,7 +1,7 @@
-import { UserRole } from '@/entities/User';
 import { ReactNode } from 'react';
-import { RequireAuth } from './RequireAuth';
-import { RequireRole } from './RequireRole';
+import { UserRole } from '@/entities/User';
+import { RequireAuth } from '../RequireAuth/RequireAuth';
+import { RequireRole } from '../RequireRole/RequireRole';
 
 interface ProtectedRouteProps {
   roles?: UserRole[];

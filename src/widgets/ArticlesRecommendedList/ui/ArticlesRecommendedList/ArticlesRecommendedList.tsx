@@ -1,7 +1,7 @@
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ArticlesList } from '@/entities/Article';
 import { Text } from '@/shared/ui/Text';
-import { memo } from 'react';
 import { VStack } from '@/shared/ui/Stack';
 import styles from './ArticlesRecommendedList.module.scss';
 import { useGetRecommendedArticlesQuery } from '../../api/articlesRecommendedListApi';
@@ -18,13 +18,6 @@ export const ArticlesRecommendedList = memo(({ className }: ArticlesRecommendedL
   if (!articles || isError) {
     return null;
   }
-
-  // TODO move to hook
-  // useEffect(() => {
-  //   if (__PROJECT__ !== 'storybook') {
-  //     dispatch(fetchCommentsByArticleId(articleId));
-  //   }
-  // }, [dispatch, id]);
 
   return (
     <VStack className={className} gap='16'>

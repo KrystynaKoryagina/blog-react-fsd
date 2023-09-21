@@ -4,14 +4,21 @@ const config = {
   ],
   addons: [
     '@storybook/addon-links',
-    '@storybook/addon-essentials',
+    {
+      name: '@storybook/addon-essentials',
+      options: {
+        background: false,
+      },
+    },
     '@storybook/addon-interactions',
+    'storybook-addon-mock',
+    'storybook-addon-themes',
   ],
   framework: '@storybook/react-webpack5',
   core: {
     builder: 'webpack5',
   },
-  // staticDirs: ['../../public'],
+  // staticDirs: ['../../public'], // TODO
 };
 
 export default config;

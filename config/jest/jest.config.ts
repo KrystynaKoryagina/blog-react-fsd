@@ -63,7 +63,7 @@ export default {
   globals: {
     __IS_DEV__: true,
     __API__: '',
-    // __PROJECT__: 'jest'
+    __PROJECT__: 'jest',
   },
 
   // The maximum amount of workers used to run your tests. Can be specified as % or a number. E.g. maxWorkers: 10% will use 10% of your CPU amount + 1 as the maximum worker number. maxWorkers: 2 will use a maximum of 2 workers.
@@ -83,7 +83,7 @@ export default {
     // '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
     //   '<rootDir>/__mocks__/fileMock.js',
     '\\.(s?css)$': 'identity-obj-proxy',
-    '\\.svg': path.resolve(__dirname, 'mocks/jestEmptyComponent.tsx'),
+    '\\.svg|jpg|jpeg|png': path.resolve(__dirname, 'mocks/jestEmptyComponent.tsx'),
     '/axios/': 'axios/dist/node/axios.cjs',
     '^@/(.*)$': '<rootDir>src/$1',
   },

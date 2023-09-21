@@ -1,8 +1,8 @@
-import { UserRole, getUserRole } from '@/entities/User';
 import { ReactNode } from 'react';
 import { useSelector } from 'react-redux';
 import { Navigate, useLocation } from 'react-router-dom';
-import { RoutePath } from '@/shared/config/routes/routes';
+import { UserRole, getUserRole } from '@/entities/User';
+import { getRouteForbidden } from '@/shared/constants/routes';
 
 interface RequireRoleProps {
   roles?: UserRole[];
@@ -16,7 +16,7 @@ export const RequireRole = ({ roles, children }: RequireRoleProps) => {
   const hasRequiredRoles = userRole && roles?.includes(userRole);
 
   if (!hasRequiredRoles) {
-    return <Navigate to={RoutePath.FORBIDDEN} state={{ from: location }} replace />;
+    return <Navigate to={getRouteForbidden()} state={{ from: location }} replace />;
   }
 
   // eslint-disable-next-line react/jsx-no-useless-fragment

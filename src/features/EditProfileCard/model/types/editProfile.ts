@@ -5,7 +5,7 @@ export interface ProfileStore {
   isLoading: boolean;
   readOnly: boolean;
   error?: string | null
-  editData?: Profile | null;
+  editData?: Partial<Profile> | null;
   validateErrors?: ValidateProfileError[] | null;
 }
 

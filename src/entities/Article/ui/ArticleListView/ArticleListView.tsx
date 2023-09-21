@@ -1,18 +1,17 @@
 import { memo, useCallback, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 import { Card } from '@/shared/ui/Card';
 import { Text, TextSize } from '@/shared/ui/Text';
 import EyeIcon from '@/shared/assets/icons/eye.svg';
 import { Avatar } from '@/shared/ui/Avatar';
 import { Button, ButtonType } from '@/shared/ui/Button';
-import { useTranslation } from 'react-i18next';
-import { RoutePath } from '@/shared/config/routes/routes';
-import { Link, useNavigate } from 'react-router-dom';
+import { getRouteArticleDetails } from '@/shared/constants/routes';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import styles from './ArticleListView.module.scss';
 import { Article, ArticleTextBlock } from '../../model/types/article';
 import { ArticleText } from '../ArticleText/ArticleText';
 import { ArticleBlockType } from '../../model/consts/article';
-import { AppLink } from '@/shared/ui/AppLink';
 
 interface ArticleListViewProps {
   article: Article
@@ -27,8 +26,8 @@ export const ArticleListView = memo(({ article }: ArticleListViewProps) => {
   ), [article.blocks]) as ArticleTextBlock;
 
   const navigateToArticleDetails = useCallback(() => {
-    navigate(`${RoutePath.ARTICLE_DETAILS}/${article.id}`);
-  }, []);
+    navigate(getRouteArticleDetails(article.id));
+  }, [article.id, navigate]);
 
   return (
     <Card>

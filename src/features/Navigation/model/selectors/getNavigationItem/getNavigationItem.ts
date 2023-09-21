@@ -1,11 +1,16 @@
 import { createSelector } from 'reselect';
 import { StoreSchema } from '@/app/providers/store';
-import { RoutePath } from '@/shared/config/routes/routes';
 import MainIcon from '@/shared/assets/icons/main.svg';
 import AboutIcon from '@/shared/assets/icons/about.svg';
 import ProfileIcon from '@/shared/assets/icons/profile.svg';
 import ArticleIcon from '@/shared/assets/icons/article.svg';
 import { NavigationLink } from '../../types/navigation';
+import {
+  getRouteAbout,
+  getRouteArticles,
+  getRouteMain,
+  getRouteProfile,
+} from '@/shared/constants/routes';
 
 const authData = (state: StoreSchema) => state?.user.authData;
 
@@ -14,12 +19,12 @@ export const getNavigationItems = createSelector(
   (user) => {
     const navigationItems: NavigationLink[] = [
       {
-        path: RoutePath.MAIN,
+        path: getRouteMain(),
         text: 'NAVIGATION.MAIN',
         Icon: MainIcon,
       },
       {
-        path: RoutePath.ABOUT,
+        path: getRouteAbout(),
         text: 'NAVIGATION.ABOUT',
         Icon: AboutIcon,
       },
@@ -28,13 +33,13 @@ export const getNavigationItems = createSelector(
     if (user) {
       navigationItems.push(
         {
-          path: `${RoutePath.PROFILE}/${user.id}`,
+          path: getRouteProfile(user.id),
           text: 'NAVIGATION.PROFILE',
           Icon: ProfileIcon,
           authOnly: true,
         },
         {
-          path: RoutePath.ARTICLES,
+          path: getRouteArticles(),
           text: 'NAVIGATION.ARTICLES',
           Icon: ArticleIcon,
           authOnly: true,

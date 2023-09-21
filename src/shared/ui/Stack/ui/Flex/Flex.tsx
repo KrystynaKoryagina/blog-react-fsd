@@ -38,6 +38,7 @@ export const Flex = ({
   justify,
   align,
   wrap,
+  ...otherProps
 }: FlexProps) => {
   const classes = [
     className,
@@ -49,7 +50,7 @@ export const Flex = ({
   ];
 
   return (
-    <div className={classNames(styles.Flex, classes)}>
+    <div className={classNames(styles.Flex, classes)} {...otherProps}>
       {children}
     </div>
   );

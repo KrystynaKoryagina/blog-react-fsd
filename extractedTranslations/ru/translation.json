@@ -22,7 +22,11 @@
   "CITY": "CITY",
   "COMMENTS": "COMMENTS",
   "CREATE_ARTICLE": "CREATE_ARTICLE",
+  "DO_NOT_HAVE_ACCESS": "DO_NOT_HAVE_ACCESS",
   "ENTER_COMMENT": "ENTER_COMMENT",
+  "ERRORS": {
+    "": ""
+  },
   "ERROR_MESSAGE": "ERROR_MESSAGE",
   "FIRSTNAME": "FIRSTNAME",
   "FORM": {
@@ -39,12 +43,16 @@
   "LASTNAME": "LASTNAME",
   "MAIN_PAGE": "MAIN_PAGE",
   "NAVIGATION": {
+    "": "",
     "ADMIN_PANEL": "ADMIN_PANEL",
     "PROFILE": "PROFILE"
   },
   "NOT_FOUND_PAGE": "NOT_FOUND_PAGE",
   "RECOMMENDED_ARTICLES": "RECOMMENDED_ARTICLES",
   "SEARCH": "SEARCH",
+  "Something went wrong": {
+    "": ""
+  },
   "USERNAME": "USERNAME",
   "USER_AVATAR": "USER_AVATAR",
   "throw error": "throw error",

@@ -14,9 +14,9 @@ ThunkConfig<ValidateProfileError[]
   async (_, thunkAPI) => {
     const { extra, rejectWithValue, getState } = thunkAPI;
 
-    const editData = getProfileEditData(getState());
+    const editData: Partial<Profile> | null = getProfileEditData(getState());
 
-    const errors = validateProfileData(editData);
+    const errors: ValidateProfileError[] = validateProfileData(editData);
 
     if (errors.length) {
       return rejectWithValue(errors);
@@ -24,6 +24,10 @@ ThunkConfig<ValidateProfileError[]
 
     try {
       const response = await extra.api.put<Profile>(`/profile/${editData?.id}`, editData);
+
+      if (!response.data) {
+        throw new Error();
+      }
 
       return response.data;
     } catch (err) {

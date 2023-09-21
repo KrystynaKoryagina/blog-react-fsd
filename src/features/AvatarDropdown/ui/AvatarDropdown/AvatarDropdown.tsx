@@ -5,7 +5,7 @@ import { memo, useCallback, useMemo } from 'react';
 import { DropdownItem, DropdownMenu } from '@/shared/ui/DropdownMenu';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { getUserAuthData, userActions } from '@/entities/User';
-import { RoutePath } from '@/shared/config/routes/routes';
+import { getRouteAdmin, getRouteMain, getRouteProfile } from '@/shared/constants/routes';
 import { Avatar } from '@/shared/ui/Avatar';
 import { getIsAdminPanelAvailable } from '../../model/selectors/getIsAdminPanelAvailable/getIsAdminPanelAvailable';
 import { Button, ButtonType } from '@/shared/ui/Button';
@@ -24,19 +24,19 @@ export const AvatarDropdown = memo(({ className }: AvatarDropdownProps) => {
 
   const logout = useCallback(() => {
     dispatch(userActions.logout());
-    navigate(RoutePath.MAIN);
+    navigate(getRouteMain());
   }, [dispatch, navigate]);
 
   const dropdownItems: DropdownItem[] = useMemo(() => ([
     ...(isAdminPanelAvailable ? [{
       id: 'admin',
       content: t('NAVIGATION.ADMIN_PANEL'),
-      href: `${RoutePath.ADMIN_PANEL}`,
+      href: getRouteAdmin(),
     }] : []),
     {
       id: 'profile',
       content: t('NAVIGATION.PROFILE'),
-      href: `${RoutePath.PROFILE}/${authData?.id}`,
+      href: getRouteProfile(authData?.id),
     },
     {
       id: 'logout',

@@ -11,5 +11,12 @@
     "CURRENCY": "Select currency",
     "COUNTRY": "Select country"
   },
+  "ERRORS": {
+    "SERVER_ERROR": "Something went wrong on server side",
+    "INCORRECT_COUNTRY": "Incorrect country",
+    "NO_DATA": "Fill the form with correct values",
+    "INCORRECT_USER_DATA": "Name and lastname are required",
+    "INCORRECT_AGE": "Incorrect age"
+  },
   "NOT_FOUND": "Profile not found"
 }

@@ -9,11 +9,11 @@ import { getUserAuthData } from '@/entities/User';
 import { classNames } from '@/shared/lib/utils/classNames';
 import { Button, ButtonType } from '@/shared/ui/Button';
 import { AppLink } from '@/shared/ui/AppLink';
-import { RoutePath } from '@/shared/config/routes/routes';
 import { HStack } from '@/shared/ui/Stack';
 import { NotificationsAction } from '@/features/NotificationsAction';
 import { AvatarDropdown } from '@/features/AvatarDropdown';
 import styles from './Header.module.scss';
+import { getRouteArticleCreate } from '@/shared/constants/routes';
 
 export const Header = memo(() => {
   const { t } = useTranslation();
@@ -41,7 +41,7 @@ export const Header = memo(() => {
           justify='between'
           align='center'
         >
-          <AppLink to={RoutePath.ARTICLE_CREATE}>
+          <AppLink to={getRouteArticleCreate()}>
             {t('CREATE_ARTICLE')}
           </AppLink>
 

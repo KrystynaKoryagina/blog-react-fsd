@@ -1,13 +1,13 @@
 import {
-  memo, useCallback, useEffect, useMemo,
+  memo, useCallback, useMemo,
 } from 'react';
 import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { ProfileCard } from '@/entities/Profile';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { Currency } from '@/shared/constants/currency';
 import { Country } from '@/shared/constants/country';
 import { useDynamicReducerLoader } from '@/shared/lib/hooks/useDynamicReducerLoader';
-import { useTranslation } from 'react-i18next';
 import { Text, TextType } from '@/shared/ui/Text';
 import { ReducersList } from '@/app/providers/store';
 import { VStack } from '@/shared/ui/Stack';
@@ -21,6 +21,7 @@ import { getProfileValidateErrors }
   from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 import { EditProfileCardHeader } from '../EditProfileCardHeader/EditProfileCardHeader';
 import { ValidateProfileError } from '../../model/types/editProfile';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 
 const reducers: ReducersList = {
   profile: profileReducer,
@@ -43,23 +44,31 @@ export const EditProfileCard = memo(({ id, classname }: EditableProfileCardProps
   const readOnly = useSelector(getProfileReadOnly);
   const validateErrors = useSelector(getProfileValidateErrors);
 
-  // TODO storybook
-  useEffect(() => {
+  useInitialEffect(() => {
     dispatch(fetchProfileData(id));
-  }, [dispatch, id]);
+  }, []);
+
+  // useEffect(() => {
+  //   dispatch(fetchProfileData(id));
+  // }, []);
 
   const ValidationErrorsJSX = useMemo(() => {
-    // TODO add translation
     const validateErrorTranslates = {
-      [ValidateProfileError.SERVER_ERROR]: t('Серверная ошибка при сохранении'),
-      [ValidateProfileError.INCORRECT_COUNTRY]: t('Некорректный регион'),
-      [ValidateProfileError.NO_DATA]: t('Данные не указаны'),
-      [ValidateProfileError.INCORRECT_USER_DATA]: t('Имя и фамилия обязательны'),
-      [ValidateProfileError.INCORRECT_AGE]: t('Некорректный возраст'),
+      [ValidateProfileError.SERVER_ERROR]: t('ERRORS.SERVER_ERROR', { ns: 'profile' }),
+      [ValidateProfileError.INCORRECT_COUNTRY]: t('ERRORS.INCORRECT_COUNTRY', { ns: 'profile' }),
+      [ValidateProfileError.NO_DATA]: t('ERRORS.NO_DATA', { ns: 'profile' }),
+      [ValidateProfileError.INCORRECT_USER_DATA]: t('ERRORS.INCORRECT_USER_DATA', { ns: 'profile' }),
+      [ValidateProfileError.INCORRECT_AGE]: t('ERRORS.INCORRECT_AGE', { ns: 'profile' }),
     };
 
     return validateErrors?.length && validateErrors.map((err) => (
-      <Text key={err} variant={TextType.ERROR}>{validateErrorTranslates[err]}</Text>
+      <Text
+        key={err}
+        variant={TextType.ERROR}
+        data-testid='error-msg'
+      >
+        {validateErrorTranslates[err]}
+      </Text>
     ));
   }, [t, validateErrors]);
 
@@ -99,7 +108,7 @@ export const EditProfileCard = memo(({ id, classname }: EditableProfileCardProps
   }, [dispatch]);
 
   return (
-    <VStack gap='24' className={classname}>
+    <VStack gap='24' className={classname} data-testid='edit-profile-card'>
       <EditProfileCardHeader />
       <VStack gap='4'>
         {ValidationErrorsJSX}
@@ -107,7 +116,7 @@ export const EditProfileCard = memo(({ id, classname }: EditableProfileCardProps
           data={data}
           isLoading={isLoading}
           readOnly={readOnly}
-          error={error}
+          error={!!error}
           onChangeFirstname={onChangeFirstname}
           onChangeLastname={onChangeLastname}
           onChangeAge={onChangeAge}
