@@ -1,6 +1,6 @@
 .CodeWrapper {
   position: relative;
-  background: var(--code-bg);
+  background: var(--bg-secondary-color);
   overflow: auto;
   display: flex;
   align-items: baseline;
@@ -20,9 +20,10 @@
 .rows {
   text-align: right;
   padding: 20px;
-  background: var(--code-row-bg);
+  background: var(--bg-secondary-color);
+  border-right: 1px solid var(--bg-tertiary-color);
 }
 
 .rowsItem {
-  color: var(--code-row-color);
+  color: var(--bg-tertiary-color);
 }

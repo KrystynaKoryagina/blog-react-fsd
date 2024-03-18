@@ -14,11 +14,11 @@
     "moduleResolution": "node",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "isolatedModules": true,
+    "isolatedModules": true
   },
   "ts-node": {
     "compilerOptions": {
-      "module": "CommonJS",
+      "module": "CommonJS"
     }
   },
   "include": [
@@ -27,8 +27,8 @@
     "./webpack.config.ts",
     "./src/**/*.ts",
     "./src/**/*.tsx",
-    "./scripts/*.ts", 
-    "config/storybook/main.ts",
+    "./scripts/*.ts",
+    "config/storybook/main.ts"
     // "**/*.ts",
     // "**/*.tsx"
   ]

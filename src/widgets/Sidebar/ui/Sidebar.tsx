@@ -1,14 +1,25 @@
 import { memo, useCallback, useState } from 'react';
-import { LangSwitcher } from '@/features/LangSwitcher';
+import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { Navigation } from '@/features/Navigation';
-import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 import { classNames } from '@/shared/lib/utils/classNames';
 import { Button, ButtonType, ButtonSize } from '@/shared/ui/Button';
-import { VStack } from '@/shared/ui/Stack';
+import { HStack, VStack } from '@/shared/ui/Stack';
 import styles from './Sidebar.module.scss';
+import { getRouteArticleCreate } from '@/shared/constants/routes';
+import PlusIcon from '@/shared/assets/icons/plus.svg';
+import { getUserAuthData } from '@/entities/User';
 
 export const Sidebar = memo(() => {
+  const { t } = useTranslation();
   const [collapsed, setCollapsed] = useState(false);
+  const authData = useSelector(getUserAuthData);
+  const navigate = useNavigate();
+
+  const navigateToArticleCreate = useCallback(() => {
+    navigate(getRouteArticleCreate());
+  }, [navigate]);
 
   const onSidebarToggle = useCallback(() => {
     setCollapsed((prev) => !prev);
@@ -16,31 +27,52 @@ export const Sidebar = memo(() => {
 
   return (
     <aside
-      data-testid='sidebar'
       className={classNames(styles.Sidebar, [], {
         [styles.collapsed]: collapsed,
       })}
+      data-testid="sidebar"
     >
       <VStack className={classNames(styles.content)}>
-        <Navigation collapsed={collapsed} />
+        <Navigation className={styles.nav} collapsed={collapsed} />
+
+        {/* TODO for collapse */}
+        {authData && (
+          <Button
+            className={styles.createBtn}
+            variant={ButtonType.OUTLINE}
+            onClick={navigateToArticleCreate}
+          >
+            {collapsed && (
+              <PlusIcon
+                className={styles.createBtnIcon}
+                width={24}
+                height={24}
+              />
+            )}
+            {!collapsed && (
+              <HStack gap="4" justify="center">
+                <PlusIcon
+                  className={styles.createBtnIcon}
+                  width={24}
+                  height={24}
+                />
+                <span className={styles.createBtnText}>
+                  {t('CREATE_ARTICLE')}
+                </span>
+              </HStack>
+            )}
+          </Button>
+        )}
+
         <Button
-          data-testid='sidebar-toggle'
           className={styles.toggleBtn}
-          variant={ButtonType.PRIMARY_INVERTED}
+          variant={ButtonType.GHOST}
           size={ButtonSize.LG}
-          square
           onClick={onSidebarToggle}
+          data-testid="sidebar-toggle"
         >
           {collapsed ? '>' : '<'}
         </Button>
-        <VStack
-          className={styles.switchers}
-          align='center'
-          gap='8'
-        >
-          <ThemeSwitcher />
-          <LangSwitcher />
-        </VStack>
       </VStack>
     </aside>
   );

@@ -1,11 +1,12 @@
 .ProfileCard {
   padding: 20px;
-  border: 2px solid var(--inverted-bg-color);
+  border: 2px solid var(--primary-color);
+  border-radius: var(--border-radius);
   min-height: 400px;
 }
 
 .editCard {
-  border-color: var(--inverted-primary-color);
+  border-color: var(--bg-tertiary-color);
 }
 
 .avatar {

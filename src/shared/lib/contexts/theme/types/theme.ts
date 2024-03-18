@@ -2,7 +2,7 @@ import { Theme } from '../const/theme';
 
 export interface UseTheme {
   theme: Theme;
-  toggleTheme: () => void;
+  toggleTheme: (saveAction?: (theme: Theme) => void) => void;
 }
 
 export interface ThemeContextProps {

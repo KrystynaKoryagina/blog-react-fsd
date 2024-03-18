@@ -12,8 +12,9 @@ export const COUNTRY = {
 
 export type Country = ValueOf<typeof COUNTRY>;
 
-export const countryOptions: SelectOption<Country>[] = Object.entries(COUNTRY)
-  .map(([key, value]) => ({
-    value: key as Country,
-    content: value,
-  }));
+export const countryOptions: SelectOption<Country>[] = Object.entries(
+  COUNTRY,
+).map(([key, value]) => ({
+  value: key as Country,
+  content: value,
+}));

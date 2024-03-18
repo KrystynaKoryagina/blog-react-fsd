@@ -2,29 +2,21 @@ import babelRemoveAttrPlugin from '../../babel/babelRemoveAttrPlugin';
 import { BuildOptions } from '../types/build';
 
 interface BuildBabelLoaderProps extends BuildOptions {
-  isTSX: boolean
+  isTSX: boolean;
 }
 
 export function buildBabelLoader({ isDev, isTSX }: BuildBabelLoaderProps) {
+  const isProd = !isDev;
+
   return {
     test: isTSX ? /\.(jsx|tsx)$/ : /\.(js|ts)$/,
     exclude: /node_modules/,
     use: {
       loader: 'babel-loader',
       options: {
+        cacheDirectory: true,
         presets: ['@babel/preset-env'],
         plugins: [
-          [
-            // TODO check extractedTranslations folder
-            // Урок 17 Babel. Extract plugin [optional]
-            'i18next-extract',
-            {
-              locales: ['ru', 'en'],
-              keyAsDefaultValue: true,
-              saveMissing: true,
-
-            },
-          ],
           [
             '@babel/plugin-transform-typescript',
             {
@@ -33,12 +25,13 @@ export function buildBabelLoader({ isDev, isTSX }: BuildBabelLoaderProps) {
           ],
           '@babel/plugin-transform-runtime',
           isDev && require.resolve('react-refresh/babel'),
-          isTSX && !isDev && [
-            babelRemoveAttrPlugin,
-            {
-              props: ['data-testid'],
-            },
-          ],
+          isTSX &&
+            isProd && [
+              babelRemoveAttrPlugin,
+              {
+                props: ['data-testid'],
+              },
+            ],
         ].filter(Boolean),
       },
     },

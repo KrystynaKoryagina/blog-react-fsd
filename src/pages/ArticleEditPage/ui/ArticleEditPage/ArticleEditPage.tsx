@@ -12,7 +12,7 @@ const ArticleEditPage = () => {
   return (
     // TODO
     // WYSIWYG Rich Text Editor
-    <Page>{ isEdit ? 'Edit Page' : 'Create new article' }</Page>
+    <Page>{isEdit ? 'Edit Page' : 'Create new article'}</Page>
   );
 };
 

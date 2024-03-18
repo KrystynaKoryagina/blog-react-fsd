@@ -1,11 +1,13 @@
-import {
-  ChangeEvent, SelectHTMLAttributes, memo, useMemo,
-} from 'react';
+import { ChangeEvent, SelectHTMLAttributes, memo, useMemo } from 'react';
 import { classNames } from '@/shared/lib/utils/classNames';
 import styles from './Select.module.scss';
 import { SelectOption } from '../../types/select';
+import ArrowIcon from '@/shared/assets/icons/arrow.svg';
 
-type HTMLSelectProps = Omit<SelectHTMLAttributes<HTMLSelectElement>, 'onChange'>;
+type HTMLSelectProps = Omit<
+  SelectHTMLAttributes<HTMLSelectElement>,
+  'onChange'
+>;
 
 interface SelectProps<T extends string> extends HTMLSelectProps {
   options: SelectOption<T>[];
@@ -29,15 +31,15 @@ const SelectComponent = <T extends string>({
     onChange?.(e.target.value as T);
   };
 
-  const optionsList = useMemo(() => options?.map((item) => (
-    <option
-      className={styles.option}
-      value={item.value}
-      key={item.value}
-    >
-      {item.content}
-    </option>
-  )), [options]);
+  const optionsList = useMemo(
+    () =>
+      options?.map((item) => (
+        <option className={styles.option} value={item.value} key={item.value}>
+          {item.content}
+        </option>
+      )),
+    [options],
+  );
 
   return (
     <div className={classNames(styles.SelectWrapper, [className])}>
@@ -48,15 +50,18 @@ const SelectComponent = <T extends string>({
         </label>
       )}
 
-      <select
-        id={id}
-        disabled={disabled}
-        className={styles.select}
-        value={value}
-        onChange={onChangeHandler}
-      >
-        {optionsList}
-      </select>
+      <div className={styles.selectContainer}>
+        <select
+          id={id}
+          disabled={disabled}
+          className={styles.select}
+          value={value}
+          onChange={onChangeHandler}
+        >
+          {optionsList}
+        </select>
+        <ArrowIcon className={styles.selectIcon} width={15} height={15} />
+      </div>
     </div>
   );
 };

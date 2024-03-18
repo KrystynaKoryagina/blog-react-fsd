@@ -21,7 +21,7 @@ const items: DropdownItem[] = [
   { id: '4', content: 'Option 4' },
 ];
 
-const triggerBtn = <Button style={{width: '100%'}} variant={ButtonType.PRIMARY_INVERTED}>Click Me</Button>;
+const triggerBtn = <Button style={{ width: '100%' }}>Click Me</Button>;
 
 export const Light: Story = {
   render: () => (
@@ -31,34 +31,54 @@ export const Light: Story = {
         <DropdownMenu items={items} trigger={triggerBtn} />
       </div>
 
-      <hr style={{
-        height: '1px', backgroundColor: '#8E8A89', marginTop: '10px', marginBottom: '15px',
-      }}
+      <hr
+        style={{
+          height: '1px',
+          backgroundColor: '#8E8A89',
+          marginTop: '10px',
+          marginBottom: '15px',
+        }}
       />
 
       <h3>Bottom Right</h3>
       <div style={{ width: '200px' }}>
-        <DropdownMenu direction='bottom right' items={items} trigger={triggerBtn} />
+        <DropdownMenu
+          direction="bottom right"
+          items={items}
+          trigger={triggerBtn}
+        />
       </div>
 
-      <hr style={{
-        height: '1px', backgroundColor: '#8E8A89', marginTop: '10px', marginBottom: '15px',
-      }}
+      <hr
+        style={{
+          height: '1px',
+          backgroundColor: '#8E8A89',
+          marginTop: '10px',
+          marginBottom: '15px',
+        }}
       />
 
       <h3>Top Left</h3>
       <div style={{ width: '200px' }}>
-        <DropdownMenu direction='top left' items={items} trigger={triggerBtn} />
+        <DropdownMenu direction="top left" items={items} trigger={triggerBtn} />
       </div>
 
-      <hr style={{
-        height: '1px', backgroundColor: '#8E8A89', marginTop: '10px', marginBottom: '15px',
-      }}
+      <hr
+        style={{
+          height: '1px',
+          backgroundColor: '#8E8A89',
+          marginTop: '10px',
+          marginBottom: '15px',
+        }}
       />
 
       <h3>Top Right</h3>
       <div style={{ width: '200px' }}>
-        <DropdownMenu direction='top right' items={items} trigger={triggerBtn} />
+        <DropdownMenu
+          direction="top right"
+          items={items}
+          trigger={triggerBtn}
+        />
       </div>
     </>
   ),
@@ -72,34 +92,54 @@ export const Dark: Story = {
         <DropdownMenu items={items} trigger={triggerBtn} />
       </div>
 
-      <hr style={{
-        height: '1px', backgroundColor: '#8E8A89', marginTop: '10px', marginBottom: '15px',
-      }}
+      <hr
+        style={{
+          height: '1px',
+          backgroundColor: '#8E8A89',
+          marginTop: '10px',
+          marginBottom: '15px',
+        }}
       />
 
       <h3>Bottom Right</h3>
       <div style={{ width: '200px' }}>
-        <DropdownMenu direction='bottom right' items={items} trigger={triggerBtn} />
+        <DropdownMenu
+          direction="bottom right"
+          items={items}
+          trigger={triggerBtn}
+        />
       </div>
 
-      <hr style={{
-        height: '1px', backgroundColor: '#8E8A89', marginTop: '10px', marginBottom: '15px',
-      }}
+      <hr
+        style={{
+          height: '1px',
+          backgroundColor: '#8E8A89',
+          marginTop: '10px',
+          marginBottom: '15px',
+        }}
       />
 
       <h3>Top Left</h3>
       <div style={{ width: '200px' }}>
-        <DropdownMenu direction='top left' items={items} trigger={triggerBtn} />
+        <DropdownMenu direction="top left" items={items} trigger={triggerBtn} />
       </div>
 
-      <hr style={{
-        height: '1px', backgroundColor: '#8E8A89', marginTop: '10px', marginBottom: '15px',
-      }}
+      <hr
+        style={{
+          height: '1px',
+          backgroundColor: '#8E8A89',
+          marginTop: '10px',
+          marginBottom: '15px',
+        }}
       />
 
       <h3>Top Right</h3>
       <div style={{ width: '200px' }}>
-        <DropdownMenu direction='top right' items={items} trigger={triggerBtn} />
+        <DropdownMenu
+          direction="top right"
+          items={items}
+          trigger={triggerBtn}
+        />
       </div>
     </>
   ),

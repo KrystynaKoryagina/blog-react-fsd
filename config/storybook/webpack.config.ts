@@ -36,13 +36,15 @@ export default ({ config }: { config: webpack.Configuration }) => {
 
   config!.module!.rules.push(buildSvgLoader());
 
-  config!.module!.rules.push(buildCssLoader(true));
+  config!.module!.rules.push(buildCssLoader(true, paths));
 
-  config!.plugins!.push(new webpack.DefinePlugin({
-    __IS_DEV__: JSON.stringify(true),
-    __API__: JSON.stringify('https://testapi.com'),
-    __PROJECT__: JSON.stringify('storybook'),
-  }));
+  config!.plugins!.push(
+    new webpack.DefinePlugin({
+      __IS_DEV__: JSON.stringify(true),
+      __API__: JSON.stringify('https://testapi.com'),
+      __PROJECT__: JSON.stringify('storybook'),
+    }),
+  );
 
   return config;
 };

@@ -18,7 +18,8 @@ const article: Article = {
   user: {
     id: '1',
     username: 'admin',
-    avatar: 'https://kartinkin.net/uploads/posts/2022-12/1670281496_6-kartinkin-net-p-kartinka-bukhgalter-vkontakte-6.png',
+    avatar:
+      'https://kartinkin.net/uploads/posts/2022-12/1670281496_6-kartinkin-net-p-kartinka-bukhgalter-vkontakte-6.png',
     role: UserRole.ADMIN,
   },
   blocks: [
@@ -72,15 +73,15 @@ export default meta;
 type Story = StoryObj<typeof ArticlesRecommendedList>;
 
 export const Light: Story = {
-  render: () => (
-    <ArticlesRecommendedList />
-  ),
+  render: () => <ArticlesRecommendedList />,
 };
-Light.decorators = [StoreDecorator({
-  article: {
-    data: article,
-  },
-})];
+Light.decorators = [
+  StoreDecorator({
+    article: {
+      data: article,
+    },
+  }),
+];
 // Light.parameters = {
 //   mockData: [
 //     {
@@ -97,8 +98,6 @@ Light.decorators = [StoreDecorator({
 // };
 
 export const Dark: Story = {
-  render: () => (
-    <ArticlesRecommendedList />
-  ),
+  render: () => <ArticlesRecommendedList />,
 };
 Dark.parameters = { theme: Theme.DARK };

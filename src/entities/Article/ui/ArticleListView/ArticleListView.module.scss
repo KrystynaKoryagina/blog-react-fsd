@@ -4,9 +4,10 @@
   object-fit: cover;
 }
 
-.textBlock {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 5;
-  overflow: hidden;
+.imageError {
+  width: 100%;
+  height: 250px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("@/shared/assets/images/no-image.webp");
 }

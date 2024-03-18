@@ -6,9 +6,11 @@ describe('fetchProfileData', () => {
   test('should fetch profile data successfully', async () => {
     const thunk = testAsyncThunk(fetchProfileData);
 
-    thunk.api.get.mockReturnValue(Promise.resolve({
-      data: PROFILE_MOCK,
-    }));
+    thunk.api.get.mockReturnValue(
+      Promise.resolve({
+        data: PROFILE_MOCK,
+      }),
+    );
 
     const result = await thunk.callThunk('1');
 
@@ -21,9 +23,11 @@ describe('fetchProfileData', () => {
   test('should fail with error', async () => {
     const thunk = testAsyncThunk(fetchProfileData);
 
-    thunk.api.get.mockReturnValue(Promise.resolve({
-      status: 403,
-    }));
+    thunk.api.get.mockReturnValue(
+      Promise.resolve({
+        status: 403,
+      }),
+    );
 
     const result = await thunk.callThunk('1');
 

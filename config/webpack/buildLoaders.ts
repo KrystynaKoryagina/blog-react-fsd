@@ -5,7 +5,7 @@ import { buildSvgLoader } from '../build/loaders/buildSvgLoader';
 import { buildBabelLoader } from '../build/loaders/buildBabelLoader';
 
 export function buildLoader(options: BuildOptions): webpack.RuleSetRule[] {
-  const cssLoader = buildCssLoader(options.isDev);
+  const cssLoader = buildCssLoader(options.isDev, options.paths);
 
   const svgLoader = buildSvgLoader();
 
@@ -15,14 +15,8 @@ export function buildLoader(options: BuildOptions): webpack.RuleSetRule[] {
   };
 
   const babelLoader = buildBabelLoader({ ...options, isTSX: false });
-  const tsxBabelLoader = buildBabelLoader({ ...options, isTSX: true });
 
-  // TODO remove 'ts-loader'
-  // const typescriptLoader = {
-  //   test: /\.tsx?$/,
-  //   use: 'ts-loader',
-  //   exclude: /node_modules/,
-  // };
+  const tsxBabelLoader = buildBabelLoader({ ...options, isTSX: true });
 
   return [assets, svgLoader, babelLoader, tsxBabelLoader, cssLoader];
 }

@@ -1,9 +1,12 @@
 export { ArticlesInfiniteList } from './ui/ArticlesInfiniteList/ArticlesInfiniteList';
 
-export { articlesListReducer, articlesListActions } from './model/slice/articlesListSlice';
+export {
+  articlesListReducer,
+  articlesListActions,
+} from './model/slice/articlesListSlice';
 
-export { initArticlesPage } from './model/services/initArticlesPage/initArticlesPage';
-export { fetchNextArticles } from './model/services/fetchNextArticles/fetchNextArticles';
+export { useInitArticlesPage } from './model/services/initArticlesPage/initArticlesPage';
+export { useFetchNextArticles } from './model/services/fetchNextArticles/fetchNextArticles';
 export { filterArticles } from './model/services/filterArticles/filterArticles';
 export { fetchArticles } from './model/services/fetchArticles/fetchArticles';
 

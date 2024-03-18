@@ -19,10 +19,13 @@ export const articleSlice = createSlice({
         state.isLoading = true;
         state.error = null;
       })
-      .addCase(fetchArticleById.fulfilled, (state, action: PayloadAction<Article>) => {
-        state.data = action.payload;
-        state.isLoading = false;
-      })
+      .addCase(
+        fetchArticleById.fulfilled,
+        (state, action: PayloadAction<Article>) => {
+          state.data = action.payload;
+          state.isLoading = false;
+        },
+      )
       .addCase(fetchArticleById.rejected, (state, action) => {
         state.error = action.payload;
         state.isLoading = false;
@@ -30,5 +33,5 @@ export const articleSlice = createSlice({
   },
 });
 
-export const { actions: articleActions } = articleSlice;
-export const { reducer: articleReducer } = articleSlice;
+export const { actions: articleActions, reducer: articleReducer } =
+  articleSlice;

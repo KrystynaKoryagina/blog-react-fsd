@@ -9,7 +9,11 @@ interface ProtectedRouteProps {
   children: ReactNode;
 }
 
-export const ProtectedRoute = ({ authOnly, roles, children }: ProtectedRouteProps) => {
+export const ProtectedRoute = ({
+  authOnly,
+  roles,
+  children,
+}: ProtectedRouteProps) => {
   if (roles) {
     return <RequireRole roles={roles}>{children}</RequireRole>;
   }

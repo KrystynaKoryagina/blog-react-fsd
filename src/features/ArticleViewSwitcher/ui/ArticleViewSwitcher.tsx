@@ -20,34 +20,38 @@ const viewTypes: ArticleViewTypes[] = [
 ];
 
 interface ArticleViewSwitcherProps {
-  view: ArticleView,
-  className?: string,
-  changeView?: (view: ArticleView) => void
+  view: ArticleView;
+  className?: string;
+  changeView?: (view: ArticleView) => void;
 }
 
-export const ArticleViewSwitcher = memo(({
-  view,
-  className,
-  changeView,
-}: ArticleViewSwitcherProps) => {
-  const onChangeView = useCallback((newView: ArticleView) => () => {
-    changeView?.(newView);
-  }, [changeView]);
+export const ArticleViewSwitcher = memo(
+  ({ view, className, changeView }: ArticleViewSwitcherProps) => {
+    const onChangeView = useCallback(
+      (newView: ArticleView) => () => {
+        changeView?.(newView);
+      },
+      [changeView],
+    );
 
-  return (
-    <HStack className={className} gap='8'>
-      {viewTypes.map((item) => (
-        <Button
-          variant={ButtonType.GHOST}
-          key={item.view}
-          onClick={onChangeView(item.view)}
-        >
-          <item.Icon className={classNames(styles.icon, [], {
-            [styles.iconSelected]: view === item.view,
-          })}
-          />
-        </Button>
-      ))}
-    </HStack>
-  );
-});
+    return (
+      <HStack className={className} gap="8">
+        {viewTypes.map((item) => (
+          <Button
+            variant={ButtonType.GHOST}
+            key={item.view}
+            onClick={onChangeView(item.view)}
+          >
+            <item.Icon
+              className={classNames(styles.icon, [], {
+                [styles.iconSelected]: view === item.view,
+              })}
+              width={25}
+              height={25}
+            />
+          </Button>
+        ))}
+      </HStack>
+    );
+  },
+);

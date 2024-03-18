@@ -11,9 +11,11 @@ describe('updateProfileData', () => {
       },
     });
 
-    thunk.api.put.mockReturnValue(Promise.resolve({
-      data: PROFILE_MOCK,
-    }));
+    thunk.api.put.mockReturnValue(
+      Promise.resolve({
+        data: PROFILE_MOCK,
+      }),
+    );
 
     const result = await thunk.callThunk();
 
@@ -29,9 +31,11 @@ describe('updateProfileData', () => {
       },
     });
 
-    thunk.api.put.mockReturnValue(Promise.resolve({
-      status: 403,
-    }));
+    thunk.api.put.mockReturnValue(
+      Promise.resolve({
+        status: 403,
+      }),
+    );
 
     const result = await thunk.callThunk();
 

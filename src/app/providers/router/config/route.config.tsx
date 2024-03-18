@@ -1,18 +1,18 @@
-import { AboutPage } from '@/pages/AboutPage';
-import { MainPage } from '@/pages/MainPage';
+// import { AboutPage } from '@/pages/AboutPage';
+// import { MainPage } from '@/pages/MainPage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
 import { ProfilePage } from '@/pages/ProfilePage';
 import { ArticlesPage } from '@/pages/ArticlesPage';
 import { ArticleDetailsPage } from '@/pages/ArticleDetailsPage';
 import {
-  getRouteAbout,
+  // getRouteAbout,
   getRouteAdmin,
   getRouteArticleCreate,
   getRouteArticleDetails,
   getRouteArticleEdit,
   getRouteArticles,
   getRouteForbidden,
-  getRouteMain,
+  // getRouteMain,
   getRouteNotFound,
   getRouteProfile,
 } from '@/shared/constants/routes';
@@ -23,23 +23,23 @@ import { ForbiddenPage } from '@/pages/ForbiddenPage';
 import { AppRoutesProps } from '../model/types/router.types';
 
 export const routes: AppRoutesProps[] = [
-  {
-    path: getRouteMain(),
-    element: <MainPage />,
-  },
-  {
-    path: getRouteAbout(),
-    element: <AboutPage />,
-  },
+  // {
+  //   path: getRouteMain(),
+  //   element: <MainPage />,
+  // },
+  // {
+  //   path: getRouteAbout(),
+  //   element: <AboutPage />,
+  // },
   {
     path: getRouteArticles(),
     element: <ArticlesPage />,
-    authOnly: true,
+    // authOnly: true,
   },
   {
     path: getRouteArticleDetails(':id'),
     element: <ArticleDetailsPage />,
-    authOnly: true,
+    // authOnly: true,
   },
   {
     path: getRouteArticleCreate(),

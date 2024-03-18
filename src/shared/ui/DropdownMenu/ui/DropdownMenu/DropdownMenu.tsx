@@ -1,19 +1,19 @@
-import { Menu } from '@headlessui/react';
-import { classNames } from '@/shared/lib/utils/classNames';
-import { PopupDirection } from '@/shared/types/popup';
 import { Fragment, ReactNode } from 'react';
 import { Link } from 'react-router-dom';
+import { Menu } from '@headlessui/react';
+import { classNames } from '@/shared/lib/utils/classNames';
+import { Direction } from '@/shared/types/popup';
 import { DropdownItem } from '../../types/dropdownMenu';
 import styles from './DropdownMenu.module.scss';
 
 interface DropdownMenuProps {
-  items: DropdownItem[]
-  trigger: ReactNode
-  className?: string
-  direction?: PopupDirection
+  items: DropdownItem[];
+  trigger: ReactNode;
+  className?: string;
+  direction?: Direction;
 }
 
-const directionClass: Record<PopupDirection, string> = {
+const directionClass: Record<Direction, string> = {
   'bottom left': styles.bottomLeft,
   'bottom right': styles.bottomRight,
   'top right': styles.topRight,
@@ -28,42 +28,45 @@ export const DropdownMenu = ({
 }: DropdownMenuProps) => {
   const menuItemsClasses = [directionClass[direction]];
 
-  const menuItemsJSX = items?.map(({
-    disabled, onClick, content, href, id,
-  }) => {
-    const contentJSX = ({ active }: { active: boolean }) => (
-      <button
-        type='button'
-        disabled={disabled}
-        onClick={onClick}
-        className={classNames(styles.menuItem, [], { [styles.menuItemActive]: active })}
-      >
-        {content}
-      </button>
-    );
+  const menuItemsJSX = items?.map(
+    ({ disabled, onClick, content, href, id }) => {
+      const contentJSX = ({ active }: { active: boolean }) => (
+        <button
+          type="button"
+          disabled={disabled}
+          onClick={onClick}
+          className={classNames(styles.menuItem, [], {
+            [styles.menuItemActive]: active,
+          })}
+        >
+          {content}
+        </button>
+      );
 
-    if (href) {
+      if (href) {
+        // TODO a > button
+        return (
+          <Menu.Item key={id} as={Link} to={href} disabled={disabled}>
+            {contentJSX}
+          </Menu.Item>
+        );
+      }
+
       return (
-        <Menu.Item key={id} as={Link} to={href} disabled={disabled}>
+        <Menu.Item as={Fragment} key={id}>
           {contentJSX}
         </Menu.Item>
       );
-    }
-
-    return (
-      <Menu.Item as={Fragment} key={id}>
-        {contentJSX}
-      </Menu.Item>
-    );
-  });
+    },
+  );
 
   return (
-    <Menu as='div' className={classNames(styles.DropdownMenu, [className])}>
-      <Menu.Button as='div' className={styles.btn}>
+    <Menu as="div" className={classNames(styles.DropdownMenu, [className])}>
+      <Menu.Button as="div" className={styles.btn}>
         {trigger}
       </Menu.Button>
       <Menu.Items className={classNames(styles.menuList, menuItemsClasses)}>
-        { menuItemsJSX }
+        {menuItemsJSX}
       </Menu.Items>
     </Menu>
   );

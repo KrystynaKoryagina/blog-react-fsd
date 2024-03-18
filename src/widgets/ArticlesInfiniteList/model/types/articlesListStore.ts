@@ -9,11 +9,11 @@ export interface ArticlesListStore extends EntityState<Article> {
 
   // filters
   // TODO делегировть фичам
-  order: SortOrder
-  view: ArticleView
-  sort: ArticleSortField
-  category: ArticleCategory
-  search?: string
+  order: SortOrder;
+  view: ArticleView;
+  sort: ArticleSortField;
+  category: ArticleCategory;
+  search?: string;
 
   // pagination
   page: number;

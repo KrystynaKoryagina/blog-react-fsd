@@ -13,14 +13,10 @@ export default meta;
 type Story = StoryObj<typeof Input>;
 
 export const Light: Story = {
-  render: () => (
-    <Input label='Label' value='Some value' autoFocus />
-  ),
+  render: () => <Input label="Label" value="Some value" autoFocus />,
 };
 
 export const Dark: Story = {
-  render: () => (
-    <Input label='Label' value='Some value' autoFocus />
-  ),
+  render: () => <Input label="Label" value="Some value" autoFocus />,
 };
 Dark.parameters = { theme: Theme.DARK };

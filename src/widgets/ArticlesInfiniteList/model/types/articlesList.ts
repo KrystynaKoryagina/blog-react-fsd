@@ -1,3 +1,3 @@
 export interface ArticlesListRequest {
-  replace?: boolean
+  replace?: boolean;
 }

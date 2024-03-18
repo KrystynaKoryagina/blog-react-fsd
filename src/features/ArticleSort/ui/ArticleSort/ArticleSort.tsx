@@ -1,66 +1,68 @@
 import { memo, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Select, SelectOption } from '@/shared/ui/Select';
 import { SortOrder } from '@/shared/types/sort';
-import { useTranslation } from 'react-i18next';
 import { HStack } from '@/shared/ui/Stack';
 import { ArticleSortField } from '../../model/types/articleSort';
 
-// TODO изолировать в рамках фичи - сделать общий компонент сортировки подходящий для любых страниц
-// создать свою model selecter
-
+// TODO почему опции в этом компоненте, а методы в другом????
+// может все сделать здесь
 interface IArticleSort {
-  sort: ArticleSortField
-  order: SortOrder
-  onChangeOrder: (newOrder: SortOrder) => void
-  onChangeSort: (newOrder: ArticleSortField) => void
+  sort: ArticleSortField;
+  order: SortOrder;
+  onChangeOrder: (newOrder: SortOrder) => void;
+  onChangeSort: (newOrder: ArticleSortField) => void;
 }
 
-export const ArticleSort = memo(({
-  sort, order, onChangeOrder, onChangeSort,
-}: IArticleSort) => {
-  const { t } = useTranslation();
+export const ArticleSort = memo(
+  ({ sort, order, onChangeOrder, onChangeSort }: IArticleSort) => {
+    const { t } = useTranslation('article');
 
-  // TODO add translations
-  const orderOptions = useMemo<SelectOption<SortOrder>[]>(() => [
-    {
-      value: 'asc',
-      content: 'возрвстанию',
-    },
-    {
-      value: 'desc',
-      content: 'убыванию',
-    },
-  ], []);
+    const orderOptions = useMemo<SelectOption<SortOrder>[]>(
+      () => [
+        {
+          value: 'asc',
+          content: t('SORT.ASCENDENT'),
+        },
+        {
+          value: 'desc',
+          content: t('SORT.DESCENDENT'),
+        },
+      ],
+      [],
+    );
 
-  const sortFieldOptions = useMemo<SelectOption<ArticleSortField>[]>(() => [
-    {
-      value: ArticleSortField.CREATED,
-      content: 'дате создания',
-    },
-    {
-      value: ArticleSortField.TITLE,
-      content: 'заголовку',
-    },
-    {
-      value: ArticleSortField.VIEWS,
-      content: 'просмотрам',
-    },
-  ], []);
+    const sortFieldOptions = useMemo<SelectOption<ArticleSortField>[]>(
+      () => [
+        {
+          value: ArticleSortField.CREATED,
+          content: t('SORT.CREATED_DATE'),
+        },
+        {
+          value: ArticleSortField.TITLE,
+          content: t('SORT.TITLE'),
+        },
+        {
+          value: ArticleSortField.VIEWS,
+          content: t('SORT.VIEWS'),
+        },
+      ],
+      [],
+    );
 
-  return (
-    <HStack gap='16'>
-      <Select
-        options={sortFieldOptions}
-        label='Cортировать по' // TODO translation
-        value={sort}
-        onChange={onChangeSort}
-      />
-      <Select
-        options={orderOptions}
-        label='По' // TODO translation
-        value={order}
-        onChange={onChangeOrder}
-      />
-    </HStack>
-  );
-});
+    return (
+      <HStack gap="16">
+        <Select<ArticleSortField>
+          options={sortFieldOptions}
+          value={sort}
+          onChange={onChangeSort}
+        />
+        <Select<SortOrder>
+          options={orderOptions}
+          value={order}
+          onChange={onChangeOrder}
+        />
+      </HStack>
+    );
+  },
+);

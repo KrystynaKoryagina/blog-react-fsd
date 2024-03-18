@@ -636,6 +636,24 @@
       "userId": "1",
       "text": "sdlaksd;lakd;lk",
       "id": "fP38WnU"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "jhkhkhk",
+      "id": "EBQZhNl"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "test comment text",
+      "id": "BdP5ps2"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "mewl kxkz",
+      "id": "eSKysQL"
     }
   ],
   "users": [
@@ -644,21 +662,33 @@
       "username": "admin",
       "password": "123",
       "role": "ADMIN",
-      "avatar": "https://kartinkin.net/uploads/posts/2022-12/1670281496_6-kartinkin-net-p-kartinka-bukhgalter-vkontakte-6.png"
+      "avatar": "https://kartinkin.net/uploads/posts/2022-12/1670281496_6-kartinkin-net-p-kartinka-bukhgalter-vkontakte-6.png",
+      "jsonSettings": {
+        "theme": "dark",
+        "isFirstVisit": false
+      }
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
       "role": "USER",
-      "avatar": "https://st2.depositphotos.com/2501025/5406/i/950/depositphotos_54065895-stock-photo-hacker.jpg"
+      "avatar": "https://st2.depositphotos.com/2501025/5406/i/950/depositphotos_54065895-stock-photo-hacker.jpg",
+      "jsonSettings": {
+        "theme": "dark",
+        "isFirstVisit": false
+      }
     },
     {
       "id": "3",
       "username": "owner",
       "password": "123456",
       "role": "OWNER",
-      "avatar": "https://store.playstation.com/store/api/chihiro/00_09_000/container/TR/en/19/EP4476-CUSA11273_00-AV00000000000059/image?w=320&h=320&bg_color=000000&opacity=100&_version=00_09_000"
+      "avatar": "https://store.playstation.com/store/api/chihiro/00_09_000/container/TR/en/19/EP4476-CUSA11273_00-AV00000000000059/image?w=320&h=320&bg_color=000000&opacity=100&_version=00_09_000",
+      "jsonSettings": {
+        "theme": "light",
+        "isFirstVisit": true
+      }
     }
   ],
   "profile": [
@@ -694,6 +724,96 @@
       "city": "Toronto",
       "username": "owner",
       "avatar": "https://store.playstation.com/store/api/chihiro/00_09_000/container/TR/en/19/EP4476-CUSA11273_00-AV00000000000059/image?w=320&h=320&bg_color=000000&opacity=100&_version=00_09_000"
+    }
+  ],
+  "article-ratings": [
+    {
+      "id": "1",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "articleId": "1"
+    },
+    {
+      "id": "2",
+      "rate": 5,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "articleId": "2"
+    },
+    {
+      "userId": "1",
+      "articleId": "3",
+      "rate": 3,
+      "feedback": "",
+      "id": "I7ofk1u"
+    },
+    {
+      "userId": "1",
+      "articleId": "9",
+      "rate": 5,
+      "feedback": "asdasdasdasd",
+      "id": "Y7MhPzo"
+    },
+    {
+      "userId": "1",
+      "articleId": "10",
+      "rate": 1,
+      "feedback": "отстой",
+      "id": "II0a75O"
+    },
+    {
+      "userId": "1",
+      "articleId": "7",
+      "rate": 3,
+      "feedback": "",
+      "id": "bcPnbbZ"
+    },
+    {
+      "userId": "1",
+      "rate": 5,
+      "articleId": "7",
+      "feedback": "Good",
+      "id": "UwPb5uR"
+    },
+    {
+      "userId": "1",
+      "rate": 3,
+      "articleId": "14",
+      "feedback": "",
+      "id": "TSAvF6G"
+    },
+    {
+      "userId": "1",
+      "rate": 5,
+      "articleId": "3",
+      "id": "uTxkuNx"
+    },
+    {
+      "userId": "1",
+      "rate": 3,
+      "articleId": "3",
+      "id": "jU0FS_R"
+    },
+    {
+      "userId": "1",
+      "rate": 4,
+      "articleId": "7",
+      "id": "JNP9ahx"
+    }
+  ],
+  "profile-ratings": [
+    {
+      "id": "1",
+      "rate": 4,
+      "userId": "1",
+      "profileId": "1"
+    },
+    {
+      "id": "2",
+      "rate": 4,
+      "userId": "1",
+      "profileId": "2"
     }
   ]
 }

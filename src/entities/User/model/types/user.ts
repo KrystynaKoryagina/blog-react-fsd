@@ -1,3 +1,4 @@
+import { JsonSettings } from './jsonSettings';
 import { UserRole } from '../consts/user';
 
 export interface User {
@@ -5,4 +6,5 @@ export interface User {
   username: string;
   role: UserRole;
   avatar?: string;
+  jsonSettings?: JsonSettings;
 }

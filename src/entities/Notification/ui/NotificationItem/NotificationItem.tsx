@@ -17,11 +17,7 @@ export const NotificationItem = memo(({ item }: NotificationItemProps) => {
 
   if (item?.href) {
     return (
-      <a
-        target='_blank'
-        href={item.href}
-        rel='noreferrer'
-      >
+      <a target="_blank" href={item.href} rel="noreferrer">
         {ContentJSX}
       </a>
     );

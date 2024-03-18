@@ -1,9 +1,7 @@
 .Sidebar {
   position: relative;
-  height: calc(100vh - var(--header-height));
   width: var(--sidebar-width);
-  background-color: var(--inverted-bg-color);
-  padding: 20px;
+  background-color: var(--bg-secondary-color);
   transition: width 0.3s;
   flex-shrink: 0;
 }
@@ -14,14 +12,27 @@
 
 .collapsed {
   width: var(--sidebar-width-collapsed);
+
+  .createBtn {
+    margin: 30px 0;
+    align-self: center;
+  }
 }
 
-.switchers {
-  margin-top: auto;
+.nav {
+  margin-right: 20px;
+}
+
+.createBtn {
+  margin: 30px 20px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.createBtnText {
+  margin-left: 8px;
 }
 
 .toggleBtn {
-  position: absolute;
-  bottom: 40px;
-  right: -40px;
+  margin: auto auto 20px;
 }

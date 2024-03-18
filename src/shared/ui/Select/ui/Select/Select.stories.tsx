@@ -22,12 +22,16 @@ const selectOptions: SelectOption<string>[] = [
 export const Light: Story = {
   render: () => (
     <>
-      <Select options={selectOptions} label='Select the option' />
+      <Select options={selectOptions} label="Select the option" />
 
       <pre>
-        <code style={{
-          display: 'block', padding: '10px', fontSize: '12px', color: '#8E8A89',
-        }}
+        <code
+          style={{
+            display: 'block',
+            padding: '10px',
+            fontSize: '12px',
+            color: '#8E8A89',
+          }}
         >
           {'<Select options={selectOptions} label="Select the option" />'}
         </code>
@@ -39,12 +43,16 @@ export const Light: Story = {
 export const Dark: Story = {
   render: () => (
     <>
-      <Select options={selectOptions} label='Select the option' />
+      <Select options={selectOptions} label="Select the option" />
 
       <pre>
-        <code style={{
-          display: 'block', padding: '10px', fontSize: '12px', color: '#8E8A89',
-        }}
+        <code
+          style={{
+            display: 'block',
+            padding: '10px',
+            fontSize: '12px',
+            color: '#8E8A89',
+          }}
         >
           {'<Select options={selectOptions} label="Select the option" />'}
         </code>

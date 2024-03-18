@@ -31,41 +31,43 @@ const LoginForm = memo(() => {
 
   useDynamicReducerLoader({ reducers });
 
-  const onChangeUsername = useCallback((value: string) => {
-    dispatch(loginActions.setUsername(value));
-  }, [dispatch]);
+  const onChangeUsername = useCallback(
+    (value: string) => {
+      dispatch(loginActions.setUsername(value));
+    },
+    [dispatch],
+  );
 
-  const onChangePassword = useCallback((value: string) => {
-    dispatch(loginActions.setPassword(value));
-  }, [dispatch]);
+  const onChangePassword = useCallback(
+    (value: string) => {
+      dispatch(loginActions.setPassword(value));
+    },
+    [dispatch],
+  );
 
   const login = useCallback(() => {
     dispatch(loginByUsername({ username, password }));
   }, [dispatch, username, password]);
 
   return (
-    <VStack gap='16' className={styles.LoginForm}>
+    <VStack gap="16" className={styles.LoginForm}>
       {error && <Text variant={TextType.ERROR}>{error}</Text>}
       <Input
-        type='text'
-        name='username'
-        label='Username'
+        type="text"
+        name="username"
+        label="Username"
         value={username}
         onChange={onChangeUsername}
         autoFocus
       />
       <Input
-        type='password'
-        name='password'
-        label='Password'
+        type="password"
+        name="password"
+        label="Password"
         value={password}
         onChange={onChangePassword}
       />
-      <Button
-        variant={ButtonType.OUTLINE}
-        disabled={isLoading}
-        onClick={login}
-      >
+      <Button variant={ButtonType.OUTLINE} disabled={isLoading} onClick={login}>
         {t('BUTTONS.LOGIN')}
       </Button>
     </VStack>

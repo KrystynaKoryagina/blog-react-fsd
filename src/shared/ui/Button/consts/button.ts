@@ -1,9 +1,7 @@
 export const enum ButtonType {
-  PRIMARY = 'primary',
-  PRIMARY_INVERTED = 'primary_inverted',
-  GHOST = 'ghost',
-  GHOST_INVERTED = 'ghost_inverted',
+  SOLID = 'solid',
   OUTLINE = 'outline',
+  GHOST = 'ghost',
 }
 
 export const enum ButtonSize {

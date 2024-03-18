@@ -5,20 +5,22 @@ import { createReduxStore } from '../config/store.config';
 import { StoreSchema } from '../types/store';
 
 interface StoreProviderProps {
-  initialState?: StoreSchema | DeepPartial<StoreSchema>
-  asyncReducers?: ReducersMapObject<StoreSchema> | DeepPartial<ReducersMapObject<StoreSchema>>,
+  initialState?: StoreSchema | DeepPartial<StoreSchema>;
+  asyncReducers?:
+    | ReducersMapObject<StoreSchema>
+    | DeepPartial<ReducersMapObject<StoreSchema>>;
   children?: ReactNode;
 }
 
-export const StoreProvider = (
-  { children, initialState, asyncReducers }: StoreProviderProps,
-) => {
+export const StoreProvider = ({
+  children,
+  initialState,
+  asyncReducers,
+}: StoreProviderProps) => {
   const store = createReduxStore(
     initialState as StoreSchema,
     asyncReducers as ReducersMapObject<StoreSchema>,
   );
 
-  return (
-    <Provider store={store}>{children}</Provider>
-  );
+  return <Provider store={store}>{children}</Provider>;
 };

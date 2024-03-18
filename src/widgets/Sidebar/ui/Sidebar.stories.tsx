@@ -8,9 +8,7 @@ export default {
   component: Sidebar,
 } as ComponentMeta<typeof Sidebar>;
 
-const Template: ComponentStory<typeof Sidebar> = () => (
-  <Sidebar />
-);
+const Template: ComponentStory<typeof Sidebar> = () => <Sidebar />;
 
 export const Light = Template.bind({});
 Light.decorators = [StoreDecorator({})];

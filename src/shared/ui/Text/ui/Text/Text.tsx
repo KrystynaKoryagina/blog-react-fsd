@@ -4,12 +4,12 @@ import styles from './Text.module.scss';
 import { TextType, TextSize, TextAlign } from '../../consts/Text';
 
 type TextProps<C extends ElementType> = {
-  as?: C
+  as?: C;
   variant?: TextType;
   size?: TextSize;
   align?: TextAlign;
-  className?: string
-  children: ReactNode
+  className?: string;
+  children: ReactNode;
 } & ComponentPropsWithoutRef<C>;
 
 export const Text = <C extends ElementType>({
@@ -23,11 +23,16 @@ export const Text = <C extends ElementType>({
 }: TextProps<C>) => {
   const Component = as || 'p';
 
+  const additionalClasses = [
+    styles[variant],
+    styles[size],
+    styles[align],
+    className,
+  ];
+
   return (
     <Component
-      className={
-        classNames(styles.Text, [styles[variant], styles[size], styles[align], className])
-      }
+      className={classNames(styles.Text, additionalClasses)}
       {...otherProps}
     >
       {children}

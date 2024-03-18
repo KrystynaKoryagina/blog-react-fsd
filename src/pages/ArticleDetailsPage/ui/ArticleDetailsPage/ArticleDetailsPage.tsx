@@ -1,32 +1,30 @@
-import { ArticleDetails } from '@/entities/Article';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
+import { ArticleDetails } from '@/entities/Article';
 import { ArticleComments } from '@/widgets/ArticleComments';
 import { ArticlesRecommendedList } from '@/widgets/ArticlesRecommendedList';
 import { VStack } from '@/shared/ui/Stack';
 import { Page } from '@/widgets/Page';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
+import { ArticleRating } from '@/features/ArticleRating';
 
 const ArticleDetailsPage = () => {
   const { t } = useTranslation('article');
   const params = useParams<{ id: string }>();
   const { id } = params;
 
-  // TODO надо ли???? как сюда попасть
-  // if (!id) {
-  //   return (
-  //     <div>
-  //       {t('ARTICLE_NOT_FOUND')}
-  //     </div>
-  //   );
-  // }
+  if (!id) {
+    return null;
+  }
 
   return (
     <Page>
-      <VStack gap='24'>
+      <VStack gap="24">
+        {/* TODO при перезагрузке скачет Back */}
         <ArticleDetailsPageHeader />
-        <ArticleDetails id={id} />
+        <ArticleDetails articleId={id} />
+        <ArticleRating articleId={id} />
         <ArticlesRecommendedList />
         <ArticleComments articleId={id} />
       </VStack>

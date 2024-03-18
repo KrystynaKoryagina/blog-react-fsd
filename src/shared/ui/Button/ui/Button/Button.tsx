@@ -3,29 +3,29 @@ import { classNames } from '@/shared/lib/utils/classNames';
 import styles from './Button.module.scss';
 import { ButtonSize, ButtonType } from '../../consts/button';
 
-export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonType;
   size?: ButtonSize;
-  square?: boolean;
+  isActive?: boolean;
 }
 
 export const Button = ({
-  variant = ButtonType.PRIMARY,
+  variant = ButtonType.SOLID,
   size = ButtonSize.SM,
   children,
   className,
-  square,
+  isActive,
   disabled,
   ...otherProps
 }: ButtonProps) => (
   <button
-    data-testid='button'
-    type='button'
+    data-testid="button"
+    type="button"
     className={classNames(
       styles.Button,
       [styles[variant], styles[size], className],
       {
-        [styles.square]: square,
+        [styles.active]: isActive,
       },
     )}
     disabled={disabled}

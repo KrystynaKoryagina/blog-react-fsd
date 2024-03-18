@@ -11,20 +11,20 @@ if (__PROJECT__ !== 'jest') {
     .use(LanguageDetector)
     .use(initReactI18next)
     .init({
-    // resources: {
-    //   en: {
-    //     translation: {
-    //       FORM: {
-    //         FIRSTNAME: 'Firs name',
-    //       },
-    //     },
-    //     profile: {
-    //       FORM: {
-    //         FIRSTNAME: 'Firs name',
-    //       },
-    //     },
-    //   },
-    // },
+      // resources: {
+      //   en: {
+      //     translation: {
+      //       FORM: {
+      //         FIRSTNAME: 'Firs name',
+      //       },
+      //     },
+      //     profile: {
+      //       FORM: {
+      //         FIRSTNAME: 'Firs name',
+      //       },
+      //     },
+      //   },
+      // },
       lng: 'en',
       fallbackLng: 'en',
       defaultNS: ['translation'],
@@ -33,10 +33,10 @@ if (__PROJECT__ !== 'jest') {
       interpolation: {
         escapeValue: false,
       },
-    // TODO ???
-    // backend: {
-    //   loadPath: '/locales/{{lng}}/{{ns}}.json',
-    // },
+      // TODO ???
+      // backend: {
+      //   loadPath: '/locales/{{lng}}/{{ns}}.json',
+      // },
     });
 }
 

@@ -1,19 +1,17 @@
-import {
-  Suspense,
-  memo, useCallback, useState,
-} from 'react';
+import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { LoginModal } from '@/features/AuthByUserName';
 import { getUserAuthData } from '@/entities/User';
 import { classNames } from '@/shared/lib/utils/classNames';
-import { Button, ButtonType } from '@/shared/ui/Button';
-import { AppLink } from '@/shared/ui/AppLink';
+import { Button } from '@/shared/ui/Button';
 import { HStack } from '@/shared/ui/Stack';
 import { NotificationsAction } from '@/features/NotificationsAction';
 import { AvatarDropdown } from '@/features/AvatarDropdown';
 import styles from './Header.module.scss';
-import { getRouteArticleCreate } from '@/shared/constants/routes';
+import LogoIcon from '@/shared/assets/icons/logo.svg';
+import { ThemeSwitcher } from '@/features/ThemeSwitcher';
+import { LangSwitcher } from '@/features/LangSwitcher';
 
 export const Header = memo(() => {
   const { t } = useTranslation();
@@ -30,51 +28,36 @@ export const Header = memo(() => {
     setIsLoginModal(true);
   }, []);
 
-  if (authData) {
-    return (
-      <header
-        data-testid='header'
-        className={classNames(styles.Header)}
-      >
-        <HStack
-          className={classNames(styles.headerContent)}
-          justify='between'
-          align='center'
-        >
-          <AppLink to={getRouteArticleCreate()}>
-            {t('CREATE_ARTICLE')}
-          </AppLink>
-
-          <HStack gap='16' align='center'>
-            <AvatarDropdown />
-            <Suspense fallback=''>
-              <NotificationsAction />
-            </Suspense>
-          </HStack>
-        </HStack>
-      </header>
-    );
-  }
-
   return (
-    <header
-      className={classNames(styles.Header)}
-      data-testid='header'
-    >
-      <HStack className={classNames(styles.headerContent)} justify='end'>
-        <Button
-          className={styles.loginBtn}
-          variant={ButtonType.GHOST_INVERTED}
-          onClick={onOpenModal}
-        >
-          {t('BUTTONS.LOGIN')}
-        </Button>
-      </HStack>
+    <header className={classNames(styles.Header)} data-testid="header">
+      <HStack
+        className={classNames(styles.headerContent)}
+        justify="between"
+        align="center"
+      >
+        <LogoIcon width={36} height={36} />
 
-      <LoginModal
-        isOpen={isLoginModal}
-        onClose={onCloseModal}
-      />
+        <HStack gap="24" align="center">
+          <HStack gap="16" align="center">
+            <ThemeSwitcher />
+            <LangSwitcher />
+          </HStack>
+
+          {authData ? (
+            <HStack gap="16" align="center">
+              <NotificationsAction />
+              <AvatarDropdown />
+            </HStack>
+          ) : (
+            <>
+              <Button className={styles.loginBtn} onClick={onOpenModal}>
+                {t('BUTTONS.LOGIN')}
+              </Button>
+              <LoginModal isOpen={isLoginModal} onClose={onCloseModal} />
+            </>
+          )}
+        </HStack>
+      </HStack>
     </header>
   );
 });

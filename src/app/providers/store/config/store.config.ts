@@ -1,5 +1,8 @@
 import {
-  CombinedState, configureStore, Reducer, ReducersMapObject,
+  CombinedState,
+  configureStore,
+  Reducer,
+  ReducersMapObject,
 } from '@reduxjs/toolkit';
 import { userReducer } from '@/entities/User';
 import { $axiosApi } from '@/shared/api/axios';
@@ -29,11 +32,12 @@ export const createReduxStore = (
     reducer: reducerManager.reduce as Reducer<CombinedState<StoreSchema>>,
     devTools: __IS_DEV__,
     preloadedState: initialState,
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware({
-      thunk: {
-        extraArgument,
-      },
-    }).concat(rtkApi.middleware),
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware({
+        thunk: {
+          extraArgument,
+        },
+      }).concat(rtkApi.middleware),
   });
 
   // TODO

@@ -10,15 +10,15 @@ interface NotificationListProps {
 
 export const NotificationList = memo(({ className }: NotificationListProps) => {
   const { data, isLoading } = useGetNotificationsQuery(null, {
-    pollingInterval: 10000,
+    pollingInterval: 100000,
   });
 
   if (isLoading) {
     return (
-      <VStack gap='8' className={className}>
-        <Skeleton width='100%' borderRadius='8px' height='80px' />
-        <Skeleton width='100%' borderRadius='8px' height='80px' />
-        <Skeleton width='100%' borderRadius='8px' height='80px' />
+      <VStack gap="8" className={className}>
+        <Skeleton width="100%" borderRadius="8px" height="80px" />
+        <Skeleton width="100%" borderRadius="8px" height="80px" />
+        <Skeleton width="100%" borderRadius="8px" height="80px" />
       </VStack>
     );
   }
@@ -28,7 +28,7 @@ export const NotificationList = memo(({ className }: NotificationListProps) => {
   ));
 
   return (
-    <VStack gap='8' className={className}>
+    <VStack gap="8" className={className}>
       {NotificationItemJSX}
     </VStack>
   );

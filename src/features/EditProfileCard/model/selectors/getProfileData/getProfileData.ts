@@ -1,3 +1,6 @@
 import { StoreSchema } from '@/app/providers/store';
+import { buildSelector } from '@/shared/lib/store';
 
-export const getProfileData = (state: StoreSchema) => state?.profile?.data;
+export const [useGetProfileData, getProfileData] = buildSelector(
+  (state: StoreSchema) => state?.profile?.data,
+);

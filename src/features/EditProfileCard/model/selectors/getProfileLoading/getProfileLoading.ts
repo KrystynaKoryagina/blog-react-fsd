@@ -1,3 +1,6 @@
 import { StoreSchema } from '@/app/providers/store';
+import { buildSelector } from '@/shared/lib/store';
 
-export const getProfileLoading = (state: StoreSchema) => state?.profile?.isLoading;
+export const [useGetProfileLoading, getProfileLoading] = buildSelector(
+  (state: StoreSchema) => state?.profile?.isLoading,
+);

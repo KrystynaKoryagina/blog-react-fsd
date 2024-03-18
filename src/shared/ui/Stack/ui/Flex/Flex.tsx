@@ -1,7 +1,11 @@
 import { classNames } from '@/shared/lib/utils/classNames';
 import styles from './Flex.module.scss';
 import {
-  FlexAlign, FlexDirection, FlexGap, FlexJustify, FlexProps,
+  FlexAlign,
+  FlexDirection,
+  FlexGap,
+  FlexJustify,
+  FlexProps,
 } from '../../types/stack';
 
 const justifyClasses: Record<FlexJustify, string> = {

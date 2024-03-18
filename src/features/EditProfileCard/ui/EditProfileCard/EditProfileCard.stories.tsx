@@ -23,137 +23,133 @@ export default meta;
 type Story = StoryObj<typeof EditProfileCard>;
 
 export const LightReadonly: Story = {
-  render: () => (
-    <EditProfileCard id='1' />
-  ),
+  render: () => <EditProfileCard id="1" />,
 };
-LightReadonly.decorators = [StoreDecorator({
-  profile: {
-    data: PROFILE_MOCK,
-    editData: PROFILE_MOCK,
-  },
-  user: {
-    authData: user,
-  },
-})];
+LightReadonly.decorators = [
+  StoreDecorator({
+    profile: {
+      data: PROFILE_MOCK,
+      editData: PROFILE_MOCK,
+    },
+    user: {
+      authData: user,
+    },
+  }),
+];
 
 export const DarkReadonly: Story = {
-  render: () => (
-    <EditProfileCard id='1' />
-  ),
+  render: () => <EditProfileCard id="1" />,
 };
-DarkReadonly.decorators = [StoreDecorator({
-  profile: {
-    data: PROFILE_MOCK,
-    editData: PROFILE_MOCK,
-  },
-  user: {
-    authData: user,
-  },
-})];
+DarkReadonly.decorators = [
+  StoreDecorator({
+    profile: {
+      data: PROFILE_MOCK,
+      editData: PROFILE_MOCK,
+    },
+    user: {
+      authData: user,
+    },
+  }),
+];
 DarkReadonly.parameters = { theme: Theme.DARK };
 
 export const LightEdit: Story = {
-  render: () => (
-    <EditProfileCard id='1' />
-  ),
+  render: () => <EditProfileCard id="1" />,
 };
-LightEdit.decorators = [StoreDecorator({
-  profile: {
-    data: PROFILE_MOCK,
-    editData: PROFILE_MOCK,
-    readOnly: false,
-  },
-  user: {
-    authData: user,
-  },
-})];
+LightEdit.decorators = [
+  StoreDecorator({
+    profile: {
+      data: PROFILE_MOCK,
+      editData: PROFILE_MOCK,
+      readOnly: false,
+    },
+    user: {
+      authData: user,
+    },
+  }),
+];
 
 export const DarkEdit: Story = {
-  render: () => (
-    <EditProfileCard id='1' />
-  ),
+  render: () => <EditProfileCard id="1" />,
 };
-DarkEdit.decorators = [StoreDecorator({
-  profile: {
-    data: PROFILE_MOCK,
-    editData: PROFILE_MOCK,
-    readOnly: false,
-  },
-  user: {
-    authData: user,
-  },
-})];
+DarkEdit.decorators = [
+  StoreDecorator({
+    profile: {
+      data: PROFILE_MOCK,
+      editData: PROFILE_MOCK,
+      readOnly: false,
+    },
+    user: {
+      authData: user,
+    },
+  }),
+];
 DarkEdit.parameters = { theme: Theme.DARK };
 
 export const LightNotEdit: Story = {
-  render: () => (
-    <EditProfileCard id='1' />
-  ),
+  render: () => <EditProfileCard id="1" />,
 };
-LightNotEdit.decorators = [StoreDecorator({
-  profile: {
-    data: { ...PROFILE_MOCK, id: '2' },
-    editData: PROFILE_MOCK,
-    readOnly: false,
-  },
-  user: {
-    authData: user,
-  },
-})];
+LightNotEdit.decorators = [
+  StoreDecorator({
+    profile: {
+      data: { ...PROFILE_MOCK, id: '2' },
+      editData: PROFILE_MOCK,
+      readOnly: false,
+    },
+    user: {
+      authData: user,
+    },
+  }),
+];
 
 export const DarkNotEdit: Story = {
-  render: () => (
-    <EditProfileCard id='1' />
-  ),
+  render: () => <EditProfileCard id="1" />,
 };
-DarkNotEdit.decorators = [StoreDecorator({
-  profile: {
-    data: { ...PROFILE_MOCK, id: '2' },
-    editData: PROFILE_MOCK,
-    readOnly: false,
-  },
-  user: {
-    authData: user,
-  },
-})];
+DarkNotEdit.decorators = [
+  StoreDecorator({
+    profile: {
+      data: { ...PROFILE_MOCK, id: '2' },
+      editData: PROFILE_MOCK,
+      readOnly: false,
+    },
+    user: {
+      authData: user,
+    },
+  }),
+];
 DarkEdit.parameters = { theme: Theme.DARK };
 
 export const LightError: Story = {
-  render: () => (
-    <EditProfileCard id='1' />
-  ),
+  render: () => <EditProfileCard id="1" />,
 };
-LightError.decorators = [StoreDecorator({
-  profile: {
-    data: PROFILE_MOCK,
-    editData: {},
-    readOnly: false,
-    validateErrors: [
-      ValidateProfileError.NO_DATA,
-    ],
-  },
-  user: {
-    authData: user,
-  },
-})];
+LightError.decorators = [
+  StoreDecorator({
+    profile: {
+      data: PROFILE_MOCK,
+      editData: {},
+      readOnly: false,
+      validateErrors: [ValidateProfileError.NO_DATA],
+    },
+    user: {
+      authData: user,
+    },
+  }),
+];
 
 export const DarkError: Story = {
-  render: () => (
-    <EditProfileCard id='1' />
-  ),
+  render: () => <EditProfileCard id="1" />,
 };
-DarkError.decorators = [StoreDecorator({
-  profile: {
-    data: PROFILE_MOCK,
-    editData: {},
-    readOnly: false,
-    validateErrors: [
-      ValidateProfileError.NO_DATA,
-    ],
-  },
-  user: {
-    authData: user,
-  },
-})];
+DarkError.decorators = [
+  StoreDecorator({
+    profile: {
+      data: PROFILE_MOCK,
+      editData: {},
+      readOnly: false,
+      validateErrors: [ValidateProfileError.NO_DATA],
+    },
+    user: {
+      authData: user,
+    },
+  }),
+];
 DarkError.parameters = { theme: Theme.DARK };

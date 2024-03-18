@@ -23,6 +23,9 @@ const preview: Preview = {
         { name: 'dark', class: Theme.DARK, color: '#090949' },
       ],
     },
+    // docs: {
+    //   toc: true, // 👈 Enables the table of contents
+    // },
   },
   decorators: [
     RouterDecorator,

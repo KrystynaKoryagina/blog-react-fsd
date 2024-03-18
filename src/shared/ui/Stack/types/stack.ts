@@ -1,13 +1,13 @@
 import { HTMLAttributes, ReactNode } from 'react';
 
 export interface FlexProps extends HTMLAttributes<HTMLDivElement> {
-  className?: string
+  className?: string;
   children: ReactNode;
-  direction: FlexDirection
-  justify?: FlexJustify
-  align?: FlexAlign
-  gap?: FlexGap
-  wrap?: FlexWrap
+  direction: FlexDirection;
+  justify?: FlexJustify;
+  align?: FlexAlign;
+  gap?: FlexGap;
+  wrap?: FlexWrap;
 }
 
 export type FlexDirection = 'row' | 'column';

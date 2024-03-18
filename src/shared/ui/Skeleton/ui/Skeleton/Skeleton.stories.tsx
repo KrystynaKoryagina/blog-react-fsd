@@ -13,27 +13,27 @@ export default meta;
 type Story = StoryObj<typeof Skeleton>;
 
 export const Light: Story = {
-  render: () => (
-    <Skeleton />
-  ),
+  render: () => <Skeleton />,
 };
 
 export const Dark: Story = {
-  render: () => (
-    <Skeleton />
-  ),
+  render: () => <Skeleton />,
 };
 Dark.parameters = { theme: Theme.DARK };
 
 export const Circle: Story = {
   render: () => (
     <>
-      <Skeleton borderRadius='50%' width={100} height={100} />
+      <Skeleton borderRadius="50%" width={100} height={100} />
 
       <pre>
-        <code style={{
-          display: 'block', padding: '10px', fontSize: '12px', color: '#8E8A89',
-        }}
+        <code
+          style={{
+            display: 'block',
+            padding: '10px',
+            fontSize: '12px',
+            color: '#8E8A89',
+          }}
         >
           {'<Skeleton borderRadius="50%" width={100} height={100} />'}
         </code>
@@ -45,12 +45,16 @@ export const Circle: Story = {
 export const CircleDark: Story = {
   render: () => (
     <>
-      <Skeleton borderRadius='50%' width={100} height={100} />
+      <Skeleton borderRadius="50%" width={100} height={100} />
 
       <pre>
-        <code style={{
-          display: 'block', padding: '10px', fontSize: '12px', color: '#8E8A89',
-        }}
+        <code
+          style={{
+            display: 'block',
+            padding: '10px',
+            fontSize: '12px',
+            color: '#8E8A89',
+          }}
         >
           {'<Skeleton borderRadius="50%" width={100} height={100} />'}
         </code>

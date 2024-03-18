@@ -8,7 +8,7 @@ export const ThemeDecorator = (Story: StoryFn, context?: StoryContext) => {
 
   return (
     <ThemeProvider>
-      <div id='app' className={`app ${theme}`}>
+      <div id="app" className={`app ${theme}`}>
         <div style={{ padding: '20px' }}>
           <Story />
         </div>

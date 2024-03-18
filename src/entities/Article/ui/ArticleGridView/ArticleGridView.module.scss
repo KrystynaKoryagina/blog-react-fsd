@@ -1,4 +1,4 @@
-@import "app/styles/mixins/trancation";
+@import 'app/styles/mixins/trancation';
 
 .ArticleGridView {
   display: block;
@@ -32,6 +32,15 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.imageError {
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-image: url('../../../../shared/assets/images/no-image.webp');
 }
 
 .date {

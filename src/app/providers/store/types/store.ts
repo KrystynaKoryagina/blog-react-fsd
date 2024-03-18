@@ -1,4 +1,3 @@
-import { AddCommentFormStore } from '@/features/AddCommentForm';
 import {
   AnyAction,
   CombinedState,
@@ -7,6 +6,7 @@ import {
   ReducersMapObject,
 } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
+import { AddCommentFormStore } from '@/features/AddCommentForm';
 import { ArticleStore } from '@/entities/Article';
 import { UserStore } from '@/entities/User';
 import { LoginStore } from '@/features/AuthByUserName';
@@ -19,7 +19,7 @@ import { rtkApi } from '@/shared/api/rtkQuery';
 export interface StoreSchema {
   user: UserStore;
   scroll: ScrollStore;
-  [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>,
+  [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
 
   // Async Reducers
   login?: LoginStore;
@@ -40,7 +40,7 @@ export interface ReducerManger {
 }
 
 export interface ReduxStoreWithManager extends EnhancedStore<StoreSchema> {
-  reducerManager: ReducerManger
+  reducerManager: ReducerManger;
 }
 
 export interface ThunkExtraArgs {
@@ -53,4 +53,6 @@ export interface ThunkConfig<T> {
   state: StoreSchema;
 }
 
-export type ReducersList = { [name in StoreSchemaKey]?: Reducer<NonNullable<StoreSchema[name]>> };
+export type ReducersList = {
+  [name in StoreSchemaKey]?: Reducer<NonNullable<StoreSchema[name]>>;
+};

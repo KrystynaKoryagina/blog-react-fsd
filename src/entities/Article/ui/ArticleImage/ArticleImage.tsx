@@ -9,10 +9,12 @@ interface ArticleImageProps {
 }
 
 export const ArticleImage = memo(({ className, block }: ArticleImageProps) => (
-  <VStack className={className} align='center'>
+  <VStack className={className} align="center">
     <img src={block.src} alt={block.title} />
     {block.title && (
-      <Text size={TextSize.SM} align={TextAlign.CENTER}>{block.title}</Text>
+      <Text size={TextSize.SM} align={TextAlign.CENTER}>
+        {block.title}
+      </Text>
     )}
   </VStack>
 ));

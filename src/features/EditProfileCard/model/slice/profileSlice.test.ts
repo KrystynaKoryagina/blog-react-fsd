@@ -8,10 +8,9 @@ describe('profileSlice', () => {
   test('should set readonly', () => {
     const state: DeepPartial<ProfileStore> = { readOnly: false };
 
-    expect(profileReducer(
-      state as ProfileStore,
-      profileActions.setReadOnly(true),
-    )).toEqual({ readOnly: true });
+    expect(
+      profileReducer(state as ProfileStore, profileActions.setReadOnly(true)),
+    ).toEqual({ readOnly: true });
   });
 
   test('should update profile', () => {
@@ -24,10 +23,12 @@ describe('profileSlice', () => {
       age: 30,
     };
 
-    expect(profileReducer(
-      state as ProfileStore,
-      profileActions.updateProfile(newProfile),
-    )).toEqual({ editData: newProfile });
+    expect(
+      profileReducer(
+        state as ProfileStore,
+        profileActions.updateProfile(newProfile),
+      ),
+    ).toEqual({ editData: newProfile });
   });
 
   test('should set readonly to true, reset errors and reset editData value', () => {
@@ -43,10 +44,9 @@ describe('profileSlice', () => {
       validateErrors: [ValidateProfileError.INCORRECT_AGE],
     };
 
-    expect(profileReducer(
-      state as ProfileStore,
-      profileActions.cancelEdit(),
-    )).toEqual({
+    expect(
+      profileReducer(state as ProfileStore, profileActions.cancelEdit()),
+    ).toEqual({
       data: PROFILE_MOCK,
       editData: PROFILE_MOCK,
       readOnly: true,
@@ -61,10 +61,9 @@ describe('profileSlice', () => {
       isLoading: false,
     };
 
-    expect(profileReducer(
-      state as ProfileStore,
-      fetchProfileData.pending,
-    )).toEqual({
+    expect(
+      profileReducer(state as ProfileStore, fetchProfileData.pending),
+    ).toEqual({
       data: null,
       readOnly: true,
       error: null,
@@ -79,10 +78,12 @@ describe('profileSlice', () => {
       isLoading: true,
     };
 
-    expect(profileReducer(
-      state as ProfileStore,
-      fetchProfileData.fulfilled(PROFILE_MOCK, '', ''),
-    )).toEqual({
+    expect(
+      profileReducer(
+        state as ProfileStore,
+        fetchProfileData.fulfilled(PROFILE_MOCK, '', ''),
+      ),
+    ).toEqual({
       data: PROFILE_MOCK,
       editData: PROFILE_MOCK,
       readOnly: true,
@@ -96,10 +97,9 @@ describe('profileSlice', () => {
       validateErrors: [ValidateProfileError.SERVER_ERROR],
     };
 
-    expect(profileReducer(
-      state as ProfileStore,
-      updateProfileData.pending,
-    )).toEqual({
+    expect(
+      profileReducer(state as ProfileStore, updateProfileData.pending),
+    ).toEqual({
       isLoading: true,
       validateErrors: null,
     });
@@ -112,10 +112,12 @@ describe('profileSlice', () => {
       isLoading: false,
     };
 
-    expect(profileReducer(
-      state as ProfileStore,
-      updateProfileData.fulfilled(PROFILE_MOCK, ''),
-    )).toEqual({
+    expect(
+      profileReducer(
+        state as ProfileStore,
+        updateProfileData.fulfilled(PROFILE_MOCK, ''),
+      ),
+    ).toEqual({
       data: PROFILE_MOCK,
       editData: PROFILE_MOCK,
       readOnly: true,

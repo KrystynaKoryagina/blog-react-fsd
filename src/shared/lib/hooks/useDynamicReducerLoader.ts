@@ -1,11 +1,15 @@
-import { ReducersList, ReduxStoreWithManager, StoreSchemaKey } from '@/app/providers/store';
 import { useEffect } from 'react';
 import { useStore } from 'react-redux';
+import {
+  ReducersList,
+  ReduxStoreWithManager,
+  StoreSchemaKey,
+} from '@/app/providers/store';
 import { useAppDispatch } from './useAppDispatch';
 
 interface DynamicReducerLoaderProps {
-  reducers: ReducersList,
-  removeAfterUnmount?: boolean
+  reducers: ReducersList;
+  removeAfterUnmount?: boolean;
 }
 
 export const useDynamicReducerLoader = ({

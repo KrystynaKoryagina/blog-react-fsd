@@ -4,22 +4,28 @@ export const useThrottle = (cb: (...args: any[]) => void, delay: number) => {
   const throttleRef = useRef(false);
   const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
-  useEffect(() => () => {
-    if (timerRef.current) {
-      clearTimeout(timerRef.current);
-    }
-  }, []);
+  useEffect(
+    () => () => {
+      if (timerRef.current) {
+        clearTimeout(timerRef.current);
+      }
+    },
+    [],
+  );
 
-  return useCallback((...args: any[]) => {
-    if (throttleRef.current) {
-      return;
-    }
+  return useCallback(
+    (...args: any[]) => {
+      if (throttleRef.current) {
+        return;
+      }
 
-    cb(...args);
-    throttleRef.current = true;
+      cb(...args);
+      throttleRef.current = true;
 
-    timerRef.current = setTimeout(() => {
-      throttleRef.current = false;
-    }, delay);
-  }, [cb, delay]);
+      timerRef.current = setTimeout(() => {
+        throttleRef.current = false;
+      }, delay);
+    },
+    [cb, delay],
+  );
 };

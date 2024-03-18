@@ -7,9 +7,9 @@ import { getArticlesListHasMore } from '../../selectors/getArticlesListHasMore/g
 import { getArticlesListLoading } from '../../selectors/getArticlesListLoading/getArticlesListLoading';
 import { articlesListActions } from '../../slice/articlesListSlice';
 import { fetchArticles } from '../fetchArticles/fetchArticles';
+import { buildAsyncThunk } from '@/shared/lib/store';
 
-export const fetchNextArticles = createAsyncThunk<
-void, void, ThunkConfig<string>>(
+const fetchNextArticlesThunk = buildAsyncThunk<void, void, ThunkConfig<string>>(
   'articles/fetchNextArticles',
   async (_, thunkAPI) => {
     const { dispatch, getState } = thunkAPI;
@@ -26,3 +26,8 @@ void, void, ThunkConfig<string>>(
     }
   },
 );
+
+export const {
+  asyncThunk: fetchNextArticles,
+  useAsyncThunk: useFetchNextArticles,
+} = fetchNextArticlesThunk;

@@ -1,7 +1,5 @@
 import { fireEvent, screen } from '@testing-library/react';
-import {
-  componentRender,
-} from '@/shared/config/test/componentRender';
+import { componentRender } from '@/shared/config/test/componentRender';
 import { Sidebar } from './Sidebar';
 import '@testing-library/jest-dom';
 

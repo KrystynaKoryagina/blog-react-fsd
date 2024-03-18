@@ -3,11 +3,12 @@
 }
 
 .panel {
-  background: var(--card-bg);
+  background: var(--bg-color);
   position: absolute;
   border-radius: 8px;
   padding: 15px;
   z-index: var(--popover-z-index);
+  border: 1px solid var(--bg-tertiary-color);
 }
 
 .trigger {

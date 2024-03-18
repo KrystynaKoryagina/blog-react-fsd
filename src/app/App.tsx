@@ -15,6 +15,8 @@ export const App = () => {
   const { theme } = useTheme();
   const dispatch = useAppDispatch();
 
+  // TODO есть скрол на всю страницу вертикальный
+
   // TODO 47 Router v6 private protectеd routes. Защищенные маршруты
   // Хочу задать вопрос. Почему у нас не работали пути без _inited в сторе?
   // Когда мы создали RequireAuth на 01:38, мы ведь подписались к стору в этом компоненте на изменение auth через useSelecor(getUserAuthData)
@@ -37,10 +39,10 @@ Feliche-Demian Netliukh
   }, [dispatch]);
 
   return (
-    <div id='app' className={classNames('app', [theme])}>
-      <Suspense fallback=''>
+    <div id="app" className={classNames('app', [theme])}>
+      <Suspense fallback="">
         <Header />
-        <HStack>
+        <HStack className={classNames('app-content')}>
           <Sidebar />
           {/* TODO add spinner instead of INITED */}
           {inited && <AppRouter />}

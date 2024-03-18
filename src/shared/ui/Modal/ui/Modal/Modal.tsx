@@ -7,14 +7,17 @@ import { useCloseOnEsc } from '@/shared/lib/hooks/useCloseOnEsc';
 import styles from './Modal.module.scss';
 
 interface ModalProps {
-  isOpen: boolean
-  className?: string
-  children?: ReactNode
-  onClose: () => void
+  isOpen: boolean;
+  className?: string;
+  children?: ReactNode;
+  onClose?: () => void;
 }
 
 export const Modal = ({
-  isOpen, onClose, children, className,
+  isOpen,
+  onClose,
+  children,
+  className,
 }: ModalProps): JSX.Element => {
   useCloseOnEsc({ onClose });
   const modalRef = useRef(null);
@@ -32,14 +35,9 @@ export const Modal = ({
           exitActive: styles.modalExitActive,
         }}
       >
-        <div
-          ref={modalRef}
-          className={classNames(styles.Modal, [className])}
-        >
+        <div ref={modalRef} className={classNames(styles.Modal, [className])}>
           <Overlay onClick={onClose} />
-          <div className={styles.content}>
-            {children}
-          </div>
+          <div className={styles.content}>{children}</div>
         </div>
       </CSSTransition>
     </Portal>

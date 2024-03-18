@@ -1,16 +1,19 @@
-import { ReducersList } from '@/app/providers/store';
-import { memo, useCallback, useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
-import {
-  ArticlesInfiniteList, articlesListReducer, fetchNextArticles, initArticlesPage,
-} from '@/widgets/ArticlesInfiniteList';
+import { memo, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import {
+  ArticlesInfiniteList,
+  articlesListReducer,
+  useFetchNextArticles,
+} from '@/widgets/ArticlesInfiniteList';
+import { ReducersList } from '@/app/providers/store';
 import { useDynamicReducerLoader } from '@/shared/lib/hooks/useDynamicReducerLoader';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { VStack } from '@/shared/ui/Stack';
 import { Page } from '@/widgets/Page';
 import { ArticlesPageFilter } from '../ArticlesPageFilter/ArticlesPageFilter';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
+import { useInitArticlesPage } from '@/widgets/ArticlesInfiniteList/model/services/initArticlesPage/initArticlesPage';
+// import { useInitArticlesPage } from '@/widgets/ArticlesInfiniteList/model/services/initArticlesPage/initArticlesPage';
+import styles from './ArticlesPage.module.scss';
 
 const reducers: ReducersList = {
   articlesList: articlesListReducer,
@@ -18,10 +21,10 @@ const reducers: ReducersList = {
 
 const ArticlesPage = () => {
   useDynamicReducerLoader({ reducers, removeAfterUnmount: false });
+  // const initArticlesPage = useInitArticlesPage();
 
-  const { t } = useTranslation();
-
-  const dispatch = useAppDispatch();
+  const initArticlesPage = useInitArticlesPage();
+  const fetchNextArticles = useFetchNextArticles();
 
   const [searchParams] = useSearchParams();
 
@@ -36,20 +39,20 @@ const ArticlesPage = () => {
   // }, [dispatch, id]);
 
   useInitialEffect(() => {
-    dispatch(initArticlesPage(searchParams));
-  }, [dispatch, searchParams]);
+    initArticlesPage(searchParams);
+  }, [searchParams]);
 
   const onLoadMoreArticles = useCallback(() => {
-    dispatch(fetchNextArticles());
-  }, [dispatch]);
+    fetchNextArticles();
+  }, [fetchNextArticles]);
 
   return (
-    <Page onScrollEnd={onLoadMoreArticles} saveScroll>
-      <VStack gap='32'>
-        <ArticlesPageFilter />
-        <ArticlesInfiniteList />
-      </VStack>
-    </Page>
+    <VStack className={styles.ArticlesPage}>
+      <ArticlesPageFilter />
+      <Page onScrollEnd={onLoadMoreArticles} saveScroll>
+        <ArticlesInfiniteList className={styles.list} />
+      </Page>
+    </VStack>
   );
 };
 

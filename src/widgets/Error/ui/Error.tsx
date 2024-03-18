@@ -12,7 +12,9 @@ export const Error = () => {
   return (
     <div className={styles.Error}>
       <p>{t('ERROR_MESSAGE')}</p>
-      <Button variant={ButtonType.GHOST} onClick={refreshPage}>{t('BUTTONS.REFRESH')}</Button>
+      <Button variant={ButtonType.GHOST} onClick={refreshPage}>
+        {t('BUTTONS.REFRESH')}
+      </Button>
     </div>
   );
 };

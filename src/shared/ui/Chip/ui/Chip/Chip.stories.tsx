@@ -28,9 +28,13 @@ export const Primary: Story = {
         <Chip content={content} />
       </div>
 
-      <hr style={{
-        height: '1px', backgroundColor: '#8E8A89', marginTop: '10px', marginBottom: '15px',
-      }}
+      <hr
+        style={{
+          height: '1px',
+          backgroundColor: '#8E8A89',
+          marginTop: '10px',
+          marginBottom: '15px',
+        }}
       />
 
       <h3>Primary Selected</h3>
@@ -49,9 +53,13 @@ export const PrimaryDark: Story = {
         <Chip content={content} />
       </div>
 
-      <hr style={{
-        height: '1px', backgroundColor: '#8E8A89', marginTop: '10px', marginBottom: '15px',
-      }}
+      <hr
+        style={{
+          height: '1px',
+          backgroundColor: '#8E8A89',
+          marginTop: '10px',
+          marginBottom: '15px',
+        }}
       />
 
       <h3>Primary Selected</h3>
@@ -71,9 +79,13 @@ export const Outline: Story = {
         <Chip content={content} variant={ChipType.OUTLINE} />
       </div>
 
-      <hr style={{
-        height: '1px', backgroundColor: '#8E8A89', marginTop: '10px', marginBottom: '15px',
-      }}
+      <hr
+        style={{
+          height: '1px',
+          backgroundColor: '#8E8A89',
+          marginTop: '10px',
+          marginBottom: '15px',
+        }}
       />
 
       <h3>Outline Selected</h3>
@@ -92,9 +104,13 @@ export const OutlineDark: Story = {
         <Chip content={content} variant={ChipType.OUTLINE} />
       </div>
 
-      <hr style={{
-        height: '1px', backgroundColor: '#8E8A89', marginTop: '10px', marginBottom: '15px',
-      }}
+      <hr
+        style={{
+          height: '1px',
+          backgroundColor: '#8E8A89',
+          marginTop: '10px',
+          marginBottom: '15px',
+        }}
       />
 
       <h3>Outline Selected</h3>

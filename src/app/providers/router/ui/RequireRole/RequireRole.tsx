@@ -16,7 +16,9 @@ export const RequireRole = ({ roles, children }: RequireRoleProps) => {
   const hasRequiredRoles = userRole && roles?.includes(userRole);
 
   if (!hasRequiredRoles) {
-    return <Navigate to={getRouteForbidden()} state={{ from: location }} replace />;
+    return (
+      <Navigate to={getRouteForbidden()} state={{ from: location }} replace />
+    );
   }
 
   // eslint-disable-next-line react/jsx-no-useless-fragment

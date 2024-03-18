@@ -1,6 +1,4 @@
-import {
-  memo, useCallback, useEffect, useMemo, useRef, useState,
-} from 'react';
+import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import CopyIcon from '@/shared/assets/icons/copy.svg';
 import { Button, ButtonType } from '@/shared/ui/Button';
 import { classNames } from '@/shared/lib/utils/classNames';
@@ -30,7 +28,11 @@ export const Code = memo(({ className, value }: CodeProps) => {
   const rowsNumber = useMemo(() => {
     const arr = Array.from(Array(rows).keys());
 
-    return arr.map((item) => (<div key={item} className={styles.rowsItem}>{item + 1}</div>));
+    return arr.map((item) => (
+      <div key={item} className={styles.rowsItem}>
+        {item + 1}
+      </div>
+    ));
   }, [rows]);
 
   const onCopy = useCallback(() => {
@@ -39,12 +41,14 @@ export const Code = memo(({ className, value }: CodeProps) => {
 
   return (
     <pre className={classNames(styles.CodeWrapper, [className])}>
-      <Button onClick={onCopy} className={styles.copyBtn} variant={ButtonType.GHOST}>
+      <Button
+        onClick={onCopy}
+        className={styles.copyBtn}
+        variant={ButtonType.GHOST}
+      >
         <CopyIcon className={styles.copyIcon} />
       </Button>
-      <div className={styles.rows}>
-        {rowsNumber}
-      </div>
+      <div className={styles.rows}>{rowsNumber}</div>
       <code className={styles.code} ref={ref}>
         {value}
       </code>

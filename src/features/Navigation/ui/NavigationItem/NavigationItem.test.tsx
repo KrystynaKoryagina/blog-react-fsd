@@ -1,7 +1,5 @@
 import { screen } from '@testing-library/react';
-import {
-  componentRender,
-} from '@/shared/config/test/componentRender';
+import { componentRender } from '@/shared/config/test/componentRender';
 import '@testing-library/jest-dom';
 import { NavigationItem } from './NavigationItem';
 import { NavigationLink } from '../../model/types/navigation';

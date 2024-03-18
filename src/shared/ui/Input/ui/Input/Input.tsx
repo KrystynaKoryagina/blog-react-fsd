@@ -1,5 +1,10 @@
 import {
-  ChangeEvent, InputHTMLAttributes, memo, useEffect, useRef, useState,
+  ChangeEvent,
+  InputHTMLAttributes,
+  memo,
+  useEffect,
+  useRef,
+  useState,
 } from 'react';
 import { classNames } from '@/shared/lib/utils/classNames';
 import styles from './Input.module.scss';
@@ -8,7 +13,7 @@ type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange'>;
 
 interface InputProps extends HTMLInputProps {
   label?: string;
-  onChange?: (value: string) => void
+  onChange?: (value: string) => void;
 }
 
 export const Input = memo((props: InputProps) => {
@@ -54,7 +59,7 @@ export const Input = memo((props: InputProps) => {
 
   return (
     <div className={classNames(styles.InputWrapper, [className])}>
-      { label && (
+      {label && (
         <label className={styles.label} htmlFor={id}>
           {label}
           &gt;
@@ -73,11 +78,11 @@ export const Input = memo((props: InputProps) => {
           onSelect={onSelectHandler}
           onBlur={onBlurHandler}
           onFocus={onFocusHandler}
-          autoComplete='off'
+          autoComplete="off"
           readOnly={readOnly}
           {...otherProps}
         />
-        { isCarretVisible && (
+        {isCarretVisible && (
           <span
             className={styles.carret}
             style={{

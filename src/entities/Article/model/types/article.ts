@@ -11,12 +11,15 @@ export interface Article {
   createdAt: string;
   category: ArticleCategory[];
   blocks: ArticleBlock[];
-  user: User
+  user: User;
 }
 
 export type ArticleView = 'list' | 'grid';
 
-export type ArticleBlock = ArticleCodeBlock | ArticleImageBlock | ArticleTextBlock;
+export type ArticleBlock =
+  | ArticleCodeBlock
+  | ArticleImageBlock
+  | ArticleTextBlock;
 
 export interface ArticleBlockBase {
   id: string;

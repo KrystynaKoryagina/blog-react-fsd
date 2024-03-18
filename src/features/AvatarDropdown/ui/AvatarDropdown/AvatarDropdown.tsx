@@ -5,8 +5,12 @@ import { memo, useCallback, useMemo } from 'react';
 import { DropdownItem, DropdownMenu } from '@/shared/ui/DropdownMenu';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { getUserAuthData, userActions } from '@/entities/User';
-import { getRouteAdmin, getRouteMain, getRouteProfile } from '@/shared/constants/routes';
-import { Avatar } from '@/shared/ui/Avatar';
+import {
+  getRouteAdmin,
+  getRouteArticles,
+  getRouteProfile,
+} from '@/shared/constants/routes';
+import { UIAvatar } from '@/shared/ui/UIAvatar';
 import { getIsAdminPanelAvailable } from '../../model/selectors/getIsAdminPanelAvailable/getIsAdminPanelAvailable';
 import { Button, ButtonType } from '@/shared/ui/Button';
 
@@ -24,41 +28,49 @@ export const AvatarDropdown = memo(({ className }: AvatarDropdownProps) => {
 
   const logout = useCallback(() => {
     dispatch(userActions.logout());
-    navigate(getRouteMain());
+    navigate(getRouteArticles());
   }, [dispatch, navigate]);
 
-  const dropdownItems: DropdownItem[] = useMemo(() => ([
-    ...(isAdminPanelAvailable ? [{
-      id: 'admin',
-      content: t('NAVIGATION.ADMIN_PANEL'),
-      href: getRouteAdmin(),
-    }] : []),
-    {
-      id: 'profile',
-      content: t('NAVIGATION.PROFILE'),
-      href: getRouteProfile(authData?.id),
-    },
-    {
-      id: 'logout',
-      content: t('BUTTONS.LOGOUT'),
-      onClick: logout,
-    },
-  ]), [authData?.id, isAdminPanelAvailable, logout, t]);
-
-  const menuTrigger = useMemo(() => (
-    <Button variant={ButtonType.GHOST}><Avatar src={authData?.avatar} size={30} /></Button>
-  ), [authData?.avatar]);
-
-  return (
-    authData
-      ? (
-        <DropdownMenu
-          className={className}
-          items={dropdownItems}
-          trigger={menuTrigger}
-          direction='bottom right'
-        />
-      )
-      : null
+  const dropdownItems: DropdownItem[] = useMemo(
+    () => [
+      ...(isAdminPanelAvailable
+        ? [
+            {
+              id: 'admin',
+              content: t('NAVIGATION.ADMIN_PANEL'),
+              href: getRouteAdmin(),
+            },
+          ]
+        : []),
+      {
+        id: 'profile',
+        content: t('NAVIGATION.PROFILE'),
+        href: getRouteProfile(authData?.id),
+      },
+      {
+        id: 'logout',
+        content: t('BUTTONS.LOGOUT'),
+        onClick: logout,
+      },
+    ],
+    [authData?.id, isAdminPanelAvailable, logout, t],
   );
+
+  const menuTrigger = useMemo(
+    () => (
+      <Button variant={ButtonType.GHOST}>
+        <UIAvatar src={authData?.avatar} size={30} />
+      </Button>
+    ),
+    [authData?.avatar],
+  );
+
+  return authData ? (
+    <DropdownMenu
+      className={className}
+      items={dropdownItems}
+      trigger={menuTrigger}
+      direction="bottom right"
+    />
+  ) : null;
 });

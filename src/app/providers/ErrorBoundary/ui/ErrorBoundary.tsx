@@ -10,8 +10,8 @@ interface ErrorBoundaryState {
 }
 
 class ErrorBoundary extends React.Component<
-ErrorBoundaryProps,
-ErrorBoundaryState
+  ErrorBoundaryProps,
+  ErrorBoundaryState
 > {
   constructor(props: ErrorBoundaryProps) {
     super(props);
@@ -34,7 +34,7 @@ ErrorBoundaryState
     if (hasError) {
       return (
         // NOTE Wrapped to Suspense because there are translations in the components
-        <Suspense fallback=''>
+        <Suspense fallback="">
           <Error />
         </Suspense>
       );

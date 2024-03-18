@@ -7,21 +7,22 @@ import { StoreProvider, StoreSchema } from '@/app/providers/store';
 import i18n from '@/shared/config/i18n/i18n.jest';
 
 interface ComponentRenderOptions {
-  route?: string,
-  initialState?: DeepPartial<StoreSchema>,
-  asyncReducers?: DeepPartial<ReducersMapObject<StoreSchema>>,
+  route?: string;
+  initialState?: DeepPartial<StoreSchema>;
+  asyncReducers?: DeepPartial<ReducersMapObject<StoreSchema>>;
 }
 
-export function componentRender(component: ReactNode, options: ComponentRenderOptions = {}) {
+export function componentRender(
+  component: ReactNode,
+  options: ComponentRenderOptions = {},
+) {
   const { route = '/', initialState, asyncReducers } = options;
 
   return render(
     <MemoryRouter initialEntries={[route]}>
       <StoreProvider asyncReducers={asyncReducers} initialState={initialState}>
         <I18nextProvider i18n={i18n}>
-          <Suspense fallback=''>
-            {component}
-          </Suspense>
+          <Suspense fallback="">{component}</Suspense>
         </I18nextProvider>
       </StoreProvider>
     </MemoryRouter>,

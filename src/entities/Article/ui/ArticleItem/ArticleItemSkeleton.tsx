@@ -6,11 +6,17 @@ import { ArticleGridViewSkeleton } from '../ArticleGridView/ArticleGridViewSkele
 import { ArticleView } from '../../model/types/article';
 
 interface ArticleItemSkeletonProps {
-  view: ArticleView
+  view: ArticleView;
 }
 
-export const ArticleItemSkeleton = memo(({ view }: ArticleItemSkeletonProps) => (
-  <div className={classNames(styles.ArticleItem, [styles[view]])}>
-    {view === 'list' ? <ArticleListViewSkeleton /> : <ArticleGridViewSkeleton />}
-  </div>
-));
+export const ArticleItemSkeleton = memo(
+  ({ view }: ArticleItemSkeletonProps) => (
+    <div className={classNames(styles.ArticleItem, [styles[view]])}>
+      {view === 'list' ? (
+        <ArticleListViewSkeleton />
+      ) : (
+        <ArticleGridViewSkeleton />
+      )}
+    </div>
+  ),
+);

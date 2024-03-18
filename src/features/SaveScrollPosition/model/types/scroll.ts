@@ -6,6 +6,6 @@
 export type ScrollPosition = OptionalRecord<string, number>;
 
 export interface PageScroll {
-  path: string
-  position: number
+  path: string;
+  position: number;
 }

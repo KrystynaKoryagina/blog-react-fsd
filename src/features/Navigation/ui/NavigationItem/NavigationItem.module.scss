@@ -1,16 +1,39 @@
 .navLink {
-  padding: 10px;
+  display: block;
+  position: relative;
   width: 100%;
+  padding: 15px;
+  overflow: hidden;
+
+  &:hover,
+  &.active {
+    background-color: var(--bg-color);
+    border-radius: 0 100px 100px 0;
+  }
+
+  &.active::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background-color: var(--primary-color);
+  }
 }
 
-.navName {
+.collapsed {
+  .name {
+    opacity: 0;
+    font-size: 0;
+  }
+}
+
+.name {
   opacity: 1;
   transition: opacity 0.3s;
 }
 
-.collapsed {
-  .navName {
-    opacity: 0;
-    width: 0;
-  }
+.icon {
+  flex-shrink: 0;
 }

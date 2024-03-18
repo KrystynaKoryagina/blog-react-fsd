@@ -2,6 +2,8 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { AUTH_TOKEN } from '@/shared/constants/localStorage';
 import { User } from '../types/user';
 import { UserStore } from '../types/userStore';
+import { saveJsonSettings } from '../services/saveJsonSettings/saveJsonSettings';
+import { JsonSettings } from '../types/jsonSettings';
 
 const initialState: UserStore = {
   authData: null,
@@ -23,12 +25,26 @@ export const userSlice = createSlice({
         state.authData = JSON.parse(user);
       }
 
-      state._inited = true;
+      state._inited = true; // TODO find way to remove _inited
     },
     logout: (state) => {
       localStorage.removeItem(AUTH_TOKEN); // TODO Bad practice
       state.authData = null;
     },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(
+        saveJsonSettings.fulfilled,
+        (state, { payload }: PayloadAction<JsonSettings>) => {
+          if (state?.authData) {
+            state.authData.jsonSettings = payload;
+          }
+        },
+      )
+      .addCase(saveJsonSettings.rejected, (state, action) => {
+        // TODO подумать надо или нет. Может какой то тоастер - настройки не сохранены
+      });
   },
 });
 

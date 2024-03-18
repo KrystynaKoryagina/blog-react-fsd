@@ -83,7 +83,10 @@ export default {
     // '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
     //   '<rootDir>/__mocks__/fileMock.js',
     '\\.(s?css)$': 'identity-obj-proxy',
-    '\\.svg|jpg|jpeg|png': path.resolve(__dirname, 'mocks/jestEmptyComponent.tsx'),
+    '\\.svg|jpg|jpeg|png': path.resolve(
+      __dirname,
+      'mocks/jestEmptyComponent.tsx',
+    ),
     '/axios/': 'axios/dist/node/axios.cjs',
     '^@/(.*)$': '<rootDir>src/$1',
   },
@@ -133,7 +136,10 @@ export default {
   // setupFiles: [],
 
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
-  setupFilesAfterEnv: ['<rootDir>config/jest/jest.setup.ts', '@testing-library/jest-dom'],
+  setupFilesAfterEnv: [
+    '<rootDir>config/jest/jest.setup.ts',
+    '@testing-library/jest-dom',
+  ],
 
   // The number of seconds after which a test is considered as slow and reported as such in the results.
   // slowTestThreshold: 5,

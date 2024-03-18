@@ -15,7 +15,7 @@ const ProfilePage = () => {
   }
 
   return (
-    <Page data-testid='profile-page'>
+    <Page data-testid="profile-page">
       <EditProfileCard id={id} />
     </Page>
   );

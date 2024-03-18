@@ -6,5 +6,12 @@
     "SCIENCE": "Science",
     "ECONOMICS": "Economiccs"
   },
-  "RECOMMENDED_ARTICLES": "Recommended articles"
+  "RECOMMENDED_ARTICLES": "Recommended articles",
+  "SORT": {
+    "ASCENDENT": "Ascendent",
+    "DESCENDENT": "Descendent",
+    "CREATED_DATE": "Created date",
+    "TITLE": "Title",
+    "VIEWS": "Views"
+  }
 }

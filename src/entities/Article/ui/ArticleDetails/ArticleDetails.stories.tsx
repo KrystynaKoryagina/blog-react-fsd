@@ -17,7 +17,9 @@ export default {
   },
 } as ComponentMeta<typeof ArticleDetails>;
 
-const Template: ComponentStory<typeof ArticleDetails> = (args) => <ArticleDetails {...args} />;
+const Template: ComponentStory<typeof ArticleDetails> = (args) => (
+  <ArticleDetails {...args} />
+);
 
 const article: Article = {
   id: '1',
@@ -30,7 +32,8 @@ const article: Article = {
   user: {
     id: '1',
     username: 'admin',
-    avatar: 'https://kartinkin.net/uploads/posts/2022-12/1670281496_6-kartinkin-net-p-kartinka-bukhgalter-vkontakte-6.png',
+    avatar:
+      'https://kartinkin.net/uploads/posts/2022-12/1670281496_6-kartinkin-net-p-kartinka-bukhgalter-vkontakte-6.png',
     role: UserRole.ADMIN,
   },
   blocks: [
@@ -63,24 +66,30 @@ const article: Article = {
 
 export const Normal = Template.bind({});
 Normal.args = {};
-Normal.decorators = [StoreDecorator({
-  article: {
-    data: article,
-  },
-})];
+Normal.decorators = [
+  StoreDecorator({
+    article: {
+      data: article,
+    },
+  }),
+];
 
 export const Loading = Template.bind({});
 Loading.args = {};
-Loading.decorators = [StoreDecorator({
-  article: {
-    isLoading: true,
-  },
-})];
+Loading.decorators = [
+  StoreDecorator({
+    article: {
+      isLoading: true,
+    },
+  }),
+];
 
 export const Error = Template.bind({});
 Error.args = {};
-Error.decorators = [StoreDecorator({
-  article: {
-    error: 'error',
-  },
-})];
+Error.decorators = [
+  StoreDecorator({
+    article: {
+      error: 'error',
+    },
+  }),
+];

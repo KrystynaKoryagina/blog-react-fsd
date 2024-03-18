@@ -1,9 +1,7 @@
 import userEvent from '@testing-library/user-event';
 import { ReducersMapObject } from '@reduxjs/toolkit';
 import { screen } from '@testing-library/react';
-import {
-  componentRender,
-} from '@/shared/config/test/componentRender';
+import { componentRender } from '@/shared/config/test/componentRender';
 import '@testing-library/jest-dom';
 import { EditProfileCard } from './EditProfileCard';
 import { PROFILE_MOCK } from '@/entities/Profile';
@@ -29,25 +27,29 @@ const asyncReducers: DeepPartial<ReducersMapObject<StoreSchema>> = {
 
 describe('features/EditProfileCard', () => {
   test('should render successfully', () => {
-    componentRender(<EditProfileCard id='1' />);
+    componentRender(<EditProfileCard id="1" />);
 
     expect(screen.getByTestId('edit-profile-card')).toBeInTheDocument();
   });
 
   test('should switch to edit mode', async () => {
-    componentRender(<EditProfileCard id='1' />, {
+    componentRender(<EditProfileCard id="1" />, {
       initialState,
       asyncReducers,
     });
 
     await userEvent.click(screen.getByTestId('edit-profile-card-edit-btn'));
 
-    expect(screen.getByTestId('edit-profile-card-edit-cancel')).toBeInTheDocument();
-    expect(screen.getByTestId('edit-profile-card-edit-save')).toBeInTheDocument();
+    expect(
+      screen.getByTestId('edit-profile-card-edit-cancel'),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByTestId('edit-profile-card-edit-save'),
+    ).toBeInTheDocument();
   });
 
   test('should reset input values by click on cancel and switch to readonly mode', async () => {
-    componentRender(<EditProfileCard id='1' />, {
+    componentRender(<EditProfileCard id="1" />, {
       initialState,
       asyncReducers,
     });
@@ -72,11 +74,13 @@ describe('features/EditProfileCard', () => {
 
     expect(firstname).toHaveValue('Krystyna');
     expect(lastname).toHaveValue('Koryagina');
-    expect(screen.getByTestId('edit-profile-card-edit-btn')).toBeInTheDocument();
+    expect(
+      screen.getByTestId('edit-profile-card-edit-btn'),
+    ).toBeInTheDocument();
   });
 
   test('should show error by click on Save if no firstname', async () => {
-    componentRender(<EditProfileCard id='1' />, {
+    componentRender(<EditProfileCard id="1" />, {
       initialState,
       asyncReducers,
     });
@@ -91,13 +95,15 @@ describe('features/EditProfileCard', () => {
     await userEvent.click(screen.getByTestId('edit-profile-card-edit-save'));
 
     expect(screen.getByTestId('error-msg')).toBeInTheDocument();
-    expect(screen.getByTestId('error-msg')).toHaveTextContent('ERRORS.INCORRECT_USER_DATA');
+    expect(screen.getByTestId('error-msg')).toHaveTextContent(
+      'ERRORS.INCORRECT_USER_DATA',
+    );
   });
 
   test('should call PUT request if no  validation errors', async () => {
     const mockApi = jest.spyOn($axiosApi, 'put');
 
-    componentRender(<EditProfileCard id='1' />, {
+    componentRender(<EditProfileCard id="1" />, {
       initialState,
       asyncReducers,
     });

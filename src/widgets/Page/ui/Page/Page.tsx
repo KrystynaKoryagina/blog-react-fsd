@@ -1,12 +1,13 @@
-import {
-  ReactNode, useRef, UIEvent, useEffect,
-} from 'react';
+import { ReactNode, useRef, UIEvent, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { classNames } from '@/shared/lib/utils/classNames';
-import { getPageScrollPosition, scrollActions } from '@/features/SaveScrollPosition';
+import {
+  getPageScrollPosition,
+  scrollActions,
+} from '@/features/SaveScrollPosition';
 import { useThrottle } from '@/shared/lib/hooks/useThrottle';
 import { StoreSchema } from '@/app/providers/store';
 import styles from './Page.module.scss';
@@ -15,8 +16,8 @@ import { TestProps } from '@/shared/types/testProps';
 interface PageProps extends TestProps {
   children: ReactNode;
   className?: string;
-  saveScroll?: boolean
-  onScrollEnd?: () => void
+  saveScroll?: boolean;
+  onScrollEnd?: () => void;
 }
 
 export const Page = ({
@@ -33,7 +34,10 @@ export const Page = ({
 
   const dispatch = useAppDispatch();
 
-  const scrollPosition = useSelector((state: StoreSchema) => getPageScrollPosition(state, pathname));
+  // TODO fix scroll position on Articles page. Sometimes it's saved with wrong position
+  const scrollPosition = useSelector((state: StoreSchema) =>
+    getPageScrollPosition(state, pathname),
+  );
 
   useInfiniteScroll({
     wrapperRef,
@@ -50,10 +54,12 @@ export const Page = ({
 
   const onScroll = useThrottle((e: UIEvent<HTMLElement>) => {
     if (saveScroll) {
-      dispatch(scrollActions.setScrollPosition({
-        path: pathname,
-        position: e.currentTarget.scrollTop,
-      }));
+      dispatch(
+        scrollActions.setScrollPosition({
+          path: pathname,
+          position: e.currentTarget.scrollTop,
+        }),
+      );
     }
   }, 500);
 

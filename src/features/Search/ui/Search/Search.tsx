@@ -5,30 +5,32 @@ import { Card } from '@/shared/ui/Card';
 import { Input } from '@/shared/ui/Input';
 
 interface SearchProps {
-  searchValue?: string
-  onSearch: (value: string) => void
-  className?: string
+  searchValue?: string;
+  onSearch: (value: string) => void;
+  className?: string;
   // TODO
   // onDeleteSearch
 }
 
-export const Search = memo(({ searchValue = '', className, onSearch }: SearchProps) => {
-  // TODO
-  const { t } = useTranslation();
+export const Search = memo(
+  ({ searchValue = '', className, onSearch }: SearchProps) => {
+    // TODO
+    const { t } = useTranslation();
 
-  console.log('Search');
+    console.log('Search');
 
-  // console.log('searchValue', searchValue);
+    // console.log('searchValue', searchValue);
 
-  // const onChangeHandler = useDebounce(onSearch, 700);
+    // const onChangeHandler = useDebounce(onSearch, 700);
 
-  return (
-    <Card className={className}>
-      <Input
-        value={searchValue}
-        placeholder={t('SEARCH')}
-        onChange={onSearch}
-      />
-    </Card>
-  );
-});
+    return (
+      <Card className={className}>
+        <Input
+          value={searchValue}
+          placeholder={t('SEARCH')}
+          onChange={onSearch}
+        />
+      </Card>
+    );
+  },
+);

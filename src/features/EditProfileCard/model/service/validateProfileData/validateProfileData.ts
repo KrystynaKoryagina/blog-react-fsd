@@ -1,14 +1,14 @@
 import { Profile } from '@/entities/Profile';
 import { ValidateProfileError } from '../../types/editProfile';
 
-export const validateProfileData = (profile: Partial<Profile> | null): ValidateProfileError[] => {
+export const validateProfileData = (
+  profile: Partial<Profile> | null,
+): ValidateProfileError[] => {
   if (!profile) {
     return [ValidateProfileError.NO_DATA];
   }
 
-  const {
-    firstName, lastName, age, country,
-  } = profile;
+  const { firstName, lastName, age, country } = profile;
 
   const errors: ValidateProfileError[] = [];
 

@@ -6,5 +6,12 @@
     "SCIENCE": "Наука",
     "ECONOMICS": "Экономика"
   },
-  "RECOMMENDED_ARTICLES": "Рекомендуемые статьи"
+  "RECOMMENDED_ARTICLES": "Рекомендуемые статьи",
+  "SORT": {
+    "ASCENDENT": "По возрастанию",
+    "DESCENDENT": "По убыванию",
+    "CREATED_DATE": "Дате создания",
+    "TITLE": "Заголовку",
+    "VIEWS": "Просмотрам"
+  }
 }

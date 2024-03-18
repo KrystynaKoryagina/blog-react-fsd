@@ -1,11 +1,9 @@
-import {
-  ReactNode, useCallback, useLayoutEffect, useState,
-} from 'react';
+import { ReactNode, useCallback, useLayoutEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 
 interface PortalProps {
-  wrapperId?: string
-  children?: ReactNode
+  wrapperId?: string;
+  children?: ReactNode;
 }
 
 export const Portal = ({ children, wrapperId = 'app' }: PortalProps) => {

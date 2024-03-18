@@ -7,7 +7,7 @@ import styles from './DesktopNotifications.module.scss';
 export const DesktopNotifications = memo(() => (
   <Popover
     trigger={<NotificationsTrigger />}
-    direction='bottom right'
+    direction="bottom right"
     className={styles.DesktopNotifications}
     unmount={false}
   >
