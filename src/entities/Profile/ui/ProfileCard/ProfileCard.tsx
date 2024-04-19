@@ -1,13 +1,13 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/utils/classNames';
-import { Select } from '@/shared/ui/Select';
+import { Select } from '@/shared/ui/deprecated/Select';
 import { Currency, currencyOptions } from '@/shared/constants/currency';
 import { Country, countryOptions } from '@/shared/constants/country';
-import { Text, TextAlign, TextType } from '@/shared/ui/Text';
-import { Input } from '@/shared/ui/Input';
-import { Spinner } from '@/shared/ui/Spinner';
-import { UIAvatar } from '@/shared/ui/UIAvatar';
+import { Text, TextAlign, TextType } from '@/shared/ui/deprecated/Text';
+import { Input } from '@/shared/ui/deprecated/Input';
+import { Spinner } from '@/shared/ui/deprecated/Spinner';
+import { Avatar } from '@/shared/ui/deprecated/Avatar';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import styles from './ProfileCard.module.scss';
 import { Profile } from '../../model/types/profile';
@@ -77,7 +77,7 @@ export const ProfileCard = memo(
         })}
       >
         {data?.avatar && (
-          <UIAvatar
+          <Avatar
             className={styles.avatar}
             alt={t('FORM.USER_AVATAR', { ns: 'profile' })}
             src={data?.avatar}

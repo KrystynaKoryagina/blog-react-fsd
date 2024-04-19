@@ -11,3 +11,10 @@
   background-position: center;
   background-image: url("@/shared/assets/images/no-image.webp");
 }
+
+.textBlock div {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}

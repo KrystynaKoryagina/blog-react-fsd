@@ -1,9 +1,9 @@
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
-import { Button, ButtonType } from '@/shared/ui/Button';
+import { Button, ButtonType } from '@/shared/ui/deprecated/Button';
 import { HStack } from '@/shared/ui/Stack';
-import { Text, TextSize } from '@/shared/ui/Text';
+import { Text, TextSize } from '@/shared/ui/deprecated/Text';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { getProfileCanEdit } from '../../model/selectors/getProfileCanEdit/getProfileCanEdit';
 import { getProfileReadOnly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';

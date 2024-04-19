@@ -1,0 +1,45 @@
+.dropdown {
+  position: relative;
+}
+
+.dropdownMenuList {
+  position: absolute;
+  background: var(--dark-bg-redesigned);
+  border-radius: 18px;
+  border: 1px solid var(--accent-redesigned);
+  overflow: hidden;
+  z-index: var(--dropdown-menu-z-index);
+}
+
+.dropdownMenuItemActive {
+  background: var(--light-bg-redesigned);
+}
+
+.dropdownTriggerBtn {
+  background: none;
+  margin: 0;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.bottomLeft {
+  top: 100%;
+  left: 0;
+}
+
+.bottomRight {
+  top: 100%;
+  right: 0;
+}
+
+.topRight {
+  bottom: 100%;
+  right: 0;
+}
+
+.topLeft {
+  left: 0;
+  bottom: 100%;
+}

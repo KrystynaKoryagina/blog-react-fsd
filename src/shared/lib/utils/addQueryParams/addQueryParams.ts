@@ -14,7 +14,7 @@ const getQueryParams = (params: OptionalRecord<string, string>) => {
 };
 
 /**
- * Custon function to add query params to URL
+ * Custom function to add query params to URL
  * @param params
  */
 export function addQueryParams(params: OptionalRecord<string, string>) {

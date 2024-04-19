@@ -5,6 +5,7 @@ import { UserStore } from '../types/userStore';
 import { saveJsonSettings } from '../services/saveJsonSettings/saveJsonSettings';
 import { JsonSettings } from '../types/jsonSettings';
 
+// TODO переделать аутентификацию
 const initialState: UserStore = {
   authData: null,
 

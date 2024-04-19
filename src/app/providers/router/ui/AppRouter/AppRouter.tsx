@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { Spinner } from '@/shared/ui/Spinner';
+import { Spinner } from '@/shared/ui/deprecated/Spinner';
 import { routes } from '../../config/route.config';
 import { ProtectedRoute } from '../ProtectedRoute/ProtectedRoute';
 

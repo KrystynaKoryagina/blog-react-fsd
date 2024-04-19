@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { Text, TextAlign, TextSize } from '@/shared/ui/Text';
+import { Text, TextAlign, TextSize } from '@/shared/ui/deprecated/Text';
 import { VStack } from '@/shared/ui/Stack';
 import { ArticleImageBlock } from '../../model/types/article';
 

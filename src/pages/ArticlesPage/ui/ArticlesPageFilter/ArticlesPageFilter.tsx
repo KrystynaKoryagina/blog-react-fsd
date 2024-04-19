@@ -16,7 +16,7 @@ import {
 } from '@/widgets/ArticlesInfiniteList';
 import { Search } from '@/features/Search';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce';
-import { ChipContent } from '@/shared/ui/Chip/types/chip';
+import { ChipContent } from '@/shared/ui/deprecated/Chip/types/chip';
 import { ArticleCategory, ArticleView } from '@/entities/Article';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { ArticleFilter } from '@/features/ArticleFilter';

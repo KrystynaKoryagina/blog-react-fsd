@@ -12,12 +12,14 @@ interface ThemeProviderProps {
 }
 
 const ThemeProvider = ({ children }: ThemeProviderProps) => {
-  // const { theme: userTheme } = useGetJsonSettings();
+  // const { theme: userTheme } = useGetJsonSettings(); // TODO Bad practice to use useGetJsonSettings in theme Providers. Надо разделять зоны ответсвенности. Можно предавать через пропс initialTheme
 
   const [theme, setTheme] = useState<Theme>(defaultTheme);
   // const [isThemeInited, setIsThemeInited] = useState(false);
 
   // TODO work not good
+  // при обновлении страницы тема меняется
+
   // useEffect(() => {
   //   // console.log('userTheme', userTheme);
   //   // console.log('isThemeInited', isThemeInited);

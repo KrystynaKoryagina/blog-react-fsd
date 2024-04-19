@@ -13,8 +13,6 @@ import { THEME_KEY } from '@/shared/constants/localStorage';
 export const useTheme = (): UseTheme => {
   const { theme, setTheme } = useContext(ThemeContext);
 
-  // console.log('useTheme theme', theme);
-
   const toggleTheme = (saveAction?: (theme: Theme) => void) => {
     const newTheme = theme === Theme.DARK ? Theme.LIGHT : Theme.DARK;
 

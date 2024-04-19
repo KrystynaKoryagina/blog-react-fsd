@@ -1,14 +1,14 @@
 import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { Link } from 'react-router-dom';
-import { Card } from '@/shared/ui/Card';
-import { Text, TextSize } from '@/shared/ui/Text';
+import { Card } from '@/shared/ui/deprecated/Card';
+import { Text, TextSize } from '@/shared/ui/deprecated/Text';
 import EyeIcon from '@/shared/assets/icons/eye.svg';
 import { getRouteArticleDetails } from '@/shared/constants/routes';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import styles from './ArticleGridView.module.scss';
 import { Article } from '../../model/types/article';
 import { UIImage } from '@/shared/ui/UIImage';
-import { Skeleton } from '@/shared/ui/Skeleton';
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
 
 interface ArticleGridViewProps {
   article: Article;

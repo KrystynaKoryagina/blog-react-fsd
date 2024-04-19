@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ArticlesList } from '@/entities/Article';
-import { Text } from '@/shared/ui/Text';
+import { Text } from '@/shared/ui/deprecated/Text';
 import { VStack } from '@/shared/ui/Stack';
 import styles from './ArticlesRecommendedList.module.scss';
 import { useGetRecommendedArticlesQuery } from '../../api/articlesRecommendedListApi';

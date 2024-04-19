@@ -1,0 +1,40 @@
+.primary {
+  color: var(--text-redesigned);
+}
+
+.accent {
+  color: var(--accent-redesigned);
+}
+
+// TODO
+.error {
+  color: var(--error-color);
+}
+
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+}
+
+.center {
+  text-align: center;
+}
+
+.xs {
+  font-size: var(--font-size-xs-redesigned);
+}
+
+.sm {
+  font-size: var(--font-size-sm-redesigned);
+}
+
+.md {
+  font-size: var(--font-size-md-redesigned);
+}
+
+.lg {
+  font-size: var(--font-size-lg-redesigned);
+}

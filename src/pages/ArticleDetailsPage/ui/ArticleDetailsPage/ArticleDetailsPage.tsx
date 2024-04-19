@@ -1,5 +1,4 @@
 import { memo } from 'react';
-import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { ArticleDetails } from '@/entities/Article';
 import { ArticleComments } from '@/widgets/ArticleComments';
@@ -10,7 +9,6 @@ import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDet
 import { ArticleRating } from '@/features/ArticleRating';
 
 const ArticleDetailsPage = () => {
-  const { t } = useTranslation('article');
   const params = useParams<{ id: string }>();
   const { id } = params;
 

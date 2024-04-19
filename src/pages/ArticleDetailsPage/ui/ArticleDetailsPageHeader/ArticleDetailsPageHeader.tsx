@@ -2,8 +2,8 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { UILink } from '@/shared/ui/UILink';
-import { Button, ButtonType } from '@/shared/ui/Button';
+import { AppLink } from '@/shared/ui/deprecated/AppLink';
+import { Button, ButtonType } from '@/shared/ui/deprecated/Button';
 import { getArticleData } from '@/entities/Article';
 import { HStack } from '@/shared/ui/Stack';
 import { getArticleCanEdit } from '../../model/selectors/getArticleCanEdit/getArticleCanEdit';
@@ -27,7 +27,7 @@ export const ArticleDetailsPageHeader = () => {
 
   return (
     <HStack justify="between" align="center">
-      <UILink to={getRouteArticles()}>{t('BUTTONS.BACK')}</UILink>
+      <AppLink to={getRouteArticles()}>{t('BUTTONS.BACK')}</AppLink>
       <Button
         variant={ButtonType.OUTLINE}
         onClick={onEditArticle}

@@ -1,0 +1,18 @@
+.Chip {
+  padding: 10px;
+  border-radius: 20px;
+  background: var(--bg-secondary-color);
+  text-align: center;
+  cursor: pointer;
+}
+
+.primary {
+  &.selected {
+    background: var(--bg-tertiary-color);
+  }
+}
+
+.outline {
+  background-color: transparent;
+  border: 1px solid var(--bg-tertiary-color);
+}

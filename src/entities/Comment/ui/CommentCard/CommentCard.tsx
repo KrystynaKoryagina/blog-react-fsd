@@ -1,13 +1,13 @@
 import { memo } from 'react';
 import { classNames } from '@/shared/lib/utils/classNames';
-import { Skeleton } from '@/shared/ui/Skeleton';
-import { UIAvatar } from '@/shared/ui/UIAvatar';
-import { Text } from '@/shared/ui/Text';
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
+import { Avatar } from '@/shared/ui/deprecated/Avatar';
+import { Text } from '@/shared/ui/deprecated/Text';
 import { getRouteProfile } from '@/shared/constants/routes';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { CommentData } from '../../model/types/comment';
 import styles from './CommentCard.module.scss';
-import { UILink } from '@/shared/ui/UILink';
+import { AppLink } from '@/shared/ui/deprecated/AppLink';
 
 interface CommentCardProps {
   comment: CommentData;
@@ -31,14 +31,14 @@ export const CommentCard = memo(
 
     return (
       <VStack gap="8" className={classNames(styles.CommentCard, [className])}>
-        <UILink to={getRouteProfile(comment.user.id)}>
+        <AppLink to={getRouteProfile(comment.user.id)}>
           <HStack gap="8" align="center">
             {comment.user?.avatar && (
-              <UIAvatar size={30} src={comment.user.avatar} />
+              <Avatar size={30} src={comment.user.avatar} />
             )}
             <Text>{comment.user.username}</Text>
           </HStack>
-        </UILink>
+        </AppLink>
         <Text>{comment.text}</Text>
       </VStack>
     );

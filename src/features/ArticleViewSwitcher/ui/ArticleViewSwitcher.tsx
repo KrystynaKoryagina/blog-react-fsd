@@ -2,7 +2,7 @@ import { memo, useCallback } from 'react';
 import GridIcon from '@/shared/assets/icons/grid.svg';
 import ListIcon from '@/shared/assets/icons/list.svg';
 import { classNames } from '@/shared/lib/utils/classNames';
-import { Button, ButtonType } from '@/shared/ui/Button';
+import { Button, ButtonType } from '@/shared/ui/deprecated/Button';
 import { ArticleView } from '@/entities/Article';
 import { HStack } from '@/shared/ui/Stack';
 import { ArticleViewTypes } from '../model/types/articleView';

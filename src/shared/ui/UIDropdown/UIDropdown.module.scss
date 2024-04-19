@@ -1,0 +1,17 @@
+.dropdownMenu {
+  display: flex;
+  flex-direction: column;
+  width: max-content;
+  max-width: 250px;
+}
+
+.dropdownItem {
+  padding: 10px 25px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  background: none;
+  outline: none;
+  color: var(--text-redesigned);
+  cursor: pointer;
+}

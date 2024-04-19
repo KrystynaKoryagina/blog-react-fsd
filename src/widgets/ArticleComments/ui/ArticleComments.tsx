@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { ReducersList } from '@/app/providers/store';
 import { useDynamicReducerLoader } from '@/shared/lib/hooks/useDynamicReducerLoader';
 import { CommentCard } from '@/entities/Comment';
-import { Text } from '@/shared/ui/Text';
+import { Text } from '@/shared/ui/deprecated/Text';
 import { AddCommentForm } from '@/features/AddCommentForm';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { VStack } from '@/shared/ui/Stack';

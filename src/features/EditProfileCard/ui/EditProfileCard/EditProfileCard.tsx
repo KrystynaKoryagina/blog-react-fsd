@@ -5,7 +5,7 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { Currency } from '@/shared/constants/currency';
 import { Country } from '@/shared/constants/country';
 import { useDynamicReducerLoader } from '@/shared/lib/hooks/useDynamicReducerLoader';
-import { Text, TextType } from '@/shared/ui/Text';
+import { Text, TextType } from '@/shared/ui/deprecated/Text';
 import { ReducersList } from '@/app/providers/store';
 import { VStack } from '@/shared/ui/Stack';
 import { profileActions, profileReducer } from '../../model/slice/profileSlice';

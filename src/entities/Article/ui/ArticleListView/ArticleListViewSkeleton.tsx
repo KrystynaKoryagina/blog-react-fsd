@@ -1,6 +1,6 @@
 import { memo } from 'react';
-import { Card } from '@/shared/ui/Card';
-import { Skeleton } from '@/shared/ui/Skeleton';
+import { Card } from '@/shared/ui/deprecated/Card';
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import styles from './ArticleListView.module.scss';
 

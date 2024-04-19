@@ -1,1 +1,1 @@
-export { Overlay } from './ui/Overlay/Overlay';
+export { Overlay } from './Overlay';

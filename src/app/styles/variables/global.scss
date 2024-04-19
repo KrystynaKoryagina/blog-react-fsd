@@ -1,5 +1,5 @@
 :root {
-  --font-family-main: consolas, 'Times New Roman', serif;
+  --font-family-main: consolas, "Times New Roman", serif;
 
   --font-size-xs: 12px;
   --font-line-xs: 16px;
@@ -33,4 +33,24 @@
   --modal-z-index: 10;
   --dropdown-menu-z-index: 9;
   --popover-z-index: 9;
+
+  /* ==== REDESIGN ==== */
+  --font-family-title-redesigned: "Roboto", sans-serif;
+  --font-family-text-redesigned: "Nunito Sans", sans-serif;
+
+  --font-size-xs-redesigned: 12px;
+  --font-line-xs-redesigned: 16px;
+  --font-xs-redesigned: var(--font-size-xs-redesigned) / var(--font-line-xs-redesigned) var(--font-family-text-redesigned);
+
+  --font-size-sm-redesigned: 16px;
+  --font-line-sm-redesigned: 24px;
+  --font-sm-redesigned: var(--font-size-sm-redesigned) / var(--font-line-sm-redesigned) var(--font-family-text-redesigned);
+
+  --font-size-md-redesigned: 24px;
+  --font-line-md-redesigned: 32px;
+  --font-md-redesigned: var(--font-size-md-redesigned) / var(--font-line-md-redesigned) var(--font-family-title-redesigned);
+
+  --font-size-lg-redesigned: 32px;
+  --font-line-lg-redesigned: 40px;
+  --font-lg-redesigned: var(--font-size-lg-redesigned) / var(--font-line-lg-redesigned) var(--font-family-title-redesigned);
 }

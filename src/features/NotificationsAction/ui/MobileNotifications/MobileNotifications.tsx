@@ -1,6 +1,6 @@
 import { memo, useCallback, useState } from 'react';
 import { NotificationList } from '@/entities/Notification';
-import { Drawer } from '@/shared/ui/Drawer';
+import { Drawer } from '@/shared/ui/deprecated/Drawer';
 import { NotificationsTrigger } from '../NotificationsTrigger/NotificationsTrigger';
 
 export const MobileNotifications = memo(() => {

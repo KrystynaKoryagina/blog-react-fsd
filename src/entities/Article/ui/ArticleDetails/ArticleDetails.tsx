@@ -2,11 +2,16 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { Skeleton } from '@/shared/ui/Skeleton';
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
 import { ReducersList } from '@/app/providers/store';
 import { useDynamicReducerLoader } from '@/shared/lib/hooks/useDynamicReducerLoader';
-import { Text, TextAlign, TextSize, TextType } from '@/shared/ui/Text';
-import { UIAvatar } from '@/shared/ui/UIAvatar';
+import {
+  Text,
+  TextAlign,
+  TextSize,
+  TextType,
+} from '@/shared/ui/deprecated/Text';
+import { Avatar } from '@/shared/ui/deprecated/Avatar';
 import CalendarIcon from '@/shared/assets/icons/calendar.svg';
 import EyeIcon from '@/shared/assets/icons/eye.svg';
 import { HStack, VStack } from '@/shared/ui/Stack';
@@ -92,7 +97,7 @@ export const ArticleDetails = memo(({ className, articleId }: ArticleProps) => {
   return (
     <VStack gap="24" className={className}>
       <HStack justify="center">
-        <UIAvatar size={200} src={article?.img} />
+        <Avatar size={200} src={article?.img} />
       </HStack>
 
       <VStack gap="8">

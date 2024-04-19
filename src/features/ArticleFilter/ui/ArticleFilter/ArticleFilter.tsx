@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { memo, useMemo } from 'react';
 import styles from './ArticleFilter.module.scss';
-import { Chip, ChipContent } from '@/shared/ui/Chip';
+import { Chip, ChipContent } from '@/shared/ui/deprecated/Chip';
 import { ArticleCategory } from '@/entities/Article';
 import { HStack } from '@/shared/ui/Stack';
 import { classNames } from '@/shared/lib/utils/classNames';

@@ -1,11 +1,11 @@
 import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import { Card } from '@/shared/ui/Card';
-import { Text, TextSize } from '@/shared/ui/Text';
+import { Card } from '@/shared/ui/deprecated/Card';
+import { Text, TextSize } from '@/shared/ui/deprecated/Text';
 import EyeIcon from '@/shared/assets/icons/eye.svg';
-import { UIAvatar } from '@/shared/ui/UIAvatar';
-import { Button } from '@/shared/ui/Button';
+import { Avatar } from '@/shared/ui/deprecated/Avatar';
+import { Button } from '@/shared/ui/deprecated/Button';
 import { getRouteArticleDetails } from '@/shared/constants/routes';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import styles from './ArticleListView.module.scss';
@@ -13,7 +13,7 @@ import { Article, ArticleTextBlock } from '../../model/types/article';
 import { ArticleText } from '../ArticleText/ArticleText';
 import { ArticleBlockType } from '../../model/consts/article';
 import { UIImage } from '@/shared/ui/UIImage';
-import { Skeleton } from '@/shared/ui/Skeleton';
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
 
 interface ArticleListViewProps {
   article: Article;
@@ -38,7 +38,7 @@ export const ArticleListView = memo(({ article }: ArticleListViewProps) => {
       <VStack gap="16">
         <HStack justify="between" align="center">
           <HStack gap="4" align="center">
-            <UIAvatar size={30} src={article.user.avatar} />
+            <Avatar size={30} src={article.user.avatar} />
             <Text>{article.user.username}</Text>
           </HStack>
           <Text>{article.createdAt}</Text>
@@ -59,7 +59,7 @@ export const ArticleListView = memo(({ article }: ArticleListViewProps) => {
             fallback={<Skeleton width="100%" height={250} />}
             errorFallback={<div className={styles.imageError} />}
           />
-          <ArticleText block={textBlock} />
+          <ArticleText className={styles.textBlock} block={textBlock} />
         </VStack>
 
         <HStack align="center" justify="between">

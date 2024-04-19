@@ -1,7 +1,8 @@
-@import 'reset';
-@import 'variables/global';
-@import 'themes/light';
-@import 'themes/dark';
+@import "reset";
+@import "variables/global";
+@import "themes/light";
+@import "themes/dark";
+@import "components/dropdownMenu";
 
 .app {
   display: flex;
@@ -30,4 +31,12 @@
 *::-webkit-scrollbar-thumb {
   background-color: var(--bg-secondary-color);
   border-radius: 20px;
+}
+
+/* ==== REDESIGN ==== */
+.app-redesigned {
+  font: var(--font-sm-redesigned);
+  background: var(--bg-redesigned);
+  color: var(--text-redesigned);
+  height: 100%;
 }

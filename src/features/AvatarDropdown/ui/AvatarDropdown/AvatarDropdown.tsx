@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useMemo } from 'react';
-import { DropdownItem, DropdownMenu } from '@/shared/ui/DropdownMenu';
+import { DropdownMenu } from '@/shared/ui/deprecated/DropdownMenu';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { getUserAuthData, userActions } from '@/entities/User';
 import {
@@ -10,9 +10,12 @@ import {
   getRouteArticles,
   getRouteProfile,
 } from '@/shared/constants/routes';
-import { UIAvatar } from '@/shared/ui/UIAvatar';
+import { Avatar } from '@/shared/ui/deprecated/Avatar';
 import { getIsAdminPanelAvailable } from '../../model/selectors/getIsAdminPanelAvailable/getIsAdminPanelAvailable';
-import { Button, ButtonType } from '@/shared/ui/Button';
+import { ToggleFeatureComponent } from '@/shared/lib/utils/toggleFeature';
+import { UIAvatar } from '@/shared/ui/UIAvatar';
+import { UIDropdown, DropdownItem } from '@/shared/ui/UIDropdown';
+import { Button, ButtonType } from '@/shared/ui/deprecated/Button';
 
 interface AvatarDropdownProps {
   className?: string;
@@ -20,6 +23,7 @@ interface AvatarDropdownProps {
 
 export const AvatarDropdown = memo(({ className }: AvatarDropdownProps) => {
   const { t } = useTranslation();
+
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
@@ -56,21 +60,29 @@ export const AvatarDropdown = memo(({ className }: AvatarDropdownProps) => {
     [authData?.id, isAdminPanelAvailable, logout, t],
   );
 
-  const menuTrigger = useMemo(
-    () => (
-      <Button variant={ButtonType.GHOST}>
-        <UIAvatar src={authData?.avatar} size={30} />
-      </Button>
-    ),
-    [authData?.avatar],
-  );
-
-  return authData ? (
-    <DropdownMenu
-      className={className}
-      items={dropdownItems}
-      trigger={menuTrigger}
-      direction="bottom right"
+  return (
+    <ToggleFeatureComponent
+      featureName="isRedesignEnable"
+      on={
+        <UIDropdown
+          className={className}
+          items={dropdownItems}
+          trigger={<UIAvatar src={authData?.avatar} size={40} alt="avatar" />}
+          direction="bottom right"
+        />
+      }
+      off={
+        <DropdownMenu
+          className={className}
+          items={dropdownItems}
+          trigger={
+            <Button variant={ButtonType.GHOST}>
+              <UIAvatar src={authData?.avatar} size={30} />
+            </Button>
+          }
+          direction="bottom right"
+        />
+      }
     />
-  ) : null;
+  );
 });

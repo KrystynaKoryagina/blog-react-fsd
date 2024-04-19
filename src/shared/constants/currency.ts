@@ -1,4 +1,4 @@
-import { SelectOption } from '@/shared/ui/Select';
+import { SelectOption } from '@/shared/ui/deprecated/Select';
 
 export const CURRENCY = {
   UAH: 'UAH',

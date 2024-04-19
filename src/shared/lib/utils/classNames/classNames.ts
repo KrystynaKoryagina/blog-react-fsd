@@ -2,7 +2,7 @@
 
 export const classNames = (
   cls?: string,
-  additional: Array<string | undefined> = [],
+  additional: Array<string | undefined> = [], // TODO Array<string | undefined>
   mods: Record<string, boolean | undefined> = {},
 ): string => {
   const additionalClasses = [

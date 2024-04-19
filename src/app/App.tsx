@@ -1,4 +1,4 @@
-import { Suspense, useEffect } from 'react';
+import { Suspense } from 'react';
 import { useSelector } from 'react-redux';
 import { Header } from '@/widgets/Header';
 import { Sidebar } from '@/widgets/Sidebar';
@@ -10,44 +10,49 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { AppRouter } from './providers/router';
 import './styles/index.scss';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
+import { ToggleFeatureComponent } from '@/shared/lib/utils/toggleFeature';
+import { MainLayout } from '@/shared/layouts/MainLayout';
 
 export const App = () => {
   const { theme } = useTheme();
   const dispatch = useAppDispatch();
 
-  // TODO есть скрол на всю страницу вертикальный
-
-  // TODO 47 Router v6 private protectеd routes. Защищенные маршруты
-  // Хочу задать вопрос. Почему у нас не работали пути без _inited в сторе?
-  // Когда мы создали RequireAuth на 01:38, мы ведь подписались к стору в этом компоненте на изменение auth через useSelecor(getUserAuthData)
-  // Когда рендерится app, у нас рендерится router, потом отрабатывает useEffect в котором диспатчистся initAuthData и пользователь становится авторизован. Я думал в таком случае наш компонент RequireAuth, так как подписан на auth, с помощью useSelecor(getUserAuthData) должен увидеть это изменение и уже вместо navigate возвращать children.
-  // Не совсем понятно, во всех других местах когда стор изменится - компонент перерендерится. А в случае с раутером всегда undefined внутри RequireAuth, даже если данные пользователя уже есть в store.
-  // Хотя я считал, что произойдет ререндер RequireAuth, как только мы из localStorage достанем и положим в стор данные пользователя.
-
-  /*
-  Тимур Ульби
-Он это изменение видит, ты прав, но редирект срабатывает раньше, чем инициализируется стор
-Ср 22 Мар 19:35  1 • Нравится • Подписаться
-
-Feliche-Demian Netliukh
-А почему тогда когда мы переходим с другой страницы где юзер уже залогирован (то есть стор инициализировался) нас все равно редиректит? Стор инициализируеться отдельно для каждого компонента?
-  */
   const inited = useSelector(getUserInited);
 
   useInitialEffect(() => {
     dispatch(userActions.initAuthData());
   }, [dispatch]);
 
+  // TODO get rid of INITED
+  if (!inited) {
+    return <div>Loader</div>;
+  }
+
   return (
-    <div id="app" className={classNames('app', [theme])}>
-      <Suspense fallback="">
-        <Header />
-        <HStack className={classNames('app-content')}>
-          <Sidebar />
-          {/* TODO add spinner instead of INITED */}
-          {inited && <AppRouter />}
-        </HStack>
-      </Suspense>
-    </div>
+    <ToggleFeatureComponent
+      featureName="isRedesignEnable"
+      off={
+        <div id="app" className={classNames('app', [theme])}>
+          <Suspense fallback="">
+            <Header />
+            <HStack className={classNames('app-content')}>
+              <Sidebar />
+              <AppRouter />
+            </HStack>
+          </Suspense>
+        </div>
+      }
+      on={
+        <div id="app" className={classNames('app-redesigned', [theme])}>
+          <Suspense fallback="">
+            <MainLayout
+              sidebar={<Sidebar />}
+              content={<AppRouter />}
+              header={<Header />}
+            />
+          </Suspense>
+        </div>
+      }
+    />
   );
 };
