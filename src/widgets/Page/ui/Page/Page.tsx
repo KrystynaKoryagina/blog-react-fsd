@@ -44,7 +44,12 @@ export const Page = ({
   );
 
   useInfiniteScroll({
-    wrapperRef,
+    wrapperRef: toggleFeature({
+      featureName: 'isRedesignEnable',
+      on: () => null,
+      off: () => wrapperRef,
+      client,
+    }),
     triggerRef,
     callback: onScrollEnd,
   });

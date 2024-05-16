@@ -8,6 +8,8 @@ import { classNames } from '@/shared/lib/utils/classNames';
 import styles from './UIButton.module.scss';
 import { ButtonSize, ButtonType } from './types/button';
 
+// TODO fix size for ghost button. Height a bit bigger than icon
+
 type UIButtonProps<C extends ElementType> = {
   as?: C;
   variant?: ButtonType;

@@ -1,10 +1,10 @@
-import webpack from 'webpack';
+import { ModuleOptions } from 'webpack';
 import { BuildOptions } from '../build/types/build';
 import { buildCssLoader } from '../build/loaders/buildCssLoader';
 import { buildSvgLoader } from '../build/loaders/buildSvgLoader';
 import { buildBabelLoader } from '../build/loaders/buildBabelLoader';
 
-export function buildLoader(options: BuildOptions): webpack.RuleSetRule[] {
+export function buildLoader(options: BuildOptions): ModuleOptions['rules'] {
   const cssLoader = buildCssLoader(options.isDev, options.paths);
 
   const svgLoader = buildSvgLoader();

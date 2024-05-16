@@ -1,6 +1,5 @@
 import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
-import { useTranslation } from 'react-i18next';
 import { ArticleSort, ArticleSortField } from '@/features/ArticleSort';
 import { ArticleViewSwitcher } from '@/features/ArticleViewSwitcher';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
@@ -19,7 +18,7 @@ import { useDebounce } from '@/shared/lib/hooks/useDebounce';
 import { ChipContent } from '@/shared/ui/deprecated/Chip/types/chip';
 import { ArticleCategory, ArticleView } from '@/entities/Article';
 import { HStack, VStack } from '@/shared/ui/Stack';
-import { ArticleFilter } from '@/features/ArticleFilter';
+import { ArticleCategoryFilter } from '@/features/ArticleCategoryFilter';
 import { useArticlesListActions } from '@/widgets/ArticlesInfiniteList/model/slice/articlesListSlice';
 import styles from './ArticlesPageFilter.module.scss';
 
@@ -104,7 +103,10 @@ export const ArticlesPageFilter = memo(() => {
 
       <Search searchValue={search} onSearch={onSearch} />
 
-      <ArticleFilter category={category} onChangeCategory={onChangeCategory} />
+      <ArticleCategoryFilter
+        category={category}
+        onChangeCategory={onChangeCategory}
+      />
     </VStack>
   );
 });

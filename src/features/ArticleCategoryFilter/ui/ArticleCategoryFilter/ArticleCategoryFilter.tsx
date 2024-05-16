@@ -1,19 +1,19 @@
 import { useTranslation } from 'react-i18next';
 import { memo, useMemo } from 'react';
-import styles from './ArticleFilter.module.scss';
+import styles from './ArticleCategoryFilter.module.scss';
 import { Chip, ChipContent } from '@/shared/ui/deprecated/Chip';
 import { ArticleCategory } from '@/entities/Article';
 import { HStack } from '@/shared/ui/Stack';
 import { classNames } from '@/shared/lib/utils/classNames';
 
-interface ArticleFilterProps {
+interface ArticleCategoryFilterProps {
   category: ArticleCategory;
   className?: string;
   onChangeCategory: (value: ChipContent<ArticleCategory>) => void;
 }
 
-export const ArticleFilter = memo(
-  ({ category, className, onChangeCategory }: ArticleFilterProps) => {
+export const ArticleCategoryFilter = memo(
+  ({ category, className, onChangeCategory }: ArticleCategoryFilterProps) => {
     const { t } = useTranslation('article');
 
     const ArticleCategoties = useMemo<ChipContent<ArticleCategory>[]>(

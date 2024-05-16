@@ -14,6 +14,10 @@ import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { useInitArticlesPage } from '@/widgets/ArticlesInfiniteList/model/services/initArticlesPage/initArticlesPage';
 // import { useInitArticlesPage } from '@/widgets/ArticlesInfiniteList/model/services/initArticlesPage/initArticlesPage';
 import styles from './ArticlesPage.module.scss';
+import { ToggleFeatureComponent } from '@/shared/lib/utils/toggleFeature';
+import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
+import { ArticlesViewContainer } from '../ArticlesViewContainer/ArticlesViewContainer';
+import { ArticlesFiltersContainer } from '../ArticlesFiltersContainer/ArticlesFiltersContainer';
 
 const reducers: ReducersList = {
   articlesList: articlesListReducer,
@@ -21,7 +25,6 @@ const reducers: ReducersList = {
 
 const ArticlesPage = () => {
   useDynamicReducerLoader({ reducers, removeAfterUnmount: false });
-  // const initArticlesPage = useInitArticlesPage();
 
   const initArticlesPage = useInitArticlesPage();
   const fetchNextArticles = useFetchNextArticles();
@@ -47,12 +50,28 @@ const ArticlesPage = () => {
   }, [fetchNextArticles]);
 
   return (
-    <VStack className={styles.ArticlesPage}>
-      <ArticlesPageFilter />
-      <Page onScrollEnd={onLoadMoreArticles} saveScroll>
-        <ArticlesInfiniteList className={styles.list} />
-      </Page>
-    </VStack>
+    <ToggleFeatureComponent
+      featureName="isRedesignEnable"
+      on={
+        <StickyContentLayout
+          left={<ArticlesViewContainer />}
+          right={<ArticlesFiltersContainer />}
+          content={
+            <Page onScrollEnd={onLoadMoreArticles} saveScroll>
+              <ArticlesInfiniteList />
+            </Page>
+          }
+        />
+      }
+      off={
+        <VStack className={styles.ArticlesPage}>
+          <ArticlesPageFilter />
+          <Page onScrollEnd={onLoadMoreArticles} saveScroll>
+            <ArticlesInfiniteList className={styles.list} />
+          </Page>
+        </VStack>
+      }
+    />
   );
 };
 

@@ -25,7 +25,7 @@ export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
     <ToggleFeatureComponent
       featureName="isRedesignEnable"
       on={
-        <UIButton className={className} variant="ghost" onClick={onToggleTheme}>
+        <UIButton className={className} variant="icon" onClick={onToggleTheme}>
           <ThemeIcon width={32} height={32} />
         </UIButton>
       }

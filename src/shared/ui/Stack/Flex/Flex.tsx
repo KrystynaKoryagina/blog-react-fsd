@@ -6,7 +6,7 @@ import {
   FlexGap,
   FlexJustify,
   FlexProps,
-} from '../types/stack';
+} from '@/shared/types/flex';
 
 const justifyClasses: Record<FlexJustify, string> = {
   start: styles.justifyStart,
@@ -37,7 +37,7 @@ const gapClasses: OptionalRecord<FlexGap, string> = {
 export const Flex = ({
   className,
   children,
-  direction,
+  direction = 'row',
   gap,
   justify,
   align,

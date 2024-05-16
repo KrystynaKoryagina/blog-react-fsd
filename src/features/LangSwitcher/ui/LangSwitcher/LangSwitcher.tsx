@@ -30,7 +30,7 @@ export const LangSwitcher = memo(({ className }: LangSwitcherProps) => {
           on={
             <UIButton
               key={item.key}
-              variant="ghost"
+              variant="icon"
               isActive={i18n.language === item.key}
               onClick={changeLang(item.key)}
             >

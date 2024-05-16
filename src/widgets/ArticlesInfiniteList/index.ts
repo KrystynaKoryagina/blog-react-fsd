@@ -3,6 +3,7 @@ export { ArticlesInfiniteList } from './ui/ArticlesInfiniteList/ArticlesInfinite
 export {
   articlesListReducer,
   articlesListActions,
+  useArticlesListActions,
 } from './model/slice/articlesListSlice';
 
 export { useInitArticlesPage } from './model/services/initArticlesPage/initArticlesPage';

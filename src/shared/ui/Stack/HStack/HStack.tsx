@@ -1,5 +1,5 @@
+import { FlexProps } from '@/shared/types/flex';
 import { Flex } from '../Flex/Flex';
-import { FlexProps } from '../types/stack';
 
 type HStackProps = Omit<FlexProps, 'direction'>;
 

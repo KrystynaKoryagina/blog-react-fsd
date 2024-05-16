@@ -40,7 +40,7 @@ export const SidebarRedesigned = memo(() => {
       <Navigation className={styles.nav} collapsed={collapsed} />
       <UIButton
         className={styles.toggleBtn}
-        variant="ghost"
+        variant="icon"
         size="lg"
         onClick={onSidebarToggle}
         data-testid="sidebar-toggle"

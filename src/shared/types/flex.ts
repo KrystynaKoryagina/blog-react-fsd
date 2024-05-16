@@ -3,7 +3,7 @@ import { HTMLAttributes, ReactNode } from 'react';
 export interface FlexProps extends HTMLAttributes<HTMLDivElement> {
   className?: string;
   children: ReactNode;
-  direction: FlexDirection;
+  direction?: FlexDirection;
   justify?: FlexJustify;
   align?: FlexAlign;
   gap?: FlexGap;

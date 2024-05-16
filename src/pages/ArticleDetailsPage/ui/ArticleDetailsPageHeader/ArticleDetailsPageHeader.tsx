@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { useCallback } from 'react';
+import { memo, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AppLink } from '@/shared/ui/deprecated/AppLink';
 import { Button, ButtonType } from '@/shared/ui/deprecated/Button';
@@ -12,7 +12,7 @@ import {
   getRouteArticles,
 } from '@/shared/constants/routes';
 
-export const ArticleDetailsPageHeader = () => {
+export const ArticleDetailsPageHeader = memo(() => {
   const { t } = useTranslation();
   const navigate = useNavigate();
 
@@ -37,4 +37,4 @@ export const ArticleDetailsPageHeader = () => {
       </Button>
     </HStack>
   );
-};
+});

@@ -1,4 +1,6 @@
-import { memo, useCallback } from 'react';
+import { memo, useCallback, useMemo } from 'react';
+import GridIconDeprecated from '@/shared/assets/icons/deprecated/grid.svg';
+import ListIconDeprecated from '@/shared/assets/icons/deprecated/list.svg';
 import GridIcon from '@/shared/assets/icons/grid.svg';
 import ListIcon from '@/shared/assets/icons/list.svg';
 import { classNames } from '@/shared/lib/utils/classNames';
@@ -7,17 +9,13 @@ import { ArticleView } from '@/entities/Article';
 import { HStack } from '@/shared/ui/Stack';
 import { ArticleViewTypes } from '../model/types/articleView';
 import styles from './ArticleViewSwitcher.module.scss';
-
-const viewTypes: ArticleViewTypes[] = [
-  {
-    view: 'grid',
-    Icon: GridIcon,
-  },
-  {
-    view: 'list',
-    Icon: ListIcon,
-  },
-];
+import {
+  ToggleFeatureComponent,
+  toggleFeature,
+} from '@/shared/lib/utils/toggleFeature';
+import { useUnleashClient } from '@unleash/proxy-client-react';
+import { UICard } from '@/shared/ui/UICard';
+import { UIButton } from '@/shared/ui/UIButton';
 
 interface ArticleViewSwitcherProps {
   view: ArticleView;
@@ -27,6 +25,32 @@ interface ArticleViewSwitcherProps {
 
 export const ArticleViewSwitcher = memo(
   ({ view, className, changeView }: ArticleViewSwitcherProps) => {
+    const client = useUnleashClient();
+
+    const viewTypes: ArticleViewTypes[] = useMemo(
+      () => [
+        {
+          view: 'grid',
+          Icon: toggleFeature({
+            featureName: 'isRedesignEnable',
+            on: () => GridIcon,
+            off: () => GridIconDeprecated,
+            client,
+          }),
+        },
+        {
+          view: 'list',
+          Icon: toggleFeature({
+            featureName: 'isRedesignEnable',
+            on: () => ListIcon,
+            off: () => ListIconDeprecated,
+            client,
+          }),
+        },
+      ],
+      [client],
+    );
+
     const onChangeView = useCallback(
       (newView: ArticleView) => () => {
         changeView?.(newView);
@@ -35,23 +59,47 @@ export const ArticleViewSwitcher = memo(
     );
 
     return (
-      <HStack className={className} gap="8">
-        {viewTypes.map((item) => (
-          <Button
-            variant={ButtonType.GHOST}
-            key={item.view}
-            onClick={onChangeView(item.view)}
-          >
-            <item.Icon
-              className={classNames(styles.icon, [], {
-                [styles.iconSelected]: view === item.view,
-              })}
-              width={25}
-              height={25}
-            />
-          </Button>
-        ))}
-      </HStack>
+      <ToggleFeatureComponent
+        featureName="isRedesignEnable"
+        on={
+          <UICard size="small" direction="row" gap="8">
+            {viewTypes.map((item) => (
+              <UIButton
+                variant="icon"
+                key={item.view}
+                onClick={onChangeView(item.view)}
+              >
+                <item.Icon
+                  className={classNames(styles.icon, [], {
+                    [styles.selected]: view === item.view,
+                  })}
+                  width={30}
+                  height={30}
+                />
+              </UIButton>
+            ))}
+          </UICard>
+        }
+        off={
+          <HStack className={className} gap="8">
+            {viewTypes.map((item) => (
+              <Button
+                variant={ButtonType.GHOST}
+                key={item.view}
+                onClick={onChangeView(item.view)}
+              >
+                <item.Icon
+                  className={classNames(styles.icon, [], {
+                    [styles.iconSelected]: view === item.view,
+                  })}
+                  width={25}
+                  height={25}
+                />
+              </Button>
+            ))}
+          </HStack>
+        }
+      />
     );
   },
 );

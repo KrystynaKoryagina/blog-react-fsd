@@ -13,7 +13,7 @@ const root = createRoot(container!);
 const unleash_config: IConfig = {
   url: 'https://app.unleash-hosted.com/demo/api/frontend',
   clientKey:
-    'blog-project:default.28ebf15fe78bf2aa34509aa64592d35c9d3d472935f8747f7f15370b',
+    'blog-project:default.75548fe12ae8ddaabd0bd1f70faf5bc4421248380e85df4c0ff5a3ff',
   appName: 'blog-project',
 };
 

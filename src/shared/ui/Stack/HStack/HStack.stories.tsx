@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { HStack } from './HStack';
-import { FlexAlign, FlexGap, FlexJustify } from '../types/stack';
+import { FlexAlign, FlexGap, FlexJustify } from '@/shared/types/flex';
 
 const meta: Meta<typeof HStack> = {
   title: 'shared/HStack',

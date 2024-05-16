@@ -1,4 +1,4 @@
-import webpack from 'webpack';
+import webpack, { Configuration } from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
@@ -13,7 +13,7 @@ export function buildPlugins({
   isDev,
   apiUrl,
   project,
-}: BuildOptions): webpack.WebpackPluginInstance[] {
+}: BuildOptions): Configuration['plugins'] {
   const isProd = !isDev;
 
   let plugins = [
@@ -33,9 +33,6 @@ export function buildPlugins({
       ...plugins,
       new ReactRefreshWebpackPlugin(),
       new webpack.HotModuleReplacementPlugin(),
-      new BundleAnalyzerPlugin({
-        openAnalyzer: false,
-      }),
       new CircularDependencyPlugin({
         exclude: /node_modules/,
         failOnError: true,
@@ -62,6 +59,9 @@ export function buildPlugins({
       }),
       new CopyPlugin({
         patterns: [{ from: paths.locales, to: paths.buildLocales }],
+      }),
+      new BundleAnalyzerPlugin({
+        openAnalyzer: false,
       }),
     ];
   }

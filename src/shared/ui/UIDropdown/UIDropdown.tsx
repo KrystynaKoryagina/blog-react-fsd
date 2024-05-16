@@ -30,6 +30,7 @@ export const UIDropdown = ({
             as={href ? Link : 'button'}
             to={href}
             type="button"
+            variant="ghost"
             disabled={disabled}
             onClick={onClick}
             className={classNames(styles.dropdownItem, [], {

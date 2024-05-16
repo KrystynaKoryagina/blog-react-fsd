@@ -4,7 +4,7 @@
 
 .dropdownMenuList {
   position: absolute;
-  background: var(--dark-bg-redesigned);
+  background-color: var(--dark-bg-redesigned);
   border-radius: 18px;
   border: 1px solid var(--accent-redesigned);
   overflow: hidden;
@@ -12,7 +12,7 @@
 }
 
 .dropdownMenuItemActive {
-  background: var(--light-bg-redesigned);
+  background-color: var(--light-bg-redesigned);
 }
 
 .dropdownTriggerBtn {

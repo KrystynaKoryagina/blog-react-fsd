@@ -15,7 +15,7 @@ export const NotificationsTrigger = memo(
     <ToggleFeatureComponent
       featureName="isRedesignEnable"
       on={
-        <UIButton variant="ghost" onClick={onClick}>
+        <UIButton variant="icon" onClick={onClick}>
           <NotificationIcon width={40} height={40} />
         </UIButton>
       }
