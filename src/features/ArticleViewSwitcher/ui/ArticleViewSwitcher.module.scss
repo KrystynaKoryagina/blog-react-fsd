@@ -4,6 +4,24 @@
 
 /* ==== REDESIGN ==== */
 
-.selected {
-  color: var(--accent-redesigned);
+.ArticleViewSwitcher {
+  overflow: hidden;
+
+  &:first-child {
+    border-top-left-radius: var(--border-radius-redesigned);
+    border-bottom-left-radius: var(--border-radius-redesigned);
+  }
+
+  &:last-child {
+    border-top-right-radius: var(--border-radius-redesigned);
+    border-bottom-right-radius: var(--border-radius-redesigned);
+  }
+
+  &.selected {
+    background-color: var(--light-bg-redesigned);
+
+    .icon {
+      color: var(--accent-redesigned);
+    }
+  }
 }

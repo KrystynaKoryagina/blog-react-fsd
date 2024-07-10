@@ -62,21 +62,21 @@ export const ArticleViewSwitcher = memo(
       <ToggleFeatureComponent
         featureName="isRedesignEnable"
         on={
-          <UICard size="small" direction="row" gap="8">
+          <UICard className={className} size="sm" direction="row">
             {viewTypes.map((item) => (
-              <UIButton
-                variant="icon"
-                key={item.view}
-                onClick={onChangeView(item.view)}
+              <div
+                className={classNames(styles.ArticleViewSwitcher, [], {
+                  [styles.selected]: view === item.view,
+                })}
               >
-                <item.Icon
-                  className={classNames(styles.icon, [], {
-                    [styles.selected]: view === item.view,
-                  })}
-                  width={30}
-                  height={30}
-                />
-              </UIButton>
+                <UIButton
+                  variant="icon"
+                  key={item.view}
+                  onClick={onChangeView(item.view)}
+                >
+                  <item.Icon className={styles.icon} width={32} height={32} />
+                </UIButton>
+              </div>
             ))}
           </UICard>
         }

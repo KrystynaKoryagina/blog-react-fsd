@@ -11,7 +11,7 @@ interface UICardProps extends FlexProps {
 export const UICard = ({
   className,
   children,
-  size = 'big',
+  size = 'lg',
   direction = 'column',
   ...otherProps
 }: UICardProps) => {

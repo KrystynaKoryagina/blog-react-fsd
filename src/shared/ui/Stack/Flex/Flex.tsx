@@ -37,11 +37,11 @@ const gapClasses: OptionalRecord<FlexGap, string> = {
 export const Flex = ({
   className,
   children,
-  direction = 'row',
   gap,
   justify,
   align,
   wrap,
+  direction = 'row',
   ...otherProps
 }: FlexProps) => {
   const classes = [

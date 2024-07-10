@@ -8,7 +8,7 @@ import {
 import { classNames } from '@/shared/lib/utils/classNames';
 import styles from './UISelect.module.scss';
 import { SelectOption } from './types/select';
-import ArrowIcon from '@/shared/assets/icons/arrow.svg';
+import ArrowIcon from '@/shared/assets/icons/arrow-bottom.svg';
 import { Listbox } from '@headlessui/react';
 import { UIButton } from '../UIButton';
 import CheckIcon from '@/shared/assets/icons/check.svg';
@@ -67,10 +67,30 @@ const SelectComponent = <T extends string>({
       onChange={onChange}
       as="div"
     >
-      <Listbox.Button as={UIButton}>{selectedItem?.content}</Listbox.Button>
-      <Listbox.Options className={classNames('dropdownMenuList', [className])}>
-        {optionsList}
-      </Listbox.Options>
+      {({ open }) => (
+        <>
+          <Listbox.Button
+            as={UIButton}
+            className={styles.trigger}
+            addonRight={
+              <ArrowIcon
+                className={classNames(styles.icon, [], {
+                  [styles.iconOpen]: open,
+                })}
+                width={32}
+                height={32}
+              />
+            }
+          >
+            {selectedItem?.content}
+          </Listbox.Button>
+          <Listbox.Options
+            className={classNames('dropdownMenuList', [className])}
+          >
+            {optionsList}
+          </Listbox.Options>
+        </>
+      )}
     </Listbox>
   );
 };

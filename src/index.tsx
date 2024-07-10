@@ -10,6 +10,7 @@ import { ThemeProvider } from '@/shared/lib/contexts/theme';
 const container = document.getElementById('root');
 const root = createRoot(container!);
 
+// TODO investiagte UNLEASH (project was removed in some time)
 const unleash_config: IConfig = {
   url: 'https://app.unleash-hosted.com/demo/api/frontend',
   clientKey:

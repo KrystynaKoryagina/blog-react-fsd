@@ -2,6 +2,7 @@ import {
   ComponentPropsWithRef,
   ElementType,
   ForwardedRef,
+  ReactNode,
   forwardRef,
 } from 'react';
 import { classNames } from '@/shared/lib/utils/classNames';
@@ -15,6 +16,8 @@ type UIButtonProps<C extends ElementType> = {
   variant?: ButtonType;
   size?: ButtonSize;
   isActive?: boolean;
+  addonLeft?: ReactNode;
+  addonRight?: ReactNode;
 } & ComponentPropsWithRef<C>;
 
 export const UIButton = forwardRef(
@@ -25,6 +28,8 @@ export const UIButton = forwardRef(
       className,
       isActive,
       disabled,
+      addonLeft,
+      addonRight,
       variant = 'solid',
       size = 'sm',
       ...otherProps
@@ -40,13 +45,20 @@ export const UIButton = forwardRef(
           [styles[variant], styles[size], className],
           {
             [styles.active]: isActive,
+            [styles.withAddon]: !!addonLeft || !!addonRight,
           },
         )}
         disabled={disabled}
         ref={ref}
         {...otherProps}
       >
+        {addonLeft && <div className={styles.addon}>{addonLeft}</div>}
         {children}
+        {addonRight && (
+          <div className={`${styles.addon} ${styles.addonRight}`}>
+            {addonRight}
+          </div>
+        )}
       </Component>
     );
   },

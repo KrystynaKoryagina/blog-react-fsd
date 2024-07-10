@@ -1,1 +1,1 @@
-export type CardSize = 'small' | 'big';
+export type CardSize = 'lg' | 'md' | 'sm';

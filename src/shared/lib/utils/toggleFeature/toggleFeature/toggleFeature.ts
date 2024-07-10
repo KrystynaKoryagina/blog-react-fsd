@@ -34,6 +34,7 @@ interface ToggleFeatureOptions<T, P> {
   off: (...arg: any) => P;
 }
 
+// TODO
 export function toggleFeature<T, P>({
   featureName,
   client,
@@ -41,8 +42,10 @@ export function toggleFeature<T, P>({
   on,
 }: ToggleFeatureOptions<T, P>): T | P {
   if (client.isEnabled(featureName)) {
-    return on();
+    // return on();
+    return off();
   }
 
-  return off();
+  // return off();
+  return on();
 }

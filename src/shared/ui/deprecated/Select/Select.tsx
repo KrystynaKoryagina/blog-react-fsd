@@ -2,7 +2,7 @@ import { ChangeEvent, SelectHTMLAttributes, memo, useMemo } from 'react';
 import { classNames } from '@/shared/lib/utils/classNames';
 import styles from './Select.module.scss';
 import { SelectOption } from './types/select';
-import ArrowIcon from '@/shared/assets/icons/arrow.svg';
+import ArrowIcon from '@/shared/assets/icons/deprecated/arrow.svg';
 
 type HTMLSelectProps = Omit<
   SelectHTMLAttributes<HTMLSelectElement>,

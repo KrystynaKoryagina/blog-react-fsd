@@ -19,6 +19,7 @@ interface ToggleFeatureProps {
   off: ReactElement;
 }
 
+// TODO
 export const ToggleFeatureComponent = ({
   on,
   off,
@@ -26,5 +27,6 @@ export const ToggleFeatureComponent = ({
 }: ToggleFeatureProps) => {
   const isFeatureEnabled = useFlag(featureName);
 
-  return isFeatureEnabled ? on : off;
+  // return isFeatureEnabled ? on : off;
+  return isFeatureEnabled ? off : on;
 };

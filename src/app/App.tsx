@@ -1,4 +1,4 @@
-import { Suspense } from 'react';
+import { Suspense, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Header } from '@/widgets/Header';
 import { Sidebar } from '@/widgets/Sidebar';
@@ -18,6 +18,14 @@ export const App = () => {
   const dispatch = useAppDispatch();
 
   const inited = useSelector(getUserInited);
+
+  // TODO
+  useEffect(() => {
+    document.body.classList.add('app-redesigned', 'dark');
+    return () => {
+      document.body.classList.remove('app-redesigned', 'dark');
+    };
+  }, []);
 
   useInitialEffect(() => {
     dispatch(userActions.initAuthData());
