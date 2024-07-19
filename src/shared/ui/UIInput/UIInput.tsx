@@ -10,6 +10,7 @@ import {
 import { classNames } from '@/shared/lib/utils/classNames';
 import styles from './UIInput.module.scss';
 import { HStack } from '../Stack';
+import { UIText } from '../UIText';
 
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange'>;
 
@@ -60,10 +61,14 @@ export const UIInput = memo((props: UIInputProps) => {
     <HStack gap="16" align="center">
       {label && (
         <label className={styles.label} htmlFor={id}>
-          {label}
+          <UIText as="span" size="sm">
+            {label}
+          </UIText>
         </label>
       )}
-      <div
+
+      <HStack
+        align='center'
         className={classNames(styles.InputWrapper, [className], {
           [styles.focused]: isFocused,
           [styles.readOnly]: readOnly,
@@ -84,7 +89,7 @@ export const UIInput = memo((props: UIInputProps) => {
           {...otherProps}
         />
         {addonRight && <div className={styles.addon}>{addonRight}</div>}
-      </div>
+      </HStack>
     </HStack>
   );
 });

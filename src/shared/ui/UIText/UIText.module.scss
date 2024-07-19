@@ -24,17 +24,25 @@
 }
 
 .xs {
-  font-size: var(--font-size-xs-redesigned);
+  font: var(--font-xs-redesigned);
 }
 
 .sm {
-  font-size: var(--font-size-sm-redesigned);
+  font: var(--font-sm-redesigned);
 }
 
 .md {
-  font-size: var(--font-size-md-redesigned);
+  font: var(--font-md-redesigned);
 }
 
 .lg {
-  font-size: var(--font-size-lg-redesigned);
+  font: var(--font-lg-redesigned);
+}
+
+.bold {
+  font-weight: 900;
+}
+
+.regular {
+  font-weight: 400;
 }

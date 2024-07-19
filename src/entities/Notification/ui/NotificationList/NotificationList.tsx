@@ -3,8 +3,12 @@ import { VStack } from '@/shared/ui/Stack';
 import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
 import { useGetNotificationsQuery } from '../../api/notificationApi';
 import { NotificationItem } from '../NotificationItem/NotificationItem';
-import { toggleFeature } from '@/shared/lib/utils/toggleFeature';
+import {
+  toggleFeature,
+  ToggleFeatureComponent,
+} from '@/shared/lib/utils/toggleFeature';
 import { useUnleashClient } from '@unleash/proxy-client-react';
+import { UISkeleton } from '@/shared/ui/UISkeleton';
 
 interface NotificationListProps {
   className?: string;
@@ -17,13 +21,25 @@ export const NotificationList = memo(({ className }: NotificationListProps) => {
     pollingInterval: 100000,
   });
 
-  if (isLoading) {
+  if (true) {
     return (
-      <VStack gap="8" className={className}>
-        <Skeleton width="100%" borderRadius="8px" height="80px" />
-        <Skeleton width="100%" borderRadius="8px" height="80px" />
-        <Skeleton width="100%" borderRadius="8px" height="80px" />
-      </VStack>
+      <ToggleFeatureComponent
+        featureName="isRedesignEnable"
+        on={
+          <VStack gap="8" className={className}>
+            <UISkeleton width="100%" borderRadius="8px" height="80px" />
+            <UISkeleton width="100%" borderRadius="8px" height="80px" />
+            <UISkeleton width="100%" borderRadius="8px" height="80px" />
+          </VStack>
+        }
+        off={
+          <VStack gap="8" className={className}>
+            <Skeleton width="100%" borderRadius="8px" height="80px" />
+            <Skeleton width="100%" borderRadius="8px" height="80px" />
+            <Skeleton width="100%" borderRadius="8px" height="80px" />
+          </VStack>
+        }
+      />
     );
   }
 

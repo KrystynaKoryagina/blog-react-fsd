@@ -9,7 +9,7 @@ import { loginReducer } from '@/features/AuthByUserName';
 import { profileReducer } from '@/features/EditProfileCard';
 import { articleCommentsReducer } from '@/widgets/ArticleComments/model/slice/articleCommentsSlice';
 import { addCommentFormReducer } from '@/features/AddCommentForm/model/slice/AddCommentFormSlice';
-import { articlesListReducer } from '@/widgets/ArticlesInfiniteList';
+import { articlesListReducer } from '@/widgets/ArticlesList';
 
 // TODO вспомнить что тут делали
 const defaultAsyncReducers: ReducersList = {

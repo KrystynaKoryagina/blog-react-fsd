@@ -35,29 +35,28 @@ export const EditProfileCardHeader = memo(() => {
       <Text as="h1" size={TextSize.LG}>
         {t('PROFILE', { ns: 'profile' })}
       </Text>
-      {canEdit &&
-        (readOnly ? (
+      {canEdit && readOnly ? (
+        <Button
+          variant={ButtonType.OUTLINE}
+          onClick={onEdit}
+          data-testid="edit-profile-card-edit-btn"
+        >
+          {t('BUTTONS.EDIT')}
+        </Button>
+      ) : (
+        <HStack gap="16">
           <Button
             variant={ButtonType.OUTLINE}
-            onClick={onEdit}
-            data-testid="edit-profile-card-edit-btn"
+            onClick={onCancel}
+            data-testid="edit-profile-card-edit-cancel"
           >
-            {t('BUTTONS.EDIT')}
+            {t('BUTTONS.CANCEL')}
           </Button>
-        ) : (
-          <HStack gap="16">
-            <Button
-              variant={ButtonType.OUTLINE}
-              onClick={onCancel}
-              data-testid="edit-profile-card-edit-cancel"
-            >
-              {t('BUTTONS.CANCEL')}
-            </Button>
-            <Button onClick={onSave} data-testid="edit-profile-card-edit-save">
-              {t('BUTTONS.SAVE')}
-            </Button>
-          </HStack>
-        ))}
+          <Button onClick={onSave} data-testid="edit-profile-card-edit-save">
+            {t('BUTTONS.SAVE')}
+          </Button>
+        </HStack>
+      )}
     </HStack>
   );
 });

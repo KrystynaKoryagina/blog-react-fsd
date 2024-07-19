@@ -1,21 +1,29 @@
 import { memo } from 'react';
-import { Card } from '@/shared/ui/deprecated/Card';
-import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
-import { VStack } from '@/shared/ui/Stack';
+import { HStack, VStack } from '@/shared/ui/Stack';
 import styles from './ArticleGridView.module.scss';
+import { UICard } from '@/shared/ui/UICard';
+import { UISkeleton } from '@/shared/ui/UISkeleton';
 
 export const ArticleGridViewSkeleton = memo(() => (
-  <Card className={styles.gridCard}>
-    <VStack justify="between" className={styles.gridCardContent}>
-      <div className={styles.imageWrapper}>
-        <Skeleton height={250} className={styles.img} />
-      </div>
+  <UICard className={styles.ArticleGridView} padding="0">
+    <UISkeleton className={styles.img} />
 
-      <VStack gap="4">
-        <Skeleton width={130} height={20} />
-        <Skeleton width={100} height={20} />
-        <Skeleton height={20} />
+    <VStack gap="8">
+      <UISkeleton height={72} />
+
+      <VStack className={styles.info} gap="8">
+        <UISkeleton height={20} />
+
+        <HStack gap="8" justify="between" align="center">
+          <UISkeleton width={100} height={20} />
+          <UISkeleton width={80} height={20} />
+        </HStack>
+
+        <HStack gap="4" align="center">
+          <UISkeleton height={32} width={32} borderRadius="50%" />
+          <UISkeleton width={100} height={20} />
+        </HStack>
       </VStack>
     </VStack>
-  </Card>
+  </UICard>
 ));

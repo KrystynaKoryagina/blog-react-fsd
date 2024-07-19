@@ -6,11 +6,11 @@ import { classNames } from '@/shared/lib/utils/classNames';
 import styles from './RatingCard.module.scss';
 import { StarRating } from '@/shared/ui/deprecated/StarRating';
 import { HStack, VStack } from '@/shared/ui/Stack';
-import { Modal } from '@/shared/ui/deprecated/Modal';
+import { UIModal } from '@/shared/ui/UIModal';
 import { useDeviceDetect } from '@/shared/lib/hooks/useDeviceDetect';
 import { Button, ButtonType } from '@/shared/ui/deprecated/Button';
 import { Input } from '@/shared/ui/deprecated/Input';
-import { Drawer } from '@/shared/ui/deprecated/Drawer';
+import { UIDrawer } from '@/shared/ui/UIDrawer';
 
 interface RatingCardProps {
   className?: string;
@@ -76,14 +76,14 @@ export const RatingCard = memo(
           </VStack>
         </Card>
         {isMobile ? (
-          <Drawer isOpen={isOpen} onClose={onCancel}>
+          <UIDrawer isOpen={isOpen} onClose={onCancel}>
             <VStack gap="32">
               {ModalContentJSX}
               <Button onClick={onSend}>{t('Отправить')}</Button>
             </VStack>
-          </Drawer>
+          </UIDrawer>
         ) : (
-          <Modal isOpen={isOpen} onClose={onCancel}>
+          <UIModal isOpen={isOpen} onClose={onCancel}>
             <VStack gap="32">
               {ModalContentJSX}
               <HStack gap="16" justify="end">
@@ -93,7 +93,7 @@ export const RatingCard = memo(
                 <Button onClick={onSend}>{t('Отправить')}</Button>
               </HStack>
             </VStack>
-          </Modal>
+          </UIModal>
         )}
       </>
     );

@@ -9,6 +9,7 @@ export interface ProfileStore {
   validateErrors?: ValidateProfileError[] | null;
 }
 
+// TODO const enum? послушать Ульби
 export enum ValidateProfileError {
   INCORRECT_USER_DATA = 'INCORRECT_USER_DATA',
   INCORRECT_AGE = 'INCORRECT_AGE',

@@ -1,18 +1,20 @@
-import {
-  ChangeEvent,
-  SelectHTMLAttributes,
-  memo,
-  useMemo,
-  Fragment,
-} from 'react';
+import { SelectHTMLAttributes, memo, useMemo, Fragment } from 'react';
 import { classNames } from '@/shared/lib/utils/classNames';
 import styles from './UISelect.module.scss';
 import { SelectOption } from './types/select';
 import ArrowIcon from '@/shared/assets/icons/arrow-bottom.svg';
-import { Listbox } from '@headlessui/react';
+import {
+  Field,
+  Label,
+  Listbox,
+  ListboxOption,
+  ListboxButton,
+  ListboxOptions,
+} from '@headlessui/react';
 import { UIButton } from '../UIButton';
 import CheckIcon from '@/shared/assets/icons/check.svg';
-import { HStack } from '../Stack';
+import { HStack } from '@/shared/ui/Stack';
+import { UIText } from '@/shared/ui/UIText';
 
 type HTMLSelectProps = Omit<
   SelectHTMLAttributes<HTMLSelectElement>,
@@ -23,13 +25,11 @@ interface SelectProps<T extends string> extends HTMLSelectProps {
   options: SelectOption<T>[];
   value?: T;
   className?: string;
-  id?: string;
   label?: string;
   onChange?: (value: T) => void;
 }
 
 const SelectComponent = <T extends string>({
-  id,
   className,
   label,
   options,
@@ -37,10 +37,10 @@ const SelectComponent = <T extends string>({
   disabled,
   onChange,
 }: SelectProps<T>) => {
-  const optionsList = useMemo(
+  const OptionsListJSX = useMemo(
     () =>
       options?.map((item) => (
-        <Listbox.Option key={item.value} value={item.value} as={Fragment}>
+        <ListboxOption key={item.value} value={item.value} as={Fragment}>
           {({ selected }) => (
             <li className={styles.item}>
               <HStack gap="16">
@@ -51,48 +51,71 @@ const SelectComponent = <T extends string>({
               </HStack>
             </li>
           )}
-        </Listbox.Option>
+        </ListboxOption>
       )),
     [options],
+  );
+
+  const ListBoxJSX = useMemo(
+    () => (
+      <Listbox
+        className={classNames(`${styles.Select} dropdown`, [className], {
+          [styles.disabled]: disabled,
+        })}
+        value={value}
+        onChange={onChange}
+        as="div"
+        disabled={disabled}
+      >
+        {({ open }) => (
+          <HStack>
+            <ListboxButton
+              as={UIButton}
+              className={styles.trigger}
+              addonRight={
+                <ArrowIcon
+                  className={classNames(styles.icon, [], {
+                    [styles.iconOpen]: open,
+                  })}
+                  width={32}
+                  height={32}
+                />
+              }
+            >
+              {selectedItem?.content}
+            </ListboxButton>
+            <ListboxOptions className={`${styles.options} dropdownMenuList`}>
+              {OptionsListJSX}
+            </ListboxOptions>
+          </HStack>
+        )}
+      </Listbox>
+    ),
+    [disabled], // TODO eslint to show зависимости???
   );
 
   const selectedItem = useMemo(() => {
     return options?.find((item) => item.value === value);
   }, [options, value]);
 
-  return (
-    <Listbox
-      className={classNames('dropdown', [className])}
-      value={value}
-      onChange={onChange}
-      as="div"
-    >
-      {({ open }) => (
-        <>
-          <Listbox.Button
-            as={UIButton}
-            className={styles.trigger}
-            addonRight={
-              <ArrowIcon
-                className={classNames(styles.icon, [], {
-                  [styles.iconOpen]: open,
-                })}
-                width={32}
-                height={32}
-              />
-            }
-          >
-            {selectedItem?.content}
-          </Listbox.Button>
-          <Listbox.Options
-            className={classNames('dropdownMenuList', [className])}
-          >
-            {optionsList}
-          </Listbox.Options>
-        </>
-      )}
-    </Listbox>
-  );
+  if (label) {
+    return (
+      <Field disabled={disabled}>
+        <HStack gap="16" align="center">
+          {label && (
+            <Label>
+              <UIText as="span" size="sm">
+                {label}
+              </UIText>
+            </Label>
+          )}
+          {ListBoxJSX}
+        </HStack>
+      </Field>
+    );
+  }
+
+  return ListBoxJSX;
 };
 
 export const UISelect = memo(SelectComponent) as typeof SelectComponent;

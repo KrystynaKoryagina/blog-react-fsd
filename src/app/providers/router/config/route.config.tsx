@@ -2,7 +2,7 @@
 // import { MainPage } from '@/pages/MainPage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
 import { ProfilePage } from '@/pages/ProfilePage';
-import { ArticlesPage } from '@/pages/ArticlesPage';
+import { ArticlesPage } from '@/pages/articles-page';
 import { ArticleDetailsPage } from '@/pages/ArticleDetailsPage';
 import {
   // getRouteAbout,

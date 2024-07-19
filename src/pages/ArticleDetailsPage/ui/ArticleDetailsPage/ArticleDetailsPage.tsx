@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { useParams } from 'react-router-dom';
-import { ArticleDetails } from '@/entities/Article';
+import { ArticleDetailsDeprecated } from '@/entities/Article';
 import { ArticleComments } from '@/widgets/ArticleComments';
 import { ArticlesRecommendedList } from '@/widgets/ArticlesRecommendedList';
 import { VStack } from '@/shared/ui/Stack';
@@ -21,7 +21,7 @@ const ArticleDetailsPage = () => {
       <VStack gap="24">
         {/* TODO при перезагрузке скачет Back */}
         <ArticleDetailsPageHeader />
-        <ArticleDetails articleId={id} />
+        <ArticleDetailsDeprecated articleId={id} />
         <ArticleRating articleId={id} />
         <ArticlesRecommendedList />
         <ArticleComments articleId={id} />

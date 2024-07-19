@@ -1,33 +1,34 @@
 import { memo } from 'react';
-import { Card } from '@/shared/ui/deprecated/Card';
-import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
-import { HStack, VStack } from '@/shared/ui/Stack';
+import { HStack } from '@/shared/ui/Stack';
 import styles from './ArticleListView.module.scss';
+import { UICard } from '@/shared/ui/UICard';
+import { UISkeleton } from '@/shared/ui/UISkeleton';
 
 export const ArticleListViewSkeleton = memo(() => (
-  <Card>
-    <VStack gap="16">
-      <HStack justify="between" align="center">
-        <HStack gap="4" align="center">
-          <Skeleton borderRadius="50%" height={30} width={30} />
-          <Skeleton width={150} height={20} />
-        </HStack>
-        <Skeleton width={150} height={20} />
+  <UICard gap="8" className={styles.ArticleListView} max>
+    <HStack gap="8" align="center">
+      <HStack gap="4" align="center">
+        <UISkeleton width={32} height={32} borderRadius="50%" />
+        <UISkeleton height={20} width={50} />
       </HStack>
+      <UISkeleton height={20} width={50} />
+    </HStack>
 
-      <VStack gap="16">
-        <VStack gap="4">
-          <Skeleton width={250} height={24} />
-          <Skeleton width={150} height={20} />
-        </VStack>
-        <Skeleton height={300} className={styles.img} />
-        <VStack gap="16">
-          <Skeleton height={25} />
-          <Skeleton height={50} />
-        </VStack>
-      </VStack>
+    <UISkeleton height={20} />
+    <UISkeleton height={20} />
+    <UISkeleton height={20} width={70} />
 
-      <Skeleton height={44} width={200} />
-    </VStack>
-  </Card>
+    <UISkeleton height={300} />
+
+    <UISkeleton height={72} />
+
+    <HStack align="center" justify="between">
+      <UISkeleton height={20} width={70} />
+
+      <HStack gap="8" align="center">
+        <UISkeleton width={32} height={32} />
+        <UISkeleton height={20} width={40} />
+      </HStack>
+    </HStack>
+  </UICard>
 ));

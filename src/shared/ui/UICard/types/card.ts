@@ -1,1 +1,1 @@
-export type CardSize = 'lg' | 'md' | 'sm';
+export type CardPadding = '0' | '2' | '16' | '24';

@@ -1,0 +1,57 @@
+@import 'app/styles/mixins/trancation';
+
+.ArticleGridView {
+  display: block;
+  height: 100%;
+  transition: transform 0.5s;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+    transform: scale(1.01);
+
+    .date {
+      opacity: 1;
+    }
+  }
+}
+
+.gridCard,
+.gridCardContent {
+  height: 100%;
+}
+
+.imageWrapper {
+  position: relative;
+  max-height: 250px;
+  width: 100%;
+  height: 100%;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.imageError {
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-image: url('../../../../../shared/assets/images/no-image.webp');
+}
+
+.date {
+  position: absolute;
+  right: 0;
+  top: 0;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.category,
+.title {
+  @include trancation;
+}

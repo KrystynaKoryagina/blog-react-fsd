@@ -1,4 +1,4 @@
-const getQueryParams = (params: OptionalRecord<string, string>) => {
+const getQueryParams = (params: OptionalRecord<string, string>): string => {
   const searchParams = new URLSearchParams(window.location.search);
 
   Object.entries(params).forEach(([name, value]) => {
@@ -17,9 +17,11 @@ const getQueryParams = (params: OptionalRecord<string, string>) => {
  * Custom function to add query params to URL
  * @param params
  */
-export function addQueryParams(params: OptionalRecord<string, string>) {
+export const addQueryParams = (
+  params: OptionalRecord<string, string>,
+): void => {
   window.history.pushState(null, '', getQueryParams(params));
-}
+};
 
 // TODO use createSearchParams from react ????
 /*

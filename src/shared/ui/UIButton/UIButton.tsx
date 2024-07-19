@@ -1,5 +1,7 @@
 import {
+  ComponentProps,
   ComponentPropsWithRef,
+  ComponentPropsWithoutRef,
   ElementType,
   ForwardedRef,
   ReactNode,
@@ -10,6 +12,7 @@ import styles from './UIButton.module.scss';
 import { ButtonSize, ButtonType } from './types/button';
 
 // TODO fix size for ghost button. Height a bit bigger than icon
+// TODO
 
 type UIButtonProps<C extends ElementType> = {
   as?: C;
@@ -22,6 +25,7 @@ type UIButtonProps<C extends ElementType> = {
 
 export const UIButton = forwardRef(
   <C extends ElementType>(props: UIButtonProps<C>, ref: ForwardedRef<C>) => {
+    // TODO all props are any ?????
     const {
       as,
       children,

@@ -1,78 +1,84 @@
-import { memo, useCallback, useMemo } from 'react';
+import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
-import { Card } from '@/shared/ui/deprecated/Card';
-import { Text, TextSize } from '@/shared/ui/deprecated/Text';
+import { Link } from 'react-router-dom';
 import EyeIcon from '@/shared/assets/icons/eye.svg';
-import { Avatar } from '@/shared/ui/deprecated/Avatar';
-import { Button } from '@/shared/ui/deprecated/Button';
 import { getRouteArticleDetails } from '@/shared/constants/routes';
-import { HStack, VStack } from '@/shared/ui/Stack';
+import { HStack } from '@/shared/ui/Stack';
 import styles from './ArticleListView.module.scss';
-import { Article, ArticleTextBlock } from '../../model/types/article';
-import { ArticleText } from '../ArticleText/ArticleText';
-import { ArticleBlockType } from '../../model/consts/article';
 import { UIImage } from '@/shared/ui/UIImage';
-import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
+import { Article, ArticleTextBlock } from '../../model/types/article';
+import { UICard } from '@/shared/ui/UICard';
+import { UIAvatar } from '@/shared/ui/UIAvatar';
+import { UIText } from '@/shared/ui/UIText';
+import { UISkeleton } from '@/shared/ui/UISkeleton';
+import { UIButton } from '@/shared/ui/UIButton';
+import { ArticleListViewSkeleton } from './ArticleListViewSkeleton';
 
 interface ArticleListViewProps {
   article: Article;
+  isLoading: boolean;
 }
 
-export const ArticleListView = memo(({ article }: ArticleListViewProps) => {
-  const { t } = useTranslation();
-  const navigate = useNavigate();
+export const ArticleListView = memo(
+  ({ article, isLoading }: ArticleListViewProps) => {
+    const { t } = useTranslation();
 
-  const textBlock = useMemo(
-    () =>
-      article?.blocks?.find((block) => block.type === ArticleBlockType.TEXT),
-    [article.blocks],
-  ) as ArticleTextBlock;
+    const articleCatagory = article?.category.join(' '); // TODO обернуть в useMemo или вынести в пропсы. Используется в двух местах в ArticleGridView
 
-  const navigateToArticleDetails = useCallback(() => {
-    navigate(getRouteArticleDetails(article.id));
-  }, [article.id, navigate]);
+    const textBlock = useMemo(
+      () => article?.blocks?.find((block) => block.type === 'TEXT'),
+      [article],
+    ) as ArticleTextBlock;
 
-  return (
-    <Card>
-      <VStack gap="16">
-        <HStack justify="between" align="center">
+    return isLoading ? (
+      <ArticleListViewSkeleton />
+    ) : (
+      <UICard gap="8" className={styles.ArticleListView}>
+        <HStack gap="8" align="center">
           <HStack gap="4" align="center">
-            <Avatar size={30} src={article.user.avatar} />
-            <Text>{article.user.username}</Text>
+            <UIAvatar size={32} src={article.user.avatar} />
+            <UIText weight="bold" size="sm">
+              {article.user.username}
+            </UIText>
           </HStack>
-          <Text>{article.createdAt}</Text>
+          <UIText size="sm">{article.createdAt}</UIText>
         </HStack>
 
-        <VStack gap="16">
-          <VStack gap="4">
-            <Text>{article?.title}</Text>
-            <Text size={TextSize.XS} title={article.category.join(' ')}>
-              {article.category.join(' ')}
-            </Text>
-          </VStack>
+        <UIText weight="bold" size="lg" className={styles.title}>
+          {article?.title}
+        </UIText>
+        <UIText>{article?.subtitle}</UIText>
+        <UIText size="sm" title={articleCatagory}>
+          {articleCatagory}
+        </UIText>
 
-          <UIImage
-            src={article.img}
-            className={styles.img}
-            alt={article.title}
-            fallback={<Skeleton width="100%" height={250} />}
-            errorFallback={<div className={styles.imageError} />}
-          />
-          <ArticleText className={styles.textBlock} block={textBlock} />
-        </VStack>
+        <UIImage
+          src={article.img}
+          className={styles.img}
+          alt={article.title}
+          fallback={<UISkeleton width="100%" height={300} />}
+          errorFallback={<div className={styles.imageError} />}
+        />
+
+        <UIText size="sm" className={styles.textBlock}>
+          {textBlock.paragraphs}
+        </UIText>
 
         <HStack align="center" justify="between">
-          <Button onClick={navigateToArticleDetails}>
+          <UIButton
+            as={Link}
+            variant="outline"
+            to={getRouteArticleDetails(article.id)}
+          >
             {t('BUTTONS.READ')}
-          </Button>
+          </UIButton>
 
           <HStack gap="8" align="center">
-            <Text size={TextSize.SM}>{article.views}</Text>
-            <EyeIcon />
+            <EyeIcon className={styles.viewsIcon} width={32} height={32} />
+            <UIText size="sm">{article.views}</UIText>
           </HStack>
         </HStack>
-      </VStack>
-    </Card>
-  );
-});
+      </UICard>
+    );
+  },
+);

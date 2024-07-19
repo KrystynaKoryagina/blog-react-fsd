@@ -1,6 +1,6 @@
 import { memo, useCallback, useState } from 'react';
 import { NotificationList } from '@/entities/Notification';
-import { Drawer } from '@/shared/ui/deprecated/Drawer';
+import { UIDrawer } from '@/shared/ui/UIDrawer';
 import { NotificationsTrigger } from '../NotificationsTrigger/NotificationsTrigger';
 
 export const MobileNotifications = memo(() => {
@@ -17,9 +17,9 @@ export const MobileNotifications = memo(() => {
   return (
     <>
       <NotificationsTrigger onClick={onOpenDrawer} />
-      <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
+      <UIDrawer isOpen={isOpen} onClose={onCloseDrawer}>
         <NotificationList />
-      </Drawer>
+      </UIDrawer>
     </>
   );
 });

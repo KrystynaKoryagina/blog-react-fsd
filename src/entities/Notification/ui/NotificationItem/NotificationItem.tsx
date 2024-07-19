@@ -18,7 +18,9 @@ export const NotificationItem = memo(({ item }: NotificationItemProps) => {
       on={
         <VStack className={styles.NotificationItem}>
           <UIText>{item.title}</UIText>
-          <UIText size="sm">{item.description}</UIText>
+          <UIText size="sm" as="p">
+            {item.description}
+          </UIText>
         </VStack>
       }
       off={
@@ -31,6 +33,7 @@ export const NotificationItem = memo(({ item }: NotificationItemProps) => {
   );
 
   if (item?.href) {
+    // TODO a or Link ???
     return (
       <a target="_blank" href={item.href} rel="noreferrer">
         {ContentJSX}
