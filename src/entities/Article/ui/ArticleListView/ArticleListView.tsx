@@ -35,12 +35,13 @@ export const ArticleListView = memo(
     ) : (
       <UICard gap="8" className={styles.ArticleListView}>
         <HStack gap="8" align="center">
-          <HStack gap="4" align="center">
-            <UIAvatar size={32} src={article.user.avatar} />
-            <UIText weight="bold" size="sm">
-              {article.user.username}
-            </UIText>
-          </HStack>
+          <UIAvatar
+            size={32}
+            src={article.user.avatar}
+            userName={article.user.username}
+            textSize="sm"
+            textWeight="bold"
+          />
           <UIText size="sm">{article.createdAt}</UIText>
         </HStack>
 

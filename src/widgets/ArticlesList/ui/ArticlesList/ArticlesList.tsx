@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import {
   Article,
   ArticleItem,
-  ArticlesListDeprecated,
+  ArticlesList as ArticlesListDeprecated,
   ArticleView,
 } from '@/entities/Article';
 import { getArticles } from '../../model/slice/articlesListSlice';
@@ -19,6 +19,8 @@ interface ArticlesListProps {
   className?: string;
 }
 
+// TODO use in 2 places: ArticlesPage and ArticlesReccomendedList
+// Update to get articles from props and move to entities ????
 export const ArticlesList = memo(({ className }: ArticlesListProps) => {
   const articles = useSelector(getArticles.selectAll);
   const isLoading = useSelector(getArticlesListLoading);

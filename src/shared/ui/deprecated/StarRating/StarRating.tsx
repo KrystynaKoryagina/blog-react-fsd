@@ -1,7 +1,7 @@
 import { memo, useState } from 'react';
 import styles from './StarRating.module.scss';
 import { classNames } from '@/shared/lib/utils/classNames';
-import StarIcon from '@/shared/assets/icons/star.svg';
+import StarIcon from '@/shared/assets/icons/deprecated/star.svg';
 
 const stars = [1, 2, 3, 4, 5];
 

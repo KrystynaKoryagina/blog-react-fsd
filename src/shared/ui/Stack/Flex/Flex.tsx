@@ -41,7 +41,7 @@ export const Flex = ({
   justify,
   align,
   wrap,
-  max,
+  fullWidth,
   direction = 'row',
   ...otherProps
 }: FlexProps) => {
@@ -57,7 +57,7 @@ export const Flex = ({
   return (
     <div
       className={classNames(styles.Flex, classes, {
-        [styles.max]: max,
+        [styles.fullWidth]: fullWidth,
       })}
       {...otherProps}
     >

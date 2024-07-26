@@ -10,6 +10,8 @@ import {
 } from '../../api/articleRatingApi';
 import { getUserAuthData } from '@/entities/User';
 import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
+import { ToggleFeatureComponent } from '@/shared/lib/utils/toggleFeature';
+import { UISkeleton } from '@/shared/ui/UISkeleton';
 
 interface ArticleRatingProps {
   articleId: string;
@@ -46,19 +48,24 @@ const ArticleRating = ({ className, articleId }: ArticleRatingProps) => {
   );
 
   if (isLoading) {
-    return <Skeleton width="100%" height={108} />;
+    return (
+      <ToggleFeatureComponent
+        featureName="isRedesignEnable"
+        off={<Skeleton width="100%" height={108} />}
+        on={<UISkeleton width="100%" height={108} />}
+      />
+    );
   }
 
   return (
-    <div className={classNames(styles.ArticleRating, [className])}>
-      <RatingCard
-        title="Как Вам статья?"
-        sendRating={sendRating}
-        feedbackTitle="Оставьте свой отзыв о статье"
-        rate={data?.[0]?.rate}
-        hasFeedback
-      />
-    </div>
+    <RatingCard
+      title="Как Вам статья?"
+      sendRating={sendRating}
+      feedbackTitle="Оставьте свой отзыв о статье"
+      rate={data?.[0]?.rate}
+      hasFeedback
+      className={className}
+    />
   );
 };
 

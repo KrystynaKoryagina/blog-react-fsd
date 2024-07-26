@@ -4,7 +4,7 @@ import { Theme } from '@/shared/lib/contexts/theme';
 
 import { UIModal } from './UIModal';
 
-import styles from './Modal.module.scss';
+import styles from './UIModal.module.scss';
 
 const meta: Meta<typeof UIModal> = {
   title: 'shared/Modal',

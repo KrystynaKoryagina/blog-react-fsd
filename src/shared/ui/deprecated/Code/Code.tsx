@@ -1,5 +1,5 @@
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import CopyIcon from '@/shared/assets/icons/copy.svg';
+import CopyIcon from '@/shared/assets/icons/deprecated/copy.svg';
 import { Button, ButtonType, ButtonSize } from '@/shared/ui/deprecated/Button';
 import { classNames } from '@/shared/lib/utils/classNames';
 import styles from './Code.module.scss';

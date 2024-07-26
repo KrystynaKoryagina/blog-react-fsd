@@ -15,6 +15,9 @@ export function buildLoader(options: BuildOptions): ModuleOptions['rules'] {
   };
 
   const babelLoader = buildBabelLoader({ ...options, isTSX: false });
+  // TODO как замена babel ????
+  // swr loader
+  // esbuild-loader
 
   const tsxBabelLoader = buildBabelLoader({ ...options, isTSX: true });
 

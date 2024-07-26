@@ -14,7 +14,7 @@ interface ArticleCategoryFilterProps {
   className?: string;
   direction?: FlexDirection;
   wrap?: FlexWrap;
-  onChangeCategory: (value: ChipContent<ArticleCategory>) => void;
+  onChangeCategory?: (value: ChipContent<ArticleCategory>) => void;
 }
 
 export const ArticleCategoryFilter = memo(

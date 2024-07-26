@@ -1,7 +1,7 @@
 import { ElementType, ReactNode, ComponentPropsWithoutRef } from 'react';
 import { classNames } from '@/shared/lib/utils/classNames';
 import styles from './UIText.module.scss';
-import { TextType, TextSize, TextAlign, TextWeight } from './types/Text';
+import { TextType, TextSize, TextWeight, TextAlign } from '@/shared/types/text';
 
 type TextProps<C extends ElementType> = {
   as?: C;

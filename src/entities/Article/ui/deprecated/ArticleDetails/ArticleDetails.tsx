@@ -21,11 +21,11 @@ import { getArticleData } from '../../../model/selectors/getArticleData/getArtic
 import { getArticleError } from '../../../model/selectors/getArticleError/getArticleError';
 import { ArticleBlock } from '../../../model/types/article';
 // import { ArticleBlockType } from '../../../model/consts/deprecated/article';
-import { ArticleCode } from '../ArticleCode/ArticleCode';
-import { ArticleText } from '../ArticleText/ArticleText';
-import { ArticleImage } from '../ArticleImage/ArticleImage';
+import { ArticleText } from '../../ArticleText/ArticleText';
 import { useFetchArticleById } from '../../../model/services/fetchArticleById/fetchArticleById';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
+import { ArticleImage } from '../../ArticleImage/ArticleImage';
+import { ArticleCode } from '../../ArticleCode/ArticleCode';
 
 interface ArticleProps {
   articleId: string;

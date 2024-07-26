@@ -12,8 +12,12 @@ import {
   addCommentFormActions,
   addCommentFormReducer,
 } from '../../model/slice/AddCommentFormSlice';
-import styles from './AddCommentForm.module.scss';
+import styles from './deprecated/AddCommentForm.module.scss';
 import { getAddCommentFormText } from '../../model/selectors/getAddCommentFormText/getAddCommentFormText';
+import { ToggleFeatureComponent } from '@/shared/lib/utils/toggleFeature';
+import { UICard } from '@/shared/ui/UICard';
+import { UIInput } from '@/shared/ui/UIInput';
+import { UIButton } from '@/shared/ui/UIButton';
 
 export interface AddCommentFormProps {
   sentComment: (text: string) => void;
@@ -48,25 +52,52 @@ const AddCommentForm = memo(
     }, [comment, onCommentChange, sentComment]);
 
     return (
-      <HStack
-        align="center"
-        justify="between"
-        className={classNames(styles.AddCommentForm, [className])}
-      >
-        <Input
-          className={styles.input}
-          label={t('ENTER_COMMENT')}
-          onChange={onCommentChange}
-          value={comment}
-        />
-        <Button
-          variant={ButtonType.OUTLINE}
-          onClick={onCommentSend}
-          disabled={!comment}
-        >
-          {t('BUTTONS.SEND')}
-        </Button>
-      </HStack>
+      <ToggleFeatureComponent
+        featureName="isRedesignEnable"
+        off={
+          <HStack
+            align="center"
+            justify="between"
+            className={classNames(styles.AddCommentForm, [className])}
+          >
+            <Input
+              className={styles.input}
+              label={t('ENTER_COMMENT')}
+              onChange={onCommentChange}
+              value={comment}
+            />
+            <Button
+              variant={ButtonType.OUTLINE}
+              onClick={onCommentSend}
+              disabled={!comment}
+            >
+              {t('BUTTONS.SEND')}
+            </Button>
+          </HStack>
+        }
+        on={
+          <UICard
+            direction="row"
+            align="center"
+            justify="between"
+            className={className}
+            gap="8"
+          >
+            <UIInput
+              placeholder={t('ENTER_COMMENT')}
+              onChange={onCommentChange}
+              value={comment}
+            />
+            <UIButton
+              variant="outline"
+              onClick={onCommentSend}
+              disabled={!comment}
+            >
+              {t('BUTTONS.SEND')}
+            </UIButton>
+          </UICard>
+        }
+      />
     );
   },
 );

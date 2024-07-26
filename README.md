@@ -252,4 +252,4 @@ const a: Light = Light.Blue;
 const a = "Blue" /* Light.Blue */;
 ```
 
-typeof const enum - в объект не компилируется
+typeof const enum - нельзя итерироваться как по объекту

@@ -5,3 +5,9 @@ export interface CommentData {
   user: User;
   text: string;
 }
+
+export interface SendCommentRequest {
+  articleId: string;
+  userId: string;
+  text: string;
+}

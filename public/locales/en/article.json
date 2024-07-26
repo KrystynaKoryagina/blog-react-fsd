@@ -14,5 +14,10 @@
     "CREATED_DATE": "Created date",
     "TITLE": "Title",
     "VIEWS": "Views"
-  }
+  },
+  "RATE_ARTICLE": "Rate the article",
+  "LEAVE_COMMENT": "Leave the comment",
+  "views_zero": "{{count}} views",
+  "views_one": "{{count}} view",
+  "views_other": "{{count}} views"
 }

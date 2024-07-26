@@ -8,7 +8,7 @@ export interface FlexProps extends HTMLAttributes<HTMLDivElement> {
   align?: FlexAlign;
   gap?: FlexGap;
   wrap?: FlexWrap;
-  max?: boolean;
+  fullWidth?: boolean;
 }
 
 export type FlexDirection = 'row' | 'column';

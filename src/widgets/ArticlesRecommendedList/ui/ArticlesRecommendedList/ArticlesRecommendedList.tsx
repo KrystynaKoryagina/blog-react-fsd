@@ -1,15 +1,21 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ArticlesListDeprecated } from '@/entities/Article';
+import {
+  ArticlesList,
+  ArticlesList as ArticlesListDeprecated,
+  useGetRecommendedArticlesQuery,
+} from '@/entities/Article';
 import { Text } from '@/shared/ui/deprecated/Text';
 import { VStack } from '@/shared/ui/Stack';
 import styles from './ArticlesRecommendedList.module.scss';
-import { useGetRecommendedArticlesQuery } from '../../api/articlesRecommendedListApi';
+import { ToggleFeatureComponent } from '@/shared/lib/utils/toggleFeature';
+import { UIText } from '@/shared/ui/UIText';
 
 interface ArticlesRecommendedListProps {
   className?: string;
 }
 
+// TODO update articlesList
 export const ArticlesRecommendedList = memo(
   ({ className }: ArticlesRecommendedListProps) => {
     const { t } = useTranslation('article');
@@ -26,12 +32,30 @@ export const ArticlesRecommendedList = memo(
 
     return (
       <VStack className={className} gap="16">
-        <Text>{t('RECOMMENDED_ARTICLES')}</Text>
-        <ArticlesListDeprecated
-          className={styles.ArticlesRecommendedList}
-          articles={articles}
-          isLoading={isLoading}
-          target="_blank"
+        <ToggleFeatureComponent
+          featureName="isRedesignEnable"
+          off={
+            <>
+              <Text>{t('RECOMMENDED_ARTICLES')}</Text>
+              <ArticlesListDeprecated
+                className={styles.ArticlesRecommendedList}
+                articles={articles}
+                isLoading={isLoading}
+                target="_blank"
+              />
+            </>
+          }
+          on={
+            <>
+              <UIText>{t('RECOMMENDED_ARTICLES')}</UIText>
+              <ArticlesList
+                className={styles.ArticlesRecommendedList}
+                articles={articles}
+                isLoading={isLoading}
+                target="_blank"
+              />
+            </>
+          }
         />
       </VStack>
     );

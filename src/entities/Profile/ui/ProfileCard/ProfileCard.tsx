@@ -62,14 +62,14 @@ export const ProfileCard = memo(
       return (
         <UICard gap="32" align="center" className={classname}>
           <UISkeleton height={128} width={128} borderRadius="50%" />
-          <HStack gap="24" max>
-            <VStack gap="16" max>
+          <HStack gap="24" fullWidth>
+            <VStack gap="16" fullWidth>
               <UISkeleton height={42} />
               <UISkeleton height={42} />
               <UISkeleton height={42} />
               <UISkeleton height={42} />
             </VStack>
-            <VStack gap="16" max>
+            <VStack gap="16" fullWidth>
               <UISkeleton height={42} />
               <UISkeleton height={42} />
               <UISkeleton height={42} />
@@ -111,8 +111,8 @@ export const ProfileCard = memo(
               {addonRight}
             </HStack>
 
-            <HStack gap="24" max>
-              <VStack gap="16" max>
+            <HStack gap="24" fullWidth>
+              <VStack gap="16" fullWidth>
                 <UIInput
                   id="firstName"
                   value={data?.firstName}
@@ -142,7 +142,7 @@ export const ProfileCard = memo(
                   onChange={onChangeCity}
                 />
               </VStack>
-              <VStack gap="16" max>
+              <VStack gap="16" fullWidth>
                 <UIInput
                   id="username"
                   value={data?.username}

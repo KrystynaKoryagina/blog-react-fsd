@@ -28,7 +28,7 @@ export const HeaderRedesigned = memo(() => {
   return (
     <header className={classNames(styles.Header)}>
       {authData ? (
-        <HStack gap="16" align="center">
+        <HStack gap="16" align="center" justify="center">
           <NotificationsAction />
           <AvatarDropdown />
         </HStack>

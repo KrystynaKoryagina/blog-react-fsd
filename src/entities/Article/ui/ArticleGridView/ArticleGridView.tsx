@@ -5,12 +5,12 @@ import { getRouteArticleDetails } from '@/shared/constants/routes';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import styles from './ArticleGridView.module.scss';
 import { UIImage } from '@/shared/ui/UIImage';
-import { ArticleGridViewSkeleton } from './ArticleGridViewSkeleton';
 import { Article } from '../../model/types/article';
 import { UICard } from '@/shared/ui/UICard';
 import { UISkeleton } from '@/shared/ui/UISkeleton';
 import { UIText } from '@/shared/ui/UIText';
 import { UIAvatar } from '@/shared/ui/UIAvatar';
+import { ArticleGridViewSkeleton } from './ArticleGridViewSkeleton';
 
 interface ArticleGridViewProps {
   article: Article;
@@ -24,7 +24,7 @@ export const ArticleGridView = memo(
     return isLoading ? (
       <ArticleGridViewSkeleton />
     ) : (
-      <Link to={getRouteArticleDetails(article.id)} target="_blank">
+      <Link to={getRouteArticleDetails(article.id)} target="_self">
         <UICard className={styles.ArticleGridView} padding="0">
           <UIImage
             alt={article.title}
@@ -40,6 +40,7 @@ export const ArticleGridView = memo(
             </UIText>
 
             <VStack className={styles.info} gap="8">
+              {/* TODO remove from card item */}
               <UIText
                 className={styles.category}
                 size="sm"
@@ -51,6 +52,7 @@ export const ArticleGridView = memo(
               <HStack gap="8" justify="between" align="center">
                 <UIText size="sm">{article.createdAt}</UIText>
 
+                {/* TODO merge to separate component. Use many times???? */}
                 <HStack gap="4" align="center">
                   <EyeIcon
                     width={24}
@@ -61,10 +63,11 @@ export const ArticleGridView = memo(
                 </HStack>
               </HStack>
 
-              <HStack gap="4" align="center">
-                <UIAvatar size={32} src={article.user?.avatar} />
-                <UIText size="sm">{article?.user?.username}</UIText>
-              </HStack>
+              <UIAvatar
+                size={32}
+                src={article.user?.avatar}
+                userName={article?.user?.username}
+              />
             </VStack>
           </VStack>
         </UICard>

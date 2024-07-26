@@ -15,6 +15,7 @@ interface UIDropdownProps {
   triggerAs?: ElementType;
 }
 
+// TODO update to a new version
 export const UIDropdown = ({
   items,
   trigger,

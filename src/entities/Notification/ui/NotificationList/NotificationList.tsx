@@ -21,7 +21,7 @@ export const NotificationList = memo(({ className }: NotificationListProps) => {
     pollingInterval: 100000,
   });
 
-  if (true) {
+  if (isLoading) {
     return (
       <ToggleFeatureComponent
         featureName="isRedesignEnable"

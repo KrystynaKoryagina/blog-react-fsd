@@ -58,7 +58,7 @@ export const UIInput = memo((props: UIInputProps) => {
   };
 
   return (
-    <HStack gap="16" align="center">
+    <HStack gap="16" align="center" fullWidth>
       {label && (
         <label className={styles.label} htmlFor={id}>
           <UIText as="span" size="sm">
@@ -68,12 +68,13 @@ export const UIInput = memo((props: UIInputProps) => {
       )}
 
       <HStack
-        align='center'
+        align="center"
         className={classNames(styles.InputWrapper, [className], {
           [styles.focused]: isFocused,
           [styles.readOnly]: readOnly,
           [styles.withAddon]: !!addonLeft || !!addonRight,
         })}
+        fullWidth
       >
         {addonLeft && <div className={styles.addon}>{addonLeft}</div>}
         <input
@@ -86,6 +87,7 @@ export const UIInput = memo((props: UIInputProps) => {
           onBlur={onBlurHandler}
           onFocus={onFocusHandler}
           readOnly={readOnly}
+          autoComplete="off"
           {...otherProps}
         />
         {addonRight && <div className={styles.addon}>{addonRight}</div>}

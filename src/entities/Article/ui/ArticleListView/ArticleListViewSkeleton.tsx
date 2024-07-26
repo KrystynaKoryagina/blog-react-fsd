@@ -5,7 +5,7 @@ import { UICard } from '@/shared/ui/UICard';
 import { UISkeleton } from '@/shared/ui/UISkeleton';
 
 export const ArticleListViewSkeleton = memo(() => (
-  <UICard gap="8" className={styles.ArticleListView} max>
+  <UICard gap="8" className={styles.ArticleListView} fullWidth>
     <HStack gap="8" align="center">
       <HStack gap="4" align="center">
         <UISkeleton width={32} height={32} borderRadius="50%" />

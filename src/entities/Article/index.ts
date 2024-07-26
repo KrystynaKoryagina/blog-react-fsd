@@ -1,5 +1,5 @@
 export { ArticleDetails as ArticleDetailsDeprecated } from './ui/deprecated/ArticleDetails/ArticleDetails';
-export { ArticlesList as ArticlesListDeprecated } from './ui/deprecated/ArticlesList/ArticlesList';
+export { ArticlesList } from './ui/deprecated/ArticlesList/ArticlesList';
 
 export type {
   Article,
@@ -11,6 +11,9 @@ export type {
 export type { ArticleStore } from './model/types/articleStore';
 
 export { getArticleData } from './model/selectors/getArticleData/getArticleData';
+export { getArticleLoading } from './model/selectors/getArticleLoading/getArticleLoading';
+export { getArticleError } from './model/selectors/getArticleError/getArticleError';
+export { getArticleCanEdit } from './model/selectors/getArticleCanEdit/getArticleCanEdit';
 
 export {
   ArticleCategoryValues,
@@ -18,3 +21,10 @@ export {
 } from './model/consts/article';
 
 export { ArticleItem } from './ui/ArticleItem/ArticleItem';
+export { ArticleCategoryList } from './ui/ArticleCategoryList/ArticleCategoryList';
+export { ArticleDetails } from './ui/ArticleDetails/ArticleDetails';
+
+export {
+  useGetArticleByIdQuery,
+  useGetRecommendedArticlesQuery,
+} from './api/articleApi';

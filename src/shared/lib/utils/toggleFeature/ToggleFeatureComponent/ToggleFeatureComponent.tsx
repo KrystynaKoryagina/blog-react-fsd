@@ -1,5 +1,5 @@
 import { ReactElement } from 'react';
-import { useFlag } from '@unleash/proxy-client-react';
+// import { useFlag } from '@unleash/proxy-client-react';
 import { FeatureFlags } from '../types/feature';
 
 /*
@@ -25,8 +25,10 @@ export const ToggleFeatureComponent = ({
   off,
   featureName,
 }: ToggleFeatureProps) => {
-  const isFeatureEnabled = useFlag(featureName);
+  // const isFeatureEnabled = useFlag(featureName);
 
+  // TODO fix for storybook
   // return isFeatureEnabled ? on : off;
-  return isFeatureEnabled ? off : on;
+  // return isFeatureEnabled ? off : on;
+  return on;
 };

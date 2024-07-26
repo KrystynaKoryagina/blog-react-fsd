@@ -19,7 +19,7 @@
 }
 
 /* ScrollBar */
-*::-webkit-scrollbar {
+.app *::-webkit-scrollbar {
   width: 5px;
   height: 5px;
 }
@@ -40,6 +40,21 @@
   background: var(--bg-redesigned);
   color: var(--text-redesigned);
   height: 100%;
+}
+
+.app-redesigned *::-webkit-scrollbar {
+  width: 12px;
+  height: 8px;
+}
+
+.app-redesigned *::-webkit-scrollbar-track {
+  background: var(--light-bg-redesigned);
+}
+
+.app-redesigned *::-webkit-scrollbar-thumb {
+  background-color: var(--icon-redesigned);
+  border-radius: 20px;
+  border: 1px solid var(--accent-redesigned);
 }
 
 // TODO

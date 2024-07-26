@@ -12,12 +12,15 @@ import './styles/index.scss';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { ToggleFeatureComponent } from '@/shared/lib/utils/toggleFeature';
 import { MainLayout } from '@/shared/layouts/MainLayout';
+import { useAppToolbar } from './libs/hooks/useAppToolbar';
 
 export const App = () => {
   const { theme } = useTheme();
   const dispatch = useAppDispatch();
 
   const inited = useSelector(getUserInited);
+
+  const toolbar = useAppToolbar();
 
   // TODO
   useEffect(() => {
@@ -57,6 +60,7 @@ export const App = () => {
               sidebar={<Sidebar />}
               content={<AppRouter />}
               header={<Header />}
+              toolbar={toolbar}
             />
           </Suspense>
         </div>

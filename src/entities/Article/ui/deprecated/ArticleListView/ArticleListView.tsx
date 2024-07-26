@@ -10,9 +10,9 @@ import { getRouteArticleDetails } from '@/shared/constants/routes';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import styles from './ArticleListView.module.scss';
 import { Article, ArticleTextBlock } from '../../../model/types/article';
-import { ArticleText } from '../ArticleText/ArticleText';
 import { UIImage } from '@/shared/ui/UIImage';
 import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
+import { ArticleText } from '../../ArticleText/ArticleText';
 
 interface ArticleListViewProps {
   article: Article;
