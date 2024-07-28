@@ -26,7 +26,6 @@ const fetchArticleByIdAsyncThunk = buildAsyncThunk<
     return response.data;
   } catch (err) {
     // TODO add translation
-    console.log('err', err);
     return rejectWithValue(i18n.t('Something went wrong.'));
   }
 });
