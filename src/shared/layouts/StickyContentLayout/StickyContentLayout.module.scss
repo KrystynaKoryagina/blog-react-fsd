@@ -1,7 +1,7 @@
 .StickyContentLayout {
   display: grid;
   grid-template-areas: 'left content right';
-  grid-template-columns: max-content 1fr max-content; // TODO дергается лейаут при фильтрации когда добвляется/убирается скролл
+  grid-template-columns: min-content 1fr min-content; // TODO дергается лейаут при фильтрации когда добвляется/убирается скролл
   gap: 16px;
 }
 

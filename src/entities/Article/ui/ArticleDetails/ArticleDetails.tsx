@@ -7,6 +7,7 @@ import { UIImage } from '@/shared/ui/UIImage';
 import { UIAvatar } from '@/shared/ui/UIAvatar';
 import { renderArticleBlock } from '../../lib/utils/renderArticleBlocks';
 import { UISkeleton } from '@/shared/ui/UISkeleton';
+import styles from './ArticleDetails.module.scss';
 
 interface ArticleProps {
   articleId: string;
@@ -65,7 +66,7 @@ export const ArticleDetails = memo(({ className, articleId }: ArticleProps) => {
 
       <UIText>{article?.subtitle}</UIText>
 
-      <UIImage src={article?.img} height={420} />
+      <UIImage className={styles.imgWrapper} src={article?.img} />
 
       {article?.blocks?.map(renderArticleBlock)}
     </VStack>

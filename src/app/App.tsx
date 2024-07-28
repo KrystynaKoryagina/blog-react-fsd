@@ -23,12 +23,12 @@ export const App = () => {
   const toolbar = useAppToolbar();
 
   // TODO
-  useEffect(() => {
-    document.body.classList.add('app-redesigned', 'dark');
-    return () => {
-      document.body.classList.remove('app-redesigned', 'dark');
-    };
-  }, []);
+  // useEffect(() => {
+  //   document.body.classList.add('app-redesigned', 'dark');
+  //   return () => {
+  //     document.body.classList.remove('app-redesigned', 'dark');
+  //   };
+  // }, []);
 
   useInitialEffect(() => {
     dispatch(userActions.initAuthData());

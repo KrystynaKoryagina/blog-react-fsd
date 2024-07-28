@@ -64,7 +64,7 @@ const ArticleDetailsPage = () => {
               <VStack gap="24">
                 <ArticleDetails articleId={id} />
                 <ArticleRating articleId={id} />
-                <ArticlesRecommendedList />
+                {/* <ArticlesRecommendedList /> */}
                 <ArticleComments articleId={id} />
               </VStack>
             </Page>

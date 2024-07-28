@@ -5,6 +5,8 @@ import {
   useLayoutEffect,
   useState,
 } from 'react';
+import styles from './UIImage.module.scss';
+import { classNames } from '@/shared/lib/utils/classNames';
 
 interface UIImageProps extends ImgHTMLAttributes<HTMLImageElement> {
   className?: string;
@@ -46,6 +48,10 @@ export const UIImage = memo(
       return errorFallback;
     }
 
-    return <img className={className} src={src} alt={alt} {...otherProps} />;
+    return (
+      <div className={classNames(styles.UIImageWrapper, [className])}>
+        <img className={styles.img} src={src} alt={alt} {...otherProps} />
+      </div>
+    );
   },
 );
