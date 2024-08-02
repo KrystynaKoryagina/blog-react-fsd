@@ -43,10 +43,8 @@ export function toggleFeature<T, P>({
 }: ToggleFeatureOptions<T, P>): T | P {
   // TODO fix for storybook
   if (client?.isEnabled(featureName)) {
-    // return on();
-    return off();
+    return on();
   }
 
-  // return off();
-  return on();
+  return off();
 }

@@ -10,12 +10,11 @@ import { ThemeProvider } from '@/shared/lib/contexts/theme';
 const container = document.getElementById('root');
 const root = createRoot(container!);
 
-// TODO investiagte UNLEASH (project was removed in some time)
 const unleash_config: IConfig = {
-  url: 'https://app.unleash-hosted.com/demo/api/frontend',
+  url: 'http://localhost:4242/api/frontend/',
   clientKey:
-    'blog-project:default.75548fe12ae8ddaabd0bd1f70faf5bc4421248380e85df4c0ff5a3ff',
-  appName: 'blog-project',
+    '*:development.06c6ca81a4ffdef043d189275724e7a06ff3cef89fc3a6dacbe0986d',
+  appName: 'production-project',
 };
 
 root.render(
