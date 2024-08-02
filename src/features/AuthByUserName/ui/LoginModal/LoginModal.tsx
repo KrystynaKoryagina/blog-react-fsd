@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
-import { Modal } from '@/shared/ui/Modal';
-import { Spinner } from '@/shared/ui/Spinner';
+import { UIModal } from '@/shared/ui/UIModal';
+import { Spinner } from '@/shared/ui/deprecated/Spinner';
 import { LoginFormLazy } from '../LoginForm/LoginForm.lazy';
 
 interface LoginModalProps {
@@ -9,9 +9,9 @@ interface LoginModalProps {
 }
 
 export const LoginModal = ({ isOpen, onClose }: LoginModalProps) => (
-  <Modal isOpen={isOpen} onClose={onClose}>
+  <UIModal isOpen={isOpen} onClose={onClose}>
     <Suspense fallback={<Spinner />}>
       <LoginFormLazy />
     </Suspense>
-  </Modal>
+  </UIModal>
 );

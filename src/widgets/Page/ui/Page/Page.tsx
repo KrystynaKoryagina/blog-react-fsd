@@ -12,6 +12,8 @@ import { useThrottle } from '@/shared/lib/hooks/useThrottle';
 import { StoreSchema } from '@/app/providers/store';
 import styles from './Page.module.scss';
 import { TestProps } from '@/shared/types/testProps';
+import { toggleFeature } from '@/shared/lib/utils/toggleFeature';
+import { useUnleashClient } from '@unleash/proxy-client-react';
 
 interface PageProps extends TestProps {
   children: ReactNode;
@@ -34,13 +36,20 @@ export const Page = ({
 
   const dispatch = useAppDispatch();
 
+  const client = useUnleashClient();
+
   // TODO fix scroll position on Articles page. Sometimes it's saved with wrong position
   const scrollPosition = useSelector((state: StoreSchema) =>
     getPageScrollPosition(state, pathname),
   );
 
   useInfiniteScroll({
-    wrapperRef,
+    wrapperRef: toggleFeature({
+      featureName: 'isRedesignEnable',
+      on: () => null,
+      off: () => wrapperRef,
+      client,
+    }),
     triggerRef,
     callback: onScrollEnd,
   });
@@ -66,7 +75,15 @@ export const Page = ({
   return (
     <main
       ref={wrapperRef}
-      className={classNames(styles.Page, [className])}
+      className={classNames(
+        toggleFeature({
+          featureName: 'isRedesignEnable',
+          off: () => styles.Page,
+          on: () => styles.PageRedesigned,
+          client,
+        }),
+        [className],
+      )}
       onScroll={onScroll}
       data-testid={test['data-testid']}
     >

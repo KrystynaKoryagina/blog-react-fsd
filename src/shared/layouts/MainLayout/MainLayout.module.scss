@@ -1,0 +1,41 @@
+@import 'app/styles/mixins/position-sticky';
+
+.MainLayout {
+  min-height: 100%;
+  display: grid;
+  grid-template-areas: 'sidebar content rightbar';
+  grid-template-columns: max-content 1fr 175px;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  padding: 32px;
+
+  @include position-sticky;
+}
+
+.content {
+  grid-area: content;
+  max-width: 1200px;
+  justify-self: center;
+  padding: 32px;
+  width: 100%;
+}
+
+.rightbar {
+  grid-area: rightbar;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  @include position-sticky;
+}
+
+.header {
+  width: 100%;
+}
+
+.toolbar {
+  height: 100%;
+  width: 100%;
+}

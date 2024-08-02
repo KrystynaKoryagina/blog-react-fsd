@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { UIAvatar } from '@/shared/ui/UIAvatar';
+import { Avatar } from '@/shared/ui/deprecated/Avatar';
 import { HStack } from '@/shared/ui/Stack';
 import { useGetUserAuthData } from '../../model/selectors/getUserAuthData/getUserAuthData';
 
@@ -9,7 +9,7 @@ export const UserInfo = memo(() => {
 
   return (
     <HStack>
-      <UIAvatar />
+      <Avatar />
     </HStack>
   );
 });

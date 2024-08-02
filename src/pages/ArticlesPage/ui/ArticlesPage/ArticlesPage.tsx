@@ -1,19 +1,22 @@
 import { memo, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import {
-  ArticlesInfiniteList,
+  ArticlesList,
   articlesListReducer,
   useFetchNextArticles,
-} from '@/widgets/ArticlesInfiniteList';
+} from '@/widgets/ArticlesList';
 import { ReducersList } from '@/app/providers/store';
 import { useDynamicReducerLoader } from '@/shared/lib/hooks/useDynamicReducerLoader';
 import { VStack } from '@/shared/ui/Stack';
 import { Page } from '@/widgets/Page';
-import { ArticlesPageFilter } from '../ArticlesPageFilter/ArticlesPageFilter';
+import { ArticlesPageFilter as ArticlesPageFilterDeprectaed } from '../deprecated/ArticlesPageFilter/ArticlesPageFilter';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
-import { useInitArticlesPage } from '@/widgets/ArticlesInfiniteList/model/services/initArticlesPage/initArticlesPage';
-// import { useInitArticlesPage } from '@/widgets/ArticlesInfiniteList/model/services/initArticlesPage/initArticlesPage';
+import { useInitArticlesPage } from '@/widgets/ArticlesList/model/services/initArticlesPage/initArticlesPage';
 import styles from './ArticlesPage.module.scss';
+import { ToggleFeatureComponent } from '@/shared/lib/utils/toggleFeature';
+import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
+import { ArticlesViewContainer } from '../ArticlesViewContainer/ArticlesViewContainer';
+import { ArticlesFiltersContainer } from '../ArticlesFiltersContainer/ArticlesFiltersContainer';
 
 const reducers: ReducersList = {
   articlesList: articlesListReducer,
@@ -21,7 +24,6 @@ const reducers: ReducersList = {
 
 const ArticlesPage = () => {
   useDynamicReducerLoader({ reducers, removeAfterUnmount: false });
-  // const initArticlesPage = useInitArticlesPage();
 
   const initArticlesPage = useInitArticlesPage();
   const fetchNextArticles = useFetchNextArticles();
@@ -47,12 +49,28 @@ const ArticlesPage = () => {
   }, [fetchNextArticles]);
 
   return (
-    <VStack className={styles.ArticlesPage}>
-      <ArticlesPageFilter />
-      <Page onScrollEnd={onLoadMoreArticles} saveScroll>
-        <ArticlesInfiniteList className={styles.list} />
-      </Page>
-    </VStack>
+    <ToggleFeatureComponent
+      featureName="isRedesignEnable"
+      on={
+        <StickyContentLayout
+          left={<ArticlesViewContainer />}
+          right={<ArticlesFiltersContainer />}
+          content={
+            <Page onScrollEnd={onLoadMoreArticles} saveScroll>
+              <ArticlesList />
+            </Page>
+          }
+        />
+      }
+      off={
+        <VStack className={styles.ArticlesPage}>
+          <ArticlesPageFilterDeprectaed />
+          <Page onScrollEnd={onLoadMoreArticles} saveScroll>
+            <ArticlesList className={styles.list} />
+          </Page>
+        </VStack>
+      }
+    />
   );
 };
 

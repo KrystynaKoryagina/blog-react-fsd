@@ -1,57 +1,49 @@
 @import 'app/styles/mixins/trancation';
+@import 'app/styles/mixins/line-clamp';
 
 .ArticleGridView {
-  display: block;
-  height: 100%;
-  transition: transform 0.5s;
-  cursor: pointer;
+  width: 241px;
+  height: 350px;
+  overflow: hidden;
+  transition: transform 0.3s;
 
   &:hover {
-    opacity: 0.8;
-    transform: scale(1.01);
-
-    .date {
-      opacity: 1;
-    }
+    transform: scale(1.03);
   }
-}
-
-.gridCard,
-.gridCardContent {
-  height: 100%;
-}
-
-.imageWrapper {
-  position: relative;
-  max-height: 250px;
-  width: 100%;
-  height: 100%;
 }
 
 .img {
   width: 100%;
-  height: 100%;
+  height: 141px;
   object-fit: cover;
 }
 
 .imageError {
   width: 100%;
-  height: 100%;
+  height: 141px;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   background-image: url('../../../../shared/assets/images/no-image.webp');
 }
 
-.date {
-  position: absolute;
-  right: 0;
-  top: 0;
-  opacity: 0;
-  transition: opacity 0.2s;
+.content {
+  flex-grow: 1;
+  padding: 16px;
 }
 
-.category,
+.info {
+  margin-top: auto;
+}
+
 .title {
+  @include line-clamp(3);
+}
+
+.viewsIcon {
+  color: var(--icon-redesigned);
+}
+
+.category {
   @include trancation;
 }

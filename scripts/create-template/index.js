@@ -1,4 +1,5 @@
 // TODO 69 Генератор фичей сущностей страниц на node js 09:15
+// TODO convert to TS
 const createTemplate = require('./templates/createTemplate');
 
 const layer = process.argv[2];

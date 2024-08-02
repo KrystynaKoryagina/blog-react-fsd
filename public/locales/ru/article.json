@@ -7,11 +7,18 @@
     "ECONOMICS": "Экономика"
   },
   "RECOMMENDED_ARTICLES": "Рекомендуемые статьи",
+  "SORT_BY": "Сортировать по:",
   "SORT": {
     "ASCENDENT": "По возрастанию",
     "DESCENDENT": "По убыванию",
     "CREATED_DATE": "Дате создания",
     "TITLE": "Заголовку",
     "VIEWS": "Просмотрам"
-  }
+  },
+  "RATE_ARTICLE": "Оцените статью",
+  "LEAVE_COMMENT": "Оставьте комментарий",
+  "views_zero": "{{count}} просмотров",
+  "views_one": "{{count}} просмотр",
+  "views_few": "{{count}} просмотра",
+  "views_many": "{{count}} просмотров"
 }

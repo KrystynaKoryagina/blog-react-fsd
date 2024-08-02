@@ -1,6 +1,5 @@
 .light {
-  /* NEW */
-  --bg-color: #f3f4f5; // #ebeef1
+  --bg-color: #f3f4f5;
   --bg-secondary-color: #fff;
   --bg-tertiary-color: #d0d7de;
 
@@ -18,22 +17,14 @@
   // Link
   --link-color: #0452ff;
 
-
-
-  /* ========== */
-
-  --inverted-bg-color: #090949;
-
-  --secondary-color: #0452ff;
-
-  --inverted-primary-color: #04ff04;
-  --inverted-secondary-color: #049604;
-
-  // Code
-  --code-bg: #d2d2d4;
-  --code-row-bg: #aaaaab;
-  --code-row-color: #464647;
-
-  // card
-  --card-bg: #d5d5d7;
+  /* ==== REDESIGN ==== */
+  --bg-redesigned: #eff5f6;
+  --dark-bg-redesigned: #fff;
+  --light-bg-redesigned: #e2eef1;
+  --text-redesigned: #141c1f;
+  --hint-redesigned: #adbcc0;
+  --cancel-redesigned: #f77;
+  --save-redesigned: #62de85;
+  --icon-redesigned: #5ed3f3;
+  --accent-redesigned: #00c8ff;
 }

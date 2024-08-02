@@ -1,4 +1,4 @@
-import { Lang } from '../types/LangSwitcher.types';
+import { Lang } from '../types/LangSwitcher';
 
 export const langConfig: Lang[] = [
   { key: 'en', displayName: 'EN' },

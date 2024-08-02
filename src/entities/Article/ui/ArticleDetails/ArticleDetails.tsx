@@ -1,46 +1,35 @@
-import { memo, useCallback } from 'react';
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { Skeleton } from '@/shared/ui/Skeleton';
-import { ReducersList } from '@/app/providers/store';
-import { useDynamicReducerLoader } from '@/shared/lib/hooks/useDynamicReducerLoader';
-import { Text, TextAlign, TextSize, TextType } from '@/shared/ui/Text';
-import { UIAvatar } from '@/shared/ui/UIAvatar';
-import CalendarIcon from '@/shared/assets/icons/calendar.svg';
-import EyeIcon from '@/shared/assets/icons/eye.svg';
 import { HStack, VStack } from '@/shared/ui/Stack';
-import { articleReducer } from '../../model/slice/articleSlice';
-import { getArticleLoading } from '../../model/selectors/getArticleLoading/getArticleLoading';
-import { getArticleData } from '../../model/selectors/getArticleData/getArticleData';
-import { getArticleError } from '../../model/selectors/getArticleError/getArticleError';
-import { ArticleBlock } from '../../model/types/article';
-import { ArticleBlockType } from '../../model/consts/article';
-import { ArticleCode } from '../ArticleCode/ArticleCode';
-import { ArticleText } from '../ArticleText/ArticleText';
-import { ArticleImage } from '../ArticleImage/ArticleImage';
-import { useFetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
-import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
+import { useGetArticleByIdQuery } from '../../api/articleApi';
+import { UIText } from '@/shared/ui/UIText';
+import { UIImage } from '@/shared/ui/UIImage';
+import { UIAvatar } from '@/shared/ui/UIAvatar';
+import { renderArticleBlock } from '../../lib/utils/renderArticleBlocks';
+import { UISkeleton } from '@/shared/ui/UISkeleton';
+import styles from './ArticleDetails.module.scss';
 
 interface ArticleProps {
   articleId: string;
   className?: string;
 }
 
-const reducers: ReducersList = {
-  article: articleReducer,
-};
+// const reducers: ReducersList = {
+//   article: articleReducer,
+// };
 
 export const ArticleDetails = memo(({ className, articleId }: ArticleProps) => {
-  useDynamicReducerLoader({ reducers });
+  // useDynamicReducerLoader({ reducers });
 
   const { t } = useTranslation(['translation', 'articleDetails']);
 
-  const isLoading = useSelector(getArticleLoading);
-  const article = useSelector(getArticleData);
-  const error = useSelector(getArticleError);
+  const { data: article, isLoading, error } = useGetArticleByIdQuery(articleId);
 
-  const fetchArticleById = useFetchArticleById();
+  // const isLoading = useSelector(getArticleLoading);
+  // const article = useSelector(getArticleData);
+  // const error = useSelector(getArticleError);
+
+  // const fetchArticleById = useFetchArticleById();
 
   // TODO
   // () => {
@@ -49,71 +38,37 @@ export const ArticleDetails = memo(({ className, articleId }: ArticleProps) => {
   //   }
   // }, [dispatch, id]);
 
-  useInitialEffect(() => {
-    fetchArticleById(articleId);
-  }, [fetchArticleById]);
-
-  const renderBlock = useCallback((block: ArticleBlock) => {
-    switch (block.type) {
-      case ArticleBlockType.CODE:
-        return <ArticleCode key={block.id} block={block} />;
-      case ArticleBlockType.IMAGE:
-        return <ArticleImage key={block.id} block={block} />;
-      case ArticleBlockType.TEXT:
-        return <ArticleText key={block.id} block={block} />;
-      default:
-        return null;
-    }
-  }, []);
-
   if (isLoading) {
     return (
-      <>
-        <HStack justify="center">
-          <Skeleton width={200} height={200} borderRadius="50%" />
-        </HStack>
-        <Skeleton width={300} height={32} />
-        <Skeleton width={600} height={20} />
-        <Skeleton width="100%" height={200} />
-        <Skeleton width="100%" height={200} />
-        <Skeleton width="100%" height={200} />
-      </>
+      <VStack gap="24" className={className}>
+        <UISkeleton height={24} />
+        <UISkeleton height={24} />
+        <UISkeleton height={420} />
+        <UISkeleton height={70} />
+        <UISkeleton height={70} />
+      </VStack>
     );
   }
 
   if (error) {
     return (
-      <Text variant={TextType.ERROR} align={TextAlign.CENTER}>
+      <UIText variant="error" align="center">
         {t('ERROR_MESSAGE')}
-      </Text>
+      </UIText>
     );
   }
 
   return (
     <VStack gap="24" className={className}>
-      <HStack justify="center">
-        <UIAvatar size={200} src={article?.img} />
-      </HStack>
+      <UIText as="h1" weight="bold" size="lg">
+        {article?.title}
+      </UIText>
 
-      <VStack gap="8">
-        <Text as="h1" size={TextSize.LG}>
-          {article?.title}
-        </Text>
-        <Text size={TextSize.MD}>{article?.subtitle}</Text>
-      </VStack>
+      <UIText>{article?.subtitle}</UIText>
 
-      <VStack gap="4">
-        <HStack align="center" gap="4">
-          <EyeIcon />
-          <Text size={TextSize.SM}>{article?.views}</Text>
-        </HStack>
-        <HStack align="center" gap="4">
-          <CalendarIcon />
-          <Text size={TextSize.SM}>{article?.createdAt}</Text>
-        </HStack>
-      </VStack>
+      <UIImage className={styles.imgWrapper} src={article?.img} />
 
-      {article?.blocks?.map(renderBlock)}
+      {article?.blocks?.map(renderArticleBlock)}
     </VStack>
   );
 });

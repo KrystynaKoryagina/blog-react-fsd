@@ -1,13 +1,28 @@
+@import 'app/styles/mixins/line-clamp';
+
+.title {
+  @include line-clamp(2);
+}
+
 .img {
   width: 100%;
-  max-height: 250px;
+  height: 300px;
   object-fit: cover;
 }
 
 .imageError {
   width: 100%;
-  height: 250px;
+  height: 300px;
   background-repeat: no-repeat;
   background-position: center;
-  background-image: url("@/shared/assets/images/no-image.webp");
+  background-size: cover;
+  background-image: url('@/shared/assets/images/no-image.webp');
+}
+
+.textBlock {
+  @include line-clamp(3);
+}
+
+.viewsIcon {
+  color: var(--icon-redesigned);
 }

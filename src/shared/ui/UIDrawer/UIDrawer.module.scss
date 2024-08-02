@@ -1,0 +1,40 @@
+.Drawer {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  transition: 0.3s opacity;
+}
+
+.open {
+  pointer-events: auto;
+  opacity: 1;
+  z-index: var(--modal-z-index);
+}
+
+.close {
+  // pointer-events: none;
+  // opacity: 0;
+
+  // .content {
+  //   transform: translateY(100%);
+  // }
+}
+
+.content {
+  position: fixed;
+  left: 2vw;
+  height: 100%;
+  width: 96vw;
+  border-radius: 10px 10px 0 0;
+  touch-action: none;
+  padding: 20px;
+
+  &.old {
+    background-color: var(--bg-color);
+  }
+
+  &.new {
+    background-color: var(--light-bg-redesigned);
+  }
+}

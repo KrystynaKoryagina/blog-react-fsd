@@ -1,6 +1,10 @@
 // TODO forbidden from 'entities/User'
 import { User } from '@/entities/User';
-import { ArticleBlockType, ArticleCategory } from '../consts/article';
+
+import {
+  ArticleBlockTypeValues,
+  ArticleCategoryValues,
+} from '../consts/article';
 
 export interface Article {
   id: string;
@@ -13,6 +17,10 @@ export interface Article {
   blocks: ArticleBlock[];
   user: User;
 }
+
+export type ArticleCategory = ValueOf<typeof ArticleCategoryValues>;
+
+export type ArticleBlockType = ValueOf<typeof ArticleBlockTypeValues>;
 
 export type ArticleView = 'list' | 'grid';
 
@@ -27,18 +35,18 @@ export interface ArticleBlockBase {
 }
 
 export interface ArticleCodeBlock extends ArticleBlockBase {
-  type: ArticleBlockType.CODE;
+  type: 'CODE';
   code: string;
 }
 
 export interface ArticleImageBlock extends ArticleBlockBase {
-  type: ArticleBlockType.IMAGE;
+  type: 'IMAGE';
   src: string;
   title: string;
 }
 
 export interface ArticleTextBlock extends ArticleBlockBase {
-  type: ArticleBlockType.TEXT;
+  type: 'TEXT';
   paragraphs: string[];
   title?: string;
 }

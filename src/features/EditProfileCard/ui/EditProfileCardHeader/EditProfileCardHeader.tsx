@@ -1,9 +1,9 @@
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
-import { Button, ButtonType } from '@/shared/ui/Button';
+import { Button, ButtonType } from '@/shared/ui/deprecated/Button';
 import { HStack } from '@/shared/ui/Stack';
-import { Text, TextSize } from '@/shared/ui/Text';
+import { Text, TextSize } from '@/shared/ui/deprecated/Text';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { getProfileCanEdit } from '../../model/selectors/getProfileCanEdit/getProfileCanEdit';
 import { getProfileReadOnly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
@@ -35,29 +35,28 @@ export const EditProfileCardHeader = memo(() => {
       <Text as="h1" size={TextSize.LG}>
         {t('PROFILE', { ns: 'profile' })}
       </Text>
-      {canEdit &&
-        (readOnly ? (
+      {canEdit && readOnly ? (
+        <Button
+          variant={ButtonType.OUTLINE}
+          onClick={onEdit}
+          data-testid="edit-profile-card-edit-btn"
+        >
+          {t('BUTTONS.EDIT')}
+        </Button>
+      ) : (
+        <HStack gap="16">
           <Button
             variant={ButtonType.OUTLINE}
-            onClick={onEdit}
-            data-testid="edit-profile-card-edit-btn"
+            onClick={onCancel}
+            data-testid="edit-profile-card-edit-cancel"
           >
-            {t('BUTTONS.EDIT')}
+            {t('BUTTONS.CANCEL')}
           </Button>
-        ) : (
-          <HStack gap="16">
-            <Button
-              variant={ButtonType.OUTLINE}
-              onClick={onCancel}
-              data-testid="edit-profile-card-edit-cancel"
-            >
-              {t('BUTTONS.CANCEL')}
-            </Button>
-            <Button onClick={onSave} data-testid="edit-profile-card-edit-save">
-              {t('BUTTONS.SAVE')}
-            </Button>
-          </HStack>
-        ))}
+          <Button onClick={onSave} data-testid="edit-profile-card-edit-save">
+            {t('BUTTONS.SAVE')}
+          </Button>
+        </HStack>
+      )}
     </HStack>
   );
 });

@@ -22,6 +22,8 @@
   "COMMENTS": "Koмментарии",
   "ENTER_COMMENT": "Введите текст комментария",
   "CREATE_ARTICLE": "Создать статью",
-  "SEARCH": "Поиск",
-  "DO_NOT_HAVE_ACCESS": "У вас нет доступа к этой странице"
+  "DO_NOT_HAVE_ACCESS": "У вас нет доступа к этой странице",
+  "LABELS": {
+    "SEARCH": "Поиск"
+  }
 }

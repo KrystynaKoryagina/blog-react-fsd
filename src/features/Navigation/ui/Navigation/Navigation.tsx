@@ -1,5 +1,6 @@
 import { memo, useMemo } from 'react';
 import { useSelector } from 'react-redux';
+import { useUnleashClient } from '@unleash/proxy-client-react';
 import { NavigationItem } from '../NavigationItem/NavigationItem';
 import { getNavigationItems } from '../../model/selectors/getNavigationItem/getNavigationItem';
 
@@ -9,7 +10,8 @@ interface NavigationProps {
 }
 
 export const Navigation = memo(({ collapsed, className }: NavigationProps) => {
-  const navigationItems = useSelector(getNavigationItems);
+  const client = useUnleashClient();
+  const navigationItems = useSelector(getNavigationItems(client));
 
   const navigationLinkJSX = useMemo(
     () =>

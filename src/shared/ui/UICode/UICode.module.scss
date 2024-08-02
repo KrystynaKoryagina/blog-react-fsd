@@ -1,0 +1,28 @@
+// TODO need to set max-width and scroll for long content
+
+.CodeWrapper {
+  position: relative;
+  background: var(--light-bg-redesigned);
+  border: 1px solid var(--icon-redesigned);
+  overflow: auto;
+  display: flex;
+  align-items: baseline;
+}
+
+.copyBtn {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
+
+.code {
+  padding-top: 20px;
+  padding-left: 10px;
+}
+
+.rows {
+  text-align: right;
+  padding: 20px;
+  background: var(--light-bg-redesigned);
+  border-right: 1px solid var(--icon-redesigned);
+}

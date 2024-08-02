@@ -5,7 +5,7 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { Currency } from '@/shared/constants/currency';
 import { Country } from '@/shared/constants/country';
 import { useDynamicReducerLoader } from '@/shared/lib/hooks/useDynamicReducerLoader';
-import { Text, TextType } from '@/shared/ui/Text';
+import { Text, TextType } from '@/shared/ui/deprecated/Text';
 import { ReducersList } from '@/app/providers/store';
 import { VStack } from '@/shared/ui/Stack';
 import { profileActions, profileReducer } from '../../model/slice/profileSlice';
@@ -18,6 +18,7 @@ import { EditProfileCardHeader } from '../EditProfileCardHeader/EditProfileCardH
 import { ValidateProfileError } from '../../model/types/editProfile';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { useGetProfileEditData } from '../../model/selectors/getProfileEditData/getProfileEditData';
+import { updateProfileData } from '../../model/service/updateProfileData/updateProfileData';
 
 const reducers: ReducersList = {
   profile: profileReducer,
@@ -33,6 +34,7 @@ export const EditProfileCard = memo(
     useDynamicReducerLoader({ reducers });
 
     const { t } = useTranslation(['translation', 'profile']);
+    // TODO get rid of dispatch
     const dispatch = useAppDispatch();
 
     const profile = useGetProfileEditData();
@@ -137,10 +139,20 @@ export const EditProfileCard = memo(
       [dispatch],
     );
 
+    const onCancel = useCallback(() => {
+      dispatch(profileActions.cancelEdit());
+    }, [dispatch]);
+
+    const onSave = useCallback(() => {
+      dispatch(updateProfileData());
+    }, [dispatch]);
+
     return (
       <VStack gap="24" className={classname} data-testid="edit-profile-card">
+        {/* TODO */}
         <EditProfileCardHeader />
         <VStack gap="4">
+          {/* TODO  ValidationErrorsJSX after each input */}
           {ValidationErrorsJSX}
           <ProfileCard
             data={profile}

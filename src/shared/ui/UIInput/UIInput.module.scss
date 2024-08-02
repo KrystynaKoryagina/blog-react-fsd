@@ -1,0 +1,65 @@
+@import 'app/styles/mixins//addon-icons';
+
+.InputWrapper {
+  border-radius: var(--border-radius-redesigned);
+  background-color: transparent;
+  border: 1px solid var(--icon-redesigned);
+  width: 100%;
+  padding: 8px 16px;
+
+  &.withAddon {
+    padding: 4px 8px;
+  }
+
+  &.focused {
+    border-color: var(--accent-redesigned);
+
+    .addon {
+      color: var(--accent-redesigned);
+    }
+  }
+
+  &.readOnly {
+    opacity: 0.7;
+    pointer-events: none;
+  }
+}
+
+.input {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-redesigned);
+
+  &::placeholder {
+    color: var(--hint-redesigned);
+  }
+
+  // &:is(:-webkit-autofill, :autofill) {
+  //   background: red !important;
+  // }
+
+  // &:-internal-autofill-selected {
+  //   background-color: transparent !important;
+  // }
+}
+
+// TODO https://stackoverflow.com/questions/2781549/removing-input-background-colour-for-chrome-autocomplete
+// input:-webkit-autofill,
+// input:-webkit-autofill:hover,
+// input:-webkit-autofill:focus,
+// input:-webkit-autofill:active {
+//   -webkit-box-shadow: 0 0 0 30px red inset !important; // transparent will not work
+// }
+
+.addon {
+  flex-shrink: 0;
+  color: var(--icon-redesigned);
+
+  @include addon-icons;
+}
+
+.label {
+  flex-shrink: 0;
+}

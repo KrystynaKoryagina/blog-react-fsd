@@ -1,9 +1,11 @@
 import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Button, ButtonType } from '@/shared/ui/Button';
+import { Button, ButtonType } from '@/shared/ui/deprecated/Button';
 import { HStack } from '@/shared/ui/Stack';
-import { LangKey } from '../../types/LangSwitcher.types';
+import { LangKey } from '../../types/LangSwitcher';
 import { langConfig } from '../../const/LangSwitcher';
+import { ToggleFeatureComponent } from '@/shared/lib/utils/toggleFeature';
+import { UIButton } from '@/shared/ui/UIButton';
 
 interface LangSwitcherProps {
   className?: string;
@@ -22,14 +24,30 @@ export const LangSwitcher = memo(({ className }: LangSwitcherProps) => {
   const LangItemsJSX = useMemo(
     () =>
       langConfig.map((item) => (
-        <Button
+        <ToggleFeatureComponent
           key={item.key}
-          variant={ButtonType.GHOST}
-          isActive={i18n.language === item.key}
-          onClick={changeLang(item.key)}
-        >
-          <span>{item.displayName}</span>
-        </Button>
+          featureName="isRedesignEnable"
+          on={
+            <UIButton
+              key={item.key}
+              variant="icon"
+              isActive={i18n.language === item.key}
+              onClick={changeLang(item.key)}
+            >
+              <span>{item.displayName}</span>
+            </UIButton>
+          }
+          off={
+            <Button
+              key={item.key}
+              variant={ButtonType.GHOST}
+              isActive={i18n.language === item.key}
+              onClick={changeLang(item.key)}
+            >
+              <span>{item.displayName}</span>
+            </Button>
+          }
+        />
       )),
     [i18n.language, changeLang],
   );

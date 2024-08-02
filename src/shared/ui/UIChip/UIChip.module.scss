@@ -1,0 +1,10 @@
+.Chip {
+  padding: 9px 16px;
+  border-radius: var(--border-radius-redesigned);
+  text-align: center;
+  cursor: pointer;
+
+  &.selected {
+    background: var(--light-bg-redesigned);
+  }
+}

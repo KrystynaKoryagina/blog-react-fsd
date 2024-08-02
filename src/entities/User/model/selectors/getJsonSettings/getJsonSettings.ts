@@ -5,6 +5,11 @@ import { JsonSettings } from '../../types/jsonSettings';
 const defaultJsonSettings: JsonSettings = {};
 
 export const [useGetJsonSettings, getJsonSettings] = buildSelector(
-  (state: StoreSchema) =>
-    state.user.authData?.jsonSettings ?? defaultJsonSettings,
+  (state: StoreSchema) => {
+    console.log(
+      'state.user.authData?.jsonSettings',
+      state.user.authData?.jsonSettings,
+    );
+    return state.user.authData?.jsonSettings ?? defaultJsonSettings;
+  },
 );

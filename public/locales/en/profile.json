@@ -1,15 +1,22 @@
 {
   "PROFILE": "Profile",
   "FORM": {
-    "FIRSTNAME": "Your name",
-    "LASTNAME": "Your lastname",
-    "AGE": "Your age",
-    "CITY": "Your city",
+    "YOUR_FIRSTNAME": "Your name",
+    "YOUR_LASTNAME": "Your lastname",
+    "YOUR_AGE": "Your age",
+    "YOUR_CITY": "Your city",
     "USERNAME": "Username",
-    "AVATAR": "Enter a link to the avatar",
+    "AVATAR_LINK": "Enter a link to the avatar",
     "USER_AVATAR": "User avatar",
-    "CURRENCY": "Select currency",
-    "COUNTRY": "Select country"
+    "SELECT_CURRENCY": "Select currency",
+    "SELECT_COUNTRY": "Select country",
+    "FIRSTNAME": "Name",
+    "LASTNAME": "Lastname",
+    "AGE": "Age",
+    "CITY": "City",
+    "AVATAR": "Avatar",
+    "CURRENCY": "Currency",
+    "COUNTRY": "Country"
   },
   "ERRORS": {
     "SERVER_ERROR": "Something went wrong on server side",

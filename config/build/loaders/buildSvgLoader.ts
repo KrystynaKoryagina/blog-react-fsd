@@ -7,17 +7,16 @@ export function buildSvgLoader() {
         loader: '@svgr/webpack',
         options: {
           icon: true,
-          // TODO remove???
-          // svgoConfig: {
-          //   plugins: [
-          //     {
-          //       name: 'convertColors',
-          //       params: {
-          //         currentColor: true,
-          //       }
-          //     }
-          //   ]
-          // }
+          svgoConfig: {
+            plugins: [
+              {
+                name: 'convertColors',
+                params: {
+                  currentColor: true,
+                },
+              },
+            ],
+          },
         },
       },
     ],

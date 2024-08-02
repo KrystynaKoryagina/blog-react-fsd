@@ -1,24 +1,24 @@
-import { HTMLAttributeAnchorTarget, memo } from 'react';
-import { classNames } from '@/shared/lib/utils/classNames';
+import { memo } from 'react';
+// import { classNames } from '@/shared/lib/utils/classNames';
+// import styles from './ArticleItem.module.scss';
 import { Article, ArticleView } from '../../model/types/article';
-import styles from './ArticleItem.module.scss';
-import { ArticleListView } from '../ArticleListView/ArticleListView';
 import { ArticleGridView } from '../ArticleGridView/ArticleGridView';
+import { ArticleListView } from '../ArticleListView/ArticleListView';
 
+// TODO classname
 interface ArticleItemProps {
   article: Article;
   view: ArticleView;
-  target?: HTMLAttributeAnchorTarget;
+  // target?: HTMLAttributeAnchorTarget;
+  isLoading: boolean;
+  // className?: string;
 }
 
 export const ArticleItem = memo(
-  ({ article, view, target }: ArticleItemProps) => (
-    <div className={classNames('', [styles[view]])}>
-      {view === 'list' ? (
-        <ArticleListView article={article} />
-      ) : (
-        <ArticleGridView article={article} target={target} />
-      )}
-    </div>
-  ),
+  ({ article, view, isLoading }: ArticleItemProps) =>
+    view === 'list' ? (
+      <ArticleListView article={article} isLoading={isLoading} />
+    ) : (
+      <ArticleGridView article={article} isLoading={isLoading} />
+    ),
 );

@@ -1,0 +1,8 @@
+.UILink {
+  color: var(--text-redesigned);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

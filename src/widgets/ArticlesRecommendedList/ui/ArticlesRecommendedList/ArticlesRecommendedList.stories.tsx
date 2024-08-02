@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Theme } from '@/shared/lib/contexts/theme';
 
 import { ArticlesRecommendedList } from './ArticlesRecommendedList';
-import { Article, ArticleBlockType, ArticleCategory } from '@/entities/Article';
+import { Article } from '@/entities/Article';
 import { UserRole } from '@/entities/User';
 import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
 
@@ -14,7 +14,7 @@ const article: Article = {
   img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
   views: 1022,
   createdAt: '26.02.2022',
-  category: [ArticleCategory.IT],
+  category: ['IT'],
   user: {
     id: '1',
     username: 'admin',
@@ -25,7 +25,7 @@ const article: Article = {
   blocks: [
     {
       id: '1',
-      type: ArticleBlockType.TEXT,
+      type: 'TEXT',
       title: 'Заголовок этого блока',
       paragraphs: [
         'Программа, которую по традиции называют «Hello, world!», очень проста. Она выводит куда-либо фразу «Hello, world!», или другую подобную, средствами некоего языка.',
@@ -35,12 +35,12 @@ const article: Article = {
     },
     {
       id: '4',
-      type: ArticleBlockType.CODE,
+      type: 'CODE',
       code: '<!DOCTYPE html>\n<html>\n  <body>\n    <p id="hello"></p>\n\n    <script>\n      document.getElementById("hello").innerHTML = "Hello, world!";\n    </script>\n  </body>\n</html>;',
     },
     {
       id: '5',
-      type: ArticleBlockType.TEXT,
+      type: 'TEXT',
       title: 'Заголовок этого блока',
       paragraphs: [
         'Программа, которую по традиции называют «Hello, world!», очень проста. Она выводит куда-либо фразу «Hello, world!», или другую подобную, средствами некоего языка.',

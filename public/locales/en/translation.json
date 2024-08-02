@@ -22,6 +22,8 @@
   "COMMENTS": "Comments",
   "ENTER_COMMENT": "Enter comment text",
   "CREATE_ARTICLE": "Create Article",
-  "SEARCH": "Search",
-  "DO_NOT_HAVE_ACCESS": "You do not have access to this page"
+  "DO_NOT_HAVE_ACCESS": "You do not have access to this page",
+  "LABELS": {
+    "SEARCH": "Search"
+  }
 }

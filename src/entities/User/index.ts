@@ -6,7 +6,10 @@ export { USER_MOCK } from './model/consts/user.mock';
 
 export { userActions, userReducer } from './model/slice/userSlice';
 
-export { getUserAuthData } from './model/selectors/getUserAuthData/getUserAuthData';
+export {
+  useGetUserAuthData,
+  getUserAuthData,
+} from './model/selectors/getUserAuthData/getUserAuthData';
 export { getUserInited } from './model/selectors/getUserInited/getUserInited';
 export {
   getUserRole,

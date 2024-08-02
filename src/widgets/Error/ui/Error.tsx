@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { Button, ButtonType } from '@/shared/ui/Button';
+import { Button, ButtonType } from '@/shared/ui/deprecated/Button';
 import styles from './Error.module.scss';
 
 export const Error = () => {

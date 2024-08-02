@@ -1,14 +1,14 @@
 import { useEffect } from 'react';
 
 interface UseCloseOnEscProps {
-  onClose?: () => void;
+  onClose: () => void;
 }
 
-export const useCloseOnEsc = ({ onClose }: UseCloseOnEscProps) => {
+export const useCloseOnEsc = ({ onClose }: UseCloseOnEscProps): void => {
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
-        onClose?.();
+        onClose();
       }
     };
 
